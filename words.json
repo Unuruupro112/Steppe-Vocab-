@@ -1,0 +1,27 @@
+{
+  "A1_A2": [
+    { "en": "achieve", "mn": "амжилтад хүрэх", "example_en": "She worked hard to achieve her goal.", "example_mn": "Тэр зорилгодоо хүрэхийн тулд шаргуу ажилласан." },
+    { "en": "advantage", "mn": "давуу тал", "example_en": "Speaking two languages is a big advantage.", "example_mn": "Хоёр хэл мэддэг байх нь том давуу тал юм." },
+    { "en": "adventure", "mn": "адал явдал", "example_en": "They went on an adventure in the mountains.", "example_mn": "Тэд ууланд адал явдалт аялал хийсэн." },
+    { "en": "amazing", "mn": "гайхмаар", "example_en": "The view from the top was amazing.", "example_mn": "Оройноос харагдах үзэмж гайхмаар байсан." },
+    { "en": "ancestor", "mn": "өвөг дээдэс", "example_en": "Our ancestors lived on the steppe.", "example_mn": "Манай өвөг дээдэс талд амьдарч байсан." }
+  ],
+  "B1_B2": [
+    { "en": "dominant", "mn": "давамгайлсан", "example_en": "English is the dominant language of business.", "example_mn": "Англи хэл бол бизнесийн давамгайлсан хэл юм." },
+    { "en": "drawback", "mn": "сул тал", "example_en": "Every plan has some drawbacks.", "example_mn": "Ямар ч төлөвлөгөө сул талтай байдаг." },
+    { "en": "endeavor", "mn": "оролдлого, чармайлт", "example_en": "It was a difficult endeavor for the whole team.", "example_mn": "Энэ нь бүх багийн хувьд хэцүү оролдлого байсан." }
+  ],
+  "EYESH": [
+    { "en": "carnivore", "mn": "махчин амьтан", "example_en": "A lion is a carnivore.", "example_mn": "Арслан бол махчин амьтан юм." },
+    { "en": "drainage basin", "mn": "голын ай сав", "example_en": "The river's drainage basin covers three provinces.", "example_mn": "Голын ай сав гурван аймгийг хамардаг." },
+    { "en": "extinct", "mn": "устаж үгүй болох", "example_en": "Dinosaurs became extinct millions of years ago.", "example_mn": "Үлэг гүрвэлүүд саяхны жилийн өмнө устаж үгүй болсон." }
+  ],
+  "C1_C2": [
+    { "en": "irreparable", "mn": "засашгүй", "example_en": "The damage to the ecosystem was irreparable.", "example_mn": "Экосистемд учирсан хохирол засашгүй байлаа." },
+    { "en": "meticulous", "mn": "маш нямбай", "example_en": "She is meticulous about every detail.", "example_mn": "Тэр бүх нарийн ширийнд маш нямбай ханддаг." }
+  ],
+  "IELTS": [
+    { "en": "unprecedented", "mn": "урьд өмнө байгаагүй", "example_en": "The city saw unprecedented growth last year.", "example_mn": "Хот өнгөрсөн жил урьд өмнө байгаагүй өсөлттэй байлаа." },
+    { "en": "controversial", "mn": "маргаантай", "example_en": "It was a controversial decision.", "example_mn": "Энэ бол маргаантай шийдвэр байсан." }
+  ]
+}
