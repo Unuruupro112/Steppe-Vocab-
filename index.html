@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
 <style>
   :root{
     --bg-top:#0c1022;
@@ -562,12 +562,48 @@
 </style>
 </head>
 <body>
-<div id="app"></div>
+<div id="app"><div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#9aa3bf;font-family:'IBM Plex Mono',monospace;font-size:13px;">
+  <div style="width:34px;height:34px;border-radius:50%;border:3px solid rgba(224,168,71,0.25);border-top-color:#e0a847;animation:steppe-spin 0.8s linear infinite;"></div>
+  <div>Ачаалж байна…</div>
+</div></div>
 <div id="toast"></div>
+<style>@keyframes steppe-spin{to{transform:rotate(360deg);}}</style>
 
 <script>
 (function(){
 "use strict";
+
+/* =========================================================
+   TIMEOUT HELPER
+   HTTPS орчинд (жишээ нь GitHub Pages) зарим сүлжээний хүсэлт
+   (ялангуяа Supabase auth/session) хариу өгөхгүй "гацах"
+   тохиолдол гарвал init() мөнхөд зогсож, апп харанхуй хэвээр
+   үлдэхээс сэргийлж, тодорхой хугацааны дараа автоматаар
+   цуцалж, fallback утга буцаана.
+   ========================================================= */
+function withTimeout(promise, ms, label){
+  return new Promise(function(resolve){
+    var done = false;
+    var timer = setTimeout(function(){
+      if(done) return;
+      done = true;
+      console.warn("[steppe] timeout: "+label+" ("+ms+"ms) — үргэлжлүүлж байна");
+      resolve(null);
+    }, ms);
+    Promise.resolve(promise).then(function(v){
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      resolve(v);
+    }, function(err){
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      console.error("[steppe] error in "+label, err);
+      resolve(null);
+    });
+  });
+}
 
 /* =========================================================
    DATA
@@ -639,7 +675,10 @@ function allPackIds(){
 
 async function loadWordsFromJson(){
   try{
-    var res = await fetch(WORDS_JSON_URL, {cache:"no-store"});
+    var ctrl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 8000) : null;
+    var res = await fetch(WORDS_JSON_URL, {cache:"no-store", signal: ctrl ? ctrl.signal : undefined});
+    if(timer) clearTimeout(timer);
     if(!res.ok) throw new Error("words.json fetch failed: "+res.status);
     var data = await res.json();
     var out = [];
@@ -795,12 +834,12 @@ function toggleThemeMenu(){
 async function initAuth(){
   if(!supa) return;
   try{
-    var res = await supa.auth.getSession();
+    var res = await withTimeout(supa.auth.getSession(), 6000, "auth.getSession");
     var session = res && res.data ? res.data.session : null;
     if(session && session.user){
       STATE.user = session.user;
-      await fetchProfilePlan();
-      await pullRemoteProgress();
+      await withTimeout(fetchProfilePlan(), 6000, "fetchProfilePlan");
+      await withTimeout(pullRemoteProgress(), 6000, "pullRemoteProgress");
     }
     supa.auth.onAuthStateChange(function(event, session){
       STATE.user = session ? session.user : null;
@@ -875,8 +914,8 @@ async function syncStreakToProfile(){
 async function loadPricing(){
   if(!supa){ STATE.pricingLoaded = true; return; }
   try{
-    var res = await supa.from("packages").select("tier, price_3m, price_1y, currency, description");
-    if(res.data && res.data.length){
+    var res = await withTimeout(supa.from("packages").select("tier, price_3m, price_1y, currency, description"), 6000, "loadPricing");
+    if(res && res.data && res.data.length){
       res.data.forEach(function(row){
         STATE.pricing[row.tier] = {
           price3m: row.price_3m,
@@ -2137,38 +2176,4 @@ function renderModal(){
     PLAN_ORDER.forEach(function(t){
       if(t === "free") return;
       var pm = PLAN_META[t];
-      tiersHtml += "<div class='paywall-tier'><div class='pt-head'><span class='pt-name'>"+esc(pm.label)+"</span><span class='pt-price'>"+esc(formatPrice(t))+"</span></div>" +
-        "<div class='pt-desc'>"+esc((STATE.pricing[t] && STATE.pricing[t].description) || pm.desc)+"</div>" +
-        "<div class='pt-desc' style='margin-top:4px; color:var(--text-dim);'>✍️ "+esc(pm.wordLimitLabel)+"</div></div>";
-    });
-    wrap.innerHTML = "<div class='sheet sheet-paywall'>" +
-      "<div class='sheet-title'>"+esc(headline)+(STATE.paywallReason ? "" : " 🔓")+"</div>" +
-      "<div class='paywall-note'>" +
-      "Илүү олон үгийн багц, ЭЕШ болон IELTS-ийн тусгай жагсаалт руу нэвтрэхийн тулд багцаа ахиулна уу." +
-      "</div>" +
-      "<div class='paywall-tiers'>" + tiersHtml + "</div>" +
-      "<div class='pay-info'>" +
-      "<div class='pi-row'><span>QPay</span><b>#steppevocab</b></div>" +
-      "<div class='pi-row'><span>Банк</span><b>Хаан банк</b></div>" +
-      "<div class='pi-row'><span>Дансны дугаар</span><b>5000123456</b></div>" +
-      "<div class='pi-row'><span>Хүлээн авагч</span><b>Steppe Vocab LLC</b></div>" +
-      "</div>" +
-      "<div class='paywall-disclaimer'>" +
-      "Гүйлгээ хийсний дараа таны бүртгэлийг манай баг гараар шалгаж, 24 цагийн дотор багцыг идэвхжүүлнэ." +
-      "</div>" +
-      "<div class='sheet-actions'>" +
-        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>Хаах</button>" +
-        (STATE.user ? "" : "<button class='btn-primary' data-action='openAuth' data-mode='signup' style='flex:1;'>Эхлээд бүртгүүлэх</button>") +
-      "</div></div>";
-    document.getElementById("app").appendChild(wrap);
-    return;
-  }
-}
-
-/* =========================================================
-   EVENT HANDLING
-   ========================================================= */
-function attachHandlers(){
-  document.querySelectorAll("[data-tab]").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.tab = el.getAttribute("data-
+      tiersHtml += "<div class='paywall-tier'><div class='pt-head'><span class='pt-name'>"+esc(pm.label)+"</span><s
