@@ -1978,8 +1978,10 @@ function renderPacksTab(){
     var displayLabel = PACK_DISPLAY_LABEL[pack] || meta.label;
     var locked = isPackLocked(pack);
     var stats = packWordStats(pack);
-var b1b2Stats = packWordStats("B1_B2");
-stats = { total: stats.total + b1b2Stats.total, learned: stats.learned + b1b2Stats.learned };
+if(pack !== "A1_A2"){
+  var b1b2Stats = packWordStats("B1_B2");
+  stats = { total: stats.total + b1b2Stats.total, learned: stats.learned + b1b2Stats.learned };
+}
     var action = locked ? "openPaywall" : "openPack";
     var recTier = packRecommendedTier(pack);
     var priceTag = meta.unlocks.indexOf("free")!==-1 ? "Үнэгүй" : formatPrice(recTier);
