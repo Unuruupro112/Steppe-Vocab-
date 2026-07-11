@@ -1977,10 +1977,16 @@ function renderPacksTab(){
     var meta = PACK_META[pack];
     var displayLabel = PACK_DISPLAY_LABEL[pack] || meta.label;
     var locked = isPackLocked(pack);
-    var stats = packWordStats(pack);
-if(pack !== "A1_A2"){
-  var b1b2Stats = packWordStats("B1_B2");
-  stats = { total: stats.total + b1b2Stats.total, learned: stats.learned + b1b2Stats.learned };
+    var stats;
+    if(pack === "PREMIUM"){
+      stats = { total: WORDS.length, learned: Object.keys(STATE.progress.learned).length };
+    } else {
+      stats = packWordStats(pack);
+      if(pack !== "A1_A2"){
+        var b1b2Stats = packWordStats("B1_B2");
+        stats = { total: stats.total + b1b2Stats.total, learned: stats.learned + b1b2Stats.learned };
+      }
+    }
 }
     var action = locked ? "openPaywall" : "openPack";
     var recTier = packRecommendedTier(pack);
