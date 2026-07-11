@@ -7027,5 +7027,2407 @@
       "example_mn": "Таргалалт хотын хүн амын дунд улам бүр түгээмэл болж байна."
     }
   ],
- "C1_C2": []
+  "C1_C2": [
+    {
+      "en": "abandon",
+      "mn": "орхих, гээх",
+      "example_en": "The team worked hard to abandon the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг орхих-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "abolish",
+      "mn": "хүчингүй болгох",
+      "example_en": "He tried to abolish the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хүчингүй болгох гэж оролдсон."
+    },
+    {
+      "en": "abrupt",
+      "mn": "гэнэтийн, огцом",
+      "example_en": "Her explanation was remarkably abrupt.",
+      "example_mn": "Түүний тайлбар маш гэнэтийн байсан."
+    },
+    {
+      "en": "absurd",
+      "mn": "утгагүй",
+      "example_en": "The report gave an absurd account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар утгагүй тайлбар өгсөн."
+    },
+    {
+      "en": "abundant",
+      "mn": "элбэг дэлбэг",
+      "example_en": "It seems abundant that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь элбэг дэлбэг санагдаж байна."
+    },
+    {
+      "en": "accelerate",
+      "mn": "хурдасгах",
+      "example_en": "He tried to accelerate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хурдасгах гэж оролдсон."
+    },
+    {
+      "en": "accommodate",
+      "mn": "тохируулах, байрлуулах",
+      "example_en": "The team worked hard to accommodate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг тохируулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "accountable",
+      "mn": "хариуцлагатай",
+      "example_en": "The report gave an accountable account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хариуцлагатай тайлбар өгсөн."
+    },
+    {
+      "en": "accumulate",
+      "mn": "хуримтлуулах",
+      "example_en": "He tried to accumulate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хуримтлуулах гэж оролдсон."
+    },
+    {
+      "en": "acknowledge",
+      "mn": "хүлээн зөвшөөрөх",
+      "example_en": "The team worked hard to acknowledge the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хүлээн зөвшөөрөх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "acquire",
+      "mn": "олж авах, эзэмших",
+      "example_en": "It took years for the company to acquire such growth.",
+      "example_mn": "Компанид ийм өсөлтийг олж авах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "adapt",
+      "mn": "дасан зохицох",
+      "example_en": "It took years for the company to adapt such growth.",
+      "example_mn": "Компанид ийм өсөлтийг дасан зохицох хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "adequate",
+      "mn": "хангалттай",
+      "example_en": "It seems adequate that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хангалттай санагдаж байна."
+    },
+    {
+      "en": "adhere",
+      "mn": "баримтлах",
+      "example_en": "The team worked hard to adhere the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг баримтлах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "adjacent",
+      "mn": "хөрш зэргэлдээ",
+      "example_en": "The report gave an adjacent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хөрш зэргэлдээ тайлбар өгсөн."
+    },
+    {
+      "en": "advocate",
+      "mn": "дэмжих",
+      "example_en": "It took years for the company to advocate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг дэмжих хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "aesthetic",
+      "mn": "гоо зүйн",
+      "example_en": "Her explanation was remarkably aesthetic.",
+      "example_mn": "Түүний тайлбар маш гоо зүйн байсан."
+    },
+    {
+      "en": "aggregate",
+      "mn": "нийлбэр",
+      "example_en": "Researchers focused their study on aggregate.",
+      "example_mn": "Судлаачид нийлбэр дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "albeit",
+      "mn": "гэхдээ ч",
+      "example_en": "Albeit, the plan continued as scheduled.",
+      "example_mn": "Гэхдээ ч, төлөвлөгөө хуваарийн дагуу үргэлжилсэн."
+    },
+    {
+      "en": "alleviate",
+      "mn": "хөнгөвчлөх",
+      "example_en": "The committee decided to alleviate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хөнгөвчлөх гэж шийдсэн."
+    },
+    {
+      "en": "allocate",
+      "mn": "хуваарилах",
+      "example_en": "He tried to allocate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хуваарилах гэж оролдсон."
+    },
+    {
+      "en": "ambiguous",
+      "mn": "хоёрдмол утгатай",
+      "example_en": "Her explanation was remarkably ambiguous.",
+      "example_mn": "Түүний тайлбар маш хоёрдмол утгатай байсан."
+    },
+    {
+      "en": "amend",
+      "mn": "засах, нэмэлт оруулах",
+      "example_en": "He tried to amend the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө засах гэж оролдсон."
+    },
+    {
+      "en": "amiable",
+      "mn": "найрсаг",
+      "example_en": "The report gave an amiable account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар найрсаг тайлбар өгсөн."
+    },
+    {
+      "en": "anomaly",
+      "mn": "хэвийн бус зүйл",
+      "example_en": "There is a clear connection to the idea of anomaly.",
+      "example_mn": "Энэ нь хэвийн бус зүйл гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "anticipate",
+      "mn": "урьдчилан таамаглах",
+      "example_en": "The team worked hard to anticipate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг урьдчилан таамаглах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "apparent",
+      "mn": "илэрхий",
+      "example_en": "The results were apparent across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд илэрхий байлаа."
+    },
+    {
+      "en": "appease",
+      "mn": "тайвшруулах",
+      "example_en": "The team worked hard to appease the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг тайвшруулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "arbitrary",
+      "mn": "дур зоргоороо",
+      "example_en": "Her explanation was remarkably arbitrary.",
+      "example_mn": "Түүний тайлбар маш дур зоргоороо байсан."
+    },
+    {
+      "en": "arduous",
+      "mn": "хүнд хэцүү",
+      "example_en": "The report gave an arduous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хүнд хэцүү тайлбар өгсөн."
+    },
+    {
+      "en": "articulate",
+      "mn": "тод илэрхийлэх",
+      "example_en": "He tried to articulate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө тод илэрхийлэх гэж оролдсон."
+    },
+    {
+      "en": "ascertain",
+      "mn": "тодорхойлох",
+      "example_en": "The committee decided to ascertain its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг тодорхойлох гэж шийдсэн."
+    },
+    {
+      "en": "assert",
+      "mn": "батлан хэлэх",
+      "example_en": "The team worked hard to assert the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг батлан хэлэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "assimilate",
+      "mn": "шингээх",
+      "example_en": "The team worked hard to assimilate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг шингээх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "attain",
+      "mn": "хүрэх, олж авах",
+      "example_en": "The team worked hard to attain the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хүрэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "attribute",
+      "mn": "хамааруулах",
+      "example_en": "It took years for the company to attribute such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хамааруулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "augment",
+      "mn": "нэмэгдүүлэх",
+      "example_en": "He tried to augment the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө нэмэгдүүлэх гэж оролдсон."
+    },
+    {
+      "en": "authentic",
+      "mn": "жинхэнэ",
+      "example_en": "The report gave an authentic account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар жинхэнэ тайлбар өгсөн."
+    },
+    {
+      "en": "autonomous",
+      "mn": "бие даасан",
+      "example_en": "Her explanation was remarkably autonomous.",
+      "example_mn": "Түүний тайлбар маш бие даасан байсан."
+    },
+    {
+      "en": "avert",
+      "mn": "зайлсхийх",
+      "example_en": "The committee decided to avert its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зайлсхийх гэж шийдсэн."
+    },
+    {
+      "en": "banal",
+      "mn": "өчүүхэн, жирийн",
+      "example_en": "Her explanation was remarkably banal.",
+      "example_mn": "Түүний тайлбар маш өчүүхэн байсан."
+    },
+    {
+      "en": "benevolent",
+      "mn": "сайхан сэтгэлтэй",
+      "example_en": "The report gave a benevolent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар сайхан сэтгэлтэй тайлбар өгсөн."
+    },
+    {
+      "en": "bewilder",
+      "mn": "гайхшруулах",
+      "example_en": "It took years for the company to bewilder such growth.",
+      "example_mn": "Компанид ийм өсөлтийг гайхшруулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "bias",
+      "mn": "өрөөсгөл байдал",
+      "example_en": "There is a clear connection to the idea of bias.",
+      "example_mn": "Энэ нь өрөөсгөл байдал гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "blatant",
+      "mn": "ил тод",
+      "example_en": "It seems blatant that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь ил тод санагдаж байна."
+    },
+    {
+      "en": "bolster",
+      "mn": "бэхжүүлэх",
+      "example_en": "He tried to bolster the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө бэхжүүлэх гэж оролдсон."
+    },
+    {
+      "en": "boycott",
+      "mn": "бойкотлох",
+      "example_en": "The committee decided to boycott its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг бойкотлох гэж шийдсэн."
+    },
+    {
+      "en": "brevity",
+      "mn": "товч байдал",
+      "example_en": "Researchers focused their study on brevity.",
+      "example_mn": "Судлаачид товч байдал дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "candid",
+      "mn": "шударга, нээлттэй",
+      "example_en": "It seems candid that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь шударга санагдаж байна."
+    },
+    {
+      "en": "capacity",
+      "mn": "багтаамж, чадвар",
+      "example_en": "Researchers focused their study on capacity.",
+      "example_mn": "Судлаачид багтаамж дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "captivate",
+      "mn": "татах, сэтгэл татах",
+      "example_en": "The committee decided to captivate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг татах гэж шийдсэн."
+    },
+    {
+      "en": "catalyst",
+      "mn": "өдөөгч хүчин зүйл",
+      "example_en": "This is a good example related to catalyst.",
+      "example_mn": "Энэ нь өдөөгч хүчин зүйл-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "coerce",
+      "mn": "албадах",
+      "example_en": "He tried to coerce the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө албадах гэж оролдсон."
+    },
+    {
+      "en": "coherent",
+      "mn": "логик уялдаатай",
+      "example_en": "It seems coherent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь логик уялдаатай санагдаж байна."
+    },
+    {
+      "en": "coincide",
+      "mn": "давхацах",
+      "example_en": "He tried to coincide the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө давхацах гэж оролдсон."
+    },
+    {
+      "en": "collaborate",
+      "mn": "хамтран ажиллах",
+      "example_en": "The team worked hard to collaborate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хамтран ажиллах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "commence",
+      "mn": "эхлэх",
+      "example_en": "The committee decided to commence its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг эхлэх гэж шийдсэн."
+    },
+    {
+      "en": "compassion",
+      "mn": "өрөвдөх сэтгэл",
+      "example_en": "The report highlighted the importance of compassion.",
+      "example_mn": "Тайланд өрөвдөх сэтгэл чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "compatible",
+      "mn": "нийцтэй",
+      "example_en": "It seems compatible that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь нийцтэй санагдаж байна."
+    },
+    {
+      "en": "compelling",
+      "mn": "итгүүлэхүйц",
+      "example_en": "The report gave a compelling account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар итгүүлэхүйц тайлбар өгсөн."
+    },
+    {
+      "en": "compile",
+      "mn": "эмхэтгэх",
+      "example_en": "The team worked hard to compile the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг эмхэтгэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "complement",
+      "mn": "нөхөх, бүрдүүлэх",
+      "example_en": "He tried to complement the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө нөхөх гэж оролдсон."
+    },
+    {
+      "en": "comply",
+      "mn": "дагаж мөрдөх",
+      "example_en": "The committee decided to comply its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг дагаж мөрдөх гэж шийдсэн."
+    },
+    {
+      "en": "component",
+      "mn": "бүрэлдэхүүн хэсэг",
+      "example_en": "The report highlighted the importance of component.",
+      "example_mn": "Тайланд бүрэлдэхүүн хэсэг чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "comprehensive",
+      "mn": "иж бүрэн",
+      "example_en": "The report gave a comprehensive account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар иж бүрэн тайлбар өгсөн."
+    },
+    {
+      "en": "compromise",
+      "mn": "буулт хийх",
+      "example_en": "It took years for the company to compromise such growth.",
+      "example_mn": "Компанид ийм өсөлтийг буулт хийх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "conceal",
+      "mn": "нуух",
+      "example_en": "The team worked hard to conceal the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг нуух-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "concede",
+      "mn": "зөвшөөрөх",
+      "example_en": "He tried to concede the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө зөвшөөрөх гэж оролдсон."
+    },
+    {
+      "en": "conceive",
+      "mn": "төсөөлөх",
+      "example_en": "The committee decided to conceive its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг төсөөлөх гэж шийдсэн."
+    },
+    {
+      "en": "concise",
+      "mn": "товч тодорхой",
+      "example_en": "The report gave a concise account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар товч тодорхой тайлбар өгсөн."
+    },
+    {
+      "en": "conducive",
+      "mn": "таатай нөхцөл бүрдүүлэгч",
+      "example_en": "It seems conducive that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь таатай нөхцөл бүрдүүлэгч санагдаж байна."
+    },
+    {
+      "en": "confer",
+      "mn": "зөвлөлдөх",
+      "example_en": "It took years for the company to confer such growth.",
+      "example_mn": "Компанид ийм өсөлтийг зөвлөлдөх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "configuration",
+      "mn": "тохиргоо",
+      "example_en": "Researchers focused their study on configuration.",
+      "example_mn": "Судлаачид тохиргоо дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "confine",
+      "mn": "хязгаарлах",
+      "example_en": "It took years for the company to confine such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хязгаарлах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "conform",
+      "mn": "нийцүүлэх",
+      "example_en": "It took years for the company to conform such growth.",
+      "example_mn": "Компанид ийм өсөлтийг нийцүүлэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "congruent",
+      "mn": "тохирсон, нийцсэн",
+      "example_en": "It seems congruent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь тохирсон санагдаж байна."
+    },
+    {
+      "en": "connotation",
+      "mn": "далд утга",
+      "example_en": "Researchers focused their study on connotation.",
+      "example_mn": "Судлаачид далд утга дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "consecutive",
+      "mn": "дараалсан",
+      "example_en": "Her explanation was remarkably consecutive.",
+      "example_mn": "Түүний тайлбар маш дараалсан байсан."
+    },
+    {
+      "en": "consensus",
+      "mn": "нийтийн зөвшилцөл",
+      "example_en": "This is a good example related to consensus.",
+      "example_mn": "Энэ нь нийтийн зөвшилцөл-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "conspicuous",
+      "mn": "анзаарагдахуйц",
+      "example_en": "The results were conspicuous across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд анзаарагдахуйц байлаа."
+    },
+    {
+      "en": "constitute",
+      "mn": "бүрдүүлэх",
+      "example_en": "The committee decided to constitute its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг бүрдүүлэх гэж шийдсэн."
+    },
+    {
+      "en": "constrain",
+      "mn": "хязгаарлах",
+      "example_en": "The committee decided to constrain its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хязгаарлах гэж шийдсэн."
+    },
+    {
+      "en": "contemplate",
+      "mn": "гүн бодох",
+      "example_en": "He tried to contemplate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө гүн бодох гэж оролдсон."
+    },
+    {
+      "en": "contemporary",
+      "mn": "орчин үеийн",
+      "example_en": "The results were contemporary across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд орчин үеийн байлаа."
+    },
+    {
+      "en": "contend",
+      "mn": "тэмцэх, маргах",
+      "example_en": "He tried to contend the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө тэмцэх гэж оролдсон."
+    },
+    {
+      "en": "contingent",
+      "mn": "нөхцөлт",
+      "example_en": "It seems contingent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь нөхцөлт санагдаж байна."
+    },
+    {
+      "en": "contradict",
+      "mn": "зөрчилдөх",
+      "example_en": "The committee decided to contradict its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зөрчилдөх гэж шийдсэн."
+    },
+    {
+      "en": "contrive",
+      "mn": "зохион бүтээх",
+      "example_en": "The committee decided to contrive its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зохион бүтээх гэж шийдсэн."
+    },
+    {
+      "en": "controversial",
+      "mn": "маргаантай",
+      "example_en": "It seems controversial that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь маргаантай санагдаж байна."
+    },
+    {
+      "en": "convene",
+      "mn": "хуралдуулах",
+      "example_en": "The team worked hard to convene the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хуралдуулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "converge",
+      "mn": "нийлэх, төвлөрөх",
+      "example_en": "The committee decided to converge its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг нийлэх гэж шийдсэн."
+    },
+    {
+      "en": "convey",
+      "mn": "дамжуулах",
+      "example_en": "He tried to convey the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө дамжуулах гэж оролдсон."
+    },
+    {
+      "en": "convoluted",
+      "mn": "будлиантай, ээдрээтэй",
+      "example_en": "Her explanation was remarkably convoluted.",
+      "example_mn": "Түүний тайлбар маш будлиантай байсан."
+    },
+    {
+      "en": "correlate",
+      "mn": "хамааралтай байх",
+      "example_en": "The committee decided to correlate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хамааралтай байх гэж шийдсэн."
+    },
+    {
+      "en": "corroborate",
+      "mn": "баталгаажуулах",
+      "example_en": "The committee decided to corroborate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг баталгаажуулах гэж шийдсэн."
+    },
+    {
+      "en": "counterpart",
+      "mn": "эсрэг тал",
+      "example_en": "The report highlighted the importance of counterpart.",
+      "example_mn": "Тайланд эсрэг тал чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "credible",
+      "mn": "итгэл үнэмшилтэй",
+      "example_en": "The results were credible across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд итгэл үнэмшилтэй байлаа."
+    },
+    {
+      "en": "criteria",
+      "mn": "шалгуур",
+      "example_en": "There is a clear connection to the idea of criteria.",
+      "example_mn": "Энэ нь шалгуур гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "crucial",
+      "mn": "маш чухал",
+      "example_en": "Her explanation was remarkably crucial.",
+      "example_mn": "Түүний тайлбар маш маш чухал байсан."
+    },
+    {
+      "en": "culminate",
+      "mn": "оргилдоо хүрэх",
+      "example_en": "The team worked hard to culminate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг оргилдоо хүрэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "cumulative",
+      "mn": "хуримтлагдсан",
+      "example_en": "Her explanation was remarkably cumulative.",
+      "example_mn": "Түүний тайлбар маш хуримтлагдсан байсан."
+    },
+    {
+      "en": "curtail",
+      "mn": "хязгаарлах, багасгах",
+      "example_en": "He tried to curtail the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хязгаарлах гэж оролдсон."
+    },
+    {
+      "en": "deceptive",
+      "mn": "хууртах",
+      "example_en": "Her explanation was remarkably deceptive.",
+      "example_mn": "Түүний тайлбар маш хууртах байсан."
+    },
+    {
+      "en": "decisive",
+      "mn": "шийдвэрлэх",
+      "example_en": "The report gave a decisive account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар шийдвэрлэх тайлбар өгсөн."
+    },
+    {
+      "en": "deduce",
+      "mn": "дүгнэлт гаргах",
+      "example_en": "The committee decided to deduce its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг дүгнэлт гаргах гэж шийдсэн."
+    },
+    {
+      "en": "deficient",
+      "mn": "дутагдалтай",
+      "example_en": "The results were deficient across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд дутагдалтай байлаа."
+    },
+    {
+      "en": "delineate",
+      "mn": "тодорхойлон зурах",
+      "example_en": "The committee decided to delineate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг тодорхойлон зурах гэж шийдсэн."
+    },
+    {
+      "en": "demeanor",
+      "mn": "зан авир",
+      "example_en": "There is a clear connection to the idea of demeanor.",
+      "example_mn": "Энэ нь зан авир гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "denote",
+      "mn": "илэрхийлэх",
+      "example_en": "The committee decided to denote its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг илэрхийлэх гэж шийдсэн."
+    },
+    {
+      "en": "deplete",
+      "mn": "шавхах, багасгах",
+      "example_en": "The team worked hard to deplete the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг шавхах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "deprive",
+      "mn": "хасах, салгах",
+      "example_en": "The committee decided to deprive its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хасах гэж шийдсэн."
+    },
+    {
+      "en": "derive",
+      "mn": "гаргаж авах",
+      "example_en": "The committee decided to derive its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг гаргаж авах гэж шийдсэн."
+    },
+    {
+      "en": "detrimental",
+      "mn": "хортой, сөрөг",
+      "example_en": "The results were detrimental across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд хортой байлаа."
+    },
+    {
+      "en": "deviate",
+      "mn": "хазайх",
+      "example_en": "He tried to deviate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хазайх гэж оролдсон."
+    },
+    {
+      "en": "devise",
+      "mn": "зохион бүтээх",
+      "example_en": "The committee decided to devise its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зохион бүтээх гэж шийдсэн."
+    },
+    {
+      "en": "diligent",
+      "mn": "хичээнгүй",
+      "example_en": "The report gave a diligent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хичээнгүй тайлбар өгсөн."
+    },
+    {
+      "en": "diminish",
+      "mn": "багасах",
+      "example_en": "The team worked hard to diminish the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг багасах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "discern",
+      "mn": "ялгах, таних",
+      "example_en": "The committee decided to discern its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг ялгах гэж шийдсэн."
+    },
+    {
+      "en": "discrepancy",
+      "mn": "зөрүү",
+      "example_en": "The report highlighted the importance of discrepancy.",
+      "example_mn": "Тайланд зөрүү чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "discretion",
+      "mn": "болгоомжтой байдал",
+      "example_en": "The report highlighted the importance of discretion.",
+      "example_mn": "Тайланд болгоомжтой байдал чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "disparity",
+      "mn": "тэгш бус байдал",
+      "example_en": "This is a good example related to disparity.",
+      "example_mn": "Энэ нь тэгш бус байдал-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "disperse",
+      "mn": "тараах",
+      "example_en": "He tried to disperse the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө тараах гэж оролдсон."
+    },
+    {
+      "en": "disrupt",
+      "mn": "тасалдуулах",
+      "example_en": "It took years for the company to disrupt such growth.",
+      "example_mn": "Компанид ийм өсөлтийг тасалдуулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "dissent",
+      "mn": "зөрөх санал",
+      "example_en": "This is a good example related to dissent.",
+      "example_mn": "Энэ нь зөрөх санал-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "distinct",
+      "mn": "ялгаатай, тодорхой",
+      "example_en": "The report gave a distinct account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар ялгаатай тайлбар өгсөн."
+    },
+    {
+      "en": "distort",
+      "mn": "гуйвуулах",
+      "example_en": "The team worked hard to distort the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг гуйвуулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "diverse",
+      "mn": "олон янз",
+      "example_en": "Her explanation was remarkably diverse.",
+      "example_mn": "Түүний тайлбар маш олон янз байсан."
+    },
+    {
+      "en": "divert",
+      "mn": "чиглэлийг өөрчлөх",
+      "example_en": "The committee decided to divert its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг чиглэлийг өөрчлөх гэж шийдсэн."
+    },
+    {
+      "en": "document",
+      "mn": "баримтжуулах",
+      "example_en": "He tried to document the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө баримтжуулах гэж оролдсон."
+    },
+    {
+      "en": "dominant",
+      "mn": "давамгайлагч",
+      "example_en": "The results were dominant across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд давамгайлагч байлаа."
+    },
+    {
+      "en": "dubious",
+      "mn": "эргэлзээтэй",
+      "example_en": "The results were dubious across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд эргэлзээтэй байлаа."
+    },
+    {
+      "en": "duration",
+      "mn": "үргэлжлэх хугацаа",
+      "example_en": "There is a clear connection to the idea of duration.",
+      "example_mn": "Энэ нь үргэлжлэх хугацаа гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "elaborate",
+      "mn": "нарийвчлан тайлбарлах",
+      "example_en": "He tried to elaborate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө нарийвчлан тайлбарлах гэж оролдсон."
+    },
+    {
+      "en": "eligible",
+      "mn": "эрх бүхий",
+      "example_en": "It seems eligible that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь эрх бүхий санагдаж байна."
+    },
+    {
+      "en": "eliminate",
+      "mn": "устгах",
+      "example_en": "It took years for the company to eliminate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг устгах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "elicit",
+      "mn": "хөдөлгөх, гаргуулах",
+      "example_en": "The committee decided to elicit its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хөдөлгөх гэж шийдсэн."
+    },
+    {
+      "en": "embark",
+      "mn": "хөл тавих, эхлэх",
+      "example_en": "He tried to embark the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хөл тавих гэж оролдсон."
+    },
+    {
+      "en": "eminent",
+      "mn": "алдартай, нэр хүндтэй",
+      "example_en": "The report gave an eminent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар алдартай тайлбар өгсөн."
+    },
+    {
+      "en": "empirical",
+      "mn": "туршилтад суурилсан",
+      "example_en": "Her explanation was remarkably empirical.",
+      "example_mn": "Түүний тайлбар маш туршилтад суурилсан байсан."
+    },
+    {
+      "en": "emulate",
+      "mn": "дуурайх",
+      "example_en": "The team worked hard to emulate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг дуурайх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "encompass",
+      "mn": "хамрах, багтаах",
+      "example_en": "It took years for the company to encompass such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хамрах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "endorse",
+      "mn": "дэмжих",
+      "example_en": "He tried to endorse the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө дэмжих гэж оролдсон."
+    },
+    {
+      "en": "enhance",
+      "mn": "сайжруулах",
+      "example_en": "The team worked hard to enhance the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг сайжруулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "enigma",
+      "mn": "оньсого",
+      "example_en": "This is a good example related to enigma.",
+      "example_mn": "Энэ нь оньсого-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "entail",
+      "mn": "шаардах, дагуулах",
+      "example_en": "The team worked hard to entail the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг шаардах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "epitome",
+      "mn": "үлгэр жишээ",
+      "example_en": "This is a good example related to epitome.",
+      "example_mn": "Энэ нь үлгэр жишээ-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "equate",
+      "mn": "тэнцүүлэх",
+      "example_en": "It took years for the company to equate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг тэнцүүлэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "equivalent",
+      "mn": "тэнцүү",
+      "example_en": "The report gave an equivalent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар тэнцүү тайлбар өгсөн."
+    },
+    {
+      "en": "eradicate",
+      "mn": "устгах, арилгах",
+      "example_en": "The team worked hard to eradicate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг устгах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "erode",
+      "mn": "элэгдэх",
+      "example_en": "It took years for the company to erode such growth.",
+      "example_mn": "Компанид ийм өсөлтийг элэгдэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "escalate",
+      "mn": "хурцдах",
+      "example_en": "He tried to escalate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хурцдах гэж оролдсон."
+    },
+    {
+      "en": "essential",
+      "mn": "зайлшгүй",
+      "example_en": "Her explanation was remarkably essential.",
+      "example_mn": "Түүний тайлбар маш зайлшгүй байсан."
+    },
+    {
+      "en": "evident",
+      "mn": "тодорхой",
+      "example_en": "It seems evident that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь тодорхой санагдаж байна."
+    },
+    {
+      "en": "evoke",
+      "mn": "сэргээх, өдөөх",
+      "example_en": "The team worked hard to evoke the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг сэргээх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "exacerbate",
+      "mn": "улам дордуулах",
+      "example_en": "The team worked hard to exacerbate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг улам дордуулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "exceed",
+      "mn": "давах",
+      "example_en": "It took years for the company to exceed such growth.",
+      "example_mn": "Компанид ийм өсөлтийг давах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "exclusive",
+      "mn": "онцгой, зөвхөн",
+      "example_en": "The report gave an exclusive account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар онцгой тайлбар өгсөн."
+    },
+    {
+      "en": "exempt",
+      "mn": "чөлөөлөгдсөн",
+      "example_en": "It seems exempt that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь чөлөөлөгдсөн санагдаж байна."
+    },
+    {
+      "en": "exert",
+      "mn": "хүчин чармайлт гаргах",
+      "example_en": "The committee decided to exert its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хүчин чармайлт гаргах гэж шийдсэн."
+    },
+    {
+      "en": "exhaustive",
+      "mn": "иж бүрэн, гүнзгий",
+      "example_en": "The results were exhaustive across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд иж бүрэн байлаа."
+    },
+    {
+      "en": "explicit",
+      "mn": "тодорхой, илэрхий",
+      "example_en": "It seems explicit that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь тодорхой санагдаж байна."
+    },
+    {
+      "en": "exploit",
+      "mn": "ашиглах",
+      "example_en": "The team worked hard to exploit the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг ашиглах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "extensive",
+      "mn": "өргөн хүрээтэй",
+      "example_en": "It seems extensive that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь өргөн хүрээтэй санагдаж байна."
+    },
+    {
+      "en": "facilitate",
+      "mn": "хөнгөвчлөх",
+      "example_en": "It took years for the company to facilitate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хөнгөвчлөх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "feasible",
+      "mn": "хэрэгжих боломжтой",
+      "example_en": "The report gave a feasible account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хэрэгжих боломжтой тайлбар өгсөн."
+    },
+    {
+      "en": "finite",
+      "mn": "хязгаарлагдмал",
+      "example_en": "It seems finite that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хязгаарлагдмал санагдаж байна."
+    },
+    {
+      "en": "fluctuate",
+      "mn": "хэлбэлзэх",
+      "example_en": "The team worked hard to fluctuate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хэлбэлзэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "formidable",
+      "mn": "хүчирхэг, аймшигтай",
+      "example_en": "The report gave a formidable account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хүчирхэг тайлбар өгсөн."
+    },
+    {
+      "en": "fraction",
+      "mn": "хэсэг, бутархай",
+      "example_en": "There is a clear connection to the idea of fraction.",
+      "example_mn": "Энэ нь хэсэг гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "fundamental",
+      "mn": "үндсэн",
+      "example_en": "It seems fundamental that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь үндсэн санагдаж байна."
+    },
+    {
+      "en": "futile",
+      "mn": "хэрэггүй, дэмий",
+      "example_en": "The results were futile across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд хэрэггүй байлаа."
+    },
+    {
+      "en": "generate",
+      "mn": "үүсгэх",
+      "example_en": "The team worked hard to generate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг үүсгэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "genuine",
+      "mn": "жинхэнэ",
+      "example_en": "It seems genuine that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь жинхэнэ санагдаж байна."
+    },
+    {
+      "en": "hamper",
+      "mn": "саад болох",
+      "example_en": "The committee decided to hamper its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг саад болох гэж шийдсэн."
+    },
+    {
+      "en": "hazardous",
+      "mn": "аюултай",
+      "example_en": "The report gave a hazardous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар аюултай тайлбар өгсөн."
+    },
+    {
+      "en": "hierarchy",
+      "mn": "шатлал",
+      "example_en": "There is a clear connection to the idea of hierarchy.",
+      "example_mn": "Энэ нь шатлал гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "hypothesis",
+      "mn": "таамаглал",
+      "example_en": "This is a good example related to hypothesis.",
+      "example_mn": "Энэ нь таамаглал-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "identical",
+      "mn": "яг адилхан",
+      "example_en": "The results were identical across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд яг адилхан байлаа."
+    },
+    {
+      "en": "illustrate",
+      "mn": "жишээгээр харуулах",
+      "example_en": "It took years for the company to illustrate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг жишээгээр харуулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "immense",
+      "mn": "асар их",
+      "example_en": "The results were immense across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд асар их байлаа."
+    },
+    {
+      "en": "impartial",
+      "mn": "шударга, аль нэг талыг бариагүй",
+      "example_en": "The report gave an impartial account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар шударга тайлбар өгсөн."
+    },
+    {
+      "en": "impede",
+      "mn": "саад учруулах",
+      "example_en": "The committee decided to impede its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг саад учруулах гэж шийдсэн."
+    },
+    {
+      "en": "imperative",
+      "mn": "зайлшгүй шаардлагатай",
+      "example_en": "Her explanation was remarkably imperative.",
+      "example_mn": "Түүний тайлбар маш зайлшгүй шаардлагатай байсан."
+    },
+    {
+      "en": "implement",
+      "mn": "хэрэгжүүлэх",
+      "example_en": "It took years for the company to implement such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хэрэгжүүлэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "implicit",
+      "mn": "далд, шууд бус",
+      "example_en": "It seems implicit that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь далд санагдаж байна."
+    },
+    {
+      "en": "imply",
+      "mn": "илэрхийлэх",
+      "example_en": "It took years for the company to imply such growth.",
+      "example_mn": "Компанид ийм өсөлтийг илэрхийлэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "inadvertent",
+      "mn": "санамсаргүй",
+      "example_en": "It seems inadvertent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь санамсаргүй санагдаж байна."
+    },
+    {
+      "en": "inclination",
+      "mn": "хандлага",
+      "example_en": "There is a clear connection to the idea of inclination.",
+      "example_mn": "Энэ нь хандлага гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "incorporate",
+      "mn": "нэгтгэх",
+      "example_en": "The committee decided to incorporate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг нэгтгэх гэж шийдсэн."
+    },
+    {
+      "en": "incur",
+      "mn": "учруулах",
+      "example_en": "It took years for the company to incur such growth.",
+      "example_mn": "Компанид ийм өсөлтийг учруулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "indispensable",
+      "mn": "зайлшгүй хэрэгтэй",
+      "example_en": "The results were indispensable across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд зайлшгүй хэрэгтэй байлаа."
+    },
+    {
+      "en": "inevitable",
+      "mn": "зайлшгүй тохиох",
+      "example_en": "Her explanation was remarkably inevitable.",
+      "example_mn": "Түүний тайлбар маш зайлшгүй тохиох байсан."
+    },
+    {
+      "en": "infer",
+      "mn": "дүгнэх",
+      "example_en": "He tried to infer the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө дүгнэх гэж оролдсон."
+    },
+    {
+      "en": "inherent",
+      "mn": "угаас байдаг",
+      "example_en": "Her explanation was remarkably inherent.",
+      "example_mn": "Түүний тайлбар маш угаас байдаг байсан."
+    },
+    {
+      "en": "inhibit",
+      "mn": "хориглох, саад болгох",
+      "example_en": "The committee decided to inhibit its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хориглох гэж шийдсэн."
+    },
+    {
+      "en": "initiate",
+      "mn": "эхлүүлэх",
+      "example_en": "The committee decided to initiate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг эхлүүлэх гэж шийдсэн."
+    },
+    {
+      "en": "innate",
+      "mn": "төрөлхийн",
+      "example_en": "The results were innate across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд төрөлхийн байлаа."
+    },
+    {
+      "en": "innovative",
+      "mn": "шинэлэг",
+      "example_en": "The results were innovative across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд шинэлэг байлаа."
+    },
+    {
+      "en": "inquiry",
+      "mn": "лавлагаа, судалгаа",
+      "example_en": "Researchers focused their study on inquiry.",
+      "example_mn": "Судлаачид лавлагаа дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "insight",
+      "mn": "гүн ойлголт",
+      "example_en": "There is a clear connection to the idea of insight.",
+      "example_mn": "Энэ нь гүн ойлголт гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "instigate",
+      "mn": "өдөөх, эхлүүлэх",
+      "example_en": "The team worked hard to instigate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг өдөөх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "integral",
+      "mn": "салшгүй",
+      "example_en": "Her explanation was remarkably integral.",
+      "example_mn": "Түүний тайлбар маш салшгүй байсан."
+    },
+    {
+      "en": "integrity",
+      "mn": "шударга зан чанар",
+      "example_en": "The report highlighted the importance of integrity.",
+      "example_mn": "Тайланд шударга зан чанар чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "intricate",
+      "mn": "нарийн, ээдрээтэй",
+      "example_en": "It seems intricate that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь нарийн санагдаж байна."
+    },
+    {
+      "en": "intrinsic",
+      "mn": "угаас байдаг, дотоод",
+      "example_en": "The report gave an intrinsic account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар угаас байдаг тайлбар өгсөн."
+    },
+    {
+      "en": "intuitive",
+      "mn": "зөн совинтой",
+      "example_en": "It seems intuitive that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь зөн совинтой санагдаж байна."
+    },
+    {
+      "en": "invariably",
+      "mn": "тогтмол, үргэлж",
+      "example_en": "The outcome remained the same, invariably of the effort.",
+      "example_mn": "Хичээл зүтгэлээс тогтмол, үр дүн ижил хэвээр байлаа."
+    },
+    {
+      "en": "inversely",
+      "mn": "урвуугаар",
+      "example_en": "The outcome remained the same, inversely of the effort.",
+      "example_mn": "Хичээл зүтгэлээс урвуугаар, үр дүн ижил хэвээр байлаа."
+    },
+    {
+      "en": "investigate",
+      "mn": "шинжлэн судлах",
+      "example_en": "It took years for the company to investigate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг шинжлэн судлах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "jeopardize",
+      "mn": "эрсдэлд оруулах",
+      "example_en": "The committee decided to jeopardize its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг эрсдэлд оруулах гэж шийдсэн."
+    },
+    {
+      "en": "justify",
+      "mn": "үндэслэх, зөвтгөх",
+      "example_en": "The committee decided to justify its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг үндэслэх гэж шийдсэн."
+    },
+    {
+      "en": "juxtapose",
+      "mn": "зэрэгцүүлэн харьцуулах",
+      "example_en": "It took years for the company to juxtapose such growth.",
+      "example_mn": "Компанид ийм өсөлтийг зэрэгцүүлэн харьцуулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "lament",
+      "mn": "гашуудах, харамсах",
+      "example_en": "He tried to lament the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө гашуудах гэж оролдсон."
+    },
+    {
+      "en": "latent",
+      "mn": "далд, нуугдмал",
+      "example_en": "It seems latent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь далд санагдаж байна."
+    },
+    {
+      "en": "legitimate",
+      "mn": "хууль ёсны",
+      "example_en": "The report gave a legitimate account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хууль ёсны тайлбар өгсөн."
+    },
+    {
+      "en": "leverage",
+      "mn": "ашиглах, нөлөө үзүүлэх",
+      "example_en": "The committee decided to leverage its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг ашиглах гэж шийдсэн."
+    },
+    {
+      "en": "lucid",
+      "mn": "тодорхой, ойлгомжтой",
+      "example_en": "It seems lucid that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь тодорхой санагдаж байна."
+    },
+    {
+      "en": "magnitude",
+      "mn": "хэмжээ",
+      "example_en": "This is a good example related to magnitude.",
+      "example_mn": "Энэ нь хэмжээ-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "mandate",
+      "mn": "эрх мэдэл олгох",
+      "example_en": "The team worked hard to mandate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг эрх мэдэл олгох-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "manifest",
+      "mn": "илэрхийлэх, тодорхой болгох",
+      "example_en": "The team worked hard to manifest the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг илэрхийлэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "marginal",
+      "mn": "бага ач холбогдолтой",
+      "example_en": "Her explanation was remarkably marginal.",
+      "example_mn": "Түүний тайлбар маш бага ач холбогдолтой байсан."
+    },
+    {
+      "en": "meager",
+      "mn": "хомс, бага",
+      "example_en": "It seems meager that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хомс санагдаж байна."
+    },
+    {
+      "en": "mediate",
+      "mn": "зуучлах",
+      "example_en": "He tried to mediate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө зуучлах гэж оролдсон."
+    },
+    {
+      "en": "mere",
+      "mn": "зөвхөн, ердөө",
+      "example_en": "It seems mere that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь зөвхөн санагдаж байна."
+    },
+    {
+      "en": "meticulous",
+      "mn": "маш нямбай",
+      "example_en": "The report gave a meticulous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар маш нямбай тайлбар өгсөн."
+    },
+    {
+      "en": "minimal",
+      "mn": "хамгийн бага",
+      "example_en": "The report gave a minimal account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хамгийн бага тайлбар өгсөн."
+    },
+    {
+      "en": "mitigate",
+      "mn": "зөөлрүүлэх",
+      "example_en": "The committee decided to mitigate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зөөлрүүлэх гэж шийдсэн."
+    },
+    {
+      "en": "momentum",
+      "mn": "хөдөлгөгч хүч",
+      "example_en": "This is a good example related to momentum.",
+      "example_mn": "Энэ нь хөдөлгөгч хүч-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "mundane",
+      "mn": "энгийн, уйтгартай",
+      "example_en": "The report gave a mundane account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар энгийн тайлбар өгсөн."
+    },
+    {
+      "en": "negligible",
+      "mn": "үл тоомсорлож болохуйц",
+      "example_en": "It seems negligible that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь үл тоомсорлож болохуйц санагдаж байна."
+    },
+    {
+      "en": "notion",
+      "mn": "ойлголт, санаа",
+      "example_en": "This is a good example related to notion.",
+      "example_mn": "Энэ нь ойлголт-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "notwithstanding",
+      "mn": "гэсэн хэдий ч",
+      "example_en": "The outcome remained the same, notwithstanding of the effort.",
+      "example_mn": "Хичээл зүтгэлээс гэсэн хэдий ч, үр дүн ижил хэвээр байлаа."
+    },
+    {
+      "en": "nuance",
+      "mn": "нарийн ялгаа",
+      "example_en": "This is a good example related to nuance.",
+      "example_mn": "Энэ нь нарийн ялгаа-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "obscure",
+      "mn": "бүрхэг, ойлгомжгүй",
+      "example_en": "Her explanation was remarkably obscure.",
+      "example_mn": "Түүний тайлбар маш бүрхэг байсан."
+    },
+    {
+      "en": "obsolete",
+      "mn": "хуучирсан",
+      "example_en": "Her explanation was remarkably obsolete.",
+      "example_mn": "Түүний тайлбар маш хуучирсан байсан."
+    },
+    {
+      "en": "obstacle",
+      "mn": "саад бэрхшээл",
+      "example_en": "This is a good example related to obstacle.",
+      "example_mn": "Энэ нь саад бэрхшээл-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "omit",
+      "mn": "орхигдуулах",
+      "example_en": "The team worked hard to omit the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг орхигдуулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "optimal",
+      "mn": "хамгийн тохиромжтой",
+      "example_en": "It seems optimal that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хамгийн тохиромжтой санагдаж байна."
+    },
+    {
+      "en": "paradox",
+      "mn": "зөрчилтэй үзэгдэл",
+      "example_en": "The report highlighted the importance of paradox.",
+      "example_mn": "Тайланд зөрчилтэй үзэгдэл чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "parameter",
+      "mn": "хязгаарлагч хүчин зүйл",
+      "example_en": "The report highlighted the importance of parameter.",
+      "example_mn": "Тайланд хязгаарлагч хүчин зүйл чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "peculiar",
+      "mn": "өвөрмөц, хачин",
+      "example_en": "Her explanation was remarkably peculiar.",
+      "example_mn": "Түүний тайлбар маш өвөрмөц байсан."
+    },
+    {
+      "en": "perceive",
+      "mn": "мэдрэх, ойлгох",
+      "example_en": "It took years for the company to perceive such growth.",
+      "example_mn": "Компанид ийм өсөлтийг мэдрэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "peripheral",
+      "mn": "захын, дэд шинжтэй",
+      "example_en": "The report gave a peripheral account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар захын тайлбар өгсөн."
+    },
+    {
+      "en": "perpetual",
+      "mn": "үргэлжийн",
+      "example_en": "The report gave a perpetual account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар үргэлжийн тайлбар өгсөн."
+    },
+    {
+      "en": "persistent",
+      "mn": "тууштай",
+      "example_en": "The report gave a persistent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар тууштай тайлбар өгсөн."
+    },
+    {
+      "en": "pertinent",
+      "mn": "холбогдолтой",
+      "example_en": "Her explanation was remarkably pertinent.",
+      "example_mn": "Түүний тайлбар маш холбогдолтой байсан."
+    },
+    {
+      "en": "plausible",
+      "mn": "үнэмшилтэй",
+      "example_en": "The report gave a plausible account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар үнэмшилтэй тайлбар өгсөн."
+    },
+    {
+      "en": "plight",
+      "mn": "хүнд байдал",
+      "example_en": "The report highlighted the importance of plight.",
+      "example_mn": "Тайланд хүнд байдал чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "postulate",
+      "mn": "таамаглах",
+      "example_en": "He tried to postulate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө таамаглах гэж оролдсон."
+    },
+    {
+      "en": "potent",
+      "mn": "хүчтэй",
+      "example_en": "It seems potent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хүчтэй санагдаж байна."
+    },
+    {
+      "en": "pragmatic",
+      "mn": "практик үзэлтэй",
+      "example_en": "Her explanation was remarkably pragmatic.",
+      "example_mn": "Түүний тайлбар маш практик үзэлтэй байсан."
+    },
+    {
+      "en": "precede",
+      "mn": "өмнө нь байх",
+      "example_en": "The team worked hard to precede the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг өмнө нь байх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "precedent",
+      "mn": "урьдач жишиг",
+      "example_en": "Researchers focused their study on precedent.",
+      "example_mn": "Судлаачид урьдач жишиг дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "precise",
+      "mn": "нарийвчлалтай",
+      "example_en": "The report gave a precise account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар нарийвчлалтай тайлбар өгсөн."
+    },
+    {
+      "en": "predominant",
+      "mn": "давамгайлсан",
+      "example_en": "The results were predominant across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд давамгайлсан байлаа."
+    },
+    {
+      "en": "premise",
+      "mn": "шалтгаан, урьдач нөхцөл",
+      "example_en": "The report highlighted the importance of premise.",
+      "example_mn": "Тайланд шалтгаан чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "presumably",
+      "mn": "магадгүй",
+      "example_en": "The outcome remained the same, presumably of the effort.",
+      "example_mn": "Хичээл зүтгэлээс магадгүй, үр дүн ижил хэвээр байлаа."
+    },
+    {
+      "en": "prevalent",
+      "mn": "түгээмэл",
+      "example_en": "The report gave a prevalent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар түгээмэл тайлбар өгсөн."
+    },
+    {
+      "en": "proficient",
+      "mn": "чадварлаг",
+      "example_en": "It seems proficient that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь чадварлаг санагдаж байна."
+    },
+    {
+      "en": "prohibit",
+      "mn": "хориглох",
+      "example_en": "The team worked hard to prohibit the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хориглох-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "prolific",
+      "mn": "үр бүтээлч",
+      "example_en": "Her explanation was remarkably prolific.",
+      "example_mn": "Түүний тайлбар маш үр бүтээлч байсан."
+    },
+    {
+      "en": "prominent",
+      "mn": "алдартай, тод",
+      "example_en": "The report gave a prominent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар алдартай тайлбар өгсөн."
+    },
+    {
+      "en": "propel",
+      "mn": "түлхэх, урагшлуулах",
+      "example_en": "He tried to propel the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө түлхэх гэж оролдсон."
+    },
+    {
+      "en": "propensity",
+      "mn": "хандлага",
+      "example_en": "This is a good example related to propensity.",
+      "example_mn": "Энэ нь хандлага-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "proportion",
+      "mn": "хувь хэмжээ",
+      "example_en": "This is a good example related to proportion.",
+      "example_mn": "Энэ нь хувь хэмжээ-тай холбоотой сайн жишээ юм."
+    },
+    {
+      "en": "prospective",
+      "mn": "ирээдүйн",
+      "example_en": "It seems prospective that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь ирээдүйн санагдаж байна."
+    },
+    {
+      "en": "provoke",
+      "mn": "өдөөх",
+      "example_en": "The committee decided to provoke its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг өдөөх гэж шийдсэн."
+    },
+    {
+      "en": "proximity",
+      "mn": "ойр байдал",
+      "example_en": "Researchers focused their study on proximity.",
+      "example_mn": "Судлаачид ойр байдал дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "prudent",
+      "mn": "болгоомжтой",
+      "example_en": "Her explanation was remarkably prudent.",
+      "example_mn": "Түүний тайлбар маш болгоомжтой байсан."
+    },
+    {
+      "en": "quantify",
+      "mn": "тоо хэмжээгээр илэрхийлэх",
+      "example_en": "The committee decided to quantify its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг тоо хэмжээгээр илэрхийлэх гэж шийдсэн."
+    },
+    {
+      "en": "quest",
+      "mn": "эрэл хайгуул",
+      "example_en": "Researchers focused their study on quest.",
+      "example_mn": "Судлаачид эрэл хайгуул дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "rationale",
+      "mn": "үндэслэл",
+      "example_en": "Researchers focused their study on rationale.",
+      "example_mn": "Судлаачид үндэслэл дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "rebut",
+      "mn": "эсэргүүцэх",
+      "example_en": "The committee decided to rebut its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг эсэргүүцэх гэж шийдсэн."
+    },
+    {
+      "en": "reciprocal",
+      "mn": "харилцан",
+      "example_en": "The results were reciprocal across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд харилцан байлаа."
+    },
+    {
+      "en": "reconcile",
+      "mn": "эвлэрүүлэх",
+      "example_en": "The committee decided to reconcile its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг эвлэрүүлэх гэж шийдсэн."
+    },
+    {
+      "en": "redundant",
+      "mn": "илүүдэл",
+      "example_en": "Her explanation was remarkably redundant.",
+      "example_mn": "Түүний тайлбар маш илүүдэл байсан."
+    },
+    {
+      "en": "refute",
+      "mn": "үгүйсгэх",
+      "example_en": "It took years for the company to refute such growth.",
+      "example_mn": "Компанид ийм өсөлтийг үгүйсгэх хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "relentless",
+      "mn": "тасралтгүй",
+      "example_en": "The results were relentless across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд тасралтгүй байлаа."
+    },
+    {
+      "en": "relevant",
+      "mn": "холбогдолтой",
+      "example_en": "The report gave a relevant account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар холбогдолтой тайлбар өгсөн."
+    },
+    {
+      "en": "reluctant",
+      "mn": "дургүй",
+      "example_en": "Her explanation was remarkably reluctant.",
+      "example_mn": "Түүний тайлбар маш дургүй байсан."
+    },
+    {
+      "en": "remedy",
+      "mn": "эмчилгээ, шийдэл",
+      "example_en": "The report highlighted the importance of remedy.",
+      "example_mn": "Тайланд эмчилгээ чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "render",
+      "mn": "болгох, өгөх",
+      "example_en": "He tried to render the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө болгох гэж оролдсон."
+    },
+    {
+      "en": "renowned",
+      "mn": "алдартай",
+      "example_en": "The results were renowned across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд алдартай байлаа."
+    },
+    {
+      "en": "repercussion",
+      "mn": "үр дагавар",
+      "example_en": "Researchers focused their study on repercussion.",
+      "example_mn": "Судлаачид үр дагавар дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "replicate",
+      "mn": "хуулбарлах",
+      "example_en": "He tried to replicate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хуулбарлах гэж оролдсон."
+    },
+    {
+      "en": "reside",
+      "mn": "оршин суух",
+      "example_en": "He tried to reside the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө оршин суух гэж оролдсон."
+    },
+    {
+      "en": "resilient",
+      "mn": "тэсвэртэй",
+      "example_en": "Her explanation was remarkably resilient.",
+      "example_mn": "Түүний тайлбар маш тэсвэртэй байсан."
+    },
+    {
+      "en": "resolve",
+      "mn": "шийдвэрлэх",
+      "example_en": "The committee decided to resolve its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг шийдвэрлэх гэж шийдсэн."
+    },
+    {
+      "en": "resonate",
+      "mn": "цуурайтах, нийцэх",
+      "example_en": "The committee decided to resonate its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг цуурайтах гэж шийдсэн."
+    },
+    {
+      "en": "restrain",
+      "mn": "хазаарлах",
+      "example_en": "He tried to restrain the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хазаарлах гэж оролдсон."
+    },
+    {
+      "en": "retain",
+      "mn": "хадгалах",
+      "example_en": "He tried to retain the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хадгалах гэж оролдсон."
+    },
+    {
+      "en": "reveal",
+      "mn": "илчлэх",
+      "example_en": "The team worked hard to reveal the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг илчлэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "revoke",
+      "mn": "хүчингүй болгох",
+      "example_en": "He tried to revoke the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө хүчингүй болгох гэж оролдсон."
+    },
+    {
+      "en": "rigorous",
+      "mn": "хатуу чанга",
+      "example_en": "The report gave a rigorous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хатуу чанга тайлбар өгсөн."
+    },
+    {
+      "en": "robust",
+      "mn": "бат бөх",
+      "example_en": "The report gave a robust account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар бат бөх тайлбар өгсөн."
+    },
+    {
+      "en": "rudimentary",
+      "mn": "анхан шатны",
+      "example_en": "The report gave a rudimentary account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар анхан шатны тайлбар өгсөн."
+    },
+    {
+      "en": "salient",
+      "mn": "гол чухал",
+      "example_en": "Her explanation was remarkably salient.",
+      "example_mn": "Түүний тайлбар маш гол чухал байсан."
+    },
+    {
+      "en": "scrutinize",
+      "mn": "нягтлан шалгах",
+      "example_en": "The committee decided to scrutinize its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг нягтлан шалгах гэж шийдсэн."
+    },
+    {
+      "en": "sequential",
+      "mn": "дараалсан",
+      "example_en": "Her explanation was remarkably sequential.",
+      "example_mn": "Түүний тайлбар маш дараалсан байсан."
+    },
+    {
+      "en": "simultaneous",
+      "mn": "зэрэгцээ",
+      "example_en": "The results were simultaneous across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд зэрэгцээ байлаа."
+    },
+    {
+      "en": "skeptical",
+      "mn": "эргэлзээтэй",
+      "example_en": "The results were skeptical across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд эргэлзээтэй байлаа."
+    },
+    {
+      "en": "sole",
+      "mn": "цорын ганц",
+      "example_en": "It seems sole that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь цорын ганц санагдаж байна."
+    },
+    {
+      "en": "sophisticated",
+      "mn": "нарийн боловсронгуй",
+      "example_en": "The report gave a sophisticated account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар нарийн боловсронгуй тайлбар өгсөн."
+    },
+    {
+      "en": "spontaneous",
+      "mn": "аяндаа гарсан",
+      "example_en": "The report gave a spontaneous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар аяндаа гарсан тайлбар өгсөн."
+    },
+    {
+      "en": "sporadic",
+      "mn": "тод бус, ховор",
+      "example_en": "The report gave a sporadic account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар тод бус тайлбар өгсөн."
+    },
+    {
+      "en": "stagnant",
+      "mn": "зогсонги",
+      "example_en": "Her explanation was remarkably stagnant.",
+      "example_mn": "Түүний тайлбар маш зогсонги байсан."
+    },
+    {
+      "en": "stringent",
+      "mn": "хатуу шаардлагатай",
+      "example_en": "It seems stringent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хатуу шаардлагатай санагдаж байна."
+    },
+    {
+      "en": "subsequent",
+      "mn": "дараагийн",
+      "example_en": "Her explanation was remarkably subsequent.",
+      "example_mn": "Түүний тайлбар маш дараагийн байсан."
+    },
+    {
+      "en": "subside",
+      "mn": "намжих, буурах",
+      "example_en": "The team worked hard to subside the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг намжих-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "substantial",
+      "mn": "их хэмжээний",
+      "example_en": "Her explanation was remarkably substantial.",
+      "example_mn": "Түүний тайлбар маш их хэмжээний байсан."
+    },
+    {
+      "en": "subtle",
+      "mn": "нарийн мэдрэгдэхүйц",
+      "example_en": "Her explanation was remarkably subtle.",
+      "example_mn": "Түүний тайлбар маш нарийн мэдрэгдэхүйц байсан."
+    },
+    {
+      "en": "succinct",
+      "mn": "товч тодорхой",
+      "example_en": "The results were succinct across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд товч тодорхой байлаа."
+    },
+    {
+      "en": "sufficient",
+      "mn": "хангалттай",
+      "example_en": "The results were sufficient across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд хангалттай байлаа."
+    },
+    {
+      "en": "superficial",
+      "mn": "гадарх",
+      "example_en": "Her explanation was remarkably superficial.",
+      "example_mn": "Түүний тайлбар маш гадарх байсан."
+    },
+    {
+      "en": "supersede",
+      "mn": "орлох",
+      "example_en": "It took years for the company to supersede such growth.",
+      "example_mn": "Компанид ийм өсөлтийг орлох хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "suppress",
+      "mn": "дарах, хязгаарлах",
+      "example_en": "He tried to suppress the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө дарах гэж оролдсон."
+    },
+    {
+      "en": "surge",
+      "mn": "огцом өсөлт",
+      "example_en": "Researchers focused their study on surge.",
+      "example_mn": "Судлаачид огцом өсөлт дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "surpass",
+      "mn": "давж гарах",
+      "example_en": "The team worked hard to surpass the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг давж гарах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "sustain",
+      "mn": "тэтгэх, дэмжих",
+      "example_en": "The committee decided to sustain its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг тэтгэх гэж шийдсэн."
+    },
+    {
+      "en": "tangible",
+      "mn": "биет, мэдрэгдэхүйц",
+      "example_en": "It seems tangible that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь биет санагдаж байна."
+    },
+    {
+      "en": "tedious",
+      "mn": "уйтгартай",
+      "example_en": "The results were tedious across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд уйтгартай байлаа."
+    },
+    {
+      "en": "tentative",
+      "mn": "түр зуурын",
+      "example_en": "Her explanation was remarkably tentative.",
+      "example_mn": "Түүний тайлбар маш түр зуурын байсан."
+    },
+    {
+      "en": "terminate",
+      "mn": "дуусгах",
+      "example_en": "It took years for the company to terminate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг дуусгах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "thorough",
+      "mn": "нарийвчилсан",
+      "example_en": "Her explanation was remarkably thorough.",
+      "example_mn": "Түүний тайлбар маш нарийвчилсан байсан."
+    },
+    {
+      "en": "transparent",
+      "mn": "ил тод",
+      "example_en": "Her explanation was remarkably transparent.",
+      "example_mn": "Түүний тайлбар маш ил тод байсан."
+    },
+    {
+      "en": "trivial",
+      "mn": "өчүүхэн",
+      "example_en": "The report gave a trivial account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар өчүүхэн тайлбар өгсөн."
+    },
+    {
+      "en": "ubiquitous",
+      "mn": "хаа сайгүй байдаг",
+      "example_en": "Her explanation was remarkably ubiquitous.",
+      "example_mn": "Түүний тайлбар маш хаа сайгүй байдаг байсан."
+    },
+    {
+      "en": "undermine",
+      "mn": "сулруулах",
+      "example_en": "He tried to undermine the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө сулруулах гэж оролдсон."
+    },
+    {
+      "en": "underscore",
+      "mn": "онцлон тэмдэглэх",
+      "example_en": "The committee decided to underscore its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг онцлон тэмдэглэх гэж шийдсэн."
+    },
+    {
+      "en": "undertake",
+      "mn": "хариуцах, хийхээр авах",
+      "example_en": "The team worked hard to undertake the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хариуцах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "unprecedented",
+      "mn": "урьд өмнө байгаагүй",
+      "example_en": "The report gave an unprecedented account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар урьд өмнө байгаагүй тайлбар өгсөн."
+    },
+    {
+      "en": "utilize",
+      "mn": "ашиглах",
+      "example_en": "The team worked hard to utilize the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг ашиглах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "vague",
+      "mn": "бүрхэг",
+      "example_en": "Her explanation was remarkably vague.",
+      "example_mn": "Түүний тайлбар маш бүрхэг байсан."
+    },
+    {
+      "en": "valid",
+      "mn": "хүчинтэй",
+      "example_en": "Her explanation was remarkably valid.",
+      "example_mn": "Түүний тайлбар маш хүчинтэй байсан."
+    },
+    {
+      "en": "verify",
+      "mn": "шалгах, батлах",
+      "example_en": "The committee decided to verify its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг шалгах гэж шийдсэн."
+    },
+    {
+      "en": "versatile",
+      "mn": "олон талт",
+      "example_en": "Her explanation was remarkably versatile.",
+      "example_mn": "Түүний тайлбар маш олон талт байсан."
+    },
+    {
+      "en": "viable",
+      "mn": "хэрэгжих боломжтой",
+      "example_en": "Her explanation was remarkably viable.",
+      "example_mn": "Түүний тайлбар маш хэрэгжих боломжтой байсан."
+    },
+    {
+      "en": "vigorous",
+      "mn": "эрч хүчтэй",
+      "example_en": "The report gave a vigorous account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар эрч хүчтэй тайлбар өгсөн."
+    },
+    {
+      "en": "volatile",
+      "mn": "тогтворгүй",
+      "example_en": "Her explanation was remarkably volatile.",
+      "example_mn": "Түүний тайлбар маш тогтворгүй байсан."
+    },
+    {
+      "en": "wary",
+      "mn": "болгоомжтой",
+      "example_en": "The report gave a wary account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар болгоомжтой тайлбар өгсөн."
+    },
+    {
+      "en": "widespread",
+      "mn": "өргөн тархсан",
+      "example_en": "It seems widespread that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь өргөн тархсан санагдаж байна."
+    },
+    {
+      "en": "abstain",
+      "mn": "татгалзах",
+      "example_en": "The team worked hard to abstain the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг татгалзах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "adjourn",
+      "mn": "хойшлуулах",
+      "example_en": "It took years for the company to adjourn such growth.",
+      "example_mn": "Компанид ийм өсөлтийг хойшлуулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "affluent",
+      "mn": "баян чинээлэг",
+      "example_en": "Her explanation was remarkably affluent.",
+      "example_mn": "Түүний тайлбар маш баян чинээлэг байсан."
+    },
+    {
+      "en": "aggravate",
+      "mn": "улам хүндрүүлэх",
+      "example_en": "He tried to aggravate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө улам хүндрүүлэх гэж оролдсон."
+    },
+    {
+      "en": "alienate",
+      "mn": "холдуулах",
+      "example_en": "He tried to alienate the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө холдуулах гэж оролдсон."
+    },
+    {
+      "en": "ambivalent",
+      "mn": "хоёрдмол сэтгэлтэй",
+      "example_en": "The results were ambivalent across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд хоёрдмол сэтгэлтэй байлаа."
+    },
+    {
+      "en": "amenable",
+      "mn": "зөвшөөрөх боломжтой",
+      "example_en": "The report gave an amenable account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар зөвшөөрөх боломжтой тайлбар өгсөн."
+    },
+    {
+      "en": "anecdote",
+      "mn": "жижиг түүх",
+      "example_en": "There is a clear connection to the idea of anecdote.",
+      "example_mn": "Энэ нь жижиг түүх гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "antagonize",
+      "mn": "дайсагнуулах",
+      "example_en": "The team worked hard to antagonize the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг дайсагнуулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "apprehensive",
+      "mn": "түгшүүртэй",
+      "example_en": "The report gave an apprehensive account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар түгшүүртэй тайлбар өгсөн."
+    },
+    {
+      "en": "arbitrate",
+      "mn": "шүүн таслах",
+      "example_en": "It took years for the company to arbitrate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг шүүн таслах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "ascribe",
+      "mn": "хамааруулах",
+      "example_en": "The team worked hard to ascribe the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг хамааруулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "assiduous",
+      "mn": "хичээнгүй, шамдам",
+      "example_en": "Her explanation was remarkably assiduous.",
+      "example_mn": "Түүний тайлбар маш хичээнгүй байсан."
+    },
+    {
+      "en": "audacious",
+      "mn": "зоригтой",
+      "example_en": "The report gave an audacious account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар зоригтой тайлбар өгсөн."
+    },
+    {
+      "en": "authoritative",
+      "mn": "эрх мэдэлтэй",
+      "example_en": "The report gave an authoritative account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар эрх мэдэлтэй тайлбар өгсөн."
+    },
+    {
+      "en": "belated",
+      "mn": "хоцорсон",
+      "example_en": "The report gave a belated account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар хоцорсон тайлбар өгсөн."
+    },
+    {
+      "en": "bewildering",
+      "mn": "гайхшруулам",
+      "example_en": "It seems bewildering that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь гайхшруулам санагдаж байна."
+    },
+    {
+      "en": "blunt",
+      "mn": "шулуухан",
+      "example_en": "Her explanation was remarkably blunt.",
+      "example_mn": "Түүний тайлбар маш шулуухан байсан."
+    },
+    {
+      "en": "cacophony",
+      "mn": "эмх замбараагүй чимээ",
+      "example_en": "Researchers focused their study on cacophony.",
+      "example_mn": "Судлаачид эмх замбараагүй чимээ дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "candor",
+      "mn": "шударга байдал",
+      "example_en": "The report highlighted the importance of candor.",
+      "example_mn": "Тайланд шударга байдал чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "capricious",
+      "mn": "тогтворгүй, эрмэлзэлгүй",
+      "example_en": "The results were capricious across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд тогтворгүй байлаа."
+    },
+    {
+      "en": "circumvent",
+      "mn": "тойрч гарах",
+      "example_en": "The committee decided to circumvent its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг тойрч гарах гэж шийдсэн."
+    },
+    {
+      "en": "clandestine",
+      "mn": "нууц",
+      "example_en": "Her explanation was remarkably clandestine.",
+      "example_mn": "Түүний тайлбар маш нууц байсан."
+    },
+    {
+      "en": "cogent",
+      "mn": "үнэмшилтэй",
+      "example_en": "Her explanation was remarkably cogent.",
+      "example_mn": "Түүний тайлбар маш үнэмшилтэй байсан."
+    },
+    {
+      "en": "commendable",
+      "mn": "магтууштай",
+      "example_en": "The report gave a commendable account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар магтууштай тайлбар өгсөн."
+    },
+    {
+      "en": "complacent",
+      "mn": "өөрийгөө хангалуун гэж боддог",
+      "example_en": "The report gave a complacent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар өөрийгөө хангалуун гэж боддог тайлбар өгсөн."
+    },
+    {
+      "en": "concurrent",
+      "mn": "зэрэгцээ явагдах",
+      "example_en": "It seems concurrent that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь зэрэгцээ явагдах санагдаж байна."
+    },
+    {
+      "en": "condone",
+      "mn": "зөвшөөрч өнгөрөөх",
+      "example_en": "The committee decided to condone its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг зөвшөөрч өнгөрөөх гэж шийдсэн."
+    },
+    {
+      "en": "congenial",
+      "mn": "тохиромжтой, найрсаг",
+      "example_en": "Her explanation was remarkably congenial.",
+      "example_mn": "Түүний тайлбар маш тохиромжтой байсан."
+    },
+    {
+      "en": "connoisseur",
+      "mn": "мэргэжлийн мэдрэмжтэй хүн",
+      "example_en": "The report highlighted the importance of connoisseur.",
+      "example_mn": "Тайланд мэргэжлийн мэдрэмжтэй хүн чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "contrite",
+      "mn": "гэмшсэн",
+      "example_en": "The results were contrite across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд гэмшсэн байлаа."
+    },
+    {
+      "en": "conundrum",
+      "mn": "хэцүү асуудал",
+      "example_en": "There is a clear connection to the idea of conundrum.",
+      "example_mn": "Энэ нь хэцүү асуудал гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "copious",
+      "mn": "маш их",
+      "example_en": "The results were copious across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд маш их байлаа."
+    },
+    {
+      "en": "cursory",
+      "mn": "өнгөц",
+      "example_en": "It seems cursory that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь өнгөц санагдаж байна."
+    },
+    {
+      "en": "debilitate",
+      "mn": "сулруулах",
+      "example_en": "It took years for the company to debilitate such growth.",
+      "example_mn": "Компанид ийм өсөлтийг сулруулах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "decorum",
+      "mn": "зохистой байдал",
+      "example_en": "Researchers focused their study on decorum.",
+      "example_mn": "Судлаачид зохистой байдал дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "defer",
+      "mn": "хойшлуулах",
+      "example_en": "The committee decided to defer its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг хойшлуулах гэж шийдсэн."
+    },
+    {
+      "en": "deft",
+      "mn": "чадварлаг, ур чадвартай",
+      "example_en": "Her explanation was remarkably deft.",
+      "example_mn": "Түүний тайлбар маш чадварлаг байсан."
+    },
+    {
+      "en": "demise",
+      "mn": "үхэл, мөхөл",
+      "example_en": "The report highlighted the importance of demise.",
+      "example_mn": "Тайланд үхэл чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "deride",
+      "mn": "шоолох",
+      "example_en": "He tried to deride the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө шоолох гэж оролдсон."
+    },
+    {
+      "en": "despondent",
+      "mn": "гунигтай",
+      "example_en": "The report gave a despondent account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар гунигтай тайлбар өгсөн."
+    },
+    {
+      "en": "diligence",
+      "mn": "хичээл зүтгэл",
+      "example_en": "There is a clear connection to the idea of diligence.",
+      "example_mn": "Энэ нь хичээл зүтгэл гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "discord",
+      "mn": "эв тэнцвэргүй байдал",
+      "example_en": "The report highlighted the importance of discord.",
+      "example_mn": "Тайланд эв тэнцвэргүй байдал чухал болохыг онцлон дурдсан."
+    },
+    {
+      "en": "disdain",
+      "mn": "жигших",
+      "example_en": "There is a clear connection to the idea of disdain.",
+      "example_mn": "Энэ нь жигших гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "disparage",
+      "mn": "гутаах",
+      "example_en": "It took years for the company to disparage such growth.",
+      "example_mn": "Компанид ийм өсөлтийг гутаах хүртэл олон жил зарцуулагдсан."
+    },
+    {
+      "en": "dissonance",
+      "mn": "зохицолгүй байдал",
+      "example_en": "Researchers focused their study on dissonance.",
+      "example_mn": "Судлаачид зохицолгүй байдал дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "eclectic",
+      "mn": "олон талыг хослуулсан",
+      "example_en": "The report gave an eclectic account of the events.",
+      "example_mn": "Тайлан үйл явдлын талаар олон талыг хослуулсан тайлбар өгсөн."
+    },
+    {
+      "en": "edify",
+      "mn": "сургаж хүмүүжүүлэх",
+      "example_en": "He tried to edify the situation before it got worse.",
+      "example_mn": "Тэрээр нөхцөл байдал улам дордохоос өмнө сургаж хүмүүжүүлэх гэж оролдсон."
+    },
+    {
+      "en": "effrontery",
+      "mn": "ичгүүргүй зоримог байдал",
+      "example_en": "Researchers focused their study on effrontery.",
+      "example_mn": "Судлаачид ичгүүргүй зоримог байдал дээр анхаарлаа төвлөрүүлж судалсан."
+    },
+    {
+      "en": "egregious",
+      "mn": "маш муу, дэндүү",
+      "example_en": "The results were egregious across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд маш муу байлаа."
+    },
+    {
+      "en": "elucidate",
+      "mn": "тодруулах",
+      "example_en": "The team worked hard to elucidate the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг тодруулах-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "embellish",
+      "mn": "чимэглэх",
+      "example_en": "The team worked hard to embellish the plan before the deadline.",
+      "example_mn": "Баг эцсийн хугацаанаас өмнө төлөвлөгөөг чимэглэх-ын төлөө хичээнгүйлэн ажилласан."
+    },
+    {
+      "en": "enclave",
+      "mn": "хаалттай нутаг дэвсгэр",
+      "example_en": "There is a clear connection to the idea of enclave.",
+      "example_mn": "Энэ нь хаалттай нутаг дэвсгэр гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "enigmatic",
+      "mn": "нууцлаг",
+      "example_en": "Her explanation was remarkably enigmatic.",
+      "example_mn": "Түүний тайлбар маш нууцлаг байсан."
+    },
+    {
+      "en": "ephemeral",
+      "mn": "түр зуурын",
+      "example_en": "It seems ephemeral that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь түр зуурын санагдаж байна."
+    },
+    {
+      "en": "equanimity",
+      "mn": "тайван байдал",
+      "example_en": "There is a clear connection to the idea of equanimity.",
+      "example_mn": "Энэ нь тайван байдал гэсэн ойлголттой шууд холбоотой юм."
+    },
+    {
+      "en": "equivocal",
+      "mn": "хоёрдмол утгатай",
+      "example_en": "It seems equivocal that the plan will succeed.",
+      "example_mn": "Төлөвлөгөө амжилттай болно гэдэг нь хоёрдмол утгатай санагдаж байна."
+    },
+    {
+      "en": "exemplary",
+      "mn": "үлгэр жишээ",
+      "example_en": "The results were exemplary across all the tests.",
+      "example_mn": "Үр дүн бүх тестэд үлгэр жишээ байлаа."
+    },
+    {
+      "en": "expedite",
+      "mn": "түргэсгэх",
+      "example_en": "The committee decided to expedite its approach after the review.",
+      "example_mn": "Хороо тайлан хянасны дараа өөрийн аргачлалыг түргэсгэх гэж шийдсэн."
+    }
+  ]
+   }
 }
