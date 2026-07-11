@@ -3423,7 +3423,1808 @@
       "example_mn": "Энэ ном надад гүн гүнзгий нөлөө үзүүлсэн."
   } 
  ],
- "EYESH": [],
+ "EYESH": [
+ {
+  "en": "routine",
+  "mn": "дадал зуршил, тогтмол хийдэг зүйл",
+  "example_en": "Brushing your teeth is part of a daily routine.",
+  "example_mn": "Шүдээ угаах нь өдөр тутмын дадал зуршлын нэг хэсэг."
+ },
+ {
+  "en": "habit",
+  "mn": "зуршил",
+  "example_en": "Reading before bed is a good habit.",
+  "example_mn": "Унтахынхаа өмнө ном унших нь сайн зуршил."
+ },
+ {
+  "en": "chore",
+  "mn": "гэрийн жижиг ажил",
+  "example_en": "I have to do chores every weekend.",
+  "example_mn": "Би амралтын өдөр бүр гэрийн жижиг ажил хийх ёстой."
+ },
+ {
+  "en": "errand",
+  "mn": "жижиг ажил, дааж хийх ажил",
+  "example_en": "She ran an errand to buy milk.",
+  "example_mn": "Тэр сүү авахаар жижиг ажил гүйцэтгэсэн."
+ },
+ {
+  "en": "appointment",
+  "mn": "цаг товлолт, уулзалт",
+  "example_en": "I have a dentist appointment tomorrow.",
+  "example_mn": "Маргааш надад шүдний эмчид цаг товлолттой."
+ },
+ {
+  "en": "schedule",
+  "mn": "хуваарь, товлол",
+  "example_en": "Her schedule is very busy this week.",
+  "example_mn": "Түүний хуваарь энэ долоо хоногт маш завгүй."
+ },
+ {
+  "en": "punctual",
+  "mn": "цагаа баримталдаг, цаг барих",
+  "example_en": "He is always punctual for meetings.",
+  "example_mn": "Тэр уулзалтад үргэлж цагаа баримталдаг."
+ },
+ {
+  "en": "household",
+  "mn": "гэр бүлийн, айл өрхийн",
+  "example_en": "Cooking is one of many household tasks.",
+  "example_mn": "Хоол хийх бол олон гэрийн ажлын нэг."
+ },
+ {
+  "en": "neighbor",
+  "mn": "хөрш",
+  "example_en": "Our neighbor is very friendly.",
+  "example_mn": "Манай хөрш маш найрсаг."
+ },
+ {
+  "en": "housework",
+  "mn": "гэрийн ажил",
+  "example_en": "She helps her mother with housework.",
+  "example_mn": "Тэр ээждээ гэрийн ажилд нь тусалдаг."
+ },
+ {
+  "en": "occupation",
+  "mn": "мэргэжил, ажил эрхлэлт",
+  "example_en": "What is your father's occupation?",
+  "example_mn": "Таны аавын мэргэжил юу вэ?"
+ },
+ {
+  "en": "profession",
+  "mn": "мэргэжил",
+  "example_en": "Teaching is a respected profession.",
+  "example_mn": "Багшлах бол хүндэтгэлтэй мэргэжил."
+ },
+ {
+  "en": "apply",
+  "mn": "өргөдөл гаргах, хандах",
+  "example_en": "She applied for a job at the bank.",
+  "example_mn": "Тэр банкинд ажилд орохоор өргөдөл гаргасан."
+ },
+ {
+  "en": "hire",
+  "mn": "ажилд авах",
+  "example_en": "The company hired five new workers.",
+  "example_mn": "Компани таван шинэ ажилтан ажилд авсан."
+ },
+ {
+  "en": "fire",
+  "mn": "халах, ажлаас гаргах",
+  "example_en": "He was fired for being late too often.",
+  "example_mn": "Тэр байнга хоцордог байсан учраас ажлаас халагдсан."
+ },
+ {
+  "en": "wage",
+  "mn": "цалин хөлс",
+  "example_en": "Factory workers earn a fixed wage.",
+  "example_mn": "Үйлдвэрийн ажилчид тогтмол цалин авдаг."
+ },
+ {
+  "en": "volunteer work",
+  "mn": "сайн дурын ажил",
+  "example_en": "She does volunteer work at a hospital.",
+  "example_mn": "Тэр эмнэлэгт сайн дурын ажил хийдэг."
+ },
+ {
+  "en": "part-time",
+  "mn": "хагас цагийн",
+  "example_en": "He has a part-time job at a cafe.",
+  "example_mn": "Тэр кафед хагас цагийн ажилтай."
+ },
+ {
+  "en": "full-time",
+  "mn": "бүтэн цагийн",
+  "example_en": "She works full-time as a nurse.",
+  "example_mn": "Тэр сувилагчаар бүтэн цагаар ажилладаг."
+ },
+ {
+  "en": "shift",
+  "mn": "ээлж",
+  "example_en": "He works the night shift at the hospital.",
+  "example_mn": "Тэр эмнэлэгт шөнийн ээлжинд ажилладаг."
+ },
+ {
+  "en": "athlete",
+  "mn": "тамирчин",
+  "example_en": "The athlete trained for six hours a day.",
+  "example_mn": "Тамирчин өдөрт зургаан цаг бэлтгэл хийдэг байсан."
+ },
+ {
+  "en": "championship",
+  "mn": "аваргын тэмцээн",
+  "example_en": "Our team won the championship last year.",
+  "example_mn": "Манай баг өнгөрсөн жил аваргын тэмцээнд түрүүлсэн."
+ },
+ {
+  "en": "referee",
+  "mn": "шүүгч (спортын)",
+  "example_en": "The referee stopped the game.",
+  "example_mn": "Шүүгч тоглолтыг зогсоов."
+ },
+ {
+  "en": "opponent",
+  "mn": "өрсөлдөгч",
+  "example_en": "She easily defeated her opponent.",
+  "example_mn": "Тэр өрсөлдөгчөө амархан ялсан."
+ },
+ {
+  "en": "score",
+  "mn": "оноо, оноо авах",
+  "example_en": "He scored the winning goal.",
+  "example_mn": "Тэр ялалт байгуулсан голыг оруулсан."
+ },
+ {
+  "en": "compete",
+  "mn": "өрсөлдөх",
+  "example_en": "Athletes compete for the gold medal.",
+  "example_mn": "Тамирчид алтан медалийн төлөө өрсөлддөг."
+ },
+ {
+  "en": "training",
+  "mn": "дасгал сургуулилт, бэлтгэл",
+  "example_en": "Daily training improved his speed.",
+  "example_mn": "Өдөр тутмын бэлтгэл түүний хурдыг сайжруулсан."
+ },
+ {
+  "en": "stadium",
+  "mn": "цэнгэлдэх хүрээлэн",
+  "example_en": "The stadium was full of fans.",
+  "example_mn": "Цэнгэлдэх хүрээлэн шүтэн бишрэгчдээр дүүрэн байлаа."
+ },
+ {
+  "en": "equipment",
+  "mn": "хэрэгсэл, тоног төхөөрөмж",
+  "example_en": "We need proper equipment for hiking.",
+  "example_mn": "Явган аялалд зориулсан зохих тоног хэрэгсэл хэрэгтэй."
+ },
+ {
+  "en": "victory",
+  "mn": "ялалт",
+  "example_en": "The team celebrated their victory.",
+  "example_mn": "Баг ялалтаа тэмдэглэсэн."
+ },
+ {
+  "en": "ingredient",
+  "mn": "найрлага, орц",
+  "example_en": "Flour is the main ingredient in bread.",
+  "example_mn": "Гурил бол талхны үндсэн орц."
+ },
+ {
+  "en": "recipe",
+  "mn": "жор",
+  "example_en": "She followed the recipe carefully.",
+  "example_mn": "Тэр жорыг анхааралтай дагасан."
+ },
+ {
+  "en": "flavor",
+  "mn": "амт",
+  "example_en": "This soup has a spicy flavor.",
+  "example_mn": "Энэ шөл халуун ногоотой амттай."
+ },
+ {
+  "en": "nutritious",
+  "mn": "тэжээллэг",
+  "example_en": "Fruits and vegetables are nutritious.",
+  "example_mn": "Жимс, ногоо нь тэжээллэг байдаг."
+ },
+ {
+  "en": "appetite",
+  "mn": "хоолны дуршил",
+  "example_en": "Exercise can increase your appetite.",
+  "example_mn": "Дасгал хийх нь хоолны дуршлыг нэмэгдүүлж болно."
+ },
+ {
+  "en": "beverage",
+  "mn": "ундаа",
+  "example_en": "The cafe offers a variety of beverages.",
+  "example_mn": "Кафе олон төрлийн ундаа санал болгодог."
+ },
+ {
+  "en": "leftover",
+  "mn": "үлдэгдэл хоол",
+  "example_en": "We had leftovers for dinner.",
+  "example_mn": "Бид оройн хоолондоо үлдэгдэл хоол идсэн."
+ },
+ {
+  "en": "portion",
+  "mn": "хэсэг, хувь",
+  "example_en": "She served a small portion of rice.",
+  "example_mn": "Тэр цагаан будааг бага хэсгээр өгсөн."
+ },
+ {
+  "en": "organic",
+  "mn": "органик",
+  "example_en": "They only buy organic vegetables.",
+  "example_mn": "Тэд зөвхөн органик ногоо худалдаж авдаг."
+ },
+ {
+  "en": "cuisine",
+  "mn": "үндэсний хоол",
+  "example_en": "Italian cuisine is famous worldwide.",
+  "example_mn": "Итали хоол дэлхий даяар алдартай."
+ },
+ {
+  "en": "fashion",
+  "mn": "загвар, хувцасны загвар",
+  "example_en": "She is very interested in fashion.",
+  "example_mn": "Тэр загварын чиглэлээр маш их сонирхолтой."
+ },
+ {
+  "en": "outfit",
+  "mn": "хувцасны иж бүрдэл",
+  "example_en": "She wore a beautiful outfit to the party.",
+  "example_mn": "Тэр үдэшлэгт очиход үзэсгэлэнтэй хувцас өмссөн."
+ },
+ {
+  "en": "fabric",
+  "mn": "даавуу, эд нэхмэл",
+  "example_en": "This dress is made of soft fabric.",
+  "example_mn": "Энэ даашинз зөөлөн даавуугаар хийгдсэн."
+ },
+ {
+  "en": "trend",
+  "mn": "чиг хандлага, моод",
+  "example_en": "Wearing bright colors is a new trend.",
+  "example_mn": "Тод өнгийн хувцас өмсөх нь шинэ моод."
+ },
+ {
+  "en": "accessory",
+  "mn": "гоёл чимэглэл",
+  "example_en": "She wore a necklace as an accessory.",
+  "example_mn": "Тэр зүүлт гоёл чимэглэл болгон зүүсэн."
+ },
+ {
+  "en": "casual",
+  "mn": "энгийн, чөлөөт",
+  "example_en": "He prefers casual clothes on weekends.",
+  "example_mn": "Тэр амралтын өдрүүдэд энгийн хувцас өмсөх дуртай."
+ },
+ {
+  "en": "formal",
+  "mn": "албан ёсны, албаны",
+  "example_en": "She wore a formal dress to the wedding.",
+  "example_mn": "Тэр хуримд албан ёсны даашинз өмссөн."
+ },
+ {
+  "en": "fit",
+  "mn": "тохирох, зохих хэмжээтэй",
+  "example_en": "These shoes don't fit me well.",
+  "example_mn": "Энэ гутал надад сайн тохирохгүй байна."
+ },
+ {
+  "en": "size",
+  "mn": "хэмжээ",
+  "example_en": "What size shoes do you wear?",
+  "example_mn": "Та ямар хэмжээний гутал өмсдөг вэ?"
+ },
+ {
+  "en": "wardrobe",
+  "mn": "хувцасны шүүгээ, хувцасны цуглуулга",
+  "example_en": "Her wardrobe is full of colorful dresses.",
+  "example_mn": "Түүний хувцасны шүүгээ өнгөлөг даашинзаар дүүрэн."
+ },
+ {
+  "en": "forecast",
+  "mn": "цаг агаарын урьдчилсан мэдээ",
+  "example_en": "The weather forecast predicts rain tomorrow.",
+  "example_mn": "Цаг агаарын урьдчилсан мэдээгээр маргааш бороо орно."
+ },
+ {
+  "en": "humid",
+  "mn": "чийглэг",
+  "example_en": "Summer days here are hot and humid.",
+  "example_mn": "Энд зуны өдрүүд халуун бөгөөд чийглэг."
+ },
+ {
+  "en": "breeze",
+  "mn": "сэвшээ салхи",
+  "example_en": "A cool breeze blew across the beach.",
+  "example_mn": "Хөвсгөр далайн эрэг дээр сэрүүн сэвшээ салхи үлээв."
+ },
+ {
+  "en": "thunderstorm",
+  "mn": "аянга цахилгаантай шуурга",
+  "example_en": "A thunderstorm hit the city last night.",
+  "example_mn": "Өчигдөр шөнө хотод аянга цахилгаантай шуурга болсон."
+ },
+ {
+  "en": "blizzard",
+  "mn": "цасан шуурга",
+  "example_en": "The blizzard closed all the schools.",
+  "example_mn": "Цасан шуурга бүх сургуулийг хаалгасан."
+ },
+ {
+  "en": "frost",
+  "mn": "хяруу",
+  "example_en": "There was frost on the windows this morning.",
+  "example_mn": "Өнөө өглөө цонхон дээр хяруу байсан."
+ },
+ {
+  "en": "shade",
+  "mn": "сүүдэр",
+  "example_en": "We sat in the shade to stay cool.",
+  "example_mn": "Бид сэрүүнд байхын тулд сүүдэрт суусан."
+ },
+ {
+  "en": "chilly",
+  "mn": "сэрүүн, хүйтэвтэр",
+  "example_en": "It's quite chilly outside today.",
+  "example_mn": "Өнөөдөр гадаа нэлээд сэрүүн байна."
+ },
+ {
+  "en": "sunshine",
+  "mn": "наран, нарны гэрэл",
+  "example_en": "We enjoyed the warm sunshine at the park.",
+  "example_mn": "Бид цэцэрлэгт хүрээлэнд дулаан нарны гэрэлд баясан."
+ },
+ {
+  "en": "visibility",
+  "mn": "харагдац",
+  "example_en": "Fog reduced visibility on the road.",
+  "example_mn": "Манан замын харагдацыг багасгасан."
+ },
+ {
+  "en": "sibling",
+  "mn": "эгч дүү (ах эгч дүүс)",
+  "example_en": "She has two siblings, a brother and a sister.",
+  "example_mn": "Тэрээр ах, эгч гэсэн хоёр дүүтэй."
+ },
+ {
+  "en": "relative",
+  "mn": "төрөл садан, хамаатан",
+  "example_en": "Many relatives came to the wedding.",
+  "example_mn": "Хуримд олон хамаатан садан ирсэн."
+ },
+ {
+  "en": "ancestor",
+  "mn": "өвөг дээдэс",
+  "example_en": "Our ancestors lived in this valley.",
+  "example_mn": "Манай өвөг дээдэс энэ хөндийд амьдарч байсан."
+ },
+ {
+  "en": "descendant",
+  "mn": "үр удам",
+  "example_en": "She is a descendant of a famous artist.",
+  "example_mn": "Тэр алдарт зураачийн үр удам юм."
+ },
+ {
+  "en": "upbringing",
+  "mn": "хүмүүжил",
+  "example_en": "Her parents gave her a strict upbringing.",
+  "example_mn": "Түүний эцэг эх хатуу хүмүүжил өгсөн."
+ },
+ {
+  "en": "bond",
+  "mn": "холбоо, ойр дотно харилцаа",
+  "example_en": "There is a strong bond between the twins.",
+  "example_mn": "Ихэр хосуудын хооронд хүчтэй холбоо байдаг."
+ },
+ {
+  "en": "affection",
+  "mn": "дурлал, хайр сэтгэл",
+  "example_en": "She showed great affection toward her children.",
+  "example_mn": "Тэр хүүхдүүддээ маш их хайр сэтгэл үзүүлсэн."
+ },
+ {
+  "en": "companion",
+  "mn": "хамтрагч, найз нөхөр",
+  "example_en": "A dog can be a loyal companion.",
+  "example_mn": "Нохой бол үнэнч хамтрагч байж чадна."
+ },
+ {
+  "en": "acquaintance",
+  "mn": "танил хүн",
+  "example_en": "He is just an acquaintance, not a close friend.",
+  "example_mn": "Тэр зүгээр л танил хүн, дотно найз биш."
+ },
+ {
+  "en": "bond with",
+  "mn": "ойртох, дотно болох",
+  "example_en": "Spending time together helps children bond with parents.",
+  "example_mn": "Хамт цаг өнгөрөөх нь хүүхдүүдийг эцэг эхтэйгээ дотно болоход тусалдаг."
+ },
+ {
+  "en": "infrastructure",
+  "mn": "дэд бүтэц",
+  "example_en": "The city needs better infrastructure.",
+  "example_mn": "Хотод илүү сайн дэд бүтэц хэрэгтэй."
+ },
+ {
+  "en": "urban",
+  "mn": "хотын",
+  "example_en": "Urban areas are usually more crowded.",
+  "example_mn": "Хотын бүсүүд ихэвчлэн илүү хүн ам ихтэй байдаг."
+ },
+ {
+  "en": "rural",
+  "mn": "хөдөө орон нутгийн",
+  "example_en": "Life in rural areas is often quieter.",
+  "example_mn": "Хөдөө орон нутгийн амьдрал ихэвчлэн илүү тайван байдаг."
+ },
+ {
+  "en": "suburb",
+  "mn": "хотын захын хороолол",
+  "example_en": "They moved to a quiet suburb.",
+  "example_mn": "Тэд хотын захын тайван хороолол руу нүүсэн."
+ },
+ {
+  "en": "population",
+  "mn": "хүн ам",
+  "example_en": "The population of this city is growing fast.",
+  "example_mn": "Энэ хотын хүн ам хурдан өсч байна."
+ },
+ {
+  "en": "municipality",
+  "mn": "хотын захиргаа, засаг захиргаа",
+  "example_en": "The municipality built a new park.",
+  "example_mn": "Хотын захиргаа шинэ цэцэрлэгт хүрээлэн барьсан."
+ },
+ {
+  "en": "skyscraper",
+  "mn": "олон давхар барилга",
+  "example_en": "New York is famous for its skyscrapers.",
+  "example_mn": "Нью-Йорк олон давхар барилгуудаараа алдартай."
+ },
+ {
+  "en": "public transportation",
+  "mn": "нийтийн тээвэр",
+  "example_en": "Public transportation here is cheap and reliable.",
+  "example_mn": "Энд нийтийн тээвэр хямд бөгөөд найдвартай."
+ },
+ {
+  "en": "congestion",
+  "mn": "түгжрэл",
+  "example_en": "Traffic congestion is a big problem in the city.",
+  "example_mn": "Замын түгжрэл хотод том асуудал болж байна."
+ },
+ {
+  "en": "facility",
+  "mn": "байгууламж, тохижилт",
+  "example_en": "The school has excellent sports facilities.",
+  "example_mn": "Сургууль спортын маш сайн байгууламжтай."
+ },
+ {
+  "en": "smartphone",
+  "mn": "ухаалаг гар утас",
+  "example_en": "Almost everyone owns a smartphone now.",
+  "example_mn": "Одоо бараг бүх хүн ухаалаг гар утастай."
+ },
+ {
+  "en": "application",
+  "mn": "аппликейшн",
+  "example_en": "She downloaded a new fitness application.",
+  "example_mn": "Тэр биеийн тамирын шинэ аппликейшн татаж авсан."
+ },
+ {
+  "en": "password",
+  "mn": "нууц үг",
+  "example_en": "Never share your password with strangers.",
+  "example_mn": "Нууц үгээ хэзээ ч танихгүй хүнд бүү өг."
+ },
+ {
+  "en": "username",
+  "mn": "хэрэглэгчийн нэр",
+  "example_en": "Please enter your username to log in.",
+  "example_mn": "Нэвтрэхийн тулд хэрэглэгчийн нэрээ оруулна уу."
+ },
+ {
+  "en": "subscribe",
+  "mn": "захиалах, бүртгүүлэх",
+  "example_en": "I subscribed to a cooking channel.",
+  "example_mn": "Би хоолны сувагт захиалга хийсэн."
+ },
+ {
+  "en": "stream",
+  "mn": "дамжуулах, урсгал",
+  "example_en": "We streamed the movie online.",
+  "example_mn": "Бид киног онлайнаар үзсэн."
+ },
+ {
+  "en": "social media",
+  "mn": "олон нийтийн сүлжээ",
+  "example_en": "Teenagers spend a lot of time on social media.",
+  "example_mn": "Өсвөр насныхан олон нийтийн сүлжээнд их цаг зарцуулдаг."
+ },
+ {
+  "en": "post",
+  "mn": "нийтлэх, нийтлэл",
+  "example_en": "She posted photos from her trip.",
+  "example_mn": "Тэр аяллынхаа зургуудыг нийтэлсэн."
+ },
+ {
+  "en": "comment",
+  "mn": "сэтгэгдэл, сэтгэгдэл бичих",
+  "example_en": "Many people commented on the video.",
+  "example_mn": "Олон хүн видеон дээр сэтгэгдэл бичсэн."
+ },
+ {
+  "en": "notification",
+  "mn": "мэдэгдэл",
+  "example_en": "I got a notification about the meeting.",
+  "example_mn": "Би уулзалтын тухай мэдэгдэл авсан."
+ },
+ {
+  "en": "ancient",
+  "mn": "эртний",
+  "example_en": "This is an ancient temple from the 12th century.",
+  "example_mn": "Энэ бол 12-р зуунаас үлдсэн эртний сүм."
+ },
+ {
+  "en": "modern",
+  "mn": "орчин үеийн",
+  "example_en": "She lives in a modern apartment.",
+  "example_mn": "Тэр орчин үеийн байранд амьдардаг."
+ },
+ {
+  "en": "increase",
+  "mn": "нэмэгдэх, өсгөх",
+  "example_en": "Prices have increased this month.",
+  "example_mn": "Энэ сард үнэ өссөн."
+ },
+ {
+  "en": "decrease",
+  "mn": "буурах, багасгах",
+  "example_en": "The number of students decreased this year.",
+  "example_mn": "Энэ жил сурагчдын тоо буурсан."
+ },
+ {
+  "en": "similar",
+  "mn": "төстэй",
+  "example_en": "These two paintings look similar.",
+  "example_mn": "Энэ хоёр зураг ижил төстэй харагдаж байна."
+ },
+ {
+  "en": "different",
+  "mn": "өөр, ялгаатай",
+  "example_en": "Their opinions are very different.",
+  "example_mn": "Тэдний үзэл бодол маш ялгаатай."
+ },
+ {
+  "en": "compare",
+  "mn": "харьцуулах",
+  "example_en": "Let's compare the two options.",
+  "example_mn": "Хоёр сонголтыг харьцуулж үзье."
+ },
+ {
+  "en": "contrast",
+  "mn": "эсрэгцүүлэх, ялгаа",
+  "example_en": "There is a sharp contrast between the two cities.",
+  "example_mn": "Хоёр хотын хооронд тод ялгаа байна."
+ },
+ {
+  "en": "advantage",
+  "mn": "давуу тал",
+  "example_en": "One advantage of online study is flexibility.",
+  "example_mn": "Онлайн сургалтын нэг давуу тал бол уян хатан байдал юм."
+ },
+ {
+  "en": "disadvantage",
+  "mn": "дутагдалтай тал",
+  "example_en": "A disadvantage of this plan is the high cost.",
+  "example_mn": "Энэ төлөвлөгөөний дутагдалтай тал бол өндөр зардал."
+ },
+ {
+  "en": "permit",
+  "mn": "зөвшөөрөх, зөвшөөрөл",
+  "example_en": "Smoking is not permitted inside the building.",
+  "example_mn": "Барилгын дотор тамхи татахыг зөвшөөрдөггүй."
+ },
+ {
+  "en": "prohibit",
+  "mn": "хориглох",
+  "example_en": "The rules prohibit loud music after 10 pm.",
+  "example_mn": "Дүрэм 10 цагийн дараа чанга хөгжим тоглуулахыг хориглодог."
+ },
+ {
+  "en": "acceptable",
+  "mn": "хүлээн зөвшөөрөгдөх",
+  "example_en": "Late arrival is not acceptable at work.",
+  "example_mn": "Ажилдаа хоцрох нь хүлээн зөвшөөрөгдөхгүй."
+ },
+ {
+  "en": "unacceptable",
+  "mn": "хүлээн зөвшөөрөгдөхгүй",
+  "example_en": "His rude behavior was unacceptable.",
+  "example_mn": "Түүний бүдүүлэг зан авир хүлээн зөвшөөрөгдөхгүй байсан."
+ },
+ {
+  "en": "common",
+  "mn": "нийтлэг, түгээмэл",
+  "example_en": "Colds are common in winter.",
+  "example_mn": "Ханиад томуу нь өвөл түгээмэл байдаг."
+ },
+ {
+  "en": "rare",
+  "mn": "ховор",
+  "example_en": "Snow in summer is rare here.",
+  "example_mn": "Энд зун цас орох нь ховор."
+ },
+ {
+  "en": "major",
+  "mn": "гол, чухал",
+  "example_en": "Traffic is a major problem in the city.",
+  "example_mn": "Замын хөдөлгөөн хот дахь гол асуудлын нэг."
+ },
+ {
+  "en": "necessary",
+  "mn": "шаардлагатай",
+  "example_en": "Water is necessary for survival.",
+  "example_mn": "Ус амьд явахад шаардлагатай."
+ },
+ {
+  "en": "unnecessary",
+  "mn": "шаардлагагүй",
+  "example_en": "Don't buy unnecessary things.",
+  "example_mn": "Шаардлагагүй зүйл бүү худалдаж ав."
+ },
+ {
+  "en": "possible",
+  "mn": "боломжтой",
+  "example_en": "It's possible to finish this by tomorrow.",
+  "example_mn": "Үүнийг маргааш гэхэд дуусгах боломжтой."
+ },
+ {
+  "en": "impossible",
+  "mn": "боломжгүй",
+  "example_en": "It's impossible to be in two places at once.",
+  "example_mn": "Нэг зэрэг хоёр газар байх боломжгүй."
+ },
+ {
+  "en": "similarity",
+  "mn": "адил төстэй байдал",
+  "example_en": "There are many similarities between the two languages.",
+  "example_mn": "Энэ хоёр хэлний хооронд олон ижил төстэй зүйл бий."
+ },
+ {
+  "en": "distinction",
+  "mn": "ялгаа",
+  "example_en": "There is a clear distinction between the two terms.",
+  "example_mn": "Энэ хоёр нэр томьёоны хооронд тодорхой ялгаа байна."
+ },
+ {
+  "en": "harmful",
+  "mn": "хортой",
+  "example_en": "Smoking is harmful to your health.",
+  "example_mn": "Тамхи татах нь эрүүл мэндэд хортой."
+ },
+ {
+  "en": "effective",
+  "mn": "үр дүнтэй",
+  "example_en": "This method is very effective for learning vocabulary.",
+  "example_mn": "Энэ арга үг цээжлэхэд маш үр дүнтэй."
+ },
+ {
+  "en": "ineffective",
+  "mn": "үр дүнгүй",
+  "example_en": "The old method was ineffective.",
+  "example_mn": "Хуучин арга нь үр дүнгүй байсан."
+ },
+ {
+  "en": "insufficient",
+  "mn": "хангалтгүй",
+  "example_en": "There was insufficient time to finish the test.",
+  "example_mn": "Шалгалтыг дуусгах хангалттай цаг байсангүй."
+ },
+ {
+  "en": "global warming",
+  "mn": "дэлхийн дулаарал",
+  "example_en": "Global warming affects sea levels.",
+  "example_mn": "Дэлхийн дулаарал далайн түвшинд нөлөөлдөг."
+ },
+ {
+  "en": "carbon footprint",
+  "mn": "нүүрстөрөгчийн ул мөр",
+  "example_en": "We should reduce our carbon footprint.",
+  "example_mn": "Бид нүүрстөрөгчийн ул мөрөө багасгах хэрэгтэй."
+ },
+ {
+  "en": "greenhouse gas",
+  "mn": "хүлэмжийн хий",
+  "example_en": "Cars release greenhouse gases.",
+  "example_mn": "Машинууд хүлэмжийн хий ялгаруулдаг."
+ },
+ {
+  "en": "natural resource",
+  "mn": "байгалийн баялаг",
+  "example_en": "Oil is a valuable natural resource.",
+  "example_mn": "Газрын тос бол үнэ цэнэтэй байгалийн баялаг."
+ },
+ {
+  "en": "solar energy",
+  "mn": "нарны эрчим хүч",
+  "example_en": "Solar energy is clean and renewable.",
+  "example_mn": "Нарны эрчим хүч цэвэр, сэргээгдэх боломжтой."
+ },
+ {
+  "en": "wind power",
+  "mn": "салхин эрчим хүч",
+  "example_en": "Wind power is becoming more popular.",
+  "example_mn": "Салхин эрчим хүч улам түгээмэл болж байна."
+ },
+ {
+  "en": "waste",
+  "mn": "хог хаягдал",
+  "example_en": "We produce too much waste every day.",
+  "example_mn": "Бид өдөр бүр хэтэрхий их хог хаягдал үүсгэдэг."
+ },
+ {
+  "en": "landfill",
+  "mn": "хог хаягдлын цэг",
+  "example_en": "Most of our trash ends up in a landfill.",
+  "example_mn": "Манай хогийн ихэнх хэсэг нь хогийн цэгт очдог."
+ },
+ {
+  "en": "biodegradable",
+  "mn": "байгальд задардаг",
+  "example_en": "Paper bags are biodegradable.",
+  "example_mn": "Цаасан уут байгальд задардаг."
+ },
+ {
+  "en": "contamination",
+  "mn": "бохирдол",
+  "example_en": "Water contamination is a serious health risk.",
+  "example_mn": "Усны бохирдол эрүүл мэндэд ноцтой эрсдэл юм."
+ },
+ {
+  "en": "heritage",
+  "mn": "өв уламжлал",
+  "example_en": "This building is part of our cultural heritage.",
+  "example_mn": "Энэ барилга бол манай соёлын өвийн нэг хэсэг."
+ },
+ {
+  "en": "custom",
+  "mn": "заншил, ёс заншил",
+  "example_en": "Every country has its own customs.",
+  "example_mn": "Улс орон бүр өөрийн ёс заншилтай."
+ },
+ {
+  "en": "festival",
+  "mn": "баяр, наадам",
+  "example_en": "People gather every year for the harvest festival.",
+  "example_mn": "Хүмүүс жил бүр ургацын баяраар цуглардаг."
+ },
+ {
+  "en": "landmark",
+  "mn": "хот суурин газрын дурсгалт зүйл",
+  "example_en": "The Eiffel Tower is a famous landmark.",
+  "example_mn": "Эйфелийн цамхаг бол алдартай дурсгалт зүйл."
+ },
+ {
+  "en": "souvenir",
+  "mn": "дурсгалын зүйл",
+  "example_en": "She bought a souvenir from her trip.",
+  "example_mn": "Тэр аяллынхаа дурсгалд зориулж зүйл худалдаж авсан."
+ },
+ {
+  "en": "sightseeing",
+  "mn": "үзвэр үзэх",
+  "example_en": "We spent the day sightseeing in the old town.",
+  "example_mn": "Бид хуучин хотод үзвэр үзэж өдрөө өнгөрөөсөн."
+ },
+ {
+  "en": "exotic",
+  "mn": "өвөрмөц, ер бусын",
+  "example_en": "She loves trying exotic foods.",
+  "example_mn": "Тэр ер бусын хоол амсах дуртай."
+ },
+ {
+  "en": "hospitality",
+  "mn": "зочломтгой байдал",
+  "example_en": "We were impressed by their hospitality.",
+  "example_mn": "Тэдний зочломтгой байдал биднийг гайхшируулсан."
+ },
+ {
+  "en": "cultural exchange",
+  "mn": "соёлын солилцоо",
+  "example_en": "The program promotes cultural exchange between countries.",
+  "example_mn": "Энэ хөтөлбөр улс хоорондын соёлын солилцоог дэмждэг."
+ },
+ {
+  "en": "historic",
+  "mn": "түүхэн",
+  "example_en": "We visited a historic castle.",
+  "example_mn": "Бид түүхэн цайзад зочилсон."
+ },
+ {
+  "en": "announce",
+  "mn": "зарлах, мэдэгдэх",
+  "example_en": "The teacher announced the exam schedule.",
+  "example_mn": "Багш шалгалтын хуваарийг зарласан."
+ },
+ {
+  "en": "broadcast",
+  "mn": "дамжуулах (нэвтрүүлэг)",
+  "example_en": "The news is broadcast every evening.",
+  "example_mn": "Мэдээ орой бүр дамжуулагддаг."
+ },
+ {
+  "en": "headline",
+  "mn": "гарчиг",
+  "example_en": "The headline caught everyone's attention.",
+  "example_mn": "Гарчиг бүх хүний анхаарлыг татсан."
+ },
+ {
+  "en": "article",
+  "mn": "өгүүлэл",
+  "example_en": "She wrote an article about climate change.",
+  "example_mn": "Тэр уур амьсгалын өөрчлөлтийн тухай өгүүлэл бичсэн."
+ },
+ {
+  "en": "publish",
+  "mn": "хэвлэх, нийтлэх",
+  "example_en": "The book was published last year.",
+  "example_mn": "Ном өнгөрсөн жил хэвлэгдсэн."
+ },
+ {
+  "en": "journalist",
+  "mn": "сэтгүүлч",
+  "example_en": "The journalist interviewed the mayor.",
+  "example_mn": "Сэтгүүлч захирагтай ярилцлага хийсэн."
+ },
+ {
+  "en": "column",
+  "mn": "булан, цуврал нийтлэл",
+  "example_en": "He writes a weekly column in the newspaper.",
+  "example_mn": "Тэр сонинд долоо хоног бүр цуврал нийтлэл бичдэг."
+ },
+ {
+  "en": "editor",
+  "mn": "редактор, хянан тохиолдуулагч",
+  "example_en": "She works as an editor for a magazine.",
+  "example_mn": "Тэр сэтгүүлийн редакторээр ажилладаг."
+ },
+ {
+  "en": "caption",
+  "mn": "гэрэл зургийн тайлбар",
+  "example_en": "The photo had a funny caption.",
+  "example_mn": "Гэрэл зурганд инээдтэй тайлбар байсан."
+ },
+ {
+  "en": "headline news",
+  "mn": "гол мэдээ",
+  "example_en": "This story became the headline news today.",
+  "example_mn": "Энэ түүх өнөөдрийн гол мэдээ болсон."
+ },
+ {
+  "en": "creativity",
+  "mn": "бүтээлч чадвар",
+  "example_en": "Art classes help develop creativity.",
+  "example_mn": "Урлагийн хичээл бүтээлч чадварыг хөгжүүлэхэд тусалдаг."
+ },
+ {
+  "en": "imagination",
+  "mn": "төсөөлөл",
+  "example_en": "Children have vivid imaginations.",
+  "example_mn": "Хүүхдүүд тод төсөөлөлтэй байдаг."
+ },
+ {
+  "en": "patience",
+  "mn": "тэвчээр",
+  "example_en": "Learning a language requires patience.",
+  "example_mn": "Хэл сурах нь тэвчээр шаарддаг."
+ },
+ {
+  "en": "perseverance",
+  "mn": "тууштай байдал, тэсвэр тэвчээр",
+  "example_en": "Success requires hard work and perseverance.",
+  "example_mn": "Амжилт хатуу хөдөлмөр, тууштай байдлыг шаарддаг."
+ },
+ {
+  "en": "initiative",
+  "mn": "санаачлага",
+  "example_en": "She took the initiative to start the project.",
+  "example_mn": "Тэр төслийг эхлүүлэх санаачлага гаргасан."
+ },
+ {
+  "en": "leadership",
+  "mn": "манлайлал",
+  "example_en": "Good leadership is important in every team.",
+  "example_mn": "Сайн манлайлал баг бүрд чухал."
+ },
+ {
+  "en": "cooperation",
+  "mn": "хамтын ажиллагаа",
+  "example_en": "The project succeeded through cooperation.",
+  "example_mn": "Төсөл хамтын ажиллагааны ачаар амжилттай болсон."
+ },
+ {
+  "en": "independence",
+  "mn": "бие даасан байдал, тусгаар тогтнол",
+  "example_en": "Teenagers often seek more independence.",
+  "example_mn": "Өсвөр насныхан ихэвчлэн илүү бие даасан байхыг хүсдэг."
+ },
+ {
+  "en": "discipline",
+  "mn": "сахилга бат",
+  "example_en": "Discipline is important for reaching your goals.",
+  "example_mn": "Зорилгодоо хүрэхэд сахилга бат чухал."
+ },
+ {
+  "en": "self-confidence",
+  "mn": "өөртөө итгэх итгэл",
+  "example_en": "Public speaking can improve self-confidence.",
+  "example_mn": "Олон нийтийн өмнө ярих нь өөртөө итгэх итгэлийг нэмэгдүүлж чадна."
+ },
+ {
+  "en": "crime",
+  "mn": "гэмт хэрэг",
+  "example_en": "Crime rates have dropped in this area.",
+  "example_mn": "Энэ бүс нутагт гэмт хэргийн түвшин буурсан."
+ },
+ {
+  "en": "theft",
+  "mn": "хулгай",
+  "example_en": "The theft happened in broad daylight.",
+  "example_mn": "Хулгай өдрийн цагаар болсон."
+ },
+ {
+  "en": "burglar",
+  "mn": "хулгайч",
+  "example_en": "The burglar broke into the house at night.",
+  "example_mn": "Хулгайч шөнөөр байшинд халдан орсон."
+ },
+ {
+  "en": "victim",
+  "mn": "хохирогч",
+  "example_en": "The victim called the police immediately.",
+  "example_mn": "Хохирогч цагдаад шууд залгасан."
+ },
+ {
+  "en": "witness",
+  "mn": "гэрч",
+  "example_en": "A witness described the accident to police.",
+  "example_mn": "Гэрч ослыг цагдаад дэлгэрэнгүй ярьж өгсөн."
+ },
+ {
+  "en": "suspect",
+  "mn": "сэжигтэн",
+  "example_en": "Police arrested the main suspect.",
+  "example_mn": "Цагдаа гол сэжигтнийг баривчилсан."
+ },
+ {
+  "en": "investigate",
+  "mn": "мөрдөн байцаах, судлах",
+  "example_en": "Police are investigating the fire.",
+  "example_mn": "Цагдаа галын хэргийг мөрдөн байцааж байна."
+ },
+ {
+  "en": "security",
+  "mn": "аюулгүй байдал",
+  "example_en": "Airport security has become stricter.",
+  "example_mn": "Онгоцны буудлын аюулгүй байдал улам чангарсан."
+ },
+ {
+  "en": "emergency",
+  "mn": "яаралтай тусламж, онц байдал",
+  "example_en": "Call 911 in case of an emergency.",
+  "example_mn": "Яаралтай тохиолдолд 911 руу залгаарай."
+ },
+ {
+  "en": "government",
+  "mn": "засгийн газар",
+  "example_en": "The government announced new tax policies.",
+  "example_mn": "Засгийн газар татварын шинэ бодлого зарласан."
+ },
+ {
+  "en": "election",
+  "mn": "сонгууль",
+  "example_en": "The election will take place next month.",
+  "example_mn": "Сонгууль ирэх сард болно."
+ },
+ {
+  "en": "citizen",
+  "mn": "иргэн",
+  "example_en": "Every citizen has the right to vote.",
+  "example_mn": "Иргэн бүр санал өгөх эрхтэй."
+ },
+ {
+  "en": "policy",
+  "mn": "бодлого",
+  "example_en": "The new policy affects small businesses.",
+  "example_mn": "Шинэ бодлого жижиг бизнесүүдэд нөлөөлж байна."
+ },
+ {
+  "en": "democracy",
+  "mn": "ардчилал",
+  "example_en": "Democracy allows people to choose their leaders.",
+  "example_mn": "Ардчилал хүмүүст удирдагчаа сонгох боломжийг олгодог."
+ },
+ {
+  "en": "regulation",
+  "mn": "журам, зохицуулалт",
+  "example_en": "New regulations require stricter safety checks.",
+  "example_mn": "Шинэ журам илүү хатуу аюулгүй байдлын шалгалтыг шаарддаг."
+ },
+ {
+  "en": "legislation",
+  "mn": "хууль тогтоомж",
+  "example_en": "New legislation was passed to protect workers.",
+  "example_mn": "Ажилчдыг хамгаалах шинэ хууль батлагдсан."
+ },
+ {
+  "en": "authority",
+  "mn": "эрх мэдэл, эрх бүхий байгууллага",
+  "example_en": "Local authorities closed the road for repairs.",
+  "example_mn": "Орон нутгийн эрх бүхий байгууллага замыг засварт хааж дуулгасан."
+ },
+ {
+  "en": "national",
+  "mn": "үндэсний",
+  "example_en": "Independence Day is a national holiday.",
+  "example_mn": "Тусгаар тогтнолын өдөр бол үндэсний баяр юм."
+ },
+ {
+  "en": "international",
+  "mn": "олон улсын",
+  "example_en": "She works for an international organization.",
+  "example_mn": "Тэр олон улсын байгууллагад ажилладаг."
+ },
+ {
+  "en": "look forward to",
+  "mn": "тэсэн ядан хүлээх",
+  "example_en": "I look forward to seeing you soon.",
+  "example_mn": "Би удахгүй тантай уулзахыг тэсэн ядан хүлээж байна."
+ },
+ {
+  "en": "give up",
+  "mn": "орхих, гарц алдах",
+  "example_en": "Never give up on your dreams.",
+  "example_mn": "Мөрөөдлөө хэзээ ч бүү орхи."
+ },
+ {
+  "en": "find out",
+  "mn": "олж мэдэх",
+  "example_en": "I found out the truth yesterday.",
+  "example_mn": "Би өчигдөр үнэнийг олж мэдсэн."
+ },
+ {
+  "en": "carry on",
+  "mn": "үргэлжлүүлэх",
+  "example_en": "Please carry on with your work.",
+  "example_mn": "Ажлаа үргэлжлүүлээрэй."
+ },
+ {
+  "en": "put off",
+  "mn": "хойшлуулах",
+  "example_en": "We put off the meeting until next week.",
+  "example_mn": "Бид уулзалтыг ирэх долоо хоног хүртэл хойшлуулсан."
+ },
+ {
+  "en": "turn down",
+  "mn": "татгалзах, буулгах (дуу)",
+  "example_en": "She turned down the job offer.",
+  "example_mn": "Тэр ажлын саналыг татгалзсан."
+ },
+ {
+  "en": "run out of",
+  "mn": "дуусах, барагдах",
+  "example_en": "We ran out of milk this morning.",
+  "example_mn": "Бидний сүү өнөө өглөө дууссан."
+ },
+ {
+  "en": "come up with",
+  "mn": "гаргаж ирэх (санаа)",
+  "example_en": "He came up with a great idea.",
+  "example_mn": "Тэр гайхалтай санаа гаргаж ирсэн."
+ },
+ {
+  "en": "take part in",
+  "mn": "оролцох",
+  "example_en": "Everyone took part in the competition.",
+  "example_mn": "Бүгд уралдаанд оролцсон."
+ },
+ {
+  "en": "figure out",
+  "mn": "олж мэдэх, ойлгох",
+  "example_en": "I couldn't figure out the answer.",
+  "example_mn": "Би хариултыг олж мэдэж чадаагүй."
+ },
+ {
+  "en": "multiple choice",
+  "mn": "олон сонголттой",
+  "example_en": "The test has multiple choice questions.",
+  "example_mn": "Шалгалт нь олон сонголттой асуултуудтай."
+ },
+ {
+  "en": "essay",
+  "mn": "эссэ, өгүүллэг",
+  "example_en": "Students wrote an essay on climate change.",
+  "example_mn": "Сурагчид уур амьсгалын өөрчлөлтийн тухай эссэ бичсэн."
+ },
+ {
+  "en": "grade",
+  "mn": "дүн, анги",
+  "example_en": "She got a good grade on her test.",
+  "example_mn": "Тэр шалгалтдаа сайн дүн авсан."
+ },
+ {
+  "en": "proficiency",
+  "mn": "чадвар, мэргэшил",
+  "example_en": "This test measures English proficiency.",
+  "example_mn": "Энэ шалгалт нь англи хэлний чадварыг хэмждэг."
+ },
+ {
+  "en": "comprehension",
+  "mn": "ойлголт, ойлгох чадвар",
+  "example_en": "Reading comprehension is tested in this section.",
+  "example_mn": "Энэ хэсэгт унших ойлголтыг шалгадаг."
+ },
+ {
+  "en": "vocabulary",
+  "mn": "үгийн сан",
+  "example_en": "A good vocabulary helps you communicate well.",
+  "example_mn": "Сайн үгийн сан нь сайн харилцаанд тусалдаг."
+ },
+ {
+  "en": "fluent",
+  "mn": "чөлөөтэй ярьдаг, чадварлаг",
+  "example_en": "She is fluent in three languages.",
+  "example_mn": "Тэр гурван хэлээр чөлөөтэй ярьдаг."
+ },
+ {
+  "en": "bilingual",
+  "mn": "хос хэлтэн",
+  "example_en": "He was raised bilingual, speaking English and Mongolian.",
+  "example_mn": "Тэр англи, монгол хэлээр ярьдаг хос хэлтэн хүмүүжсэн."
+ },
+ {
+  "en": "assessment",
+  "mn": "үнэлгээ",
+  "example_en": "The final assessment includes both writing and speaking.",
+  "example_mn": "Эцсийн үнэлгээ бичих болон ярианы хэсгийг агуулдаг."
+ },
+ {
+  "en": "behavior",
+  "mn": "зан авир, харьцаа",
+  "example_en": "His behavior surprised everyone.",
+  "example_mn": "Түүний зан авир бүгдийг гайхшируулсан."
+ },
+ {
+  "en": "attitude",
+  "mn": "хандлага",
+  "example_en": "She has a positive attitude toward life.",
+  "example_mn": "Тэр амьдралд эерэг хандлагатай."
+ },
+ {
+  "en": "mood",
+  "mn": "сэтгэлийн байдал",
+  "example_en": "He was in a bad mood this morning.",
+  "example_mn": "Тэр өнөө өглөө муу сэтгэлийн байдалтай байлаа."
+ },
+ {
+  "en": "emotion",
+  "mn": "мэдрэмж, сэтгэл хөдлөл",
+  "example_en": "It's normal to show your emotions.",
+  "example_mn": "Мэдрэмжээ илэрхийлэх нь хэвийн."
+ },
+ {
+  "en": "react",
+  "mn": "хариу үзүүлэх, урвал үзүүлэх",
+  "example_en": "She reacted calmly to the bad news.",
+  "example_mn": "Тэр муу мэдээнд тайван хариу үзүүлсэн."
+ },
+ {
+  "en": "behave",
+  "mn": "биеэ авч явах, зан авир гаргах",
+  "example_en": "Children should behave well in public.",
+  "example_mn": "Хүүхдүүд олон нийтийн газар биеэ зохих ёсоор авч явах ёстой."
+ },
+ {
+  "en": "temper",
+  "mn": "уур хилэн, зан ааш",
+  "example_en": "He has a quick temper.",
+  "example_mn": "Тэр хурдан уурладаг зантай."
+ },
+ {
+  "en": "calm",
+  "mn": "тайван",
+  "example_en": "Stay calm during the emergency.",
+  "example_mn": "Онц байдлын үед тайван байгаарай."
+ },
+ {
+  "en": "upset",
+  "mn": "гомдсон, санаа зовсон",
+  "example_en": "She was upset about losing the match.",
+  "example_mn": "Тэр тоглолтоо хожигдоход гомдсон."
+ },
+ {
+  "en": "shy",
+  "mn": "ичимхий",
+  "example_en": "He is shy around strangers.",
+  "example_mn": "Тэр танихгүй хүмүүсийн өмнө ичимхий байдаг"
+ },
+ {
+  "en": "trade",
+  "mn": "худалдаа",
+  "example_en": "International trade increased last year.",
+  "example_mn": "Олон улсын худалдаа өнгөрсөн жил өссөн."
+ },
+ {
+  "en": "import",
+  "mn": "импортлох, импорт",
+  "example_en": "The country imports most of its oil.",
+  "example_mn": "Тус улс газрын тосныхоо ихэнхийг импортолдог."
+ },
+ {
+  "en": "export",
+  "mn": "экспортлох, экспорт",
+  "example_en": "They export wool to other countries.",
+  "example_mn": "Тэд ноосыг бусад улс руу экспортолдог."
+ },
+ {
+  "en": "inflation",
+  "mn": "инфляц",
+  "example_en": "Inflation has made prices rise sharply.",
+  "example_mn": "Инфляц үнийг эрс өсгөсөн."
+ },
+ {
+  "en": "economy",
+  "mn": "эдийн засаг",
+  "example_en": "The country's economy is growing quickly.",
+  "example_mn": "Тус улсын эдийн засаг хурдан өсч байна."
+ },
+ {
+  "en": "industry",
+  "mn": "салбар, аж үйлдвэр",
+  "example_en": "The tourism industry supports many jobs.",
+  "example_mn": "Аялал жуулчлалын салбар олон ажлын байрыг дэмждэг."
+ },
+ {
+  "en": "profit",
+  "mn": "ашиг",
+  "example_en": "The company made a large profit this year.",
+  "example_mn": "Компани энэ жил их ашиг олсон."
+ },
+ {
+  "en": "loss",
+  "mn": "алдагдал, гарз",
+  "example_en": "The business suffered a big financial loss.",
+  "example_mn": "Бизнес санхүүгийн ноцтой алдагдал хүлээсэн."
+ },
+ {
+  "en": "competitive",
+  "mn": "өрсөлдөх чадвартай, өрсөлдөөнт",
+  "example_en": "The job market is very competitive.",
+  "example_mn": "Ажлын зах зээл маш өрсөлдөөнтэй."
+ },
+ {
+  "en": "consumer goods",
+  "mn": "хэрэглээний бараа",
+  "example_en": "The factory produces various consumer goods.",
+  "example_mn": "Үйлдвэр төрөл бүрийн хэрэглээний бараа үйлдвэрлэдэг."
+ },
+ {
+  "en": "influence",
+  "mn": "нөлөө, нөлөөлөх",
+  "example_en": "Friends can influence your decisions.",
+  "example_mn": "Найз нөхөд танай шийдвэрт нөлөөлж болно."
+ },
+ {
+  "en": "impress",
+  "mn": "сэтгэгдэл төрүүлэх",
+  "example_en": "Her performance impressed the judges.",
+  "example_mn": "Түүний тоглолт шүүгчдэд сэтгэгдэл төрүүлсэн."
+ },
+ {
+  "en": "encourage",
+  "mn": "урамшуулах, дэмжих",
+  "example_en": "Teachers should encourage students to ask questions.",
+  "example_mn": "Багш нар сурагчдыг асуулт асуухыг урамшуулах ёстой."
+ },
+ {
+  "en": "discourage",
+  "mn": "урамгүй болгох",
+  "example_en": "Failure shouldn't discourage you from trying again.",
+  "example_mn": "Бүтэлгүйтэл нь дахин оролдохоос танайг татгалзуулах ёсгүй."
+ },
+ {
+  "en": "admit",
+  "mn": "хүлээн зөвшөөрөх",
+  "example_en": "He admitted he made a mistake.",
+  "example_mn": "Тэр алдаа гаргасанаа хүлээн зөвшөөрсөн."
+ },
+ {
+  "en": "deny",
+  "mn": "үгүйсгэх",
+  "example_en": "She denied taking the money.",
+  "example_mn": "Тэр мөнгийг авсан гэдгээ үгүйсгэсэн."
+ },
+ {
+  "en": "insist",
+  "mn": "шаардах, тууштай зогсох",
+  "example_en": "He insisted on paying the bill.",
+  "example_mn": "Тэр төлбөрөө өгнө гэж тууштай шаардсан."
+ },
+ {
+  "en": "hesitate",
+  "mn": "эргэлзэх, тээнэгэлзэх",
+  "example_en": "Don't hesitate to ask for help.",
+  "example_mn": "Тусламж хүсэхээс бүү эргэлз."
+ },
+ {
+  "en": "donate",
+  "mn": "хандив өгөх",
+  "example_en": "They donated clothes to the poor.",
+  "example_mn": "Тэд ядуу хүмүүст хувцас хандивласан."
+ },
+ {
+  "en": "experiment",
+  "mn": "туршилт",
+  "example_en": "Scientists conducted an experiment to test the theory.",
+  "example_mn": "Эрдэмтэд онолыг шалгахын тулд туршилт хийсэн."
+ },
+ {
+  "en": "hypothesis",
+  "mn": "таамаглал",
+  "example_en": "Her hypothesis was proven correct.",
+  "example_mn": "Түүний таамаглал зөв болох нь батлагдсан."
+ },
+ {
+  "en": "laboratory",
+  "mn": "лаборатори",
+  "example_en": "Students work in the laboratory twice a week.",
+  "example_mn": "Сурагчид долоо хоногт хоёр удаа лабораторид ажилладаг."
+ },
+ {
+  "en": "discovery",
+  "mn": "нээлт",
+  "example_en": "The discovery of penicillin changed medicine.",
+  "example_mn": "Пенициллиний нээлт анагаах ухааныг өөрчилсөн."
+ },
+ {
+  "en": "invention",
+  "mn": "шинэ бүтээл, зохион бүтээлт",
+  "example_en": "The telephone was an important invention.",
+  "example_mn": "Утас бол чухал шинэ бүтээл байсан."
+ },
+ {
+  "en": "research",
+  "mn": "судалгаа",
+  "example_en": "She is doing research on ancient history.",
+  "example_mn": "Тэр эртний түүхийн чиглэлээр судалгаа хийж байна."
+ },
+ {
+  "en": "microscope",
+  "mn": "микроскоп",
+  "example_en": "We looked at cells under a microscope.",
+  "example_mn": "Бид эсийг микроскопоор харсан."
+ },
+ {
+  "en": "genetics",
+  "mn": "генетик",
+  "example_en": "Genetics explains why children resemble their parents.",
+  "example_mn": "Генетик нь хүүхдүүд эцэг эхтэйгээ яагаад төстэй байдгийг тайлбарладаг."
+ },
+ {
+  "en": "astronomy",
+  "mn": "одон орон судлал",
+  "example_en": "He studies astronomy at university.",
+  "example_mn": "Тэр их сургуульд одон орон судлал үзэж байна."
+ },
+ {
+  "en": "gravity",
+  "mn": "таталцал",
+  "example_en": "Gravity keeps us on the ground.",
+  "example_mn": "Таталцал биднийг газар дээр байлгадаг."
+ },
+ {
+  "en": "melody",
+  "mn": "аялгуу",
+  "example_en": "The song has a beautiful melody.",
+  "example_mn": "Дуу нь үзэсгэлэнтэй аялгуутай."
+ },
+ {
+  "en": "rhythm",
+  "mn": "хэмнэл",
+  "example_en": "Dancers move to the rhythm of the music.",
+  "example_mn": "Бүжигчид хөгжмийн хэмнэлд хөдөлдөг."
+ },
+ {
+  "en": "instrument",
+  "mn": "хөгжмийн зэмсэг",
+  "example_en": "She plays several musical instruments.",
+  "example_mn": "Тэр хэд хэдэн хөгжмийн зэмсэг тоглодог."
+ },
+ {
+  "en": "sculpture",
+  "mn": "баримал",
+  "example_en": "The museum displays ancient sculptures.",
+  "example_mn": "Музей эртний барималуудыг үзүүлж байна."
+ },
+ {
+  "en": "exhibition",
+  "mn": "үзэсгэлэн",
+  "example_en": "We visited an art exhibition last week.",
+  "example_mn": "Бид өнгөрсөн долоо хоногт урлагийн үзэсгэлэнд зочилсон."
+ },
+ {
+  "en": "masterpiece",
+  "mn": "гайхамшигт бүтээл",
+  "example_en": "This painting is considered a masterpiece.",
+  "example_mn": "Энэ зургийг гайхамшигт бүтээл гэж үздэг."
+ },
+ {
+  "en": "perform",
+  "mn": "тоглох, гүйцэтгэх",
+  "example_en": "The band will perform tonight.",
+  "example_mn": "Хамтлаг өнөө орой тоглолт хийнэ."
+ },
+ {
+  "en": "audience",
+  "mn": "үзэгч, сонсогч",
+  "example_en": "The audience applauded loudly.",
+  "example_mn": "Үзэгчид чанга алга ташилт өгсөн."
+ },
+ {
+  "en": "talent",
+  "mn": "авьяас",
+  "example_en": "She has a natural talent for painting.",
+  "example_mn": "Тэр зураг зурах байгалиас заяасан авьяастай."
+ },
+ {
+  "en": "inspire",
+  "mn": "урам зориг өгөх, сэдэлт болох",
+  "example_en": "Her story inspired many young artists.",
+  "example_mn": "Түүний түүх олон залуу зураачдад урам зориг өгсөн."
+ },
+ {
+  "en": "engagement",
+  "mn": "сүй тавих ёслол",
+  "example_en": "They announced their engagement last month.",
+  "example_mn": "Тэд өнгөрсөн сард сүй тавьсанаа зарласан."
+ },
+ {
+  "en": "wedding",
+  "mn": "хурим",
+  "example_en": "Her wedding was held in the countryside.",
+  "example_mn": "Түүний хурим хөдөө орон нутагт болсон."
+ },
+ {
+  "en": "divorce",
+  "mn": "салах, гэрлэлт цуцлалт",
+  "example_en": "Her parents got divorced when she was young.",
+  "example_mn": "Тэр залуу байхад нь эцэг эх нь салсан."
+ },
+ {
+  "en": "infancy",
+  "mn": "нярай нас",
+  "example_en": "Every child grows quickly during infancy.",
+  "example_mn": "Хүүхэд бүр нярай насандаа хурдан өсдөг."
+ },
+ {
+  "en": "adolescence",
+  "mn": "өсвөр нас",
+  "example_en": "Adolescence is often a challenging period.",
+  "example_mn": "Өсвөр нас ихэвчлэн бэрхшээлтэй үе байдаг."
+ },
+ {
+  "en": "retirement",
+  "mn": "тэтгэвэрт гарах",
+  "example_en": "He is looking forward to his retirement.",
+  "example_mn": "Тэр тэтгэвэрт гарахыг тэсэн ядан хүлээж байна."
+ },
+ {
+  "en": "inherit",
+  "mn": "өвлөх",
+  "example_en": "She inherited the house from her grandmother.",
+  "example_mn": "Тэр байшинг эмээгээсээ өвлөж авсан."
+ },
+ {
+  "en": "orphan",
+  "mn": "өнчин хүүхэд",
+  "example_en": "The charity supports orphans in the region.",
+  "example_mn": "Буяны байгууллага тухайн бүсийн өнчин хүүхдүүдийг дэмждэг."
+ },
+ {
+  "en": "stepfather",
+  "mn": "хойд аав",
+  "example_en": "Her stepfather raised her since she was five.",
+  "example_mn": "Түүний хойд аав түүнийг таван настайгаас нь өсгөсөн."
+ },
+ {
+  "en": "guardian",
+  "mn": "асран хамгаалагч",
+  "example_en": "His grandmother became his legal guardian.",
+  "example_mn": "Түүний эмээ түүний хууль ёсны асран хамгаалагч болсон."
+ },
+ {
+  "en": "pedestrian",
+  "mn": "явган зорчигч",
+  "example_en": "Drivers must stop for pedestrians.",
+  "example_mn": "Жолооч нар явган зорчигчдын төлөө зогсох ёстой."
+ },
+ {
+  "en": "intersection",
+  "mn": "замын уулзвар",
+  "example_en": "The accident happened at the intersection.",
+  "example_mn": "Осол замын уулзвар дээр болсон."
+ },
+ {
+  "en": "speed limit",
+  "mn": "хурдны хязгаар",
+  "example_en": "Please obey the speed limit.",
+  "example_mn": "Хурдны хязгаарыг дагаж мөрдөнө үү."
+ },
+ {
+  "en": "vehicle",
+  "mn": "тээврийн хэрэгсэл",
+  "example_en": "The road was full of vehicles.",
+  "example_mn": "Зам тээврийн хэрэгслээр дүүрэн байсан."
+ },
+ {
+  "en": "license",
+  "mn": "үнэмлэх",
+  "example_en": "She just got her driving license.",
+  "example_mn": "Тэр саяхан жолооны үнэмлэхээ авсан."
+ },
+ {
+  "en": "collision",
+  "mn": "мөргөлдөөн",
+  "example_en": "Two cars were involved in the collision.",
+  "example_mn": "Хоёр машин мөргөлдөөнд оролцсон."
+ },
+ {
+  "en": "seatbelt",
+  "mn": "аюулгүйн бүс",
+  "example_en": "Always wear your seatbelt in the car.",
+  "example_mn": "Машинд байнга аюулгүйн бүсээ зүүгээрэй."
+ },
+ {
+  "en": "traffic jam",
+  "mn": "замын түгжрэл",
+  "example_en": "We were stuck in a traffic jam for an hour.",
+  "example_mn": "Бид нэг цагийн турш замын түгжрэлд орсон байсан."
+ },
+ {
+  "en": "highway",
+  "mn": "хурдны зам",
+  "example_en": "The highway connects the two cities.",
+  "example_mn": "Хурдны зам хоёр хотыг холбодог."
+ },
+ {
+  "en": "roundabout",
+  "mn": "тойрог зам",
+  "example_en": "Turn right at the roundabout.",
+  "example_mn": "Тойрог зам дээр баруун тийш эргэ."
+ },
+ {
+  "en": "species",
+  "mn": "төрөл зүйл",
+  "example_en": "This species is only found in Africa.",
+  "example_mn": "Энэ төрөл зүйл зөвхөн Африкт байдаг."
+ },
+ {
+  "en": "predator",
+  "mn": "махчин амьтан",
+  "example_en": "Lions are known as powerful predators.",
+  "example_mn": "Арслан хүчирхэг махчин амьтан гэдгээрээ алдартай."
+ },
+ {
+  "en": "prey",
+  "mn": "олз, идэш тэжээл",
+  "example_en": "Rabbits are prey for many predators.",
+  "example_mn": "Туулай олон махчин амьтдын идэш тэжээл болдог."
+ },
+ {
+  "en": "migrate",
+  "mn": "нүүдэллэх",
+  "example_en": "Birds migrate south for the winter.",
+  "example_mn": "Шувууд өвлийн улиралд өмнө зүг рүү нүүдэллэдэг."
+ },
+ {
+  "en": "hibernate",
+  "mn": "өвөлждөх, унтуулах (амьтан)",
+  "example_en": "Bears hibernate during the winter months.",
+  "example_mn": "Баавгай өвлийн саруудад унтуулна."
+ },
+ {
+  "en": "extinct",
+  "mn": "устсан",
+  "example_en": "Dinosaurs became extinct millions of years ago.",
+  "example_mn": "Үлэг гүрвэлүүд сая сая жилийн өмнө устсан."
+ },
+ {
+  "en": "wilderness",
+  "mn": "зэрлэг байгаль",
+  "example_en": "They spent a week hiking in the wilderness.",
+  "example_mn": "Тэд нэг долоо хоног зэрлэг байгальд явган аялсан."
+ },
+ {
+  "en": "vegetation",
+  "mn": "ургамалжилт",
+  "example_en": "The vegetation here is very dense.",
+  "example_mn": "Энд ургамалжилт маш нягт байдаг."
+ },
+ {
+  "en": "terrain",
+  "mn": "газрын байдал, гадаргуу",
+  "example_en": "The terrain was too rocky for hiking.",
+  "example_mn": "Газрын байдал явган аялалд хэтэрхий чулуурхаг байсан."
+ },
+ {
+  "en": "livestock",
+  "mn": "мал сүрэг",
+  "example_en": "Farmers raise livestock for milk and meat.",
+  "example_mn": "Тариаланчид сүү, мах авахын тулд мал маллаг байдаг."
+ },
+ {
+  "en": "apartment",
+  "mn": "орон сууц, байр",
+  "example_en": "They rented a small apartment downtown.",
+  "example_mn": "Тэд хотын төвд жижиг байр түрээслэсэн."
+ },
+ {
+  "en": "landlord",
+  "mn": "байрны эзэн",
+  "example_en": "The landlord fixed the broken window.",
+  "example_mn": "Байрны эзэн хагарсан цонхыг засварласан."
+ },
+ {
+  "en": "tenant",
+  "mn": "түрээслэгч",
+  "example_en": "The tenant paid rent every month.",
+  "example_mn": "Түрээслэгч сар бүр түрээсээ төлдөг байсан."
+ },
+ {
+  "en": "furniture",
+  "mn": "тавилга",
+  "example_en": "We bought new furniture for the living room.",
+  "example_mn": "Бид зочны өрөөндөө шинэ тавилга худалдаж авсан."
+ },
+ {
+  "en": "renovate",
+  "mn": "засварлах, шинэчлэх",
+  "example_en": "They renovated the old kitchen last year.",
+  "example_mn": "Тэд өнгөрсөн жил хуучин гал тогооны өрөөгөө засварласан."
+ },
+ {
+  "en": "basement",
+  "mn": "газар доорх өрөө",
+  "example_en": "We store old boxes in the basement.",
+  "example_mn": "Бид хуучин хайрцгуудаа газар доорх өрөөнд хадгалдаг."
+ },
+ {
+  "en": "balcony",
+  "mn": "тагт",
+  "example_en": "She grows flowers on her balcony.",
+  "example_mn": "Тэр тагт дээрээ цэцэг тарьдаг."
+ },
+ {
+  "en": "mortgage",
+  "mn": "орон сууцны зээл",
+  "example_en": "They took out a mortgage to buy their house.",
+  "example_mn": "Тэд байшин авахын тулд орон сууцны зээл авсан."
+ },
+ {
+  "en": "real estate",
+  "mn": "үл хөдлөх хөрөнгө",
+  "example_en": "He works in the real estate business.",
+  "example_mn": "Тэр үл хөдлөх хөрөнгийн бизнест ажилладаг."
+ },
+ {
+  "en": "property",
+  "mn": "өмч хөрөнгө",
+  "example_en": "This property belongs to the city.",
+  "example_mn": "Энэ өмч хотынх юм."
+ },
+ {
+  "en": "currency",
+  "mn": "мөнгөн тэмдэгт, валют",
+  "example_en": "The local currency is the tugrik.",
+  "example_mn": "Орон нутгийн валют бол төгрөг юм."
+ },
+ {
+  "en": "exchange rate",
+  "mn": "ханш",
+  "example_en": "The exchange rate changes every day.",
+  "example_mn": "Ханш өдөр бүр өөрчлөгддөг."
+ },
+ {
+  "en": "receipt",
+  "mn": "баримт, чек",
+  "example_en": "Keep your receipt in case you need a refund.",
+  "example_mn": "Мөнгөө буцаах шаардлагатай тохиолдолд баримтаа хадгалж байгаарай."
+ },
+ {
+  "en": "warranty",
+  "mn": "баталгаат хугацаа",
+  "example_en": "This laptop comes with a two-year warranty.",
+  "example_mn": "Энэ зөөврийн компьютерт хоёр жилийн баталгаат хугацаа орсон байдаг."
+ },
+ {
+  "en": "installment",
+  "mn": "хэсэгчилсэн төлбөр",
+  "example_en": "She is paying for the phone in installments.",
+  "example_mn": "Тэр утасныхаа төлбөрийг хэсэгчлэн төлж байна."
+ },
+ {
+  "en": "investment",
+  "mn": "хөрөнгө оруулалт",
+  "example_en": "Education is a valuable investment.",
+  "example_mn": "Боловсрол бол үнэ цэнэтэй хөрөнгө оруулалт."
+ },
+ {
+  "en": "savings account",
+  "mn": "хадгаламжийн данс",
+  "example_en": "He opened a savings account at the bank.",
+  "example_mn": "Тэр банкинд хадгаламжийн данс нээсэн."
+ },
+ {
+  "en": "commission",
+  "mn": "шимтгэл, комисс",
+  "example_en": "The salesman earns a commission on every sale.",
+  "example_mn": "Худалдагч борлуулалт бүрээс комисс авдаг."
+ },
+ {
+  "en": "bankrupt",
+  "mn": "дампуурсан",
+  "example_en": "The company went bankrupt last year.",
+  "example_mn": "Компани өнгөрсөн жил дампуурсан."
+ },
+ {
+  "en": "charity donation",
+  "mn": "буяны хандив",
+  "example_en": "She made a large charity donation.",
+  "example_mn": "Тэр буяны их хандив өргөсөн."
+ },
+ {
+  "en": "enormous",
+  "mn": "аварга том, асар том",
+  "example_en": "The house has an enormous garden.",
+  "example_mn": "Байшин асар том цэцэрлэгтэй."
+ },
+ {
+  "en": "tiny",
+  "mn": "маш жижиг",
+  "example_en": "The kitten was tiny and fragile.",
+  "example_mn": "Мий хулгана маш жижиг, эмзэг байсан."
+ },
+ {
+  "en": "brilliant",
+  "mn": "гайхалтай ухаантай, гэрэлт",
+  "example_en": "She came up with a brilliant idea.",
+  "example_mn": "Тэр гайхалтай санаа гаргаж ирсэн."
+ },
+ {
+  "en": "dull",
+  "mn": "уйтгартай, сонирхолгүй",
+  "example_en": "The movie was long and dull.",
+  "example_mn": "Кино урт бөгөөд уйтгартай байсан."
+ },
+ {
+  "en": "poor",
+  "mn": "ядуу",
+  "example_en": "Many poor families struggle to pay rent.",
+  "example_mn": "Олон ядуу гэр бүл түрээсээ төлөхөд бэрхшээлтэй тулгардаг."
+ },
+ {
+  "en": "polite",
+  "mn": "эелдэг",
+  "example_en": "She is always polite to strangers.",
+  "example_mn": "Тэр танихгүй хүмүүстэй харилцахдаа үргэлж эелдэг."
+ }
+ ],
  "IELTS": [],
  "C1_C2": []
 }
