@@ -1,8 +1,1628 @@
 {
-  "A1_A2": [],
-  "B1_B2": [],
-  "EYESH": [],
-  "IELTS": [],
-  "C1_C2": []
+ "A1_A2": [
+  {
+   "en": "hello",
+   "mn": "сайн байна уу",
+   "example_en": "Hello, how are you?",
+   "example_mn": "Сайн байна уу, та юугаа байна?"
+  },
+  {
+   "en": "goodbye",
+   "mn": "баяртай",
+   "example_en": "Goodbye, see you tomorrow.",
+   "example_mn": "Баяртай, маргааш уулзана."
+  },
+  {
+   "en": "please",
+   "mn": "гуйя",
+   "example_en": "Please, help me.",
+   "example_mn": "Гуйя, надад туслаач."
+  },
+  {
+   "en": "thank you",
+   "mn": "баярлалаа",
+   "example_en": "Thank you for your help.",
+   "example_mn": "Тусламжийн тань баярлалаа."
+  },
+  {
+   "en": "sorry",
+   "mn": "уучлаарай",
+   "example_en": "Sorry, I am late.",
+   "example_mn": "Уучлаарай, би оройтлоо."
+  },
+  {
+   "en": "yes",
+   "mn": "тийм",
+   "example_en": "Yes, I understand.",
+   "example_mn": "Тийм, би ойлголоо."
+  },
+  {
+   "en": "no",
+   "mn": "үгүй",
+   "example_en": "No, I don't want it.",
+   "example_mn": "Үгүй, надад хэрэггүй."
+  },
+  {
+   "en": "name",
+   "mn": "нэр",
+   "example_en": "What is your name?",
+   "example_mn": "Таны нэр хэн бэ?"
+  },
+  {
+   "en": "friend",
+   "mn": "найз",
+   "example_en": "She is my best friend.",
+   "example_mn": "Тэр бол миний хамгийн сайн найз."
+  },
+  {
+   "en": "family",
+   "mn": "гэр бүл",
+   "example_en": "I love my family.",
+   "example_mn": "Би гэр бүлээ хайрладаг."
+  },
+  {
+   "en": "mother",
+   "mn": "ээж",
+   "example_en": "My mother cooks every day.",
+   "example_mn": "Миний ээж өдөр бүр хоол хийдэг."
+  },
+  {
+   "en": "father",
+   "mn": "аав",
+   "example_en": "My father works in a bank.",
+   "example_mn": "Миний аав банкинд ажилладаг."
+  },
+  {
+   "en": "brother",
+   "mn": "ах/дүү (эр)",
+   "example_en": "I have one brother.",
+   "example_mn": "Надад нэг ах дүү бий."
+  },
+  {
+   "en": "sister",
+   "mn": "эгч/дүү (эм)",
+   "example_en": "My sister is a student.",
+   "example_mn": "Миний эгч оюутан."
+  },
+  {
+   "en": "son",
+   "mn": "хүү",
+   "example_en": "Their son is five years old.",
+   "example_mn": "Тэдний хүү таван настай."
+  },
+  {
+   "en": "daughter",
+   "mn": "охин",
+   "example_en": "Her daughter goes to school.",
+   "example_mn": "Түүний охин сургуульд явдаг."
+  },
+  {
+   "en": "grandmother",
+   "mn": "эмээ",
+   "example_en": "My grandmother tells nice stories.",
+   "example_mn": "Миний эмээ сайхан үлгэр ярьдаг."
+  },
+  {
+   "en": "grandfather",
+   "mn": "өвөө",
+   "example_en": "My grandfather likes to fish.",
+   "example_mn": "Миний өвөө загас барих дуртай."
+  },
+  {
+   "en": "baby",
+   "mn": "нярай",
+   "example_en": "The baby is sleeping.",
+   "example_mn": "Нярай унтаж байна."
+  },
+  {
+   "en": "child",
+   "mn": "хүүхэд",
+   "example_en": "The child is playing outside.",
+   "example_mn": "Хүүхэд гадаа тоглож байна."
+  },
+  {
+   "en": "parent",
+   "mn": "эцэг эх",
+   "example_en": "Parents love their children.",
+   "example_mn": "Эцэг эх хүүхдээ хайрладаг."
+  },
+  {
+   "en": "wife",
+   "mn": "эхнэр",
+   "example_en": "His wife is a doctor.",
+   "example_mn": "Түүний эхнэр эмч."
+  },
+  {
+   "en": "husband",
+   "mn": "нөхөр",
+   "example_en": "Her husband works at night.",
+   "example_mn": "Түүний нөхөр шөнө ажилладаг."
+  },
+  {
+   "en": "day",
+   "mn": "өдөр",
+   "example_en": "Have a nice day!",
+   "example_mn": "Сайхан өдөр өнгөрүүлээрэй!"
+  },
+  {
+   "en": "week",
+   "mn": "долоо хоног",
+   "example_en": "I work five days a week.",
+   "example_mn": "Би долоо хоногт тав хоног ажилладаг."
+  },
+  {
+   "en": "month",
+   "mn": "сар",
+   "example_en": "This month is very busy.",
+   "example_mn": "Энэ сар маш завгүй байна."
+  },
+  {
+   "en": "year",
+   "mn": "жил",
+   "example_en": "Happy new year!",
+   "example_mn": "Шинэ жилийн мэнд хүргэе!"
+  },
+  {
+   "en": "today",
+   "mn": "өнөөдөр",
+   "example_en": "Today is Monday.",
+   "example_mn": "Өнөөдөр Даваа гараг."
+  },
+  {
+   "en": "tomorrow",
+   "mn": "маргааш",
+   "example_en": "See you tomorrow.",
+   "example_mn": "Маргааш уулзана."
+  },
+  {
+   "en": "yesterday",
+   "mn": "өчигдөр",
+   "example_en": "I was busy yesterday.",
+   "example_mn": "Би өчигдөр завгүй байсан."
+  },
+  {
+   "en": "morning",
+   "mn": "өглөө",
+   "example_en": "I drink tea in the morning.",
+   "example_mn": "Би өглөө цай ууна."
+  },
+  {
+   "en": "afternoon",
+   "mn": "өдөр (үдээс хойш)",
+   "example_en": "We meet in the afternoon.",
+   "example_mn": "Бид өдөр цагаар уулздаг."
+  },
+  {
+   "en": "evening",
+   "mn": "орой",
+   "example_en": "We watch TV in the evening.",
+   "example_mn": "Бид орой телевиз үздэг."
+  },
+  {
+   "en": "night",
+   "mn": "шөнө",
+   "example_en": "Good night, sleep well.",
+   "example_mn": "Сайхан амраарай."
+  },
+  {
+   "en": "hour",
+   "mn": "цаг",
+   "example_en": "The meeting is one hour long.",
+   "example_mn": "Уулзалт нэг цаг үргэлжилнэ."
+  },
+  {
+   "en": "minute",
+   "mn": "минут",
+   "example_en": "Wait a minute, please.",
+   "example_mn": "Нэг минут хүлээгээрэй."
+  },
+  {
+   "en": "time",
+   "mn": "цаг хугацаа",
+   "example_en": "What time is it?",
+   "example_mn": "Одоо хэдэн цаг болж байна?"
+  },
+  {
+   "en": "clock",
+   "mn": "цаг (ханын)",
+   "example_en": "The clock is on the wall.",
+   "example_mn": "Ханын цаг ханан дээр байна."
+  },
+  {
+   "en": "Monday",
+   "mn": "Даваа",
+   "example_en": "I go to work on Monday.",
+   "example_mn": "Би Даваа гарагт ажилдаа явна."
+  },
+  {
+   "en": "Tuesday",
+   "mn": "Мягмар",
+   "example_en": "Tuesday is my busy day.",
+   "example_mn": "Мягмар гараг бол миний завгүй өдөр."
+  },
+  {
+   "en": "Wednesday",
+   "mn": "Лхагва",
+   "example_en": "We have a meeting on Wednesday.",
+   "example_mn": "Бидэнд Лхагва гарагт уулзалт байна."
+  },
+  {
+   "en": "Thursday",
+   "mn": "Пүрэв",
+   "example_en": "I clean my house on Thursday.",
+   "example_mn": "Би Пүрэв гарагт байраа цэвэрлэдэг."
+  },
+  {
+   "en": "Friday",
+   "mn": "Баасан",
+   "example_en": "Friday is the last work day.",
+   "example_mn": "Баасан гараг бол сүүлийн ажлын өдөр."
+  },
+  {
+   "en": "Saturday",
+   "mn": "Бямба",
+   "example_en": "We rest on Saturday.",
+   "example_mn": "Бид Бямба гарагт амардаг."
+  },
+  {
+   "en": "Sunday",
+   "mn": "Ням",
+   "example_en": "Sunday is a family day.",
+   "example_mn": "Ням гараг бол гэр бүлийн өдөр."
+  },
+  {
+   "en": "January",
+   "mn": "1-р сар",
+   "example_en": "My birthday is in January.",
+   "example_mn": "Миний төрсөн өдөр 1-р сард байдаг."
+  },
+  {
+   "en": "February",
+   "mn": "2-р сар",
+   "example_en": "February is a short month.",
+   "example_mn": "2-р сар богино сар юм."
+  },
+  {
+   "en": "March",
+   "mn": "3-р сар",
+   "example_en": "Spring starts in March.",
+   "example_mn": "Хавар 3-р сард эхэлдэг."
+  },
+  {
+   "en": "April",
+   "mn": "4-р сар",
+   "example_en": "It rains a lot in April.",
+   "example_mn": "4-р сард ихэвчлэн бороо ордог."
+  },
+  {
+   "en": "May",
+   "mn": "5-р сар",
+   "example_en": "Flowers bloom in May.",
+   "example_mn": "5-р сард цэцэг цэцэглэдэг."
+  },
+  {
+   "en": "June",
+   "mn": "6-р сар",
+   "example_en": "School ends in June.",
+   "example_mn": "Сургууль 6-р сард дуусдаг."
+  },
+  {
+   "en": "July",
+   "mn": "7-р сар",
+   "example_en": "July is very hot.",
+   "example_mn": "7-р сар маш халуун байдаг."
+  },
+  {
+   "en": "August",
+   "mn": "8-р сар",
+   "example_en": "We travel in August.",
+   "example_mn": "Бид 8-р сард аялдаг."
+  },
+  {
+   "en": "September",
+   "mn": "9-р сар",
+   "example_en": "School starts in September.",
+   "example_mn": "Сургууль 9-р сард эхэлдэг."
+  },
+  {
+   "en": "October",
+   "mn": "10-р сар",
+   "example_en": "The leaves fall in October.",
+   "example_mn": "10-р сард навч унадаг."
+  },
+  {
+   "en": "November",
+   "mn": "11-р сар",
+   "example_en": "November is cold.",
+   "example_mn": "11-р сар хүйтэн байдаг."
+  },
+  {
+   "en": "December",
+   "mn": "12-р сар",
+   "example_en": "We celebrate in December.",
+   "example_mn": "Бид 12-р сард баяр тэмдэглэдэг."
+  },
+  {
+   "en": "red",
+   "mn": "улаан",
+   "example_en": "She has a red car.",
+   "example_mn": "Тэр улаан машинтай."
+  },
+  {
+   "en": "blue",
+   "mn": "хөх",
+   "example_en": "The sky is blue.",
+   "example_mn": "Тэнгэр хөх өнгөтэй."
+  },
+  {
+   "en": "green",
+   "mn": "ногоон",
+   "example_en": "The grass is green.",
+   "example_mn": "Өвс ногоон өнгөтэй."
+  },
+  {
+   "en": "yellow",
+   "mn": "шар",
+   "example_en": "The sun is yellow.",
+   "example_mn": "Нар шар өнгөтэй."
+  },
+  {
+   "en": "black",
+   "mn": "хар",
+   "example_en": "He wears a black jacket.",
+   "example_mn": "Тэр хар куртка өмссөн байна."
+  },
+  {
+   "en": "white",
+   "mn": "цагаан",
+   "example_en": "The snow is white.",
+   "example_mn": "Цас цагаан өнгөтэй."
+  },
+  {
+   "en": "orange",
+   "mn": "улбар шар",
+   "example_en": "I like orange juice.",
+   "example_mn": "Би улбар шар шүүс дуртай."
+  },
+  {
+   "en": "pink",
+   "mn": "ягаан",
+   "example_en": "She likes pink flowers.",
+   "example_mn": "Тэр ягаан цэцэг дуртай."
+  },
+  {
+   "en": "purple",
+   "mn": "нил ягаан",
+   "example_en": "The dress is purple.",
+   "example_mn": "Даашинз нь нил ягаан өнгөтэй."
+  },
+  {
+   "en": "brown",
+   "mn": "хүрэн",
+   "example_en": "The dog has brown fur.",
+   "example_mn": "Нохой хүрэн ноостой."
+  },
+  {
+   "en": "gray",
+   "mn": "саарал",
+   "example_en": "The sky is gray today.",
+   "example_mn": "Тэнгэр өнөөдөр саарал өнгөтэй."
+  },
+  {
+   "en": "bread",
+   "mn": "талх",
+   "example_en": "I eat bread every morning.",
+   "example_mn": "Би өглөө бүр талх иддэг."
+  },
+  {
+   "en": "water",
+   "mn": "ус",
+   "example_en": "I drink water every day.",
+   "example_mn": "Би өдөр бүр ус уудаг."
+  },
+  {
+   "en": "milk",
+   "mn": "сүү",
+   "example_en": "The baby drinks milk.",
+   "example_mn": "Нярай сүү уудаг."
+  },
+  {
+   "en": "tea",
+   "mn": "цай",
+   "example_en": "Would you like some tea?",
+   "example_mn": "Та цай уух уу?"
+  },
+  {
+   "en": "coffee",
+   "mn": "кофе",
+   "example_en": "I drink coffee in the morning.",
+   "example_mn": "Би өглөө кофе уудаг."
+  },
+  {
+   "en": "rice",
+   "mn": "будаа",
+   "example_en": "We eat rice for lunch.",
+   "example_mn": "Бид өдрийн хоолондоо будаа иддэг."
+  },
+  {
+   "en": "meat",
+   "mn": "мах",
+   "example_en": "She doesn't eat meat.",
+   "example_mn": "Тэр мах иддэггүй."
+  },
+  {
+   "en": "fish",
+   "mn": "загас",
+   "example_en": "We caught a big fish.",
+   "example_mn": "Бид том загас барьсан."
+  },
+  {
+   "en": "egg",
+   "mn": "өндөг",
+   "example_en": "I eat an egg for breakfast.",
+   "example_mn": "Би өглөөний цайндаа өндөг иддэг."
+  },
+  {
+   "en": "fruit",
+   "mn": "жимс",
+   "example_en": "Fruit is good for you.",
+   "example_mn": "Жимс биед тустай."
+  },
+  {
+   "en": "apple",
+   "mn": "алим",
+   "example_en": "She gave me an apple.",
+   "example_mn": "Тэр надад алим өгсөн."
+  },
+  {
+   "en": "banana",
+   "mn": "гадил",
+   "example_en": "I like bananas.",
+   "example_mn": "Би гадил дуртай."
+  },
+  {
+   "en": "vegetable",
+   "mn": "хүнсний ногоо",
+   "example_en": "Vegetables are healthy.",
+   "example_mn": "Хүнсний ногоо эрүүл мэндэд сайн."
+  },
+  {
+   "en": "sugar",
+   "mn": "элсэн чихэр",
+   "example_en": "I don't like sugar in my tea.",
+   "example_mn": "Би цайндаа чихэр хийдэггүй."
+  },
+  {
+   "en": "salt",
+   "mn": "давс",
+   "example_en": "Please pass the salt.",
+   "example_mn": "Давсыг дамжуулаач."
+  },
+  {
+   "en": "breakfast",
+   "mn": "өглөөний цай",
+   "example_en": "I have breakfast at seven.",
+   "example_mn": "Би долоон цагт өглөөний цай иддэг."
+  },
+  {
+   "en": "lunch",
+   "mn": "өдрийн хоол",
+   "example_en": "Let's have lunch together.",
+   "example_mn": "Хамт өдрийн хоол идье."
+  },
+  {
+   "en": "dinner",
+   "mn": "оройн хоол",
+   "example_en": "Dinner is ready.",
+   "example_mn": "Оройн хоол бэлэн боллоо."
+  },
+  {
+   "en": "food",
+   "mn": "хоол",
+   "example_en": "This food is delicious.",
+   "example_mn": "Энэ хоол амттай байна."
+  },
+  {
+   "en": "drink",
+   "mn": "ундаа",
+   "example_en": "Would you like a drink?",
+   "example_mn": "Та ямар нэг ундаа уух уу?"
+  },
+  {
+   "en": "hungry",
+   "mn": "өлссөн",
+   "example_en": "I am very hungry.",
+   "example_mn": "Би маш их өлссөн байна."
+  },
+  {
+   "en": "thirsty",
+   "mn": "цангасан",
+   "example_en": "She is thirsty.",
+   "example_mn": "Тэр цангаж байна."
+  },
+  {
+   "en": "dog",
+   "mn": "нохой",
+   "example_en": "The dog is running.",
+   "example_mn": "Нохой гүйж байна."
+  },
+  {
+   "en": "cat",
+   "mn": "муур",
+   "example_en": "The cat is sleeping.",
+   "example_mn": "Муур унтаж байна."
+  },
+  {
+   "en": "bird",
+   "mn": "шувуу",
+   "example_en": "The bird is singing.",
+   "example_mn": "Шувуу дуулж байна."
+  },
+  {
+   "en": "cow",
+   "mn": "үхэр",
+   "example_en": "The cow gives milk.",
+   "example_mn": "Үхэр сүү өгдөг."
+  },
+  {
+   "en": "horse",
+   "mn": "морь",
+   "example_en": "He rides a horse.",
+   "example_mn": "Тэр морь унадаг."
+  },
+  {
+   "en": "sheep",
+   "mn": "хонь",
+   "example_en": "There are many sheep here.",
+   "example_mn": "Энд олон хонь байна."
+  },
+  {
+   "en": "chicken",
+   "mn": "тахиа",
+   "example_en": "The chicken lays eggs.",
+   "example_mn": "Тахиа өндөг гаргадаг."
+  },
+  {
+   "en": "animal",
+   "mn": "амьтан",
+   "example_en": "I love animals.",
+   "example_mn": "Би амьтдад хайртай."
+  },
+  {
+   "en": "head",
+   "mn": "толгой",
+   "example_en": "My head hurts.",
+   "example_mn": "Толгой минь өвдөж байна."
+  },
+  {
+   "en": "hand",
+   "mn": "гар",
+   "example_en": "Wash your hands.",
+   "example_mn": "Гараа угаа."
+  },
+  {
+   "en": "foot",
+   "mn": "хөл",
+   "example_en": "My foot is tired.",
+   "example_mn": "Хөл минь ядарсан байна."
+  },
+  {
+   "en": "eye",
+   "mn": "нүд",
+   "example_en": "She has blue eyes.",
+   "example_mn": "Түүний нүд хөх өнгөтэй."
+  },
+  {
+   "en": "ear",
+   "mn": "чих",
+   "example_en": "My ear hurts.",
+   "example_mn": "Чих минь өвдөж байна."
+  },
+  {
+   "en": "nose",
+   "mn": "хамар",
+   "example_en": "His nose is red.",
+   "example_mn": "Түүний хамар улаан байна."
+  },
+  {
+   "en": "mouth",
+   "mn": "ам",
+   "example_en": "Open your mouth.",
+   "example_mn": "Амаа онгойлго."
+  },
+  {
+   "en": "hair",
+   "mn": "үс",
+   "example_en": "She has long hair.",
+   "example_mn": "Тэр урт үстэй."
+  },
+  {
+   "en": "arm",
+   "mn": "гарын үзүүр (мутар)",
+   "example_en": "My arm hurts.",
+   "example_mn": "Гарын үзүүр минь өвдөж байна."
+  },
+  {
+   "en": "leg",
+   "mn": "хөл",
+   "example_en": "He hurt his leg.",
+   "example_mn": "Тэр хөлөө гэмтээсэн."
+  },
+  {
+   "en": "face",
+   "mn": "царай/нүүр",
+   "example_en": "She has a nice face.",
+   "example_mn": "Түүний царай сайхан байна."
+  },
+  {
+   "en": "body",
+   "mn": "бие",
+   "example_en": "Water is good for the body.",
+   "example_mn": "Ус биед тустай."
+  },
+  {
+   "en": "shirt",
+   "mn": "цамц",
+   "example_en": "He is wearing a white shirt.",
+   "example_mn": "Тэр цагаан цамц өмссөн байна."
+  },
+  {
+   "en": "trousers",
+   "mn": "өмд",
+   "example_en": "These trousers are new.",
+   "example_mn": "Энэ өмд шинэ юм."
+  },
+  {
+   "en": "shoes",
+   "mn": "гутал",
+   "example_en": "I need new shoes.",
+   "example_mn": "Надад шинэ гутал хэрэгтэй."
+  },
+  {
+   "en": "hat",
+   "mn": "малгай",
+   "example_en": "She is wearing a hat.",
+   "example_mn": "Тэр малгай өмссөн байна."
+  },
+  {
+   "en": "dress",
+   "mn": "даашинз",
+   "example_en": "This dress is beautiful.",
+   "example_mn": "Энэ даашинз үзэсгэлэнтэй."
+  },
+  {
+   "en": "coat",
+   "mn": "пальто",
+   "example_en": "Wear your coat, it's cold.",
+   "example_mn": "Пальтоо өмс, хүйтэн байна."
+  },
+  {
+   "en": "socks",
+   "mn": "оймс",
+   "example_en": "My socks are wet.",
+   "example_mn": "Оймс минь норсон байна."
+  },
+  {
+   "en": "house",
+   "mn": "байшин",
+   "example_en": "We live in a small house.",
+   "example_mn": "Бид жижигхэн байшинд амьдардаг."
+  },
+  {
+   "en": "room",
+   "mn": "өрөө",
+   "example_en": "This is my room.",
+   "example_mn": "Энэ бол миний өрөө."
+  },
+  {
+   "en": "door",
+   "mn": "хаалга",
+   "example_en": "Close the door, please.",
+   "example_mn": "Хаалгаа хаагаач."
+  },
+  {
+   "en": "window",
+   "mn": "цонх",
+   "example_en": "Open the window.",
+   "example_mn": "Цонхоо нээ."
+  },
+  {
+   "en": "table",
+   "mn": "ширээ",
+   "example_en": "Put the book on the table.",
+   "example_mn": "Номоо ширээн дээр тавь."
+  },
+  {
+   "en": "chair",
+   "mn": "сандал",
+   "example_en": "Sit on the chair.",
+   "example_mn": "Сандал дээр суу."
+  },
+  {
+   "en": "bed",
+   "mn": "орон",
+   "example_en": "The bed is comfortable.",
+   "example_mn": "Орон тохитой байна."
+  },
+  {
+   "en": "kitchen",
+   "mn": "гал тогоо",
+   "example_en": "She is cooking in the kitchen.",
+   "example_mn": "Тэр гал тогоонд хоол хийж байна."
+  },
+  {
+   "en": "bathroom",
+   "mn": "угаалгын өрөө",
+   "example_en": "Where is the bathroom?",
+   "example_mn": "Угаалгын өрөө хаана байна вэ?"
+  },
+  {
+   "en": "wall",
+   "mn": "хана",
+   "example_en": "There is a picture on the wall.",
+   "example_mn": "Ханан дээр зураг байна."
+  },
+  {
+   "en": "key",
+   "mn": "түлхүүр",
+   "example_en": "I lost my key.",
+   "example_mn": "Би түлхүүрээ гээгдүүлсэн."
+  },
+  {
+   "en": "garden",
+   "mn": "цэцэрлэгт хүрээлэн",
+   "example_en": "We have flowers in the garden.",
+   "example_mn": "Манай цэцэрлэгт цэцэг байна."
+  },
+  {
+   "en": "school",
+   "mn": "сургууль",
+   "example_en": "My children go to school.",
+   "example_mn": "Миний хүүхдүүд сургуульд явдаг."
+  },
+  {
+   "en": "hospital",
+   "mn": "эмнэлэг",
+   "example_en": "She works at the hospital.",
+   "example_mn": "Тэр эмнэлэгт ажилладаг."
+  },
+  {
+   "en": "shop",
+   "mn": "дэлгүүр",
+   "example_en": "I need to go to the shop.",
+   "example_mn": "Би дэлгүүрт очих хэрэгтэй."
+  },
+  {
+   "en": "market",
+   "mn": "зах",
+   "example_en": "We buy food at the market.",
+   "example_mn": "Бид захаас хоол худалдаж авдаг."
+  },
+  {
+   "en": "park",
+   "mn": "цэцэрлэгт хүрээлэн",
+   "example_en": "We walk in the park.",
+   "example_mn": "Бид цэцэрлэгт хүрээлэнд алхдаг."
+  },
+  {
+   "en": "city",
+   "mn": "хот",
+   "example_en": "This is a big city.",
+   "example_mn": "Энэ том хот юм."
+  },
+  {
+   "en": "village",
+   "mn": "тосгон",
+   "example_en": "They live in a small village.",
+   "example_mn": "Тэд жижигхэн тосгонд амьдардаг."
+  },
+  {
+   "en": "country",
+   "mn": "улс орон",
+   "example_en": "Which country are you from?",
+   "example_mn": "Та аль улсаас ирсэн бэ?"
+  },
+  {
+   "en": "street",
+   "mn": "гудамж",
+   "example_en": "The shop is on this street.",
+   "example_mn": "Дэлгүүр энэ гудамжинд байна."
+  },
+  {
+   "en": "road",
+   "mn": "зам",
+   "example_en": "Be careful on the road.",
+   "example_mn": "Замд болгоомжтой бай."
+  },
+  {
+   "en": "airport",
+   "mn": "нисэх онгоцны буудал",
+   "example_en": "We arrived at the airport.",
+   "example_mn": "Бид нисэх онгоцны буудалд ирлээ."
+  },
+  {
+   "en": "station",
+   "mn": "буудал",
+   "example_en": "The train station is near.",
+   "example_mn": "Галт тэрэгний буудал ойролцоо байна."
+  },
+  {
+   "en": "bank",
+   "mn": "банк",
+   "example_en": "I need to go to the bank.",
+   "example_mn": "Би банкинд очих хэрэгтэй."
+  },
+  {
+   "en": "library",
+   "mn": "номын сан",
+   "example_en": "She studies in the library.",
+   "example_mn": "Тэр номын санд суралцдаг."
+  },
+  {
+   "en": "go",
+   "mn": "явах",
+   "example_en": "Let's go home.",
+   "example_mn": "Гэртээ явцгаая."
+  },
+  {
+   "en": "come",
+   "mn": "ирэх",
+   "example_en": "Come here, please.",
+   "example_mn": "Наашаа ир."
+  },
+  {
+   "en": "eat",
+   "mn": "идэх",
+   "example_en": "I eat breakfast at seven.",
+   "example_mn": "Би долоон цагт өглөөний цай иддэг."
+  },
+  {
+   "en": "sleep",
+   "mn": "унтах",
+   "example_en": "I sleep eight hours a day.",
+   "example_mn": "Би өдөрт найман цаг унтдаг."
+  },
+  {
+   "en": "walk",
+   "mn": "алхах",
+   "example_en": "We walk to school.",
+   "example_mn": "Бид сургууль руу алхдаг."
+  },
+  {
+   "en": "run",
+   "mn": "гүйх",
+   "example_en": "He can run fast.",
+   "example_mn": "Тэр хурдан гүйж чаддаг."
+  },
+  {
+   "en": "read",
+   "mn": "унших",
+   "example_en": "I read a book every night.",
+   "example_mn": "Би шөнө бүр ном уншдаг."
+  },
+  {
+   "en": "write",
+   "mn": "бичих",
+   "example_en": "She can write well.",
+   "example_mn": "Тэр сайн бичдэг."
+  },
+  {
+   "en": "speak",
+   "mn": "ярих",
+   "example_en": "Can you speak English?",
+   "example_mn": "Та англи хэлээр ярьж чадах уу?"
+  },
+  {
+   "en": "listen",
+   "mn": "сонсох",
+   "example_en": "Listen to the music.",
+   "example_mn": "Хөгжим сонс."
+  },
+  {
+   "en": "see",
+   "mn": "харах",
+   "example_en": "I see a bird.",
+   "example_mn": "Би нэг шувуу харж байна."
+  },
+  {
+   "en": "look",
+   "mn": "хараах/харах",
+   "example_en": "Look at the picture.",
+   "example_mn": "Зургийг харна уу."
+  },
+  {
+   "en": "watch",
+   "mn": "үзэх (телевиз)",
+   "example_en": "We watch TV at night.",
+   "example_mn": "Бид шөнө телевиз үздэг."
+  },
+  {
+   "en": "work",
+   "mn": "ажиллах",
+   "example_en": "I work every day.",
+   "example_mn": "Би өдөр бүр ажилладаг."
+  },
+  {
+   "en": "play",
+   "mn": "тоглох",
+   "example_en": "Children like to play.",
+   "example_mn": "Хүүхдүүд тоглох дуртай."
+  },
+  {
+   "en": "study",
+   "mn": "суралцах",
+   "example_en": "She studies English.",
+   "example_mn": "Тэр англи хэл суралцдаг."
+  },
+  {
+   "en": "learn",
+   "mn": "сурах",
+   "example_en": "I want to learn Mongolian.",
+   "example_mn": "Би монгол хэл сурмаар байна."
+  },
+  {
+   "en": "teach",
+   "mn": "заах",
+   "example_en": "He teaches math.",
+   "example_mn": "Тэр математик заадаг."
+  },
+  {
+   "en": "help",
+   "mn": "туслах",
+   "example_en": "Can you help me?",
+   "example_mn": "Та надад туслаж чадах уу?"
+  },
+  {
+   "en": "buy",
+   "mn": "худалдаж авах",
+   "example_en": "I want to buy a phone.",
+   "example_mn": "Би утас худалдаж авмаар байна."
+  },
+  {
+   "en": "sell",
+   "mn": "худалдах",
+   "example_en": "They sell fruit here.",
+   "example_mn": "Тэд энд жимс худалддаг."
+  },
+  {
+   "en": "open",
+   "mn": "нээх",
+   "example_en": "Open the door, please.",
+   "example_mn": "Хаалгыг нээгээч."
+  },
+  {
+   "en": "close",
+   "mn": "хаах",
+   "example_en": "Please close the window.",
+   "example_mn": "Цонхоо хаагаач."
+  },
+  {
+   "en": "start",
+   "mn": "эхлэх",
+   "example_en": "The movie starts at eight.",
+   "example_mn": "Кино найман цагт эхэлнэ."
+  },
+  {
+   "en": "finish",
+   "mn": "дуусах",
+   "example_en": "I finish work at five.",
+   "example_mn": "Би тав цагт ажлаа дуусгадаг."
+  },
+  {
+   "en": "give",
+   "mn": "өгөх",
+   "example_en": "Give me the book, please.",
+   "example_mn": "Номоо надад өгөөч."
+  },
+  {
+   "en": "take",
+   "mn": "авах",
+   "example_en": "Take this pen.",
+   "example_mn": "Энэ үзгийг ав."
+  },
+  {
+   "en": "make",
+   "mn": "хийх",
+   "example_en": "She makes good food.",
+   "example_mn": "Тэр амттай хоол хийдэг."
+  },
+  {
+   "en": "do",
+   "mn": "хийх",
+   "example_en": "What are you doing?",
+   "example_mn": "Та юу хийж байна?"
+  },
+  {
+   "en": "have",
+   "mn": "байх (эзэмших)",
+   "example_en": "I have a car.",
+   "example_mn": "Надад машин бий."
+  },
+  {
+   "en": "want",
+   "mn": "хүсэх",
+   "example_en": "I want some tea.",
+   "example_mn": "Би цай уумаар байна."
+  },
+  {
+   "en": "like",
+   "mn": "дуртай байх",
+   "example_en": "I like music.",
+   "example_mn": "Би хөгжимд дуртай."
+  },
+  {
+   "en": "love",
+   "mn": "хайрлах",
+   "example_en": "She loves her family.",
+   "example_mn": "Тэр гэр бүлээ хайрладаг."
+  },
+  {
+   "en": "need",
+   "mn": "хэрэгтэй байх",
+   "example_en": "I need help.",
+   "example_mn": "Надад тусламж хэрэгтэй байна."
+  },
+  {
+   "en": "know",
+   "mn": "мэдэх",
+   "example_en": "I know his name.",
+   "example_mn": "Би түүний нэрийг мэднэ."
+  },
+  {
+   "en": "think",
+   "mn": "бодох",
+   "example_en": "I think it's a good idea.",
+   "example_mn": "Энэ сайн санаа гэж би бодож байна."
+  },
+  {
+   "en": "say",
+   "mn": "хэлэх",
+   "example_en": "She said hello.",
+   "example_mn": "Тэр мэнд гэж хэлсэн."
+  },
+  {
+   "en": "tell",
+   "mn": "хэлэх (мэдээлэх)",
+   "example_en": "Tell me your name.",
+   "example_mn": "Нэрээ хэлээч."
+  },
+  {
+   "en": "ask",
+   "mn": "асуух",
+   "example_en": "Can I ask a question?",
+   "example_mn": "Асуулт асууж болох уу?"
+  },
+  {
+   "en": "answer",
+   "mn": "хариулах",
+   "example_en": "Please answer my question.",
+   "example_mn": "Асуултад минь хариулаач."
+  },
+  {
+   "en": "live",
+   "mn": "амьдрах",
+   "example_en": "I live in Ulaanbaatar.",
+   "example_mn": "Би Улаанбаатар хотод амьдардаг."
+  },
+  {
+   "en": "stay",
+   "mn": "байх (үлдэх)",
+   "example_en": "Stay here, please.",
+   "example_mn": "Энд байгаарай."
+  },
+  {
+   "en": "wait",
+   "mn": "хүлээх",
+   "example_en": "Please wait for me.",
+   "example_mn": "Намайг хүлээгээч."
+  },
+  {
+   "en": "meet",
+   "mn": "уулзах",
+   "example_en": "Let's meet tomorrow.",
+   "example_mn": "Маргааш уулзацгаая."
+  },
+  {
+   "en": "call",
+   "mn": "дуудах/утасдах",
+   "example_en": "Call me later.",
+   "example_mn": "Дараа нь надад утасд."
+  },
+  {
+   "en": "use",
+   "mn": "ашиглах",
+   "example_en": "I use my phone every day.",
+   "example_mn": "Би өдөр бүр утсаа ашигладаг."
+  },
+  {
+   "en": "big",
+   "mn": "том",
+   "example_en": "This is a big house.",
+   "example_mn": "Энэ том байшин юм."
+  },
+  {
+   "en": "small",
+   "mn": "жижиг",
+   "example_en": "She has a small dog.",
+   "example_mn": "Түүнд жижигхэн нохой бий."
+  },
+  {
+   "en": "good",
+   "mn": "сайн",
+   "example_en": "This is a good idea.",
+   "example_mn": "Энэ бол сайн санаа."
+  },
+  {
+   "en": "bad",
+   "mn": "муу",
+   "example_en": "The weather is bad today.",
+   "example_mn": "Өнөөдөр цаг агаар муу байна."
+  },
+  {
+   "en": "happy",
+   "mn": "аз жаргалтай",
+   "example_en": "She looks happy.",
+   "example_mn": "Тэр аз жаргалтай харагдаж байна."
+  },
+  {
+   "en": "sad",
+   "mn": "гунигтай",
+   "example_en": "He feels sad.",
+   "example_mn": "Тэр гунигтай байна."
+  },
+  {
+   "en": "hot",
+   "mn": "халуун",
+   "example_en": "The tea is hot.",
+   "example_mn": "Цай халуун байна."
+  },
+  {
+   "en": "cold",
+   "mn": "хүйтэн",
+   "example_en": "It is cold outside.",
+   "example_mn": "Гадаа хүйтэн байна."
+  },
+  {
+   "en": "new",
+   "mn": "шинэ",
+   "example_en": "I bought a new phone.",
+   "example_mn": "Би шинэ утас худалдаж авсан."
+  },
+  {
+   "en": "old",
+   "mn": "хуучин/настай",
+   "example_en": "This is an old book.",
+   "example_mn": "Энэ хуучин ном юм."
+  },
+  {
+   "en": "young",
+   "mn": "залуу",
+   "example_en": "She is very young.",
+   "example_mn": "Тэр маш залуу байна."
+  },
+  {
+   "en": "tall",
+   "mn": "өндөр (хүн)",
+   "example_en": "He is very tall.",
+   "example_mn": "Тэр маш өндөр хүн юм."
+  },
+  {
+   "en": "short",
+   "mn": "намхан/богино",
+   "example_en": "She is short.",
+   "example_mn": "Тэр намхан байна."
+  },
+  {
+   "en": "long",
+   "mn": "урт",
+   "example_en": "This road is very long.",
+   "example_mn": "Энэ зам маш урт байна."
+  },
+  {
+   "en": "fast",
+   "mn": "хурдан",
+   "example_en": "He drives very fast.",
+   "example_mn": "Тэр маш хурдан жолоо барьдаг."
+  },
+  {
+   "en": "slow",
+   "mn": "удаан",
+   "example_en": "This car is slow.",
+   "example_mn": "Энэ машин удаан байна."
+  },
+  {
+   "en": "easy",
+   "mn": "хялбар",
+   "example_en": "This test is easy.",
+   "example_mn": "Энэ шалгалт хялбар байна."
+  },
+  {
+   "en": "difficult",
+   "mn": "хэцүү",
+   "example_en": "This question is difficult.",
+   "example_mn": "Энэ асуулт хэцүү байна."
+  },
+  {
+   "en": "beautiful",
+   "mn": "үзэсгэлэнтэй",
+   "example_en": "She has a beautiful smile.",
+   "example_mn": "Түүний инээмсэглэл үзэсгэлэнтэй."
+  },
+  {
+   "en": "clean",
+   "mn": "цэвэр",
+   "example_en": "The room is clean.",
+   "example_mn": "Өрөө цэвэрхэн байна."
+  },
+  {
+   "en": "dirty",
+   "mn": "бохир",
+   "example_en": "My hands are dirty.",
+   "example_mn": "Гар минь бохир байна."
+  },
+  {
+   "en": "strong",
+   "mn": "хүчтэй",
+   "example_en": "He is very strong.",
+   "example_mn": "Тэр маш хүчтэй хүн юм."
+  },
+  {
+   "en": "weak",
+   "mn": "сул дорой",
+   "example_en": "She feels weak today.",
+   "example_mn": "Тэр өнөөдөр сул дорой байна."
+  },
+  {
+   "en": "rich",
+   "mn": "баян",
+   "example_en": "He is a rich man.",
+   "example_mn": "Тэр баян хүн юм."
+  },
+  {
+   "en": "poor",
+   "mn": "ядуу",
+   "example_en": "They are poor but happy.",
+   "example_mn": "Тэд ядуу ч аз жаргалтай."
+  },
+  {
+   "en": "full",
+   "mn": "дүүрэн",
+   "example_en": "The glass is full.",
+   "example_mn": "Аяга дүүрэн байна."
+  },
+  {
+   "en": "empty",
+   "mn": "хоосон",
+   "example_en": "The room is empty.",
+   "example_mn": "Өрөө хоосон байна."
+  },
+  {
+   "en": "heavy",
+   "mn": "хүнд",
+   "example_en": "This bag is heavy.",
+   "example_mn": "Энэ цүнх хүнд байна."
+  },
+  {
+   "en": "light",
+   "mn": "хөнгөн",
+   "example_en": "This box is very light.",
+   "example_mn": "Энэ хайрцаг маш хөнгөн байна."
+  },
+  {
+   "en": "cheap",
+   "mn": "хямд",
+   "example_en": "This shirt is cheap.",
+   "example_mn": "Энэ цамц хямд байна."
+  },
+  {
+   "en": "expensive",
+   "mn": "үнэтэй",
+   "example_en": "That car is expensive.",
+   "example_mn": "Тэр машин үнэтэй байна."
+  },
+  {
+   "en": "book",
+   "mn": "ном",
+   "example_en": "I am reading a book.",
+   "example_mn": "Би ном уншиж байна."
+  },
+  {
+   "en": "pen",
+   "mn": "үзэг",
+   "example_en": "Can I borrow your pen?",
+   "example_mn": "Үзгийг чинь зээлж болох уу?"
+  },
+  {
+   "en": "pencil",
+   "mn": "харандаа",
+   "example_en": "She writes with a pencil.",
+   "example_mn": "Тэр харандаагаар бичдэг."
+  },
+  {
+   "en": "paper",
+   "mn": "цаас",
+   "example_en": "Give me a piece of paper.",
+   "example_mn": "Надад нэг цаас өгөөч."
+  },
+  {
+   "en": "bag",
+   "mn": "цүнх",
+   "example_en": "I need a new bag.",
+   "example_mn": "Надад шинэ цүнх хэрэгтэй."
+  },
+  {
+   "en": "phone",
+   "mn": "утас",
+   "example_en": "My phone is new.",
+   "example_mn": "Миний утас шинэ."
+  },
+  {
+   "en": "computer",
+   "mn": "компьютер",
+   "example_en": "I work on my computer.",
+   "example_mn": "Би компьютер дээрээ ажилладаг."
+  },
+  {
+   "en": "car",
+   "mn": "машин",
+   "example_en": "He has a red car.",
+   "example_mn": "Тэр улаан машинтай."
+  },
+  {
+   "en": "bus",
+   "mn": "автобус",
+   "example_en": "We go to school by bus.",
+   "example_mn": "Бид автобусаар сургууль явдаг."
+  },
+  {
+   "en": "train",
+   "mn": "галт тэрэг",
+   "example_en": "The train is fast.",
+   "example_mn": "Галт тэрэг хурдан юм."
+  },
+  {
+   "en": "bicycle",
+   "mn": "дугуй",
+   "example_en": "She rides a bicycle.",
+   "example_mn": "Тэр дугуй унадаг."
+  },
+  {
+   "en": "money",
+   "mn": "мөнгө",
+   "example_en": "I don't have much money.",
+   "example_mn": "Надад их мөнгө байхгүй."
+  },
+  {
+   "en": "job",
+   "mn": "ажил",
+   "example_en": "She has a good job.",
+   "example_mn": "Түүнд сайн ажил бий."
+  },
+  {
+   "en": "address",
+   "mn": "хаяг",
+   "example_en": "What is your address?",
+   "example_mn": "Таны хаяг хэн бэ?"
+  },
+  {
+   "en": "number",
+   "mn": "дугаар",
+   "example_en": "Can I have your phone number?",
+   "example_mn": "Утасны дугаараа өгөх үү?"
+  },
+  {
+   "en": "letter",
+   "mn": "захидал",
+   "example_en": "I wrote a letter to my friend.",
+   "example_mn": "Би найздаа захидал бичсэн."
+  },
+  {
+   "en": "picture",
+   "mn": "зураг",
+   "example_en": "This is a nice picture.",
+   "example_mn": "Энэ гоё зураг байна."
+  },
+  {
+   "en": "music",
+   "mn": "хөгжим",
+   "example_en": "I like listening to music.",
+   "example_mn": "Би хөгжим сонсох дуртай."
+  },
+  {
+   "en": "movie",
+   "mn": "кино",
+   "example_en": "We watched a movie last night.",
+   "example_mn": "Бид өчигдөр орой кино үзсэн."
+  },
+  {
+   "en": "game",
+   "mn": "тоглоом",
+   "example_en": "Children like games.",
+   "example_mn": "Хүүхдүүд тоглоом дуртай."
+  },
+  {
+   "en": "sport",
+   "mn": "спорт",
+   "example_en": "He loves sport.",
+   "example_mn": "Тэр спортод хайртай."
+  },
+  {
+   "en": "weather",
+   "mn": "цаг агаар",
+   "example_en": "The weather is nice today.",
+   "example_mn": "Өнөөдөр цаг агаар сайхан байна."
+  },
+  {
+   "en": "rain",
+   "mn": "бороо",
+   "example_en": "It is raining outside.",
+   "example_mn": "Гадаа бороо орж байна."
+  },
+  {
+   "en": "sun",
+   "mn": "нар",
+   "example_en": "The sun is shining.",
+   "example_mn": "Нар гэрэлтэж байна."
+  },
+  {
+   "en": "moon",
+   "mn": "сар (тэнгэрийн)",
+   "example_en": "The moon is bright tonight.",
+   "example_mn": "Өнөө орой сар тод байна."
+  },
+  {
+   "en": "star",
+   "mn": "од",
+   "example_en": "I can see many stars.",
+   "example_mn": "Би олон од харж байна."
+  },
+  {
+   "en": "sky",
+   "mn": "тэнгэр",
+   "example_en": "The sky is blue today.",
+   "example_mn": "Өнөөдөр тэнгэр хөх байна."
+  },
+  {
+   "en": "tree",
+   "mn": "мод",
+   "example_en": "There is a big tree here.",
+   "example_mn": "Энд том мод байна."
+  },
+  {
+   "en": "flower",
+   "mn": "цэцэг",
+   "example_en": "She likes flowers.",
+   "example_mn": "Тэр цэцэгт дуртай."
+  },
+  {
+   "en": "mountain",
+   "mn": "уул",
+   "example_en": "We climbed the mountain.",
+   "example_mn": "Бид уулан дээр авирсан."
+  },
+  {
+   "en": "river",
+   "mn": "гол",
+   "example_en": "The river is very long.",
+   "example_mn": "Гол маш урт юм."
+  },
+  {
+   "en": "lake",
+   "mn": "нуур",
+   "example_en": "We swim in the lake.",
+   "example_mn": "Бид нуурт усанд сэлдэг."
+  },
+  {
+   "en": "forest",
+   "mn": "ой",
+   "example_en": "There are many trees in the forest.",
+   "example_mn": "Ойд олон мод байна."
+  },
+  {
+   "en": "what",
+   "mn": "юу",
+   "example_en": "What is this?",
+   "example_mn": "Энэ юу вэ?"
+  },
+  {
+   "en": "where",
+   "mn": "хаана",
+   "example_en": "Where do you live?",
+   "example_mn": "Та хаана амьдардаг вэ?"
+  },
+  {
+   "en": "when",
+   "mn": "хэзээ",
+   "example_en": "When does the class start?",
+   "example_mn": "Хичээл хэзээ эхлэх вэ?"
+  },
+  {
+   "en": "why",
+   "mn": "яагаад",
+   "example_en": "Why are you sad?",
+   "example_mn": "Та яагаад гунигтай байна вэ?"
+  },
+  {
+   "en": "who",
+   "mn": "хэн",
+   "example_en": "Who is that person?",
+   "example_mn": "Тэр хүн хэн бэ?"
+  },
+  {
+   "en": "how",
+   "mn": "яаж/хэрхэн",
+   "example_en": "How are you?",
+   "example_mn": "Та юугаа байна?"
+  },
+  {
+   "en": "which",
+   "mn": "аль",
+   "example_en": "Which book do you want?",
+   "example_mn": "Та аль номыг хүсч байна вэ?"
+  },
+  {
+   "en": "in",
+   "mn": "дотор",
+   "example_en": "The keys are in the bag.",
+   "example_mn": "Түлхүүр цүнхэнд байна."
+  },
+  {
+   "en": "on",
+   "mn": "дээр",
+   "example_en": "The book is on the table.",
+   "example_mn": "Ном ширээн дээр байна."
+  },
+  {
+   "en": "at",
+   "mn": "-д (байрлал)",
+   "example_en": "I am at home.",
+   "example_mn": "Би гэртээ байна."
+  },
+  {
+   "en": "under",
+   "mn": "доор",
+   "example_en": "The cat is under the table.",
+   "example_mn": "Муур ширээний доор байна."
+  },
+  {
+   "en": "over",
+   "mn": "дээгүүр",
+   "example_en": "The bird flies over the house.",
+   "example_mn": "Шувуу байшингийн дээгүүр нисдэг."
+  },
+  {
+   "en": "near",
+   "mn": "ойролцоо",
+   "example_en": "The school is near my house.",
+   "example_mn": "Сургууль манай гэрийн ойролцоо байна."
+  },
+  {
+   "en": "far",
+   "mn": "хол",
+   "example_en": "The airport is far from here.",
+   "example_mn": "Онгоцны буудал эндээс хол байна."
+  },
+  {
+   "en": "between",
+   "mn": "хооронд",
+   "example_en": "The bank is between the shop and the park.",
+   "example_mn": "Банк дэлгүүр болон цэцэрлэгт хүрээлэнгийн хооронд байна."
+  },
+  {
+   "en": "behind",
+   "mn": "ард",
+   "example_en": "The garden is behind the house.",
+   "example_mn": "Цэцэрлэг байшингийн ард байна."
+  },
+  {
+   "en": "next to",
+   "mn": "хажууд",
+   "example_en": "She sits next to me.",
+   "example_mn": "Тэр миний хажууд суудаг."
+  }
+ ],
+ "B1_B2": [],
+ "EYESH": [],
+ "IELTS": [],
+ "C1_C2": []
 }
-
