@@ -5225,6 +5225,1808 @@
   "example_mn": "Тэр танихгүй хүмүүстэй харилцахдаа үргэлж эелдэг."
  }
  ],
- "IELTS": [],
+ "IELTS": {
+  "IELTS": [
+    {
+      "en": "significant",
+      "mn": "чухал ач холбогдолтой",
+      "example_en": "There has been a significant increase in online shopping over the past decade.",
+      "example_mn": "Сүүлийн арван жилд онлайн худалдан авалт мэдэгдэхүйц нэмэгдсэн."
+    },
+    {
+      "en": "substantial",
+      "mn": "ихээхэн хэмжээний",
+      "example_en": "The government invested a substantial amount of money in public transport.",
+      "example_mn": "Засгийн газар нийтийн тээвэрт ихээхэн хэмжээний мөнгө хөрөнгө оруулсан."
+    },
+    {
+      "en": "considerable",
+      "mn": "анхаарал татахуйц",
+      "example_en": "Learning a new language requires considerable effort and patience.",
+      "example_mn": "Шинэ хэл сурахын тулд ихээхэн хүчин чармайлт, тэвчээр шаардлагатай."
+    },
+    {
+      "en": "crucial",
+      "mn": "маш чухал",
+      "example_en": "Early education plays a crucial role in a child's development.",
+      "example_mn": "Эрт насны боловсрол хүүхдийн хөгжилд маш чухал үүрэг гүйцэтгэдэг."
+    },
+    {
+      "en": "essential",
+      "mn": "зайлшгүй шаардлагатай",
+      "example_en": "Clean water is essential for maintaining public health.",
+      "example_mn": "Цэвэр ус олон нийтийн эрүүл мэндийг хадгалахад зайлшгүй шаардлагатай."
+    },
+    {
+      "en": "fundamental",
+      "mn": "үндсэн, суурь",
+      "example_en": "Trust is a fundamental part of any successful relationship.",
+      "example_mn": "Итгэлцэл нь амжилттай харилцааны үндсэн хэсэг юм."
+    },
+    {
+      "en": "inevitable",
+      "mn": "зайлшгүй тохиолдох",
+      "example_en": "As cities grow, traffic congestion seems almost inevitable.",
+      "example_mn": "Хотууд өргөжихийн хэрээр замын түгжрэл бараг зайлшгүй үзэгдэл болдог."
+    },
+    {
+      "en": "controversial",
+      "mn": "маргаантай",
+      "example_en": "The use of animals in scientific research remains a controversial topic.",
+      "example_mn": "Шинжлэх ухааны судалгаанд амьтан ашиглах нь маргаантай сэдэв хэвээр байна."
+    },
+    {
+      "en": "beneficial",
+      "mn": "ашигтай",
+      "example_en": "Regular exercise is beneficial for both physical and mental health.",
+      "example_mn": "Тогтмол дасгал хийх нь бие болон сэтгэцийн эрүүл мэндэд ашигтай."
+    },
+    {
+      "en": "detrimental",
+      "mn": "хортой нөлөөтэй",
+      "example_en": "Excessive screen time can be detrimental to children's eyesight.",
+      "example_mn": "Дэлгэц ашиглах хэт их цаг хугацаа хүүхдийн нүдний хараанд хортой нөлөөтэй."
+    },
+    {
+      "en": "adverse",
+      "mn": "сөрөг",
+      "example_en": "Air pollution has an adverse effect on people's respiratory health.",
+      "example_mn": "Агаарын бохирдол хүний амьсгалын замын эрүүл мэндэд сөрөг нөлөө үзүүлдэг."
+    },
+    {
+      "en": "consequently",
+      "mn": "үүний үр дүнд",
+      "example_en": "Fuel prices rose sharply; consequently, transport costs increased as well.",
+      "example_mn": "Түлшний үнэ огцом өссөн; үүний үр дүнд тээврийн зардал ч мөн нэмэгдсэн."
+    },
+    {
+      "en": "furthermore",
+      "mn": "түүнчлэн",
+      "example_en": "The new policy will reduce emissions. Furthermore, it will create thousands of green jobs.",
+      "example_mn": "Шинэ бодлого нь ялгарлыг бууруулна. Түүнчлэн олон мянган ногоон ажлын байр бий болгоно."
+    },
+    {
+      "en": "nevertheless",
+      "mn": "гэсэн хэдий ч",
+      "example_en": "The exam was difficult; nevertheless, most students passed.",
+      "example_mn": "Шалгалт хэцүү байсан; гэсэн хэдий ч ихэнх оюутан тэнцсэн."
+    },
+    {
+      "en": "undoubtedly",
+      "mn": "эргэлзээгүй",
+      "example_en": "Technology has undoubtedly changed the way people communicate.",
+      "example_mn": "Технологи хүмүүсийн харилцах хэлбэрийг эргэлзээгүй өөрчилсөн."
+    },
+    {
+      "en": "presumably",
+      "mn": "таамаглаж болохоор",
+      "example_en": "The store was closed, presumably because of the public holiday.",
+      "example_mn": "Дэлгүүр хаалттай байсан нь баяр ёслолын өдөр байсантай холбоотой байх магадлалтай."
+    },
+    {
+      "en": "arguably",
+      "mn": "магадгүй хэлж болохоор",
+      "example_en": "This is arguably the most important issue facing young people today.",
+      "example_mn": "Энэ нь өнөөгийн залуучуудын тулгарч буй хамгийн чухал асуудал гэж хэлж болно."
+    },
+    {
+      "en": "predominantly",
+      "mn": "голчлон",
+      "example_en": "The workforce in this industry is predominantly made up of young graduates.",
+      "example_mn": "Энэ салбарын ажиллах хүч голчлон залуу төгсөгчдөөс бүрддэг."
+    },
+    {
+      "en": "increasingly",
+      "mn": "улам бүр",
+      "example_en": "Employers are increasingly looking for candidates with digital skills.",
+      "example_mn": "Ажил олгогчид улам бүр цахим ур чадвартай нэр дэвшигчдийг хайж байна."
+    },
+    {
+      "en": "gradually",
+      "mn": "аажмаар",
+      "example_en": "The city gradually transformed from a small town into a busy metropolis.",
+      "example_mn": "Хот аажмаар жижиг тосгоноос завгүй томоохон хот руу хувирсан."
+    },
+    {
+      "en": "dramatically",
+      "mn": "огцом",
+      "example_en": "House prices have dramatically increased in the city center.",
+      "example_mn": "Хотын төвд орон сууцны үнэ огцом өссөн."
+    },
+    {
+      "en": "drastically",
+      "mn": "эрс",
+      "example_en": "The company drastically cut its budget after the recession.",
+      "example_mn": "Компани хямралын дараа төсвөө эрс танасан."
+    },
+    {
+      "en": "relatively",
+      "mn": "харьцангуй",
+      "example_en": "Compared to other countries, public transport here is relatively cheap.",
+      "example_mn": "Бусад орнуудтай харьцуулахад энд нийтийн тээвэр харьцангуй хямд."
+    },
+    {
+      "en": "ultimately",
+      "mn": "эцсийн эцэст",
+      "example_en": "Ultimately, the responsibility for the environment lies with everyone.",
+      "example_mn": "Эцсийн эцэст байгаль орчны хариуцлага хүн бүрт ногддог."
+    },
+    {
+      "en": "simultaneously",
+      "mn": "нэгэн зэрэг",
+      "example_en": "Modern workers are often expected to handle several tasks simultaneously.",
+      "example_mn": "Орчин үеийн ажилчид ихэвчлэн хэд хэдэн ажлыг нэгэн зэрэг гүйцэтгэхийг шаарддаг."
+    },
+    {
+      "en": "correlate",
+      "mn": "хамааралтай байх",
+      "example_en": "Studies show that income level tends to correlate with education level.",
+      "example_mn": "Судалгаагаар орлогын түвшин боловсролын түвшинтэй хамааралтай байдаг нь харагдсан."
+    },
+    {
+      "en": "contribute",
+      "mn": "хувь нэмэр оруулах",
+      "example_en": "Volunteering can contribute significantly to community development.",
+      "example_mn": "Сайн дурын ажил нь орон нутгийн хөгжилд мэдэгдэхүйц хувь нэмэр оруулж чадна."
+    },
+    {
+      "en": "address",
+      "mn": "шийдвэрлэх",
+      "example_en": "The government must address the growing problem of youth unemployment.",
+      "example_mn": "Засгийн газар залуучуудын ажилгүйдлийн өсөн нэмэгдэж буй асуудлыг шийдвэрлэх ёстой."
+    },
+    {
+      "en": "tackle",
+      "mn": "шийдвэрлэхийг оролдох",
+      "example_en": "Schools are introducing new programs to tackle bullying.",
+      "example_mn": "Сургуулиуд дээрэлхэлттэй тэмцэхийн тулд шинэ хөтөлбөр нэвтрүүлж байна."
+    },
+    {
+      "en": "mitigate",
+      "mn": "сааруулах",
+      "example_en": "Planting trees can help mitigate the effects of climate change.",
+      "example_mn": "Мод тарих нь уур амьсгалын өөрчлөлтийн нөлөөг сааруулахад тусалдаг."
+    },
+    {
+      "en": "alleviate",
+      "mn": "хөнгөвчлөх",
+      "example_en": "The new policy aims to alleviate poverty in rural areas.",
+      "example_mn": "Шинэ бодлого нь хөдөө орон нутагт ядуурлыг хөнгөвчлөхөд чиглэгдсэн."
+    },
+    {
+      "en": "exacerbate",
+      "mn": "улам дордуулах",
+      "example_en": "Poor diet can exacerbate existing health problems.",
+      "example_mn": "Муу хооллолт нь одоо байгаа эрүүл мэндийн асуудлыг улам дордуулж болно."
+    },
+    {
+      "en": "hinder",
+      "mn": "саад учруулах",
+      "example_en": "A lack of funding can hinder scientific progress.",
+      "example_mn": "Санхүүжилтийн дутагдал нь шинжлэх ухааны дэвшилд саад учруулж болно."
+    },
+    {
+      "en": "facilitate",
+      "mn": "хөнгөвчлөх, дэмжих",
+      "example_en": "Technology can facilitate communication between people in different countries.",
+      "example_mn": "Технологи нь өөр өөр орны хүмүүсийн хоорондын харилцаа холбоог хөнгөвчилж чадна."
+    },
+    {
+      "en": "implement",
+      "mn": "хэрэгжүүлэх",
+      "example_en": "The school decided to implement a new grading system.",
+      "example_mn": "Сургууль шинэ дүнгийн системийг хэрэгжүүлэхээр шийдсэн."
+    },
+    {
+      "en": "advocate",
+      "mn": "дэмжигч; дэмжих",
+      "example_en": "Many experts advocate for stricter environmental regulations.",
+      "example_mn": "Олон мэргэжилтэн байгаль орчны илүү хатуу зохицуулалтыг дэмждэг."
+    },
+    {
+      "en": "perceive",
+      "mn": "хүлээн авах, ойлгох",
+      "example_en": "People often perceive risk differently depending on their experience.",
+      "example_mn": "Хүмүүс туршлагаасаа хамааран эрсдэлийг өөр өөрөөр ойлгодог."
+    },
+    {
+      "en": "assert",
+      "mn": "батлан хэлэх",
+      "example_en": "Researchers assert that sleep is vital for memory consolidation.",
+      "example_mn": "Судлаачид нойр ой санамжийг бэхжүүлэхэд амин чухал гэдгийг батлан хэлдэг."
+    },
+    {
+      "en": "justify",
+      "mn": "үндэслэх",
+      "example_en": "It is hard to justify spending so much money on advertising.",
+      "example_mn": "Сурталчилгаанд ийм их мөнгө зарцуулахыг үндэслэхэд хэцүү байна."
+    },
+    {
+      "en": "undermine",
+      "mn": "сулруулах",
+      "example_en": "Corruption can undermine public trust in government.",
+      "example_mn": "Авилга нь засгийн газарт итгэх олон нийтийн итгэлийг сулруулж болно."
+    },
+    {
+      "en": "sustainable",
+      "mn": "тогтвортой",
+      "example_en": "Cities need to invest in sustainable energy sources.",
+      "example_mn": "Хотууд тогтвортой эрчим хүчний эх үүсвэрт хөрөнгө оруулах хэрэгтэй."
+    },
+    {
+      "en": "renewable",
+      "mn": "сэргээгдэх",
+      "example_en": "Solar and wind are examples of renewable energy.",
+      "example_mn": "Нар, салхи нь сэргээгдэх эрчим хүчний жишээ юм."
+    },
+    {
+      "en": "depletion",
+      "mn": "шавхагдал",
+      "example_en": "The depletion of natural resources threatens future generations.",
+      "example_mn": "Байгалийн баялгийн шавхагдал ирээдүй үеийнхэнд аюул учруулж байна."
+    },
+    {
+      "en": "emission",
+      "mn": "ялгарал",
+      "example_en": "Governments are setting stricter limits on carbon emissions.",
+      "example_mn": "Засгийн газрууд нүүрстөрөгчийн ялгарлын хатуу хязгаар тогтоож байна."
+    },
+    {
+      "en": "pollutant",
+      "mn": "бохирдуулагч",
+      "example_en": "Factories release harmful pollutants into the air.",
+      "example_mn": "Үйлдвэрүүд агаарт хортой бохирдуулагч бодис ялгаруулдаг."
+    },
+    {
+      "en": "contaminate",
+      "mn": "бохирдуулах",
+      "example_en": "Chemical waste can contaminate local water supplies.",
+      "example_mn": "Химийн хог хаягдал орон нутгийн усны эх үүсвэрийг бохирдуулж болно."
+    },
+    {
+      "en": "deforestation",
+      "mn": "ойн хомсдол",
+      "example_en": "Deforestation is one of the leading causes of biodiversity loss.",
+      "example_mn": "Ойн хомсдол нь биологийн олон янз байдал алдагдах гол шалтгааны нэг юм."
+    },
+    {
+      "en": "biodiversity",
+      "mn": "биологийн олон янз байдал",
+      "example_en": "Rainforests contain a huge amount of the world's biodiversity.",
+      "example_mn": "Мөнх ногоон ойд дэлхийн биологийн олон янз байдлын ихэнх хэсэг оршдог."
+    },
+    {
+      "en": "ecosystem",
+      "mn": "экосистем",
+      "example_en": "Coral reefs support a delicate and diverse ecosystem.",
+      "example_mn": "Шүр хад нь эмзэг, олон янзын экосистемийг тэтгэдэг."
+    },
+    {
+      "en": "greenhouse gas",
+      "mn": "хүлэмжийн хий",
+      "example_en": "Burning fossil fuels releases large amounts of greenhouse gas.",
+      "example_mn": "Чулуужсан түлш шатаах нь ихээхэн хэмжээний хүлэмжийн хий ялгаруулдаг."
+    },
+    {
+      "en": "carbon footprint",
+      "mn": "нүүрстөрөгчийн ул мөр",
+      "example_en": "Eating less meat can reduce your personal carbon footprint.",
+      "example_mn": "Мах багасгаж идэх нь хувийн нүүрстөрөгчийн ул мөрийг багасгаж чадна."
+    },
+    {
+      "en": "drought",
+      "mn": "ган",
+      "example_en": "Prolonged drought has damaged crops across the region.",
+      "example_mn": "Удаан үргэлжилсэн ган энэ бүс нутгийн ургацад хохирол учруулсан."
+    },
+    {
+      "en": "erosion",
+      "mn": "элэгдэл",
+      "example_en": "Coastal erosion is threatening several seaside towns.",
+      "example_mn": "Эргийн элэгдэл далайн эрэг дагуух хэд хэдэн хотыг заналхийлж байна."
+    },
+    {
+      "en": "conservation",
+      "mn": "хамгаалал",
+      "example_en": "Wildlife conservation projects have helped save endangered species.",
+      "example_mn": "Ан амьтдыг хамгаалах төслүүд устах аюулд орсон зүйлийг аврахад тусалсан."
+    },
+    {
+      "en": "habitat",
+      "mn": "амьдрах орчин",
+      "example_en": "Urban expansion destroys the natural habitat of many animals.",
+      "example_mn": "Хотжилтын өргөжилт олон амьтны байгалийн амьдрах орчныг устгадаг."
+    },
+    {
+      "en": "endangered",
+      "mn": "устах аюулд орсон",
+      "example_en": "The panda is one of the world's most famous endangered animals.",
+      "example_mn": "Пандаг дэлхийн хамгийн алдартай устах аюулд орсон амьтдын нэг юм."
+    },
+    {
+      "en": "extinction",
+      "mn": "устах, мөхөх",
+      "example_en": "Human activity has pushed many species towards extinction.",
+      "example_mn": "Хүний үйл ажиллагаа олон зүйлийг устахад хүргэсэн."
+    },
+    {
+      "en": "fossil fuel",
+      "mn": "чулуужсан түлш",
+      "example_en": "Countries are gradually reducing their reliance on fossil fuels.",
+      "example_mn": "Улс орнууд чулуужсан түлшнээс хамааралаа аажмаар багасгаж байна."
+    },
+    {
+      "en": "sustainable development",
+      "mn": "тогтвортой хөгжил",
+      "example_en": "Sustainable development aims to balance economic growth with environmental protection.",
+      "example_mn": "Тогтвортой хөгжил нь эдийн засгийн өсөлт, байгаль орчны хамгааллыг тэнцвэржүүлэхийг зорьдог."
+    },
+    {
+      "en": "global warming",
+      "mn": "дэлхийн дулаарал",
+      "example_en": "Global warming is causing ice caps to melt at an alarming rate.",
+      "example_mn": "Дэлхийн дулаарал мөсөн бүрхүүлийг түгшүүртэй хурдацтай хайлуулж байна."
+    },
+    {
+      "en": "climate change",
+      "mn": "уур амьсгалын өөрчлөлт",
+      "example_en": "Climate change is one of the biggest challenges of our time.",
+      "example_mn": "Уур амьсгалын өөрчлөлт бол манай үеийн хамгийн том сорилтуудын нэг юм."
+    },
+    {
+      "en": "recycle",
+      "mn": "дахин боловсруулах",
+      "example_en": "Many households now recycle paper, plastic, and glass.",
+      "example_mn": "Олон өрх одоо цаас, хуванцар, шилийг дахин боловсруулж байна."
+    },
+    {
+      "en": "waste management",
+      "mn": "хог хаягдлын менежмент",
+      "example_en": "Effective waste management reduces the amount of rubbish sent to landfills.",
+      "example_mn": "Хог хаягдлын үр дүнтэй менежмент цэвэрлэгээний талбайд илгээгддэг хог хаягдлын хэмжээг бууруулдаг."
+    },
+    {
+      "en": "air quality",
+      "mn": "агаарын чанар",
+      "example_en": "Air quality in the capital worsens significantly during the winter.",
+      "example_mn": "Нийслэлийн агаарын чанар өвлийн улиралд мэдэгдэхүйц муудаг."
+    },
+    {
+      "en": "natural disaster",
+      "mn": "байгалийн гамшиг",
+      "example_en": "Early warning systems can save lives during a natural disaster.",
+      "example_mn": "Эрт мэдээллийн систем нь байгалийн гамшгийн үед хүний амийг аварч чадна."
+    },
+    {
+      "en": "curriculum",
+      "mn": "хичээлийн хөтөлбөр",
+      "example_en": "The school introduced coding into its curriculum last year.",
+      "example_mn": "Сургууль өнгөрсөн жил хичээлийн хөтөлбөртөө программчлалыг нэвтрүүлсэн."
+    },
+    {
+      "en": "literacy",
+      "mn": "бичиг үсэгт тайлагдсан байдал",
+      "example_en": "Improving literacy rates is a top priority for many developing countries.",
+      "example_mn": "Бичиг үсэгт тайлагдсан байдлыг сайжруулах нь олон хөгжиж буй орны эрхэм зорилт юм."
+    },
+    {
+      "en": "tuition",
+      "mn": "сургалтын төлбөр",
+      "example_en": "University tuition fees have risen sharply in recent years.",
+      "example_mn": "Их сургуулийн сургалтын төлбөр сүүлийн жилүүдэд эрс өссөн."
+    },
+    {
+      "en": "scholarship",
+      "mn": "тэтгэлэг",
+      "example_en": "She was awarded a scholarship to study abroad.",
+      "example_mn": "Тэрээр гадаадад суралцах тэтгэлэг хожсон."
+    },
+    {
+      "en": "academic",
+      "mn": "сургуулийн, эрдэм шинжилгээний",
+      "example_en": "His academic performance improved after he changed his study habits.",
+      "example_mn": "Суралцах дадлаа өөрчилсний дараа түүний сургуулийн амжилт сайжирсан."
+    },
+    {
+      "en": "undergraduate",
+      "mn": "бакалаврын оюутан",
+      "example_en": "Undergraduate students often struggle to balance study and part-time work.",
+      "example_mn": "Бакалаврын оюутнууд суралцах, цагийн ажлаа тэнцвэржүүлэхэд ихэвчлэн бэрхшээлтэй тулгардаг."
+    },
+    {
+      "en": "vocational",
+      "mn": "мэргэжлийн",
+      "example_en": "Vocational training gives students practical skills for the job market.",
+      "example_mn": "Мэргэжлийн сургалт нь оюутнуудад ажлын зах зээлд шаардлагатай практик ур чадвар олгодог."
+    },
+    {
+      "en": "rote learning",
+      "mn": "цээжлэх сургалт",
+      "example_en": "Critics argue that rote learning does not encourage creativity.",
+      "example_mn": "Шүүмжлэгчид цээжлэх сургалт нь бүтээлч сэтгэлгээг дэмждэггүй гэж үздэг."
+    },
+    {
+      "en": "critical thinking",
+      "mn": "шүүмжлэлт сэтгэлгээ",
+      "example_en": "Universities aim to develop students' critical thinking skills.",
+      "example_mn": "Их сургуулиуд оюутнуудынхаа шүүмжлэлт сэтгэлгээний ур чадварыг хөгжүүлэхийг зорьдог."
+    },
+    {
+      "en": "plagiarism",
+      "mn": "бусдын бүтээлийг хулгайлах",
+      "example_en": "Plagiarism is treated as a serious offence in most universities.",
+      "example_mn": "Ихэнх их сургуульд бусдын бүтээлийг хулгайлах явдлыг ноцтой зөрчил гэж үздэг."
+    },
+    {
+      "en": "accreditation",
+      "mn": "магадлан итгэмжлэл",
+      "example_en": "The college recently received official accreditation.",
+      "example_mn": "Коллеж саяхан албан ёсны магадлан итгэмжлэл авсан."
+    },
+    {
+      "en": "syllabus",
+      "mn": "хичээлийн төлөвлөгөө",
+      "example_en": "The teacher handed out the syllabus on the first day of class.",
+      "example_mn": "Багш хичээлийн эхний өдөр хичээлийн төлөвлөгөөг тарааж өгсөн."
+    },
+    {
+      "en": "mentor",
+      "mn": "зөвлөгч",
+      "example_en": "A good mentor can guide young professionals through difficult decisions.",
+      "example_mn": "Сайн зөвлөгч залуу мэргэжилтнүүдийг хэцүү шийдвэр гаргах явцад чиглүүлж чадна."
+    },
+    {
+      "en": "pedagogy",
+      "mn": "сурган хүмүүжүүлэх ухаан",
+      "example_en": "Modern pedagogy focuses more on student participation than lectures.",
+      "example_mn": "Орчин үеийн сурган хүмүүжүүлэх ухаан лекцээс илүү оюутны оролцоонд анхаардаг."
+    },
+    {
+      "en": "distance learning",
+      "mn": "зайн сургалт",
+      "example_en": "Distance learning became extremely common during the pandemic.",
+      "example_mn": "Тахлын үед зайн сургалт маш түгээмэл болсон."
+    },
+    {
+      "en": "extracurricular",
+      "mn": "хичээлээс гадуурх",
+      "example_en": "Extracurricular activities help students develop teamwork skills.",
+      "example_mn": "Хичээлээс гадуурх үйл ажиллагаа оюутнуудад багаар ажиллах чадвар хөгжүүлэхэд тусалдаг."
+    },
+    {
+      "en": "peer pressure",
+      "mn": "үе тэнгийн дарамт",
+      "example_en": "Teenagers are especially vulnerable to peer pressure.",
+      "example_mn": "Өсвөр насныхан үе тэнгийн дарамтад ялангуяа өртөмтгий байдаг."
+    },
+    {
+      "en": "cognitive",
+      "mn": "танин мэдэхүйн",
+      "example_en": "Reading regularly can improve a child's cognitive development.",
+      "example_mn": "Тогтмол унших нь хүүхдийн танин мэдэхүйн хөгжлийг сайжруулж чадна."
+    },
+    {
+      "en": "proficiency",
+      "mn": "эзэмшлийн түвшин",
+      "example_en": "Employers often require a certain level of language proficiency.",
+      "example_mn": "Ажил олгогчид ихэвчлэн хэлний эзэмшлийн тодорхой түвшинг шаарддаг."
+    },
+    {
+      "en": "innovation",
+      "mn": "инноваци",
+      "example_en": "Innovation in medicine has extended average life expectancy.",
+      "example_mn": "Анагаах ухаан дахь инноваци дундаж наслалтыг уртасгасан."
+    },
+    {
+      "en": "artificial intelligence",
+      "mn": "хиймэл оюун ухаан",
+      "example_en": "Artificial intelligence is increasingly used in everyday applications.",
+      "example_mn": "Хиймэл оюун ухааныг өдөр тутмын хэрэглээнд улам бүр ашиглаж байна."
+    },
+    {
+      "en": "automation",
+      "mn": "автоматжуулалт",
+      "example_en": "Automation has replaced many repetitive jobs in factories.",
+      "example_mn": "Автоматжуулалт үйлдвэрүүдэд давтагдах олон ажлын байрыг орлож байна."
+    },
+    {
+      "en": "algorithm",
+      "mn": "алгоритм",
+      "example_en": "Social media platforms use algorithms to decide what content users see.",
+      "example_mn": "Сошиал медиа платформууд хэрэглэгчдэд ямар агуулга харуулахыг алгоритмаар тодорхойлдог."
+    },
+    {
+      "en": "digitalize",
+      "mn": "тоон хэлбэрт шилжүүлэх",
+      "example_en": "Many companies rushed to digitalize their services during the pandemic.",
+      "example_mn": "Олон компани тахлын үед үйлчилгээгээ тоон хэлбэрт хурдан шилжүүлсэн."
+    },
+    {
+      "en": "cybersecurity",
+      "mn": "кибер аюулгүй байдал",
+      "example_en": "Companies are spending more on cybersecurity to prevent data theft.",
+      "example_mn": "Компаниуд өгөгдөл хулгайлахаас сэргийлэхийн тулд кибер аюулгүй байдалд илүү зарцуулж байна."
+    },
+    {
+      "en": "breakthrough",
+      "mn": "томоохон нээлт",
+      "example_en": "Scientists announced a major breakthrough in cancer treatment.",
+      "example_mn": "Эрдэмтэд хорт хавдрын эмчилгээнд томоохон нээлт хийсэн тухай зарлав."
+    },
+    {
+      "en": "obsolete",
+      "mn": "хуучирсан",
+      "example_en": "Many household appliances become obsolete within a few years.",
+      "example_mn": "Гэр ахуйн олон хэрэгсэл хэдхэн жилийн дараа хуучирдаг."
+    },
+    {
+      "en": "surveillance",
+      "mn": "хяналт",
+      "example_en": "Increased surveillance raises concerns about privacy.",
+      "example_mn": "Хяналт нэмэгдэх нь хувийн нууцлалын талаарх санааг зовоож байна."
+    },
+    {
+      "en": "malfunction",
+      "mn": "эвдрэл",
+      "example_en": "The flight was delayed due to a technical malfunction.",
+      "example_mn": "Техникийн эвдрэлээс болж нислэг хойшлогдсон."
+    },
+    {
+      "en": "upgrade",
+      "mn": "шинэчлэх",
+      "example_en": "The city plans to upgrade its public transport system.",
+      "example_mn": "Хот нийтийн тээврийн системээ шинэчлэхээр төлөвлөж байна."
+    },
+    {
+      "en": "bandwidth",
+      "mn": "зурвасын өргөн",
+      "example_en": "Video streaming requires a lot of bandwidth.",
+      "example_mn": "Видео дамжуулалт их хэмжээний зурвасын өргөн шаарддаг."
+    },
+    {
+      "en": "glitch",
+      "mn": "жижиг алдаа",
+      "example_en": "A small software glitch caused the website to crash.",
+      "example_mn": "Программ хангамжийн жижиг алдаа вэбсайтыг гэмтээсэн."
+    },
+    {
+      "en": "streamline",
+      "mn": "хялбарчлах",
+      "example_en": "The new system will streamline the application process.",
+      "example_mn": "Шинэ систем нь хүсэлт гаргах процессыг хялбарчлах болно."
+    },
+    {
+      "en": "interface",
+      "mn": "интерфейс",
+      "example_en": "The app has a simple and user-friendly interface.",
+      "example_mn": "Энэ апп нь энгийн бөгөөд хэрэглэгчид ээлтэй интерфейстэй."
+    },
+    {
+      "en": "connectivity",
+      "mn": "холболт",
+      "example_en": "Better internet connectivity has helped rural businesses grow.",
+      "example_mn": "Илүү сайн интернэт холболт нь хөдөөгийн бизнесүүдийн өсөлтөд тусалсан."
+    },
+    {
+      "en": "data breach",
+      "mn": "өгөгдлийн алдагдал",
+      "example_en": "The company faced criticism after a major data breach.",
+      "example_mn": "Компани томоохон өгөгдлийн алдагдлын дараа шүүмжлэлд өртсөн."
+    },
+    {
+      "en": "e-commerce",
+      "mn": "цахим худалдаа",
+      "example_en": "E-commerce has changed the way people shop for clothes.",
+      "example_mn": "Цахим худалдаа хүмүүсийн хувцас худалдан авдаг байдлыг өөрчилсөн."
+    },
+    {
+      "en": "virtual reality",
+      "mn": "виртуал бодит байдал",
+      "example_en": "Virtual reality is being used to train pilots safely.",
+      "example_mn": "Виртуал бодит байдлыг нисгэгчдийг аюулгүйгээр сургахад ашиглаж байна."
+    },
+    {
+      "en": "gadget",
+      "mn": "жижиг төхөөрөмж",
+      "example_en": "Modern gadgets make daily tasks much more convenient.",
+      "example_mn": "Орчин үеийн жижиг төхөөрөмжүүд өдөр тутмын ажлыг илүү тохитой болгодог."
+    },
+    {
+      "en": "obesity",
+      "mn": "таргалалт",
+      "example_en": "Childhood obesity rates have risen due to poor diet and inactivity.",
+      "example_mn": "Хүүхдийн таргалалтын түвшин муу хооллолт, идэвхгүй байдлаас болж өссөн."
+    },
+    {
+      "en": "malnutrition",
+      "mn": "тэжээлийн дутагдал",
+      "example_en": "Malnutrition remains a serious problem in many developing regions.",
+      "example_mn": "Тэжээлийн дутагдал олон хөгжиж буй бүс нутагт ноцтой асуудал хэвээр байна."
+    },
+    {
+      "en": "sedentary",
+      "mn": "хөдөлгөөн багатай",
+      "example_en": "A sedentary lifestyle increases the risk of heart disease.",
+      "example_mn": "Хөдөлгөөн багатай амьдралын хэв маяг зүрхний өвчний эрсдэлийг нэмэгдүүлдэг."
+    },
+    {
+      "en": "chronic",
+      "mn": "архаг",
+      "example_en": "Chronic stress can have a negative impact on physical health.",
+      "example_mn": "Архаг стресс биеийн эрүүл мэндэд сөрөг нөлөө үзүүлдэг."
+    },
+    {
+      "en": "epidemic",
+      "mn": "тахал",
+      "example_en": "The country responded quickly to control the epidemic.",
+      "example_mn": "Улс тахлыг хянахын тулд хурдан хариу арга хэмжээ авсан."
+    },
+    {
+      "en": "outbreak",
+      "mn": "гарц, дэгдэлт",
+      "example_en": "Health officials investigated the source of the outbreak.",
+      "example_mn": "Эрүүл мэндийн албаныхан дэгдэлтийн эх үүсвэрийг судалсан."
+    },
+    {
+      "en": "immunity",
+      "mn": "дархлаа",
+      "example_en": "A balanced diet helps strengthen the body's immunity.",
+      "example_mn": "Тэнцвэртэй хооллолт биеийн дархлааг бэхжүүлэхэд тусалдаг."
+    },
+    {
+      "en": "fatigue",
+      "mn": "ядрал",
+      "example_en": "Long working hours often lead to fatigue and reduced productivity.",
+      "example_mn": "Урт цагийн ажил ихэвчлэн ядрал, бүтээмж буурахад хүргэдэг."
+    },
+    {
+      "en": "rehabilitation",
+      "mn": "нөхөн сэргээх эмчилгээ",
+      "example_en": "The athlete underwent months of rehabilitation after the injury.",
+      "example_mn": "Тамирчин гэмтлийн дараа хэдэн сар нөхөн сэргээх эмчилгээ хийлгэсэн."
+    },
+    {
+      "en": "mental health",
+      "mn": "сэтгэцийн эрүүл мэнд",
+      "example_en": "Schools are paying more attention to students' mental health.",
+      "example_mn": "Сургуулиуд оюутнуудын сэтгэцийн эрүүл мэндэд илүү анхаарал хандуулж байна."
+    },
+    {
+      "en": "wellbeing",
+      "mn": "сайн сайхан байдал",
+      "example_en": "A good work-life balance improves overall wellbeing.",
+      "example_mn": "Ажил, амьдралын сайн тэнцвэр нийт сайн сайхан байдлыг сайжруулдаг."
+    },
+    {
+      "en": "deficiency",
+      "mn": "дутагдал",
+      "example_en": "A vitamin D deficiency is common in areas with little sunlight.",
+      "example_mn": "Наранцаг цөөн бүс нутагт D аминдэмийн дутагдал түгээмэл байдаг."
+    },
+    {
+      "en": "remedy",
+      "mn": "эмчилгээ, эм",
+      "example_en": "Honey and lemon are a popular home remedy for sore throats.",
+      "example_mn": "Зөгийн бал, лимон нь хоолойн өвдөлтөд ашигладаг түгээмэл гэрийн эм юм."
+    },
+    {
+      "en": "addiction",
+      "mn": "донтолт",
+      "example_en": "Smartphone addiction is a growing concern among teenagers.",
+      "example_mn": "Ухаалаг гар утасны донтолт өсвөр насныхны дунд өсөн нэмэгдэж буй асуудал болж байна."
+    },
+    {
+      "en": "life expectancy",
+      "mn": "дундаж наслалт",
+      "example_en": "Improvements in healthcare have increased life expectancy worldwide.",
+      "example_mn": "Эрүүл мэндийн салбарын сайжралт дэлхий даяар дундаж наслалтыг нэмэгдүүлсэн."
+    },
+    {
+      "en": "hygiene",
+      "mn": "эрүүл ахуй",
+      "example_en": "Good hygiene habits help prevent the spread of disease.",
+      "example_mn": "Эрүүл ахуйн сайн дадал өвчин тархахаас сэргийлэхэд тусалдаг."
+    },
+    {
+      "en": "vaccine",
+      "mn": "вакцин",
+      "example_en": "Scientists developed a vaccine in record time.",
+      "example_mn": "Эрдэмтэд рекорд хугацаанд вакцин боловсруулсан."
+    },
+    {
+      "en": "diagnosis",
+      "mn": "оношлогоо",
+      "example_en": "An early diagnosis greatly improves the chances of recovery.",
+      "example_mn": "Эрт оношлогоо эдгэрэх боломжийг мэдэгдэхүйц нэмэгдүүлдэг."
+    },
+    {
+      "en": "prescription",
+      "mn": "жор",
+      "example_en": "The doctor gave her a prescription for antibiotics.",
+      "example_mn": "Эмч түүнд антибиотикийн жор бичиж өгсөн."
+    },
+    {
+      "en": "holistic",
+      "mn": "иж бүрэн хандсан",
+      "example_en": "A holistic approach to health considers both the body and the mind.",
+      "example_mn": "Эрүүл мэндэд иж бүрэн хандах нь бие, сэтгэл хоёрыг хамтад нь харгалздаг."
+    },
+    {
+      "en": "diversity",
+      "mn": "олон янз байдал",
+      "example_en": "Workplace diversity brings a wider range of ideas and perspectives.",
+      "example_mn": "Ажлын байрны олон янз байдал илүү өргөн хүрээний санаа, үзэл бодлыг авчирдаг."
+    },
+    {
+      "en": "inequality",
+      "mn": "тэгш бус байдал",
+      "example_en": "Income inequality has widened significantly in many countries.",
+      "example_mn": "Олон улс оронд орлогын тэгш бус байдал мэдэгдэхүйц нэмэгдсэн."
+    },
+    {
+      "en": "discrimination",
+      "mn": "ялгаварлан гадуурхал",
+      "example_en": "Laws have been introduced to prevent discrimination in the workplace.",
+      "example_mn": "Ажлын байран дахь ялгаварлан гадуурхлаас сэргийлэх хуулиуд гарсан."
+    },
+    {
+      "en": "integration",
+      "mn": "интеграцчилал",
+      "example_en": "The integration of immigrants into society requires support from local communities.",
+      "example_mn": "Цагаачдыг нийгэмд интеграцлахад орон нутгийн иргэдийн дэмжлэг шаардлагатай."
+    },
+    {
+      "en": "heritage",
+      "mn": "өв соёл",
+      "example_en": "The old town is famous for its cultural heritage.",
+      "example_mn": "Хуучин хот өвөрмөц соёлын өвөөрөө алдартай."
+    },
+    {
+      "en": "tradition",
+      "mn": "уламжлал",
+      "example_en": "Many young people still value traditional family customs.",
+      "example_mn": "Олон залуу хүн гэр бүлийн уламжлалт заншлыг өнөөдрийг хүртэл үнэлдэг."
+    },
+    {
+      "en": "norm",
+      "mn": "хэм хэмжээ",
+      "example_en": "Remote working has become the norm in many industries.",
+      "example_mn": "Зайнаас ажиллах нь олон салбарт хэвийн үзэгдэл болжээ."
+    },
+    {
+      "en": "stereotype",
+      "mn": "хэвшмэл ойлголт",
+      "example_en": "Media often reinforces gender stereotypes.",
+      "example_mn": "Хэвлэл мэдээлэл хүйсийн хэвшмэл ойлголтыг ихэвчлэн бэхжүүлдэг."
+    },
+    {
+      "en": "assimilate",
+      "mn": "шингэх, дасан зохицох",
+      "example_en": "It can take years for immigrants to fully assimilate into a new culture.",
+      "example_mn": "Цагаачид шинэ соёлд бүрэн шингэхэд олон жил зарцуулагдаж болно."
+    },
+    {
+      "en": "multicultural",
+      "mn": "олон соёлт",
+      "example_en": "Big cities are often multicultural, with people from many backgrounds.",
+      "example_mn": "Том хотууд ихэвчлэн олон соёлт бөгөөд өөр өөр гарал үүсэлтэй хүмүүстэй байдаг."
+    },
+    {
+      "en": "minority",
+      "mn": "цөөнх",
+      "example_en": "The rights of ethnic minorities are protected by law.",
+      "example_mn": "Үндэсний цөөнхийн эрхийг хуулиар хамгаалдаг."
+    },
+    {
+      "en": "generation gap",
+      "mn": "үеийн ялгаа",
+      "example_en": "The generation gap can lead to misunderstandings between parents and children.",
+      "example_mn": "Үеийн ялгаа нь эцэг эх, хүүхдийн хооронд ойлголцлын зөрчил үүсгэж болно."
+    },
+    {
+      "en": "gender equality",
+      "mn": "хүйсийн тэгш байдал",
+      "example_en": "Companies are working towards greater gender equality in leadership roles.",
+      "example_mn": "Компаниуд удирдах албан тушаалд хүйсийн тэгш байдлыг сайжруулахын төлөө ажиллаж байна."
+    },
+    {
+      "en": "social cohesion",
+      "mn": "нийгмийн нэгдэл",
+      "example_en": "Community events help strengthen social cohesion.",
+      "example_mn": "Олон нийтийн арга хэмжээ нийгмийн нэгдлийг бэхжүүлэхэд тусалдаг."
+    },
+    {
+      "en": "custom",
+      "mn": "заншил",
+      "example_en": "It is a local custom to remove your shoes before entering a house.",
+      "example_mn": "Гэрт орохын өмнө гутлаа тайлах нь орон нутгийн заншил юм."
+    },
+    {
+      "en": "taboo",
+      "mn": "хориотой сэдэв",
+      "example_en": "Discussing salaries openly is still a taboo topic in some cultures.",
+      "example_mn": "Цалингийн тухай ил задгай ярилцах нь зарим соёлд одоо ч хориотой сэдэв юм."
+    },
+    {
+      "en": "ethical",
+      "mn": "ёс зүйн",
+      "example_en": "Companies face growing pressure to make ethical business decisions.",
+      "example_mn": "Компаниуд ёс зүйтэй бизнесийн шийдвэр гаргах шахалтад улам бүр өртөж байна."
+    },
+    {
+      "en": "community",
+      "mn": "нийгэмлэг, нийтийн бүлэг",
+      "example_en": "The new park has become a popular gathering place for the community.",
+      "example_mn": "Шинэ цэцэрлэгт хүрээлэн нь орон нутгийн иргэдийн цуглах алдартай газар болжээ."
+    },
+    {
+      "en": "isolation",
+      "mn": "тусгаарлал",
+      "example_en": "Prolonged social isolation can negatively affect mental health.",
+      "example_mn": "Удаан хугацааны нийгмийн тусгаарлал сэтгэцийн эрүүл мэндэд сөрөг нөлөө үзүүлдэг."
+    },
+    {
+      "en": "empathy",
+      "mn": "өрөвдөх сэтгэл",
+      "example_en": "Teaching empathy helps children build better relationships.",
+      "example_mn": "Өрөвдөх сэтгэлийг заах нь хүүхдэд илүү сайн харилцаа тогтооход тусалдаг."
+    },
+    {
+      "en": "income",
+      "mn": "орлого",
+      "example_en": "Many families rely on a second job to increase their income.",
+      "example_mn": "Олон гэр бүл орлогоо нэмэгдүүлэхийн тулд хоёр дахь ажилд түшиглэдэг."
+    },
+    {
+      "en": "expenditure",
+      "mn": "зарлага",
+      "example_en": "Government expenditure on healthcare increased last year.",
+      "example_mn": "Эрүүл мэндэд зориулсан төрийн зарлага өнгөрсөн жил нэмэгдсэн."
+    },
+    {
+      "en": "inflation",
+      "mn": "инфляц",
+      "example_en": "Rising inflation has made everyday goods more expensive.",
+      "example_mn": "Өсөж буй инфляц өдөр тутмын бараа бүтээгдэхүүнийг илүү үнэтэй болгосон."
+    },
+    {
+      "en": "recession",
+      "mn": "хямрал, уналт",
+      "example_en": "Many businesses closed during the economic recession.",
+      "example_mn": "Эдийн засгийн хямралын үед олон бизнес хаагдсан."
+    },
+    {
+      "en": "unemployment",
+      "mn": "ажилгүйдэл",
+      "example_en": "Youth unemployment remains a major concern in many countries.",
+      "example_mn": "Залуучуудын ажилгүйдэл олон улс оронд томоохон санаа зовоосон асуудал хэвээр байна."
+    },
+    {
+      "en": "workforce",
+      "mn": "ажиллах хүчин",
+      "example_en": "Automation is expected to reshape the future workforce.",
+      "example_mn": "Автоматжуулалт нь ирээдүйн ажиллах хүчнийг өөрчлөх төлөвтэй байна."
+    },
+    {
+      "en": "entrepreneur",
+      "mn": "бизнес эрхлэгч",
+      "example_en": "Young entrepreneurs are launching innovative start-ups every year.",
+      "example_mn": "Залуу бизнес эрхлэгчид жил бүр шинэлэг стартап компани нээж байна."
+    },
+    {
+      "en": "investment",
+      "mn": "хөрөнгө оруулалт",
+      "example_en": "Foreign investment has boosted the country's economic growth.",
+      "example_mn": "Гадаадын хөрөнгө оруулалт улс орны эдийн засгийн өсөлтийг түргэтгэсэн."
+    },
+    {
+      "en": "subsidy",
+      "mn": "татаас",
+      "example_en": "Farmers receive government subsidies to grow certain crops.",
+      "example_mn": "Тариаланчид тодорхой ургамал тарихад төрийн татаас авдаг."
+    },
+    {
+      "en": "revenue",
+      "mn": "орлого (компанийн)",
+      "example_en": "The company's revenue grew significantly after expanding online.",
+      "example_mn": "Компани онлайн худалдаагаа өргөжүүлсний дараа орлого нь мэдэгдэхүйц өссөн."
+    },
+    {
+      "en": "commodity",
+      "mn": "бараа бүтээгдэхүүн",
+      "example_en": "Oil is one of the most traded commodities in the world.",
+      "example_mn": "Газрын тос дэлхийн хамгийн их наймаалцдаг бараа бүтээгдэхүүний нэг юм."
+    },
+    {
+      "en": "globalization",
+      "mn": "даяаршил",
+      "example_en": "Globalization has made it easier for companies to sell products worldwide.",
+      "example_mn": "Даяаршил компаниудад дэлхий даяар бүтээгдэхүүнээ борлуулахад хялбар болгосон."
+    },
+    {
+      "en": "outsourcing",
+      "mn": "гадаад дуудлага",
+      "example_en": "Many firms reduce costs through outsourcing production overseas.",
+      "example_mn": "Олон компани үйлдвэрлэлээ гадаадад гадаад дуудлагаар хийлгэснээр зардлаа бууруулдаг."
+    },
+    {
+      "en": "redundancy",
+      "mn": "ажлаас чөлөөлөгдөх",
+      "example_en": "Hundreds of workers faced redundancy after the factory closed.",
+      "example_mn": "Үйлдвэр хаагдсаны дараа хэдэн зуун ажилчин ажлаас чөлөөлөгдсөн."
+    },
+    {
+      "en": "productivity",
+      "mn": "бүтээмж",
+      "example_en": "Flexible working hours can improve employee productivity.",
+      "example_mn": "Уян хатан ажлын цаг ажилтны бүтээмжийг сайжруулж болно."
+    },
+    {
+      "en": "consumer",
+      "mn": "хэрэглэгч",
+      "example_en": "Consumer habits have shifted towards online shopping.",
+      "example_mn": "Хэрэглэгчийн дадал онлайн худалдаа руу шилжсэн."
+    },
+    {
+      "en": "deficit",
+      "mn": "алдагдал",
+      "example_en": "The country is running a large trade deficit this year.",
+      "example_mn": "Тус улс энэ жил их хэмжээний худалдааны алдагдалтай байна."
+    },
+    {
+      "en": "tariff",
+      "mn": "гаалийн татвар",
+      "example_en": "New tariffs on imported goods raised prices for consumers.",
+      "example_mn": "Импортын бараанд ногдуулсан шинэ гаалийн татвар хэрэглэгчдийн үнийг өсгөсөн."
+    },
+    {
+      "en": "monopoly",
+      "mn": "монополь",
+      "example_en": "Regulators try to prevent large companies from forming a monopoly.",
+      "example_mn": "Зохицуулах байгууллагууд том компаниуд монополь үүсгэхээс сэргийлэхийг эрмэлздэг."
+    },
+    {
+      "en": "stakeholder",
+      "mn": "сонирхогч тал",
+      "example_en": "Every major decision must consider the views of all stakeholders.",
+      "example_mn": "Томоохон шийдвэр бүр бүх сонирхогч талуудын үзэл бодлыг харгалзан үзэх ёстой."
+    },
+    {
+      "en": "profit margin",
+      "mn": "ашгийн хэмжээ",
+      "example_en": "Rising costs have squeezed the company's profit margin.",
+      "example_mn": "Өсөж буй зардал компанийн ашгийн хэмжээг багасгасан."
+    },
+    {
+      "en": "bankruptcy",
+      "mn": "дампуурал",
+      "example_en": "The airline filed for bankruptcy after years of losses.",
+      "example_mn": "Тус нисэх компани олон жилийн алдагдлын дараа дампуурлын өргөдөл гаргасан."
+    },
+    {
+      "en": "workforce diversity",
+      "mn": "ажиллах хүчний олон янз байдал",
+      "example_en": "Workforce diversity often leads to more creative problem-solving.",
+      "example_mn": "Ажиллах хүчний олон янз байдал ихэвчлэн илүү бүтээлч шийдэл гаргахад хүргэдэг."
+    },
+    {
+      "en": "minimum wage",
+      "mn": "хөдөлмөрийн хөлсний доод хэмжээ",
+      "example_en": "The government raised the minimum wage to help low-income workers.",
+      "example_mn": "Засгийн газар бага орлоготой ажилчдад туслахын тулд хөдөлмөрийн хөлсний доод хэмжээг нэмэгдүүлсэн."
+    },
+    {
+      "en": "self-employed",
+      "mn": "өөрөө хөдөлмөр эрхлэгч",
+      "example_en": "More people are choosing to become self-employed instead of working for a company.",
+      "example_mn": "Илүү олон хүн компанид ажиллахын оронд өөрөө хөдөлмөр эрхлэгч болохыг сонгож байна."
+    },
+    {
+      "en": "legislation",
+      "mn": "хууль тогтоомж",
+      "example_en": "New legislation was passed to reduce plastic waste.",
+      "example_mn": "Хуванцар хог хаягдлыг бууруулах шинэ хууль тогтоомж батлагдсан."
+    },
+    {
+      "en": "regulation",
+      "mn": "зохицуулалт",
+      "example_en": "Strict regulation is needed to ensure food safety.",
+      "example_mn": "Хүнсний аюулгүй байдлыг хангахын тулд хатуу зохицуулалт хэрэгтэй."
+    },
+    {
+      "en": "bureaucracy",
+      "mn": "бюрократ",
+      "example_en": "Excessive bureaucracy can slow down important decisions.",
+      "example_mn": "Хэт их бюрократ чухал шийдвэр гаргалтыг удаашруулж болно."
+    },
+    {
+      "en": "policy",
+      "mn": "бодлого",
+      "example_en": "The new education policy focuses on practical skills.",
+      "example_mn": "Шинэ боловсролын бодлого практик ур чадварт анхаардаг."
+    },
+    {
+      "en": "reform",
+      "mn": "шинэчлэл",
+      "example_en": "The government introduced major reforms to the healthcare system.",
+      "example_mn": "Засгийн газар эрүүл мэндийн системд томоохон шинэчлэл хийсэн."
+    },
+    {
+      "en": "taxation",
+      "mn": "татвар ногдуулалт",
+      "example_en": "Fair taxation helps fund public services such as schools and hospitals.",
+      "example_mn": "Шударга татвар ногдуулалт сургууль, эмнэлэг зэрэг нийтийн үйлчилгээг санхүүжүүлэхэд тусалдаг."
+    },
+    {
+      "en": "welfare",
+      "mn": "нийгмийн халамж",
+      "example_en": "The welfare system provides support to unemployed citizens.",
+      "example_mn": "Нийгмийн халамжийн систем ажилгүй иргэдэд дэмжлэг үзүүлдэг."
+    },
+    {
+      "en": "authority",
+      "mn": "эрх мэдэл",
+      "example_en": "Local authorities are responsible for maintaining public parks.",
+      "example_mn": "Орон нутгийн байгууллагууд нийтийн цэцэрлэгт хүрээлэнг арчлах үүрэгтэй."
+    },
+    {
+      "en": "enforce",
+      "mn": "мөрдүүлэх",
+      "example_en": "It can be difficult to enforce traffic laws in busy cities.",
+      "example_mn": "Завгүй хотуудад замын хөдөлгөөний хуулийг мөрдүүлэхэд хэцүү байдаг."
+    },
+    {
+      "en": "corruption",
+      "mn": "авилга",
+      "example_en": "Fighting corruption is essential for economic development.",
+      "example_mn": "Авилгатай тэмцэх нь эдийн засгийн хөгжилд зайлшгүй чухал юм."
+    },
+    {
+      "en": "accountability",
+      "mn": "хариуцлага",
+      "example_en": "Public officials should be held to a high standard of accountability.",
+      "example_mn": "Төрийн албан хаагчид хариуцлагын өндөр стандартад хүрэх ёстой."
+    },
+    {
+      "en": "infrastructure",
+      "mn": "дэд бүтэц",
+      "example_en": "Investment in infrastructure creates jobs and improves quality of life.",
+      "example_mn": "Дэд бүтцэд хийсэн хөрөнгө оруулалт ажлын байр бий болгож, амьжиргааны чанарыг сайжруулдаг."
+    },
+    {
+      "en": "constituency",
+      "mn": "тойрог",
+      "example_en": "The politician spent the weekend visiting her constituency.",
+      "example_mn": "Тухайн улстөрч амралтын өдрүүдээ өөрийн тойргоороо айлчлан өнгөрөөсөн."
+    },
+    {
+      "en": "referendum",
+      "mn": "бүх ард түмний санал асуулга",
+      "example_en": "A referendum was held to decide on the new law.",
+      "example_mn": "Шинэ хуулийн талаар шийдвэр гаргахын тулд бүх ард түмний санал асуулга явуулсан."
+    },
+    {
+      "en": "sovereignty",
+      "mn": "тусгаар тогтнол",
+      "example_en": "The treaty respects the sovereignty of each member state.",
+      "example_mn": "Гэрээ нь гишүүн улс бүрийн тусгаар тогтнолыг хүндэтгэдэг."
+    },
+    {
+      "en": "diplomacy",
+      "mn": "дипломат харилцаа",
+      "example_en": "Diplomacy is often preferred over conflict in resolving disputes.",
+      "example_mn": "Маргаан шийдвэрлэхэд ихэвчлэн зөрчилдөөнөөс илүү дипломат харилцааг илүүд үздэг."
+    },
+    {
+      "en": "sanction",
+      "mn": "хориг арга хэмжээ",
+      "example_en": "Economic sanctions were imposed on the country.",
+      "example_mn": "Тус улсад эдийн засгийн хориг арга хэмжээ авчээ."
+    },
+    {
+      "en": "subsidize",
+      "mn": "татаас олгох",
+      "example_en": "The government decided to subsidize renewable energy projects.",
+      "example_mn": "Засгийн газар сэргээгдэх эрчим хүчний төслүүдэд татаас олгохоор шийдсэн."
+    },
+    {
+      "en": "public sector",
+      "mn": "төрийн салбар",
+      "example_en": "Working in the public sector often offers more job security.",
+      "example_mn": "Төрийн салбарт ажиллах нь ихэвчлэн илүү ажлын байрны баталгаатай байдлыг санал болгодог."
+    },
+    {
+      "en": "civil rights",
+      "mn": "иргэний эрх",
+      "example_en": "The movement fought for equal civil rights for all citizens.",
+      "example_mn": "Тухайн хөдөлгөөн бүх иргэдэд тэгш иргэний эрх олгуулахын төлөө тэмцсэн."
+    },
+    {
+      "en": "offender",
+      "mn": "гэмт хэрэгтэн",
+      "example_en": "First-time offenders are often given lighter sentences.",
+      "example_mn": "Анх удаа гэмт хэрэг үйлдэгсдэд ихэвчлэн хөнгөн ял оноодог."
+    },
+    {
+      "en": "juvenile",
+      "mn": "насанд хүрээгүй",
+      "example_en": "The juvenile justice system focuses on rehabilitation rather than punishment.",
+      "example_mn": "Насанд хүрээгүй хүмүүсийн эрх зүйн систем шийтгэлээс илүү нөхөн сэргээхэд анхаардаг."
+    },
+    {
+      "en": "deterrent",
+      "mn": "урьдчилан сэргийлэгч хүчин зүйл",
+      "example_en": "Some argue that harsh penalties act as a deterrent to crime.",
+      "example_mn": "Зарим хүмүүс хатуу ял шийтгэл нь гэмт хэргээс урьдчилан сэргийлэгч хүчин зүйл болдог гэж үздэг."
+    },
+    {
+      "en": "verdict",
+      "mn": "шүүхийн шийдвэр",
+      "example_en": "The jury reached a verdict after several hours of discussion.",
+      "example_mn": "Тангарагтны шүүгчид хэдэн цагийн хэлэлцүүлгийн дараа шийдвэрт хүрсэн."
+    },
+    {
+      "en": "custody",
+      "mn": "хамгаалалт, харгалзан асрах",
+      "example_en": "The suspect was taken into police custody for questioning.",
+      "example_mn": "Сэжигтнийг мөрдөн байцаах зорилгоор цагдаагийн харгалзан асралтад аваачив."
+    },
+    {
+      "en": "surveillance camera",
+      "mn": "хяналтын камер",
+      "example_en": "Surveillance cameras have helped reduce crime in the city center.",
+      "example_mn": "Хяналтын камер нь хотын төвд гэмт хэргийг бууруулахад тусалсан."
+    },
+    {
+      "en": "shoplifting",
+      "mn": "дэлгүүрийн хулгай",
+      "example_en": "Shoplifting has increased in some stores since the economic downturn.",
+      "example_mn": "Эдийн засгийн уналтаас хойш зарим дэлгүүрт дэлгүүрийн хулгай нэмэгдсэн."
+    },
+    {
+      "en": "vandalism",
+      "mn": "эд хөрөнгийг санаатай эвдэх",
+      "example_en": "The park suffered from vandalism over the weekend.",
+      "example_mn": "Цэцэрлэгт хүрээлэн амралтын өдрүүдэд санаатай эвдэлт хамгаалалтад өртсөн."
+    },
+    {
+      "en": "felony",
+      "mn": "хүнд гэмт хэрэг",
+      "example_en": "He was charged with a felony after the robbery.",
+      "example_mn": "Тэрээр дээрэм хийсний дараа хүнд гэмт хэрэгт буруутгагдсан."
+    },
+    {
+      "en": "probation",
+      "mn": "хянан харгалзах хугацаа",
+      "example_en": "The offender was released on probation instead of prison.",
+      "example_mn": "Гэмт хэрэгтнийг шоронд хорихын оронд хянан харгалзах хугацаагаар суллав."
+    },
+    {
+      "en": "testimony",
+      "mn": "гэрчийн мэдүүлэг",
+      "example_en": "The witness gave detailed testimony in court.",
+      "example_mn": "Гэрч шүүхэд дэлгэрэнгүй мэдүүлэг өгсөн."
+    },
+    {
+      "en": "reintegration",
+      "mn": "нийгэмшүүлэх",
+      "example_en": "Prison programs increasingly focus on the reintegration of offenders into society.",
+      "example_mn": "Хорих ангийн хөтөлбөрүүд гэмт хэрэгтнийг нийгэмд нийгэмшүүлэхэд улам бүр анхаарч байна."
+    },
+    {
+      "en": "law-abiding",
+      "mn": "хууль дээдэлдэг",
+      "example_en": "Most citizens are law-abiding and respect the legal system.",
+      "example_mn": "Ихэнх иргэд хууль дээдэлдэг бөгөөд эрх зүйн тогтолцоог хүндэтгэдэг."
+    },
+    {
+      "en": "fraud",
+      "mn": "залилан мэхлэлт",
+      "example_en": "The company was fined heavily for financial fraud.",
+      "example_mn": "Тус компани санхүүгийн залилан мэхлэлт хийсний төлөө их хэмжээний торгууль хүлээсэн."
+    },
+    {
+      "en": "capital punishment",
+      "mn": "цаазаар авах ял",
+      "example_en": "Many countries have abolished capital punishment.",
+      "example_mn": "Олон улс цаазаар авах ялыг халсан."
+    },
+    {
+      "en": "broadcast",
+      "mn": "нэвтрүүлэх",
+      "example_en": "The event was broadcast live to millions of viewers.",
+      "example_mn": "Тухайн үйл явдлыг сая сая үзэгчдэд шууд нэвтрүүлсэн."
+    },
+    {
+      "en": "censorship",
+      "mn": "цензур",
+      "example_en": "Internet censorship remains a controversial issue in some countries.",
+      "example_mn": "Интернэтийн цензур зарим улс оронд маргаантай асуудал хэвээр байна."
+    },
+    {
+      "en": "bias",
+      "mn": "өрөөсгөл байдал",
+      "example_en": "Readers should be aware of possible bias in news reporting.",
+      "example_mn": "Уншигчид мэдээ мэдээллийн өрөөсгөл байдлын талаар мэдэж байх хэрэгтэй."
+    },
+    {
+      "en": "tabloid",
+      "mn": "шар хэвлэл",
+      "example_en": "Tabloid newspapers often focus on celebrity gossip rather than serious news.",
+      "example_mn": "Шар хэвлэлийн сонин ноцтой мэдээнээс илүү алдартнуудын хов жив дээр анхаардаг."
+    },
+    {
+      "en": "propaganda",
+      "mn": "суртал ухуулга",
+      "example_en": "The regime used propaganda to control public opinion.",
+      "example_mn": "Тухайн дэглэм олон нийтийн санааг хянахын тулд суртал ухуулга ашигласан."
+    },
+    {
+      "en": "viral",
+      "mn": "хурдан тархах",
+      "example_en": "The video went viral within hours of being posted.",
+      "example_mn": "Тухайн видео байршуулснаас хойш хэдхэн цагийн дотор хурдан тархсан."
+    },
+    {
+      "en": "journalism",
+      "mn": "сэтгүүл зүй",
+      "example_en": "Investigative journalism plays a key role in exposing corruption.",
+      "example_mn": "Мөрдөн шалгах сэтгүүл зүй авилгыг илчлэхэд гол үүрэг гүйцэтгэдэг."
+    },
+    {
+      "en": "subscription",
+      "mn": "захиалга",
+      "example_en": "More readers are paying for online news subscriptions.",
+      "example_mn": "Илүү олон уншигч онлайн мэдээний захиалгад мөнгө төлж байна."
+    },
+    {
+      "en": "influencer",
+      "mn": "нөлөөлөгч",
+      "example_en": "Brands often work with influencers to promote their products.",
+      "example_mn": "Брэндүүд бүтээгдэхүүнээ сурталчлахын тулд нөлөөлөгчидтэй ихэвчлэн хамтран ажилладаг."
+    },
+    {
+      "en": "misinformation",
+      "mn": "буруу мэдээлэл",
+      "example_en": "Social media has made it easier for misinformation to spread quickly.",
+      "example_mn": "Сошиал медиа буруу мэдээлэл хурдан тархахад хялбар болгосон."
+    },
+    {
+      "en": "anonymity",
+      "mn": "нэрээ нууцлах",
+      "example_en": "The internet allows a certain degree of anonymity for its users.",
+      "example_mn": "Интернэт хэрэглэгчдэдээ тодорхой хэмжээний нэрээ нууцлах боломж олгодог."
+    },
+    {
+      "en": "platform",
+      "mn": "платформ",
+      "example_en": "Video-sharing platforms have transformed how people consume entertainment.",
+      "example_mn": "Видео хуваалцах платформууд хүмүүсийн зугаа цэнгэл хэрэглэдэг байдлыг өөрчилсөн."
+    },
+    {
+      "en": "broadcast media",
+      "mn": "хэвлэл мэдээллийн хэрэгсэл",
+      "example_en": "Broadcast media reaches a wide audience quickly.",
+      "example_mn": "Хэвлэл мэдээллийн хэрэгсэл өргөн хүрээний үзэгчдэд хурдан хүрдэг."
+    },
+    {
+      "en": "defamation",
+      "mn": "гүтгэлэг",
+      "example_en": "The celebrity sued the magazine for defamation.",
+      "example_mn": "Тухайн алдартан сэтгүүлийг гүтгэлгийн эрх зөрчсөн хэрэгт шүүхэд өгсөн."
+    },
+    {
+      "en": "freedom of speech",
+      "mn": "үг хэлэх эрх чөлөө",
+      "example_en": "Freedom of speech is considered a fundamental human right.",
+      "example_mn": "Үг хэлэх эрх чөлөөг хүний үндсэн эрх гэж үздэг."
+    },
+    {
+      "en": "itinerary",
+      "mn": "аяллын хөтөлбөр",
+      "example_en": "We planned a detailed itinerary before our trip to Japan.",
+      "example_mn": "Бид Японд хийх аялалынхаа өмнө дэлгэрэнгүй хөтөлбөр төлөвлөсөн."
+    },
+    {
+      "en": "accommodation",
+      "mn": "байрлах газар",
+      "example_en": "Finding affordable accommodation in the city center can be difficult.",
+      "example_mn": "Хотын төвд боломжийн үнэтэй байрлах газар олоход хэцүү байдаг."
+    },
+    {
+      "en": "excursion",
+      "mn": "жуулчлалын аялал",
+      "example_en": "The hotel organizes daily excursions to nearby islands.",
+      "example_mn": "Зочид буудал ойролцоох арлууд руу өдөр бүр жуулчлалын аялал зохион байгуулдаг."
+    },
+    {
+      "en": "souvenir",
+      "mn": "дурсгалын зүйл",
+      "example_en": "Tourists often buy souvenirs to remember their trip.",
+      "example_mn": "Жуулчид аяллаа дурсахын тулд ихэвчлэн дурсгалын зүйл худалдаж авдаг."
+    },
+    {
+      "en": "destination",
+      "mn": "очих газар",
+      "example_en": "This coastal town has become a popular tourist destination.",
+      "example_mn": "Далайн эргийн энэ хот жуулчдын дунд алдартай очих газар болжээ."
+    },
+    {
+      "en": "sightseeing",
+      "mn": "үзвэр үзэх",
+      "example_en": "We spent the whole afternoon sightseeing in the old part of town.",
+      "example_mn": "Бид өдрийн бүх цагийг хотын хуучин хэсэгт үзвэр үзэхэд зарцуулсан."
+    },
+    {
+      "en": "package tour",
+      "mn": "багц аялал",
+      "example_en": "A package tour usually includes flights, hotels, and meals.",
+      "example_mn": "Багц аялал ихэвчлэн нислэг, зочид буудал, хоолны үнийг багтаадаг."
+    },
+    {
+      "en": "landmark",
+      "mn": "түүхэн дурсгалт газар",
+      "example_en": "The tower is one of the city's most famous landmarks.",
+      "example_mn": "Тухайн цамхаг хотын хамгийн алдартай түүхэн дурсгалт газруудын нэг юм."
+    },
+    {
+      "en": "hospitality",
+      "mn": "зочломтгой байдал",
+      "example_en": "The hotel staff were known for their warm hospitality.",
+      "example_mn": "Зочид буудлын ажилтнууд дулаан зочломтгой байдлаараа алдартай байсан."
+    },
+    {
+      "en": "backpacker",
+      "mn": "нуруун цүнхтэй жуулчин",
+      "example_en": "Backpackers often travel on a limited budget.",
+      "example_mn": "Нуруун цүнхтэй жуулчид ихэвчлэн хязгаарлагдмал төсөвтэй аялдаг."
+    },
+    {
+      "en": "peak season",
+      "mn": "оргил улирал",
+      "example_en": "Hotel prices double during the peak tourist season.",
+      "example_mn": "Зочид буудлын үнэ жуулчны оргил улиралд хоёр дахин нэмэгддэг."
+    },
+    {
+      "en": "authentic",
+      "mn": "жинхэнэ, түүхэн",
+      "example_en": "Visitors want to experience authentic local culture, not just tourist attractions.",
+      "example_mn": "Зочид зөвхөн жуулчны газруудаас гадна жинхэнэ орон нутгийн соёлыг мэдрэхийг хүсдэг."
+    },
+    {
+      "en": "remote",
+      "mn": "алслагдсан",
+      "example_en": "The village is remote and can only be reached by boat.",
+      "example_mn": "Тухайн тосгон алслагдмал бөгөөд зөвхөн завиар очиж болдог."
+    },
+    {
+      "en": "overcrowded",
+      "mn": "хэт олон хүнтэй",
+      "example_en": "Popular beaches often become overcrowded in the summer.",
+      "example_mn": "Алдартай далайн эрэг зун ихэвчлэн хэт олон хүнтэй болдог."
+    },
+    {
+      "en": "eco-tourism",
+      "mn": "экологийн жуулчлал",
+      "example_en": "Eco-tourism aims to minimize environmental damage while promoting travel.",
+      "example_mn": "Экологийн жуулчлал нь аяллыг дэмжихийн зэрэгцээ байгаль орчинд учруулах хохирлыг багасгахыг зорьдог."
+    },
+    {
+      "en": "urbanization",
+      "mn": "хотжилт",
+      "example_en": "Rapid urbanization has led to overcrowded cities.",
+      "example_mn": "Хурдацтай хотжилт хотуудыг хэт олон хүнтэй болгосон."
+    },
+    {
+      "en": "congestion",
+      "mn": "түгжрэл",
+      "example_en": "Traffic congestion is a daily problem for commuters.",
+      "example_mn": "Замын түгжрэл ажилдаа явдаг хүмүүсийн өдөр тутмын асуудал юм."
+    },
+    {
+      "en": "commute",
+      "mn": "ажил дээрээ явж ирэх",
+      "example_en": "Many people commute over an hour each way to work.",
+      "example_mn": "Олон хүн ажилдаа очиход нэг цагаас илүү зарцуулдаг."
+    },
+    {
+      "en": "suburban",
+      "mn": "хотын захын",
+      "example_en": "Suburban areas often offer more space for less money.",
+      "example_mn": "Хотын захын бүс нутагт ихэвчлэн бага мөнгөөр илүү өргөн зай олгодог."
+    },
+    {
+      "en": "affordable housing",
+      "mn": "боломжийн үнэтэй орон сууц",
+      "example_en": "The city needs to build more affordable housing for low-income families.",
+      "example_mn": "Хотод бага орлоготой гэр бүлүүдэд зориулсан илүү олон боломжийн үнэтэй орон сууц барих шаардлагатай."
+    },
+    {
+      "en": "skyscraper",
+      "mn": "үлэмж өндөр барилга",
+      "example_en": "New skyscrapers have transformed the city's skyline.",
+      "example_mn": "Шинэ үлэмж өндөр барилгууд хотын дэлгэцийг өөрчилсөн."
+    },
+    {
+      "en": "gentrification",
+      "mn": "хотын дүүргийг сайжруулах",
+      "example_en": "Gentrification often pushes long-term residents out of their neighborhoods.",
+      "example_mn": "Хотын дүүргийг сайжруулах нь удаан хугацаагаар оршин суугчдыг хорооллоос гаргах хандлагатай байдаг."
+    },
+    {
+      "en": "residential",
+      "mn": "оршин суух",
+      "example_en": "The area is mainly residential, with few shops or offices.",
+      "example_mn": "Тухайн бүс нутаг голчлон оршин суух зориулалттай бөгөөд цөөхөн дэлгүүр, оффистой."
+    },
+    {
+      "en": "public transport",
+      "mn": "нийтийн тээвэр",
+      "example_en": "Efficient public transport reduces the number of cars on the road.",
+      "example_mn": "Үр дүнтэй нийтийн тээвэр замд байгаа машины тоог бууруулдаг."
+    },
+    {
+      "en": "metropolitan",
+      "mn": "томоохон хотын",
+      "example_en": "The metropolitan area is home to over ten million people.",
+      "example_mn": "Тухайн томоохон хотын бүс нутагт арваас илүү сая хүн амьдардаг."
+    },
+    {
+      "en": "overpopulation",
+      "mn": "хэт олон хүн ам",
+      "example_en": "Overpopulation puts pressure on housing, water, and food supplies.",
+      "example_mn": "Хэт олон хүн ам орон сууц, ус, хүнсний нөөцөд дарамт учруулдаг."
+    },
+    {
+      "en": "slum",
+      "mn": "зэлүүд хороолол",
+      "example_en": "The government launched a project to improve living conditions in the slum.",
+      "example_mn": "Засгийн газар зэлүүд хороололд амьдрах орчныг сайжруулах төсөл эхлүүлсэн."
+    },
+    {
+      "en": "amenities",
+      "mn": "тав тухтай байдлын хэрэгсэл",
+      "example_en": "The apartment complex offers amenities such as a gym and pool.",
+      "example_mn": "Орон сууцны хороолол фитнес заал, усан сан зэрэг тав тухтай байдлын хэрэгслээр хангадаг."
+    },
+    {
+      "en": "infrastructure development",
+      "mn": "дэд бүтцийн хөгжил",
+      "example_en": "Infrastructure development is key to attracting new businesses.",
+      "example_mn": "Дэд бүтцийн хөгжил шинэ бизнесийг татахад чухал юм."
+    },
+    {
+      "en": "zoning",
+      "mn": "бүсчлэл",
+      "example_en": "Zoning laws determine where factories and homes can be built.",
+      "example_mn": "Бүсчлэлийн хууль үйлдвэр, орон сууцыг хаана барихыг тодорхойлдог."
+    },
+    {
+      "en": "hypothesis",
+      "mn": "таамаглал",
+      "example_en": "The researchers tested their hypothesis through a series of experiments.",
+      "example_mn": "Судлаачид цуврал туршилтаар өөрсдийн таамаглалыг шалгасан."
+    },
+    {
+      "en": "empirical",
+      "mn": "туршилтад суурилсан",
+      "example_en": "The theory is supported by strong empirical evidence.",
+      "example_mn": "Тухайн онол хүчтэй туршилтад суурилсан нотолгоогоор баталгаажсан."
+    },
+    {
+      "en": "methodology",
+      "mn": "арга зүй",
+      "example_en": "The study's methodology was criticized for being too limited.",
+      "example_mn": "Тухайн судалгааны арга зүй хэт хязгаарлагдмал байсан гэж шүүмжлэгдсэн."
+    },
+    {
+      "en": "correlation",
+      "mn": "хамаарал",
+      "example_en": "There is a strong correlation between exercise and improved mood.",
+      "example_mn": "Дасгал хийх, сэтгэл санааны сайжралтын хооронд хүчтэй хамаарал байдаг."
+    },
+    {
+      "en": "variable",
+      "mn": "хувьсагч",
+      "example_en": "Researchers had to control several variables during the experiment.",
+      "example_mn": "Судлаачид туршилтын үед хэд хэдэн хувьсагчийг хянах шаардлагатай байсан."
+    },
+    {
+      "en": "sample size",
+      "mn": "түүврийн хэмжээ",
+      "example_en": "A larger sample size makes research findings more reliable.",
+      "example_mn": "Илүү том түүврийн хэмжээ судалгааны үр дүнг илүү найдвартай болгодог."
+    },
+    {
+      "en": "peer review",
+      "mn": "хамтран шүүмжлэл",
+      "example_en": "All scientific papers go through a strict peer review process.",
+      "example_mn": "Бүх шинжлэх ухааны өгүүлэл хатуу хамтран шүүмжлэлийн процессыг дамждаг."
+    },
+    {
+      "en": "milestone",
+      "mn": "чухал үе шат, ололт",
+      "example_en": "Landing the spacecraft safely was a major milestone for the space agency.",
+      "example_mn": "Сансрын хөлгийг аюулгүй буулгах нь сансрын агентлагийн чухал ололт байлаа."
+    },
+    {
+      "en": "genome",
+      "mn": "геном",
+      "example_en": "Scientists successfully mapped the human genome in 2003.",
+      "example_mn": "Эрдэмтэд 2003 онд хүний геномыг амжилттай зурагжуулсан."
+    },
+    {
+      "en": "clinical trial",
+      "mn": "эмнэлзүйн туршилт",
+      "example_en": "The new drug is currently undergoing clinical trials.",
+      "example_mn": "Тухайн шинэ эм одоогоор эмнэлзүйн туршилтад орж байна."
+    },
+    {
+      "en": "data analysis",
+      "mn": "өгөгдлийн шинжилгээ",
+      "example_en": "Careful data analysis revealed an unexpected pattern.",
+      "example_mn": "Нарийвчилсан өгөгдлийн шинжилгээгээр гэнэтийн хэв маяг илэрсэн."
+    },
+    {
+      "en": "quantitative",
+      "mn": "тоон",
+      "example_en": "The study used quantitative methods to measure customer satisfaction.",
+      "example_mn": "Тухайн судалгаа хэрэглэгчийн сэтгэл ханамжийг хэмжихийн тулд тоон аргыг ашигласан."
+    },
+    {
+      "en": "qualitative",
+      "mn": "чанарын",
+      "example_en": "Qualitative interviews gave researchers deeper insight into people's opinions.",
+      "example_mn": "Чанарын ярилцлага судлаачдад хүмүүсийн үзэл бодлыг илүү гүнзгий ойлгоход тусалсан."
+    },
+    {
+      "en": "replicate",
+      "mn": "давтан хийх",
+      "example_en": "Other scientists were unable to replicate the results of the study.",
+      "example_mn": "Бусад эрдэмтэд тухайн судалгааны үр дүнг давтан хийж чадаагүй."
+    },
+    {
+      "en": "finding",
+      "mn": "судалгааны үр дүн",
+      "example_en": "The report's findings surprised many experts in the field.",
+      "example_mn": "Тухайн тайлангийн үр дүн олон мэргэжилтнийг гайхшруулсан."
+    },
+    {
+      "en": "meticulous",
+      "mn": "нямбай",
+      "example_en": "She is meticulous about checking every detail of her work.",
+      "example_mn": "Тэрээр ажлынхаа бүх нарийн ширийнийг шалгахдаа маш нямбай хандлагатай."
+    },
+    {
+      "en": "ambiguous",
+      "mn": "тодорхойгүй",
+      "example_en": "The instructions were ambiguous and confused many students.",
+      "example_mn": "Заавар тодорхойгүй байсан тул олон оюутныг эргэлзээнд оруулсан."
+    },
+    {
+      "en": "versatile",
+      "mn": "олон талт чадвартай",
+      "example_en": "A versatile employee can adapt easily to different roles.",
+      "example_mn": "Олон талт чадвартай ажилтан янз бүрийн үүрэгт хялбархан дасан зохицдог."
+    },
+    {
+      "en": "tedious",
+      "mn": "уйтгартай, ядаргаатай",
+      "example_en": "Filling out the same form repeatedly can be tedious.",
+      "example_mn": "Ижил маягтыг давтан бөглөх нь ядаргаатай байдаг."
+    },
+    {
+      "en": "rigorous",
+      "mn": "нарийн, хатуу чанд",
+      "example_en": "The company follows a rigorous quality control process.",
+      "example_mn": "Тухайн компани чанарын хатуу чанд хяналтын процессыг мөрддөг."
+    },
+    {
+      "en": "compelling",
+      "mn": "татам, итгүүлэм",
+      "example_en": "The lawyer presented a compelling argument to the jury.",
+      "example_mn": "Хуульч тангарагтны шүүгчдэд итгүүлэм тайлбар өгсөн."
+    },
+    {
+      "en": "plausible",
+      "mn": "үнэмшилтэй",
+      "example_en": "Her explanation for being late seemed plausible.",
+      "example_mn": "Хожимдсоных нь тайлбар үнэмшилтэй санагдсан."
+    },
+    {
+      "en": "subtle",
+      "mn": "нарийн мэдрэгдэхүйц",
+      "example_en": "There is a subtle difference between the two proposals.",
+      "example_mn": "Хоёр саналын хооронд нарийн мэдрэгдэхүйц ялгаа бий."
+    },
+    {
+      "en": "profound",
+      "mn": "гүн гүнзгий",
+      "example_en": "The experience had a profound effect on his outlook on life.",
+      "example_mn": "Тухайн туршлага түүний амьдралын үзэл бодолд гүн гүнзгий нөлөө үзүүлсэн."
+    },
+    {
+      "en": "viable",
+      "mn": "хэрэгжих боломжтой",
+      "example_en": "Solar power is becoming a more viable option for households.",
+      "example_mn": "Нарны эрчим хүч өрхүүдэд илүү хэрэгжих боломжтой сонголт болж байна."
+    },
+    {
+      "en": "feasible",
+      "mn": "боломжтой, хэрэгжих боломжтой",
+      "example_en": "It is not economically feasible to build a new airport here.",
+      "example_mn": "Энд шинэ нисэх онгоцны буудал барих нь эдийн засгийн хувьд боломжгүй юм."
+    },
+    {
+      "en": "resilient",
+      "mn": "тэсвэртэй, уян хатан",
+      "example_en": "Children can be remarkably resilient in the face of change.",
+      "example_mn": "Хүүхдүүд өөрчлөлтийн үед гайхалтай тэсвэртэй байж чаддаг."
+    },
+    {
+      "en": "innate",
+      "mn": "төрөлх",
+      "example_en": "Some people seem to have an innate talent for music.",
+      "example_mn": "Зарим хүн хөгжимд төрөлх авьяастай мэт санагддаг."
+    },
+    {
+      "en": "inherent",
+      "mn": "угт байдаг",
+      "example_en": "There is an inherent risk in any long-term investment.",
+      "example_mn": "Аливаа урт хугацааны хөрөнгө оруулалтад угт байдаг эрсдэл бий."
+    },
+    {
+      "en": "explicit",
+      "mn": "тодорхой илэрхийлсэн",
+      "example_en": "The contract gives explicit instructions about payment deadlines.",
+      "example_mn": "Гэрээнд төлбөрийн хугацааны талаар тодорхой заавар өгсөн байдаг."
+    },
+    {
+      "en": "implicit",
+      "mn": "далд, шууд бус",
+      "example_en": "There was an implicit understanding that he would take over the business.",
+      "example_mn": "Тэрээр бизнесийг залгамжлана гэдэг нь далд ойлголт байсан."
+    },
+    {
+      "en": "pervasive",
+      "mn": "хаа сайгүй тархсан",
+      "example_en": "Smartphones have become pervasive in almost every part of daily life.",
+      "example_mn": "Ухаалаг гар утас өдөр тутмын амьдралын бараг бүх хэсэгт хаа сайгүй тархсан."
+    },
+    {
+      "en": "unprecedented",
+      "mn": "урьд өмнө байгаагүй",
+      "example_en": "The pandemic caused an unprecedented level of global disruption.",
+      "example_mn": "Тахал дэлхий даяар урьд өмнө байгаагүй хэмжээний тасалдал үүсгэсэн."
+    },
+    {
+      "en": "tangible",
+      "mn": "биет, гар хүрч мэдрэгдэхүйц",
+      "example_en": "The new policy has produced tangible benefits for local businesses.",
+      "example_mn": "Шинэ бодлого орон нутгийн бизнесүүдэд бодит ашиг тус авчирсан."
+    },
+    {
+      "en": "intangible",
+      "mn": "биет бус",
+      "example_en": "Trust and reputation are intangible but valuable business assets.",
+      "example_mn": "Итгэлцэл, нэр хүнд нь биет бус боловч үнэ цэнэтэй бизнесийн хөрөнгө юм."
+    },
+    {
+      "en": "cumulative",
+      "mn": "хуримтлагдсан",
+      "example_en": "The cumulative effect of small daily habits can be significant.",
+      "example_mn": "Өдөр тутмын жижиг дадлын хуримтлагдсан нөлөө мэдэгдэхүйц байж болно."
+    },
+    {
+      "en": "concise",
+      "mn": "товч, нягт",
+      "example_en": "A good summary should be concise and to the point.",
+      "example_mn": "Сайн хураангуй нь товч бөгөөд гол санаагаа тодорхой илэрхийлсэн байх ёстой."
+    },
+    {
+      "en": "coherent",
+      "mn": "логик уялдаатай",
+      "example_en": "The essay lacked a coherent structure.",
+      "example_mn": "Тухайн эссэ логик уялдаатай бүтэц дутагдалтай байсан."
+    },
+    {
+      "en": "redundant",
+      "mn": "илүүдэл, шаардлагагүй",
+      "example_en": "Some job roles became redundant after the company introduced automation.",
+      "example_mn": "Компани автоматжуулалт нэвтрүүлсний дараа зарим ажлын байр шаардлагагүй болсон."
+    },
+    {
+      "en": "spontaneous",
+      "mn": "аяндаа, санаандгүй",
+      "example_en": "They decided to take a spontaneous trip to the coast.",
+      "example_mn": "Тэд далайн эрэг рүү санаандгүй аялал хийхээр шийдсэн."
+    },
+    {
+      "en": "subjective",
+      "mn": "субъектив",
+      "example_en": "Taste in art is highly subjective.",
+      "example_mn": "Урлагийн амт маш субъектив байдаг."
+    },
+    {
+      "en": "objective",
+      "mn": "объектив",
+      "example_en": "Journalists are expected to remain objective when reporting news.",
+      "example_mn": "Сэтгүүлчид мэдээ тайлагнахдаа объектив байхыг шаарддаг."
+    },
+    {
+      "en": "skeptical",
+      "mn": "эргэлздэг",
+      "example_en": "Many experts remain skeptical about the new theory.",
+      "example_mn": "Олон мэргэжилтэн шинэ онолын талаар эргэлзсэн хэвээр байна."
+    },
+    {
+      "en": "optimistic",
+      "mn": "өөдрөг үзэлтэй",
+      "example_en": "Despite the challenges, she remained optimistic about the future.",
+      "example_mn": "Бэрхшээл байгаа хэдий ч тэрээр ирээдүйн талаар өөдрөг үзэлтэй хэвээр байсан."
+    },
+    {
+      "en": "pessimistic",
+      "mn": "гутранги үзэлтэй",
+      "example_en": "He has a pessimistic view of the economy's short-term prospects.",
+      "example_mn": "Тэрээр эдийн засгийн богино хугацааны хэтийн төлөвийг гутранги үзэж байна."
+    },
+    {
+      "en": "reluctant",
+      "mn": "дургүй, эргэлзэн",
+      "example_en": "Many employees were reluctant to return to the office full-time.",
+      "example_mn": "Олон ажилтан бүтэн цагаар оффис руу буцахдаа дургүйцсэн."
+    },
+    {
+      "en": "meager",
+      "mn": "өчүүхэн, бага",
+      "example_en": "The workers protested against their meager wages.",
+      "example_mn": "Ажилчид өчүүхэн цалингийхаа эсрэг жагсаал хийсэн."
+    },
+    {
+      "en": "abundant",
+      "mn": "элбэг дэлбэг",
+      "example_en": "The region has abundant natural resources, including oil and gas.",
+      "example_mn": "Тухайн бүс нутагт газрын тос, хий зэрэг байгалийн баялаг элбэг дэлбэг байдаг."
+    },
+    {
+      "en": "scarce",
+      "mn": "хомс, ховор",
+      "example_en": "Clean drinking water is scarce in some parts of the world.",
+      "example_mn": "Дэлхийн зарим хэсэгт цэвэр ундны ус хомс байдаг."
+    },
+    {
+      "en": "lucrative",
+      "mn": "ашиг ихтэй",
+      "example_en": "Tech start-ups can be a lucrative but risky business.",
+      "example_mn": "Технологийн стартап компани ашиг ихтэй боловч эрсдэлтэй бизнес байж болно."
+    },
+    {
+      "en": "prevalent",
+      "mn": "түгээмэл",
+      "example_en": "Obesity has become increasingly prevalent in urban populations.",
+      "example_mn": "Таргалалт хотын хүн амын дунд улам бүр түгээмэл болж байна."
+    }
+  ],
  "C1_C2": []
 }
