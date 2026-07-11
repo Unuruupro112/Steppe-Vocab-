@@ -1621,7 +1621,1808 @@
    "example_mn": "Тэр миний хажууд суудаг."
   }
  ],
- "B1_B2": [],
+  "B1_B2": [
+    {
+      "en": "achieve",
+      "mn": "биелүүлэх, амжилтад хүрэх",
+      "example_en": "She worked hard to achieve her goals.",
+      "example_mn": "Тэр зорилгодоо хүрэхийн тулд шаргуу ажилласан."
+    },
+    {
+      "en": "ambitious",
+      "mn": "амбицтай, шунахай",
+      "example_en": "He is ambitious and wants to become a manager soon.",
+      "example_mn": "Тэр амбицтай бөгөөд удахгүй менежер болохыг хүсдэг."
+    },
+    {
+      "en": "anxious",
+      "mn": "санаа зовсон, түгшсэн",
+      "example_en": "She felt anxious before the exam.",
+      "example_mn": "Тэр шалгалтын өмнө санаа зовж байлаа."
+    },
+    {
+      "en": "confident",
+      "mn": "өөртөө итгэлтэй",
+      "example_en": "He spoke confidently in front of the class.",
+      "example_mn": "Тэр ангийнхны өмнө өөртөө итгэлтэйгээр ярьсан."
+    },
+    {
+      "en": "curious",
+      "mn": "сониуч",
+      "example_en": "Children are naturally curious about the world.",
+      "example_mn": "Хүүхдүүд байгалиасаа ертөнцийг сониучирхдаг."
+    },
+    {
+      "en": "disappointed",
+      "mn": "гонсойсон, урам хугарсан",
+      "example_en": "I was disappointed with my test results.",
+      "example_mn": "Би шалгалтынхаа дүнд урам хугарсан."
+    },
+    {
+      "en": "embarrassed",
+      "mn": "ичсэн, эвгүй байдалд орсон",
+      "example_en": "He felt embarrassed after forgetting her name.",
+      "example_mn": "Тэр түүний нэрийг мартсандаа ичсэн."
+    },
+    {
+      "en": "furious",
+      "mn": "маш их уурлаcан",
+      "example_en": "My mother was furious when I broke the vase.",
+      "example_mn": "Ваарыг хагалсанд ээж маань маш их уурласан."
+    },
+    {
+      "en": "generous",
+      "mn": "өгөөмөр",
+      "example_en": "She is generous and always helps others.",
+      "example_mn": "Тэр өгөөмөр бөгөөд бусдад үргэлж тусалдаг."
+    },
+    {
+      "en": "grateful",
+      "mn": "талархсан",
+      "example_en": "I am grateful for your support.",
+      "example_mn": "Таны дэмжлэгт талархаж байна."
+    },
+    {
+      "en": "jealous",
+      "mn": "атаархсан",
+      "example_en": "He was jealous of his brother's success.",
+      "example_mn": "Тэр ахынхаа амжилтад атаархсан."
+    },
+    {
+      "en": "modest",
+      "mn": "даруу, даруухан",
+      "example_en": "Despite his success, he remains modest.",
+      "example_mn": "Амжилтад хүрсэн ч тэр даруу хэвээрээ."
+    },
+    {
+      "en": "nervous",
+      "mn": "бачимдсан, түгшүүртэй",
+      "example_en": "I always get nervous before speaking in public.",
+      "example_mn": "Олон нийтийн өмнө ярихынхаа өмнө би үргэлж бачимддаг."
+    },
+    {
+      "en": "optimistic",
+      "mn": "өөдрөг үзэлтэй",
+      "example_en": "She is optimistic about the future.",
+      "example_mn": "Тэр ирээдүйн талаар өөдрөг үзэлтэй."
+    },
+    {
+      "en": "pessimistic",
+      "mn": "гутранги үзэлтэй",
+      "example_en": "He tends to be pessimistic about new plans.",
+      "example_mn": "Тэр шинэ төлөвлөгөөний талаар гутранги хандах хандлагатай."
+    },
+    {
+      "en": "proud",
+      "mn": "бахархсан",
+      "example_en": "Her parents are proud of her achievements.",
+      "example_mn": "Түүний эцэг эх амжилтад нь бахархдаг."
+    },
+    {
+      "en": "reliable",
+      "mn": "найдвартай",
+      "example_en": "He is a reliable friend who never lets me down.",
+      "example_mn": "Тэр намайг хэзээ ч урамгүй болгодоггүй найдвартай найз."
+    },
+    {
+      "en": "selfish",
+      "mn": "өөрийгөө бодсон, хувиа хичээсэн",
+      "example_en": "It was selfish of him not to share.",
+      "example_mn": "Хуваалцаагүй нь түүний хувиа хичээсэн үйлдэл байсан."
+    },
+    {
+      "en": "sensitive",
+      "mn": "мэдрэмтгий",
+      "example_en": "She is very sensitive to criticism.",
+      "example_mn": "Тэр шүүмжлэлд маш мэдрэмтгий."
+    },
+    {
+      "en": "stubborn",
+      "mn": "зөрүүд",
+      "example_en": "My grandfather is too stubborn to change his mind.",
+      "example_mn": "Миний өвөө бодлоо өөрчлөхөд хэтэрхий зөрүүд."
+    },
+    {
+      "en": "sympathetic",
+      "mn": "өрөвдөх, ойлгодог",
+      "example_en": "The doctor was sympathetic to the patient's fears.",
+      "example_mn": "Эмч өвчтөний айдсыг ойлгож, өрөвдсөн."
+    },
+    {
+      "en": "tolerant",
+      "mn": "тэвчээртэй, хүлээцтэй",
+      "example_en": "We should be tolerant of different opinions.",
+      "example_mn": "Бид өөр өөр үзэл бодолд хүлээцтэй хандах ёстой."
+    },
+    {
+      "en": "frustrated",
+      "mn": "цөхөрсөн, урам хугарсан",
+      "example_en": "He got frustrated when the computer crashed.",
+      "example_mn": "Компьютер эвдрэхэд тэр цөхөрсөн."
+    },
+    {
+      "en": "enthusiastic",
+      "mn": "урам зоригтой, идэвхтэй",
+      "example_en": "She is enthusiastic about learning new languages.",
+      "example_mn": "Тэр шинэ хэл сурахад маш их урамтай."
+    },
+    {
+      "en": "determined",
+      "mn": "шийдэмгий, зорилготой",
+      "example_en": "He is determined to finish the marathon.",
+      "example_mn": "Тэр марафоноо дуусгахаар шийдэмгий байна."
+    },
+    {
+      "en": "argue",
+      "mn": "маргах, санал зөрөлдөх",
+      "example_en": "They often argue about small things.",
+      "example_mn": "Тэд жижиг зүйлийн талаар байнга маргалддаг."
+    },
+    {
+      "en": "agree",
+      "mn": "санал нийлэх",
+      "example_en": "I agree with your opinion.",
+      "example_mn": "Би таны санал бодолтой санал нийлж байна."
+    },
+    {
+      "en": "disagree",
+      "mn": "санал зөрөх",
+      "example_en": "She disagreed with the new policy.",
+      "example_mn": "Тэр шинэ бодлоготой санал нийлээгүй."
+    },
+    {
+      "en": "convince",
+      "mn": "итгүүлэх",
+      "example_en": "He convinced me to try the new restaurant.",
+      "example_mn": "Тэр намайг шинэ рестораныг оролдож үзэхэд итгүүлсэн."
+    },
+    {
+      "en": "persuade",
+      "mn": "ятгах, итгүүлэх",
+      "example_en": "She persuaded her parents to let her travel.",
+      "example_mn": "Тэр эцэг эхээ аялахыг зөвшөөрөхөд ятгасан."
+    },
+    {
+      "en": "suggest",
+      "mn": "санал болгох",
+      "example_en": "I suggest we leave early to avoid traffic.",
+      "example_mn": "Түгжрэлээс зайлсхийхийн тулд эрт явахыг санал болгож байна."
+    },
+    {
+      "en": "mention",
+      "mn": "дурдах",
+      "example_en": "She mentioned the meeting during lunch.",
+      "example_mn": "Тэр өдрийн хоолны үеэр уулзалтын тухай дурдсан."
+    },
+    {
+      "en": "complain",
+      "mn": "гомдоллох",
+      "example_en": "Customers complained about the slow service.",
+      "example_mn": "Үйлчлүүлэгчид удаан үйлчилгээний талаар гомдоллосон."
+    },
+    {
+      "en": "apologize",
+      "mn": "уучлал гуйх",
+      "example_en": "He apologized for being late.",
+      "example_mn": "Тэр хоцорсондоо уучлал гуйсан."
+    },
+    {
+      "en": "compliment",
+      "mn": "магтах, сайшаах",
+      "example_en": "She complimented my new haircut.",
+      "example_mn": "Тэр миний шинэ үс засалтыг магтсан."
+    },
+    {
+      "en": "criticize",
+      "mn": "шүүмжлэх",
+      "example_en": "Critics criticized the film for its weak plot.",
+      "example_mn": "Шүүмжлэгчид кино нь сул зохиолтой гэж шүүмжилсэн."
+    },
+    {
+      "en": "negotiate",
+      "mn": "хэлэлцээр хийх",
+      "example_en": "The two companies negotiated a new contract.",
+      "example_mn": "Хоёр компани шинэ гэрээний талаар хэлэлцээр хийсэн."
+    },
+    {
+      "en": "express",
+      "mn": "илэрхийлэх",
+      "example_en": "It's important to express your feelings honestly.",
+      "example_mn": "Мэдрэмжээ шударгаар илэрхийлэх нь чухал."
+    },
+    {
+      "en": "interrupt",
+      "mn": "тасалдуулах, таслах",
+      "example_en": "Please don't interrupt me while I'm speaking.",
+      "example_mn": "Намайг ярьж байхад минь бүү тасал даа."
+    },
+    {
+      "en": "explain",
+      "mn": "тайлбарлах",
+      "example_en": "Can you explain how this machine works?",
+      "example_mn": "Энэ машин хэрхэн ажилладгийг тайлбарлаж чадах уу?"
+    },
+    {
+      "en": "emphasize",
+      "mn": "онцлон тэмдэглэх",
+      "example_en": "The teacher emphasized the importance of practice.",
+      "example_mn": "Багш дасгал хийхийн ач холбогдлыг онцлон тэмдэглэсэн."
+    },
+    {
+      "en": "clarify",
+      "mn": "тодруулах",
+      "example_en": "Could you clarify what you meant?",
+      "example_mn": "Та юу гэсэн үгээ тодруулж чадах уу?"
+    },
+    {
+      "en": "assume",
+      "mn": "таамаглах, төсөөлөх",
+      "example_en": "I assumed you already knew about the change.",
+      "example_mn": "Би та энэ өөрчлөлтийг аль хэдийн мэддэг гэж таамагласан."
+    },
+    {
+      "en": "predict",
+      "mn": "урьдчилан таамаглах",
+      "example_en": "Experts predict a rise in prices next year.",
+      "example_mn": "Мэргэжилтнүүд ирэх онд үнэ өснө гэж таамаглаж байна."
+    },
+    {
+      "en": "conclude",
+      "mn": "дүгнэлт хийх",
+      "example_en": "We concluded the meeting with a summary.",
+      "example_mn": "Бид уулзалтаа хураангуйлан дүгнэж дууслаа."
+    },
+    {
+      "en": "career",
+      "mn": "мэргэжлийн зам, карьер",
+      "example_en": "She built a successful career in medicine.",
+      "example_mn": "Тэр анагаах ухааны чиглэлээр амжилттай карьер бүтээсэн."
+    },
+    {
+      "en": "colleague",
+      "mn": "хамт олон, ажилтан",
+      "example_en": "My colleague helped me finish the report.",
+      "example_mn": "Миний хамт олон тайланг дуусгахад тусалсан."
+    },
+    {
+      "en": "promote",
+      "mn": "дэвшүүлэх, ахиулах",
+      "example_en": "She was promoted to team leader last month.",
+      "example_mn": "Тэр өнгөрсөн сард багийн ахлагчаар дэвшсэн."
+    },
+    {
+      "en": "resign",
+      "mn": "албан тушаалаас гарах, ажлаа орхих",
+      "example_en": "He resigned from his job to start his own business.",
+      "example_mn": "Тэр өөрийн бизнес эхлүүлэхийн тулд ажлаасаа гарсан."
+    },
+    {
+      "en": "recruit",
+      "mn": "элсүүлэх, ажилд авах",
+      "example_en": "The company plans to recruit new engineers.",
+      "example_mn": "Компани шинэ инженерүүд ажилд авахаар төлөвлөж байна."
+    },
+    {
+      "en": "qualification",
+      "mn": "мэргэшил, шаардлагатай чадвар",
+      "example_en": "She has the qualifications needed for this position.",
+      "example_mn": "Тэр энэ албан тушаалд шаардлагатай мэргэшилтэй."
+    },
+    {
+      "en": "responsibility",
+      "mn": "хариуцлага, үүрэг хариуцлага",
+      "example_en": "Taking care of the budget is my responsibility.",
+      "example_mn": "Төсвийг хариуцах нь миний үүрэг."
+    },
+    {
+      "en": "deadline",
+      "mn": "хугацаа, хугацааны эцсийн хязгаар",
+      "example_en": "We have to submit the project before the deadline.",
+      "example_mn": "Бид төслийг хугацаанаас өмнө өгөх ёстой."
+    },
+    {
+      "en": "efficient",
+      "mn": "үр ашигтай, хурдан чанартай",
+      "example_en": "The new system is more efficient than the old one.",
+      "example_mn": "Шинэ систем нь хуучин системээс илүү үр ашигтай."
+    },
+    {
+      "en": "productive",
+      "mn": "бүтээмжтэй",
+      "example_en": "He had a very productive day at work.",
+      "example_mn": "Тэр ажил дээрээ маш бүтээмжтэй өдрийг өнгөрөөсөн."
+    },
+    {
+      "en": "overtime",
+      "mn": "илүү цаг, илүү цагаар ажиллах",
+      "example_en": "She works overtime almost every week.",
+      "example_mn": "Тэр бараг долоо хоног бүр илүү цагаар ажилладаг."
+    },
+    {
+      "en": "salary",
+      "mn": "цалин",
+      "example_en": "His salary increased after the promotion.",
+      "example_mn": "Ажлын байрны дэвшлийн дараа түүний цалин нэмэгдсэн."
+    },
+    {
+      "en": "interview",
+      "mn": "ярилцлага, шалгалтын яриа",
+      "example_en": "I have a job interview tomorrow morning.",
+      "example_mn": "Маргааш өглөө надад ажлын ярилцлага бий."
+    },
+    {
+      "en": "skill",
+      "mn": "чадвар",
+      "example_en": "Communication skills are important in every job.",
+      "example_mn": "Харилцааны чадвар нь бүх төрлийн ажилд чухал."
+    },
+    {
+      "en": "experience",
+      "mn": "туршлага",
+      "example_en": "She has five years of experience in marketing.",
+      "example_mn": "Тэр маркетингийн чиглэлээр таван жилийн туршлагатай."
+    },
+    {
+      "en": "employer",
+      "mn": "ажил олгогч",
+      "example_en": "Her employer offered her a higher position.",
+      "example_mn": "Түүний ажил олгогч илүү өндөр албан тушаал санал болгосон."
+    },
+    {
+      "en": "employee",
+      "mn": "ажилтан",
+      "example_en": "The company treats every employee fairly.",
+      "example_mn": "Компани ажилтан бүртээ шударгаар хандаж байна."
+    },
+    {
+      "en": "teamwork",
+      "mn": "багийн ажиллагаа",
+      "example_en": "Success in this project depends on teamwork.",
+      "example_mn": "Энэ төслийн амжилт нь багийн ажиллагаанаас хамаарна."
+    },
+    {
+      "en": "achievement",
+      "mn": "ололт амжилт",
+      "example_en": "Winning the award was a great achievement for her.",
+      "example_mn": "Шагнал хүртсэн нь түүний том амжилт байсан."
+    },
+    {
+      "en": "challenge",
+      "mn": "бэрхшээл, сорилт",
+      "example_en": "Learning a new language can be a real challenge.",
+      "example_mn": "Шинэ хэл сурах нь жинхэнэ сорилт байж болно."
+    },
+    {
+      "en": "opportunity",
+      "mn": "боломж",
+      "example_en": "This job offers a great opportunity for growth.",
+      "example_mn": "Энэ ажил нь өсөж хөгжих сайхан боломж олгодог."
+    },
+    {
+      "en": "flexible",
+      "mn": "уян хатан",
+      "example_en": "My working hours are quite flexible.",
+      "example_mn": "Миний ажлын цаг нэлээд уян хатан."
+    },
+    {
+      "en": "supervise",
+      "mn": "хянах, удирдах",
+      "example_en": "She supervises a team of ten people.",
+      "example_mn": "Тэр арван хүний багийг удирддаг."
+    },
+    {
+      "en": "negotiation",
+      "mn": "хэлэлцээ",
+      "example_en": "The salary negotiation took almost an hour.",
+      "example_mn": "Цалингийн хэлэлцээ бараг нэг цаг үргэлжилсэн."
+    },
+    {
+      "en": "workload",
+      "mn": "ажлын ачаалал",
+      "example_en": "His workload increased after the new project started.",
+      "example_mn": "Шинэ төсөл эхэлсний дараа түүний ажлын ачаалал нэмэгдсэн."
+    },
+    {
+      "en": "academic",
+      "mn": "эрдэм шинжилгээний, боловсролын",
+      "example_en": "She has strong academic performance.",
+      "example_mn": "Тэр эрдэм шинжилгээний өндөр амжилттай."
+    },
+    {
+      "en": "assignment",
+      "mn": "даалгавар",
+      "example_en": "We have a math assignment due on Friday.",
+      "example_mn": "Бидэнд баасан гарагт өгөх математикийн даалгавар бий."
+    },
+    {
+      "en": "curriculum",
+      "mn": "сургалтын хөтөлбөр",
+      "example_en": "The school updated its curriculum this year.",
+      "example_mn": "Сургууль энэ жил сургалтын хөтөлбөрөө шинэчилсэн."
+    },
+    {
+      "en": "graduate",
+      "mn": "төгсөх, төгсөгч",
+      "example_en": "She will graduate from university next spring.",
+      "example_mn": "Тэр ирэх хавар их сургуулиа төгсөнө."
+    },
+    {
+      "en": "lecture",
+      "mn": "лекц",
+      "example_en": "The professor gave an interesting lecture today.",
+      "example_mn": "Профессор өнөөдөр сонирхолтой лекц уншсан."
+    },
+    {
+      "en": "scholarship",
+      "mn": "тэтгэлэг",
+      "example_en": "He received a scholarship to study abroad.",
+      "example_mn": "Тэр гадаадад суралцах тэтгэлэг авсан."
+    },
+    {
+      "en": "literacy",
+      "mn": "бичиг үсэгт тайлагдсан байдал",
+      "example_en": "Improving literacy rates is a government priority.",
+      "example_mn": "Бичиг үсэгт тайлагдсан байдлыг сайжруулах нь засгийн газрын тэргүүлэх ажил."
+    },
+    {
+      "en": "concentrate",
+      "mn": "анхаарлаа төвлөрүүлэх",
+      "example_en": "It's hard to concentrate with so much noise.",
+      "example_mn": "Ийм их дуу чимээтэй үед анхаарлаа төвлөрүүлэхэд хэцүү."
+    },
+    {
+      "en": "memorize",
+      "mn": "цээжлэх",
+      "example_en": "Students had to memorize the poem.",
+      "example_mn": "Сурагчид шүлгийг цээжлэх ёстой байсан."
+    },
+    {
+      "en": "revise",
+      "mn": "давтах",
+      "example_en": "I need to revise before the final exam.",
+      "example_mn": "Эцсийн шалгалтын өмнө би давтах хэрэгтэй."
+    },
+    {
+      "en": "evaluate",
+      "mn": "үнэлэх",
+      "example_en": "Teachers evaluate students based on their tests.",
+      "example_mn": "Багш нар сурагчдыг шалгалтынх нь дүнгээр үнэлдэг."
+    },
+    {
+      "en": "participate",
+      "mn": "оролцох",
+      "example_en": "All students are encouraged to participate in class.",
+      "example_mn": "Бүх сурагчийг хичээлд оролцохыг дэмждэг."
+    },
+    {
+      "en": "independent",
+      "mn": "бие даасан",
+      "example_en": "University life teaches students to be independent.",
+      "example_mn": "Их сургуулийн амьдрал сурагчдад бие даасан байхыг зааж өгдөг."
+    },
+    {
+      "en": "motivate",
+      "mn": "урамшуулах, идэвхжүүлэх",
+      "example_en": "Good teachers know how to motivate their students.",
+      "example_mn": "Сайн багш нар сурагчдаа хэрхэн урамшуулахыг мэддэг."
+    },
+    {
+      "en": "theoretical",
+      "mn": "онолын",
+      "example_en": "This course focuses more on theoretical knowledge.",
+      "example_mn": "Энэ хичээл нь илүү онолын мэдлэгт төвлөрдөг."
+    },
+    {
+      "en": "practical",
+      "mn": "практик, хэрэглээний",
+      "example_en": "We also need practical skills, not just theory.",
+      "example_mn": "Бидэнд зөвхөн онол биш практик ур чадвар ч бас хэрэгтэй."
+    },
+    {
+      "en": "institution",
+      "mn": "байгууллага, институт",
+      "example_en": "She works at a research institution.",
+      "example_mn": "Тэр судалгааны байгууллагад ажилладаг."
+    },
+    {
+      "en": "enroll",
+      "mn": "элсэх, бүртгүүлэх",
+      "example_en": "He enrolled in an English course last week.",
+      "example_mn": "Тэр өнгөрсөн долоо хоногт англи хэлний курст элссэн."
+    },
+    {
+      "en": "submit",
+      "mn": "өгөх, хүргүүлэх",
+      "example_en": "Please submit your homework by Monday.",
+      "example_mn": "Даваа гарагаас өмнө гэрийн даалгавраа өгнө үү."
+    },
+    {
+      "en": "outcome",
+      "mn": "үр дүн",
+      "example_en": "The outcome of the exam surprised everyone.",
+      "example_mn": "Шалгалтын үр дүн бүгдийг гайхшируулсан."
+    },
+    {
+      "en": "recover",
+      "mn": "эдгэрэх, сэргэх",
+      "example_en": "It took two weeks for him to recover from the flu.",
+      "example_mn": "Ханиад томуунаас эдгэрэхэд түүнд хоёр долоо хоног шаардлагатай байсан."
+    },
+    {
+      "en": "exhausted",
+      "mn": "ядарсан, шавхагдсан",
+      "example_en": "She was exhausted after the long flight.",
+      "example_mn": "Тэр урт нислэгийн дараа ядарсан байсан."
+    },
+    {
+      "en": "symptom",
+      "mn": "шинж тэмдэг",
+      "example_en": "A high fever is a common symptom of this illness.",
+      "example_mn": "Өндөр халуурал нь энэ өвчний нийтлэг шинж тэмдэг."
+    },
+    {
+      "en": "diagnose",
+      "mn": "онош тавих",
+      "example_en": "The doctor diagnosed her with a mild infection.",
+      "example_mn": "Эмч түүнд хөнгөн халдвар оноож байгаа."
+    },
+    {
+      "en": "prescribe",
+      "mn": "эм бичих, зааврыг өгөх",
+      "example_en": "The doctor prescribed some medicine for the pain.",
+      "example_mn": "Эмч өвдөлтөд эм бичиж өгсөн."
+    },
+    {
+      "en": "injury",
+      "mn": "гэмтэл",
+      "example_en": "He suffered a minor injury during the game.",
+      "example_mn": "Тэр тоглолтын үеэр бага зэрэг гэмтэл авсан."
+    },
+    {
+      "en": "nutrition",
+      "mn": "хоол тэжээл",
+      "example_en": "Good nutrition is essential for children's growth.",
+      "example_mn": "Хүүхдийн өсөлтөд сайн хоол тэжээл маш чухал."
+    },
+    {
+      "en": "obesity",
+      "mn": "таргалалт",
+      "example_en": "Obesity rates have increased in many countries.",
+      "example_mn": "Олон улс оронд таргалалтын түвшин нэмэгдсэн."
+    },
+    {
+      "en": "immune",
+      "mn": "дархлаатай, дархлааны",
+      "example_en": "Vitamin C helps strengthen the immune system.",
+      "example_mn": "С витамин нь дархлааны системийг бэхжүүлэхэд тусалдаг."
+    },
+    {
+      "en": "stress",
+      "mn": "стресс, дарамт",
+      "example_en": "Too much stress can affect your health.",
+      "example_mn": "Хэт их стресс эрүүл мэндэд нөлөөлж болно."
+    },
+    {
+      "en": "relax",
+      "mn": "тайвшрах, амрах",
+      "example_en": "Try to relax before going to bed.",
+      "example_mn": "Унтахынхаа өмнө тайвшрахыг хичээ."
+    },
+    {
+      "en": "fitness",
+      "mn": "бие бялдрын хөгжил",
+      "example_en": "Regular exercise improves overall fitness.",
+      "example_mn": "Тогтмол дасгал хийх нь бие бялдрын хөгжлийг сайжруулдаг."
+    },
+    {
+      "en": "diet",
+      "mn": "хоолны дэглэм",
+      "example_en": "She follows a healthy, balanced diet.",
+      "example_mn": "Тэр эрүүл, тэнцвэртэй хоолны дэглэм баримталдаг."
+    },
+    {
+      "en": "addiction",
+      "mn": "донтолт",
+      "example_en": "Smoking addiction is hard to overcome.",
+      "example_mn": "Тамхинд донтох нь даван туулахад хэцүү."
+    },
+    {
+      "en": "hygiene",
+      "mn": "эрүүл ахуй",
+      "example_en": "Good hygiene helps prevent illness.",
+      "example_mn": "Сайн эрүүл ахуй нь өвчнөөс сэргийлдэг."
+    },
+    {
+      "en": "mental",
+      "mn": "сэтгэцийн",
+      "example_en": "Mental health is just as important as physical health.",
+      "example_mn": "Сэтгэцийн эрүүл мэнд нь бие махбодийн эрүүл мэнд адилхан чухал."
+    },
+    {
+      "en": "physical",
+      "mn": "бие махбодийн, биеийн",
+      "example_en": "Physical activity boosts your mood.",
+      "example_mn": "Биеийн хөдөлгөөн сэтгэл санааг сайжруулдаг."
+    },
+    {
+      "en": "pollution",
+      "mn": "бохирдол",
+      "example_en": "Air pollution is a serious problem in big cities.",
+      "example_mn": "Агаарын бохирдол том хотуудад ноцтой асуудал юм."
+    },
+    {
+      "en": "environment",
+      "mn": "орчин, байгаль орчин",
+      "example_en": "We must protect the environment for future generations.",
+      "example_mn": "Бид ирээдүй үеийнхний төлөө байгаль орчноо хамгаалах ёстой."
+    },
+    {
+      "en": "climate",
+      "mn": "цаг агаар, уур амьсгал",
+      "example_en": "Climate change affects the whole planet.",
+      "example_mn": "Уур амьсгалын өөрчлөлт бүх дэлхийд нөлөөлж байна."
+    },
+    {
+      "en": "sustainable",
+      "mn": "тогтвортой",
+      "example_en": "We need sustainable solutions for energy production.",
+      "example_mn": "Бидэнд эрчим хүч үйлдвэрлэлийн тогтвортой шийдэл хэрэгтэй."
+    },
+    {
+      "en": "renewable",
+      "mn": "сэргээгдэх",
+      "example_en": "Solar power is a renewable source of energy.",
+      "example_mn": "Нарны эрчим хүч нь сэргээгдэх эх үүсвэр юм."
+    },
+    {
+      "en": "resource",
+      "mn": "нөөц, эх үүсвэр",
+      "example_en": "Water is a limited resource in many regions.",
+      "example_mn": "Ус нь олон бүс нутагт хязгаарлагдмал нөөц юм."
+    },
+    {
+      "en": "conserve",
+      "mn": "хэмнэх, хамгаалах",
+      "example_en": "We should conserve water during dry seasons.",
+      "example_mn": "Хуурай улиралд бид усаа хэмнэх ёстой."
+    },
+    {
+      "en": "endangered",
+      "mn": "устах аюулд орсон",
+      "example_en": "Tigers are an endangered species.",
+      "example_mn": "Бар нь устах аюулд орсон амьтдын нэг."
+    },
+    {
+      "en": "emission",
+      "mn": "хийсэлт, ялгарал",
+      "example_en": "Cars produce large amounts of carbon emission.",
+      "example_mn": "Машинууд ихээхэн хэмжээний нүүрстөрөгчийн ялгаруулалт үүсгэдэг."
+    },
+    {
+      "en": "recycle",
+      "mn": "дахин боловсруулах",
+      "example_en": "We should recycle plastic bottles.",
+      "example_mn": "Бид хуванцар савыг дахин боловсруулах ёстой."
+    },
+    {
+      "en": "drought",
+      "mn": "ган гачиг, ган",
+      "example_en": "The region suffered a severe drought last summer.",
+      "example_mn": "Тухайн бүс нутаг өнгөрсөн зун хүнд ган гачигт нэрвэгдсэн."
+    },
+    {
+      "en": "wildlife",
+      "mn": "зэрлэг амьтад",
+      "example_en": "The national park protects local wildlife.",
+      "example_mn": "Байгалийн цогцолборт газар нутгийн зэрлэг амьтдыг хамгаалдаг."
+    },
+    {
+      "en": "ecosystem",
+      "mn": "экосистем",
+      "example_en": "Coral reefs support a rich ecosystem.",
+      "example_mn": "Шүрэн хад баялаг экосистемийг дэмждэг."
+    },
+    {
+      "en": "disaster",
+      "mn": "гамшиг, аюулт үзэгдэл",
+      "example_en": "The flood was a natural disaster.",
+      "example_mn": "Үер бол байгалийн гамшиг байсан."
+    },
+    {
+      "en": "temperature",
+      "mn": "температур, хэм",
+      "example_en": "Global temperatures continue to rise.",
+      "example_mn": "Дэлхийн дулааны хэм тасралтгүй нэмэгдсээр байна."
+    },
+    {
+      "en": "agriculture",
+      "mn": "хөдөө аж ахуй",
+      "example_en": "Agriculture is a major part of the economy.",
+      "example_mn": "Хөдөө аж ахуй нь эдийн засгийн чухал хэсэг юм."
+    },
+    {
+      "en": "deforestation",
+      "mn": "ойн хомсдол, ойг устгах",
+      "example_en": "Deforestation destroys natural habitats.",
+      "example_mn": "Ойн хомсдол байгалийн орчныг устгадаг."
+    },
+    {
+      "en": "shortage",
+      "mn": "дутагдал",
+      "example_en": "The country faced a serious water shortage.",
+      "example_mn": "Тус улс усны ноцтой дутагдалд орсон."
+    },
+    {
+      "en": "landscape",
+      "mn": "газар зүйн байдал, дүр зураг",
+      "example_en": "The mountain landscape was breathtaking.",
+      "example_mn": "Уулын байгалийн үзэсгэлэн амьсгаа боогдмоор байсан."
+    },
+    {
+      "en": "habitat",
+      "mn": "амьдрах орчин",
+      "example_en": "Deforestation destroys the habitat of many animals.",
+      "example_mn": "Ойн хомсдол олон амьтны амьдрах орчинг устгадаг."
+    },
+    {
+      "en": "device",
+      "mn": "төхөөрөмж",
+      "example_en": "She bought a new device for editing videos.",
+      "example_mn": "Тэр видео засварлах шинэ төхөөрөмж худалдан авсан."
+    },
+    {
+      "en": "upgrade",
+      "mn": "сайжруулах, шинэчлэх",
+      "example_en": "I need to upgrade my phone's software.",
+      "example_mn": "Би утасныхаа программ хангамжийг шинэчлэх хэрэгтэй."
+    },
+    {
+      "en": "innovation",
+      "mn": "инноваци, шинэчлэл",
+      "example_en": "This company is known for its innovation.",
+      "example_mn": "Энэ компани инновацаараа алдартай."
+    },
+    {
+      "en": "digital",
+      "mn": "дижитал",
+      "example_en": "Most companies now use digital marketing.",
+      "example_mn": "Ихэнх компани одоо дижитал маркетинг ашигладаг."
+    },
+    {
+      "en": "artificial",
+      "mn": "хиймэл",
+      "example_en": "Artificial intelligence is changing many industries.",
+      "example_mn": "Хиймэл оюун ухаан олон салбарыг өөрчилж байна."
+    },
+    {
+      "en": "network",
+      "mn": "сүлжээ",
+      "example_en": "Our internet network was down for an hour.",
+      "example_mn": "Манай интернет сүлжээ нэг цаг тасарсан."
+    },
+    {
+      "en": "virtual",
+      "mn": "виртуал, цахим",
+      "example_en": "They held a virtual meeting instead of an in-person one.",
+      "example_mn": "Тэд биечлэн бус виртуал уулзалт хийсэн."
+    },
+    {
+      "en": "automatic",
+      "mn": "автомат",
+      "example_en": "The new washing machine has automatic settings.",
+      "example_mn": "Шинэ угаалгын машин автомат тохиргоотой."
+    },
+    {
+      "en": "software",
+      "mn": "программ хангамж",
+      "example_en": "This software helps manage business finances.",
+      "example_mn": "Энэ программ хангамж бизнесийн санхүүг удирдахад тусалдаг."
+    },
+    {
+      "en": "hardware",
+      "mn": "техник хангамж",
+      "example_en": "The company sells both software and hardware.",
+      "example_mn": "Компани программ болон техник хангамж хоёуланг нь худалддаг."
+    },
+    {
+      "en": "data",
+      "mn": "өгөгдөл",
+      "example_en": "The company collects a lot of customer data.",
+      "example_mn": "Компани үйлчлүүлэгчийн олон өгөгдөл цуглуулдаг."
+    },
+    {
+      "en": "secure",
+      "mn": "аюулгүй, найдвартай",
+      "example_en": "Make sure your password is secure.",
+      "example_mn": "Нууц үгээ аюулгүй байлгаарай."
+    },
+    {
+      "en": "access",
+      "mn": "хандах, нэвтрэх",
+      "example_en": "You need a password to access this file.",
+      "example_mn": "Энэ файлд хандахын тулд нууц үг хэрэгтэй."
+    },
+    {
+      "en": "update",
+      "mn": "шинэчлэх, шинэчлэлт",
+      "example_en": "Please update the app to the latest version.",
+      "example_mn": "Аппликейшнээ хамгийн сүүлийн хувилбар руу шинэчилнэ үү."
+    },
+    {
+      "en": "connectivity",
+      "mn": "холболт, холбогдол",
+      "example_en": "Poor internet connectivity is a common complaint.",
+      "example_mn": "Интернетийн муу холболт нийтлэг гомдол юм."
+    },
+    {
+      "en": "platform",
+      "mn": "платформ",
+      "example_en": "The company launched a new online platform.",
+      "example_mn": "Компани шинэ онлайн платформ нээсэн."
+    },
+    {
+      "en": "gadget",
+      "mn": "бяцхан төхөөрөмж, гаджет",
+      "example_en": "He loves buying the newest gadgets.",
+      "example_mn": "Тэр хамгийн шинэ гаджетуудыг худалдаж авах дуртай."
+    },
+    {
+      "en": "browse",
+      "mn": "үзэх, шимтгэх (интернэт)",
+      "example_en": "She spent hours browsing the internet.",
+      "example_mn": "Тэр интернэт үзэхэд олон цаг зарцуулсан."
+    },
+    {
+      "en": "download",
+      "mn": "татаж авах",
+      "example_en": "I downloaded the file to my laptop.",
+      "example_mn": "Би файлыг зөөврийн компьютертоо татаж авсан."
+    },
+    {
+      "en": "encrypt",
+      "mn": "шифрлэх",
+      "example_en": "The company encrypts all customer data.",
+      "example_mn": "Компани бүх үйлчлүүлэгчийн өгөгдлийг шифрлэдэг."
+    },
+    {
+      "en": "destination",
+      "mn": "очих газар, зорьсон газар",
+      "example_en": "Paris is a popular tourist destination.",
+      "example_mn": "Парис бол алдартай аялал жуулчлалын очих газар."
+    },
+    {
+      "en": "itinerary",
+      "mn": "аяллын хөтөлбөр",
+      "example_en": "Our itinerary includes three cities in five days.",
+      "example_mn": "Манай аяллын хөтөлбөрт таван хоногт гурван хот багтдаг."
+    },
+    {
+      "en": "accommodation",
+      "mn": "байр, орогнох газар",
+      "example_en": "We booked our accommodation online.",
+      "example_mn": "Бид байраа онлайнаар захиалсан."
+    },
+    {
+      "en": "delay",
+      "mn": "саатал, хойшлолт",
+      "example_en": "Our flight was delayed by two hours.",
+      "example_mn": "Манай нислэг хоёр цагаар хойшилсон."
+    },
+    {
+      "en": "luggage",
+      "mn": "ачаа тээш",
+      "example_en": "Please keep your luggage with you at all times.",
+      "example_mn": "Ачаа тээшээ үргэлж хажуудаа байлгана уу."
+    },
+    {
+      "en": "passenger",
+      "mn": "зорчигч",
+      "example_en": "The bus can carry up to forty passengers.",
+      "example_mn": "Автобус дөчин зорчигч хүртэл тээвэрлэх боломжтой."
+    },
+    {
+      "en": "boarding",
+      "mn": "онгоцонд суух, хөлөг онгоцонд орох",
+      "example_en": "Boarding will begin in twenty minutes.",
+      "example_mn": "Онгоцонд суух ажиллагаа хорин минутын дараа эхэлнэ."
+    },
+    {
+      "en": "customs",
+      "mn": "гаалийн хяналт",
+      "example_en": "We had to go through customs at the airport.",
+      "example_mn": "Бид онгоцны буудал дээр гааль дамжсан."
+    },
+    {
+      "en": "route",
+      "mn": "маршрут, зам чиглэл",
+      "example_en": "This route takes us through the mountains.",
+      "example_mn": "Энэ маршрут биднийг уулсаар дамжуулан явуулна."
+    },
+    {
+      "en": "commute",
+      "mn": "ажил, сургуульд явж ирэх",
+      "example_en": "She commutes two hours to work every day.",
+      "example_mn": "Тэр өдөр бүр ажилдаа хоёр цаг зарцуулж явж ирдэг."
+    },
+    {
+      "en": "navigate",
+      "mn": "чиглэл олох, чиглүүлэх",
+      "example_en": "We used a map to navigate the city.",
+      "example_mn": "Бид хотоор чиглэл олоход газрын зураг ашигласан."
+    },
+    {
+      "en": "journey",
+      "mn": "аялал, зам мөр",
+      "example_en": "It was a long journey across the country.",
+      "example_mn": "Энэ бол улс даяар үргэлжилсэн урт аялал байсан."
+    },
+    {
+      "en": "depart",
+      "mn": "хөдлөх, гарах",
+      "example_en": "The train departs at nine in the morning.",
+      "example_mn": "Галт тэрэг өглөө есөн цагт хөдөлдөг."
+    },
+    {
+      "en": "arrival",
+      "mn": "ирэлт, ирэх",
+      "example_en": "We waited at the station for their arrival.",
+      "example_mn": "Бид тэднийг ирэхийг буудал дээр хүлээж байсан."
+    },
+    {
+      "en": "transfer",
+      "mn": "шилжих, дамжих",
+      "example_en": "We had to transfer to another bus.",
+      "example_mn": "Бид өөр автобус руу шилжих хэрэгтэй болсон."
+    },
+    {
+      "en": "community",
+      "mn": "олон нийт, хамт олон",
+      "example_en": "The local community organized a charity event.",
+      "example_mn": "Орон нутгийн хамт олон буяны арга хэмжээ зохион байгуулсан."
+    },
+    {
+      "en": "tradition",
+      "mn": "уламжлал",
+      "example_en": "This festival is an important tradition in our culture.",
+      "example_mn": "Энэ баяр бол манай соёлын чухал уламжлал юм."
+    },
+    {
+      "en": "generation",
+      "mn": "үе, үеийнхэн",
+      "example_en": "Younger generations use technology differently.",
+      "example_mn": "Залуу үеийнхэн технологийг өөр байдлаар ашигладаг."
+    },
+    {
+      "en": "diversity",
+      "mn": "олон талт байдал, олон янз байдал",
+      "example_en": "The city is known for its cultural diversity.",
+      "example_mn": "Хот нь соёлын олон талт байдлаараа алдартай."
+    },
+    {
+      "en": "equality",
+      "mn": "тэгш байдал",
+      "example_en": "The organization fights for gender equality.",
+      "example_mn": "Байгууллага хүйсийн тэгш байдлын төлөө тэмцдэг."
+    },
+    {
+      "en": "inequality",
+      "mn": "тэгш бус байдал",
+      "example_en": "Income inequality remains a major issue.",
+      "example_mn": "Орлогын тэгш бус байдал том асуудал хэвээр байна."
+    },
+    {
+      "en": "immigrant",
+      "mn": "цагаач",
+      "example_en": "Many immigrants come to the city for work.",
+      "example_mn": "Олон цагаачид ажлын төлөө хот руу ирдэг."
+    },
+    {
+      "en": "neighborhood",
+      "mn": "хороолол, хөрш зэргэлдээх нутаг",
+      "example_en": "We live in a quiet neighborhood.",
+      "example_mn": "Бид тайван хороололд амьдардаг."
+    },
+    {
+      "en": "volunteer",
+      "mn": "сайн дурын ажилтан, сайн дурын үйл ажиллагаа явуулах",
+      "example_en": "She volunteers at the animal shelter every weekend.",
+      "example_mn": "Тэр амралтын өдөр бүр амьтдын хамгаалах байранд сайн дураараа ажилладаг."
+    },
+    {
+      "en": "charity",
+      "mn": "буяны байгууллага, буян",
+      "example_en": "He donates money to charity every month.",
+      "example_mn": "Тэр сар бүр буяны байгууллагад мөнгө хандивладаг."
+    },
+    {
+      "en": "relationship",
+      "mn": "харилцаа",
+      "example_en": "They have a strong and healthy relationship.",
+      "example_mn": "Тэд хүчтэй, эрүүл харилцаатай."
+    },
+    {
+      "en": "trust",
+      "mn": "итгэх, итгэл",
+      "example_en": "Trust is the foundation of any friendship.",
+      "example_mn": "Итгэл бол ямар ч найрсаг харилцааны үндэс юм."
+    },
+    {
+      "en": "betray",
+      "mn": "урвах, хуурах",
+      "example_en": "She felt betrayed by her closest friend.",
+      "example_mn": "Тэр хамгийн ойрын найзаасаа урвагдсан гэж мэдэрсэн."
+    },
+    {
+      "en": "loyalty",
+      "mn": "үнэнч байдал",
+      "example_en": "He values loyalty above everything else.",
+      "example_mn": "Тэр үнэнч байдлыг бүх зүйлээс дээгүүр эрхэмлэдэг."
+    },
+    {
+      "en": "gossip",
+      "mn": "хов жив, хов жив хийх",
+      "example_en": "They spent the afternoon gossiping about coworkers.",
+      "example_mn": "Тэд өдрийн цайны цагаар хамт ажилладаг хүмүүсийн тухай хов жив хийж өнгөрөөсөн."
+    },
+    {
+      "en": "conflict",
+      "mn": "зөрчил, мөргөлдөөн",
+      "example_en": "There was a conflict between the two departments.",
+      "example_mn": "Хоёр хэлтсийн хооронд зөрчил гарсан."
+    },
+    {
+      "en": "compromise",
+      "mn": "буулт хийх, буулт",
+      "example_en": "They reached a compromise after a long discussion.",
+      "example_mn": "Тэд урт хэлэлцүүлгийн эцэст буулт хийхэд хүрсэн."
+    },
+    {
+      "en": "respect",
+      "mn": "хүндэтгэх, хүндэтгэл",
+      "example_en": "Students should respect their teachers.",
+      "example_mn": "Сурагчид багш нараа хүндэтгэх ёстой."
+    },
+    {
+      "en": "stereotype",
+      "mn": "хэвшмэл ойлголт",
+      "example_en": "We should avoid making stereotypes about people.",
+      "example_mn": "Бид хүмүүсийн талаар хэвшмэл ойлголт үүсгэхээс зайлсхийх ёстой."
+    },
+    {
+      "en": "prejudice",
+      "mn": "нэг талыг барих, урьдчилсан таамаг",
+      "example_en": "Prejudice can lead to unfair treatment.",
+      "example_mn": "Нэг талыг барих нь шударга бус хандлагад хүргэж болзошгүй."
+    },
+    {
+      "en": "budget",
+      "mn": "төсөв",
+      "example_en": "We need to plan a budget for the trip.",
+      "example_mn": "Бид аяллын төсвөө төлөвлөх хэрэгтэй."
+    },
+    {
+      "en": "afford",
+      "mn": "санхүүгийн боломжтой байх",
+      "example_en": "I can't afford a new car right now.",
+      "example_mn": "Одоогоор шинэ машин авах санхүүгийн боломж надад алга."
+    },
+    {
+      "en": "expense",
+      "mn": "зардал",
+      "example_en": "Rent is our biggest monthly expense.",
+      "example_mn": "Түрээс бол манай сар бүрийн хамгийн том зардал."
+    },
+    {
+      "en": "invest",
+      "mn": "хөрөнгө оруулах",
+      "example_en": "She invested her savings in a small business.",
+      "example_mn": "Тэр хуримтлалаа жижиг бизнест хөрөнгө оруулалт хийсэн."
+    },
+    {
+      "en": "discount",
+      "mn": "хямдрал, хөнгөлөлт",
+      "example_en": "We got a discount on the hotel room.",
+      "example_mn": "Бид зочид буудлын өрөөнд хямдрал авсан."
+    },
+    {
+      "en": "refund",
+      "mn": "мөнгө буцаах, буцаан олголт",
+      "example_en": "The store gave me a full refund for the item.",
+      "example_mn": "Дэлгүүр надад тухайн бараанд бүтэн мөнгөө буцаан өгсөн."
+    },
+    {
+      "en": "bargain",
+      "mn": "хямдхан юм, хямдруулах",
+      "example_en": "I found a great bargain at the market.",
+      "example_mn": "Би зах дээрээс маш хямдхан юм оллоо."
+    },
+    {
+      "en": "loan",
+      "mn": "зээл",
+      "example_en": "They took out a loan to buy a house.",
+      "example_mn": "Тэд байшин авахын тулд зээл авсан."
+    },
+    {
+      "en": "debt",
+      "mn": "өр",
+      "example_en": "He is trying to pay off his debt.",
+      "example_mn": "Тэр өрөө барагдуулахыг хичээж байна."
+    },
+    {
+      "en": "income",
+      "mn": "орлого",
+      "example_en": "Her income increased after she changed jobs.",
+      "example_mn": "Тэр ажлаа сольсны дараа орлого нь нэмэгдсэн."
+    },
+    {
+      "en": "wealthy",
+      "mn": "баян, чинээлэг",
+      "example_en": "They live in a wealthy neighborhood.",
+      "example_mn": "Тэд баян хороололд амьдардаг."
+    },
+    {
+      "en": "value",
+      "mn": "үнэ цэн, үнэлэх",
+      "example_en": "This painting has great value.",
+      "example_mn": "Энэ зураг маш их үнэ цэнтэй."
+    },
+    {
+      "en": "consumer",
+      "mn": "хэрэглэгч",
+      "example_en": "Consumers want higher quality products.",
+      "example_mn": "Хэрэглэгчид илүү өндөр чанартай бүтээгдэхүүнийг хүсдэг."
+    },
+    {
+      "en": "purchase",
+      "mn": "худалдан авах, худалдан авалт",
+      "example_en": "She made an online purchase yesterday.",
+      "example_mn": "Тэр өчигдөр онлайн худалдан авалт хийсэн."
+    },
+    {
+      "en": "transaction",
+      "mn": "гүйлгээ",
+      "example_en": "The bank confirmed the transaction immediately.",
+      "example_mn": "Банк гүйлгээг шууд баталгаажуулсан."
+    },
+    {
+      "en": "occasionally",
+      "mn": "хааяа, заримдаа",
+      "example_en": "We occasionally eat out on weekends.",
+      "example_mn": "Бид амралтын өдрүүдэд хааяа гадуур хооллодог."
+    },
+    {
+      "en": "frequently",
+      "mn": "байнга, ойр ойрхон",
+      "example_en": "She frequently travels for work.",
+      "example_mn": "Тэр ажлын хэрэгтэй байнга аялдаг."
+    },
+    {
+      "en": "temporary",
+      "mn": "түр зуурын",
+      "example_en": "This is only a temporary solution.",
+      "example_mn": "Энэ бол зөвхөн түр зуурын шийдэл."
+    },
+    {
+      "en": "permanent",
+      "mn": "байнгын, тогтмол",
+      "example_en": "He got a permanent position at the company.",
+      "example_mn": "Тэр компанид байнгын албан тушаал авсан."
+    },
+    {
+      "en": "eventually",
+      "mn": "эцэст нь, аажмаар",
+      "example_en": "Eventually, she got used to the new schedule.",
+      "example_mn": "Эцэст нь тэр шинэ хуваарьт дасаж авсан."
+    },
+    {
+      "en": "immediately",
+      "mn": "тэр даруй, шууд",
+      "example_en": "Please respond immediately if there's a problem.",
+      "example_mn": "Асуудал гарвал тэр даруй хариу өгнө үү."
+    },
+    {
+      "en": "gradually",
+      "mn": "аажмаар",
+      "example_en": "The weather is gradually getting warmer.",
+      "example_mn": "Цаг агаар аажмаар дулаарч байна."
+    },
+    {
+      "en": "previously",
+      "mn": "өмнө нь",
+      "example_en": "She previously worked as a nurse.",
+      "example_mn": "Тэр өмнө нь сувилагчаар ажиллаж байсан."
+    },
+    {
+      "en": "meanwhile",
+      "mn": "энэ хооронд, зэрэгцээд",
+      "example_en": "Meanwhile, the food was getting cold.",
+      "example_mn": "Энэ хооронд хоол хөрж байлаа."
+    },
+    {
+      "en": "recently",
+      "mn": "саяхан",
+      "example_en": "We recently moved to a new apartment.",
+      "example_mn": "Бид саяхан шинэ байранд нүүсэн."
+    },
+    {
+      "en": "aspect",
+      "mn": "тал, талт байдал",
+      "example_en": "We need to consider every aspect of the plan.",
+      "example_mn": "Бид төлөвлөгөөний бүх талыг харгалзан үзэх хэрэгтэй."
+    },
+    {
+      "en": "factor",
+      "mn": "хүчин зүйл",
+      "example_en": "Price is an important factor when buying a car.",
+      "example_mn": "Машин худалдаж авахад үнэ чухал хүчин зүйл юм."
+    },
+    {
+      "en": "issue",
+      "mn": "асуудал",
+      "example_en": "Pollution is a serious environmental issue.",
+      "example_mn": "Бохирдол бол байгаль орчны ноцтой асуудал."
+    },
+    {
+      "en": "impact",
+      "mn": "нөлөө, нөлөөлөх",
+      "example_en": "Social media has a big impact on teenagers.",
+      "example_mn": "Сошиал медиа өсвөр насныханд том нөлөө үзүүлдэг."
+    },
+    {
+      "en": "significant",
+      "mn": "чухал ач холбогдолтой, мэдэгдэхүйц",
+      "example_en": "There was a significant increase in sales.",
+      "example_mn": "Борлуулалт мэдэгдэхүйц өссөн."
+    },
+    {
+      "en": "relevant",
+      "mn": "хамааралтай, холбогдолтой",
+      "example_en": "This information is not relevant to our topic.",
+      "example_mn": "Энэ мэдээлэл манай сэдэвтэй хамааралгүй."
+    },
+    {
+      "en": "consistent",
+      "mn": "тогтвортой, тууштай",
+      "example_en": "She has been consistent in her efforts.",
+      "example_mn": "Тэр хичээл зүтгэлдээ тууштай байсаар ирсэн."
+    },
+    {
+      "en": "controversial",
+      "mn": "маргаантай",
+      "example_en": "The new law is quite controversial.",
+      "example_mn": "Шинэ хууль нэлээд маргаантай байна."
+    },
+    {
+      "en": "dominant",
+      "mn": "давамгайлсан, ноёрхогч",
+      "example_en": "English is the dominant language in business.",
+      "example_mn": "Англи хэл нь бизнесийн салбарт давамгайлсан хэл юм."
+    },
+    {
+      "en": "emerge",
+      "mn": "гарч ирэх, үүсэх",
+      "example_en": "New problems emerged during the project.",
+      "example_mn": "Төслийн явцад шинэ асуудлууд гарч ирсэн."
+    },
+    {
+      "en": "establish",
+      "mn": "байгуулах, тогтоох",
+      "example_en": "The company was established in 1990.",
+      "example_mn": "Компани 1990 онд байгуулагдсан."
+    },
+    {
+      "en": "evidence",
+      "mn": "нотолгоо, баримт",
+      "example_en": "There is no evidence to support this theory.",
+      "example_mn": "Энэ онолыг батлах ямар ч нотолгоо байхгүй."
+    },
+    {
+      "en": "factor in",
+      "mn": "тооцох, тооцоонд оруулах",
+      "example_en": "We need to factor in the cost of shipping.",
+      "example_mn": "Бид хүргэлтийн зардлыг тооцоонд оруулах хэрэгтэй."
+    },
+    {
+      "en": "fundamental",
+      "mn": "үндсэн, суурь",
+      "example_en": "Trust is fundamental to any relationship.",
+      "example_mn": "Итгэл бол харилцааны суурь юм."
+    },
+    {
+      "en": "gradual",
+      "mn": "аажмаар явагдах",
+      "example_en": "There has been a gradual improvement in her health.",
+      "example_mn": "Түүний эрүүл мэнд аажмаар сайжирсаар байна."
+    },
+    {
+      "en": "identify",
+      "mn": "тодорхойлох, таних",
+      "example_en": "We need to identify the main problem first.",
+      "example_mn": "Бид эхлээд гол асуудлыг тодорхойлох хэрэгтэй."
+    },
+    {
+      "en": "illustrate",
+      "mn": "жишээгээр харуулах, тодруулах",
+      "example_en": "This chart illustrates the growth clearly.",
+      "example_mn": "Энэ график өсөлтийг тодорхой харуулж байна."
+    },
+    {
+      "en": "interpret",
+      "mn": "тайлбарлах, ойлгох",
+      "example_en": "Different people interpret the data differently.",
+      "example_mn": "Өөр өөр хүмүүс өгөгдлийг өөр өөрөөр тайлбарладаг."
+    },
+    {
+      "en": "legitimate",
+      "mn": "хууль ёсны, зөвшөөрөгдсөн",
+      "example_en": "This is a legitimate business.",
+      "example_mn": "Энэ бол хууль ёсны бизнес."
+    },
+    {
+      "en": "logical",
+      "mn": "логик, үндэслэлтэй",
+      "example_en": "His argument was clear and logical.",
+      "example_mn": "Түүний үндэслэл тодорхой бөгөөд логиктой байсан."
+    },
+    {
+      "en": "obvious",
+      "mn": "тодорхой, ил тод",
+      "example_en": "It was obvious that she was tired.",
+      "example_mn": "Тэр ядарсан нь тодорхой байлаа."
+    },
+    {
+      "en": "perceive",
+      "mn": "ойлгох, мэдрэх",
+      "example_en": "People perceive risk differently.",
+      "example_mn": "Хүмүүс эрсдлийг өөр өөрөөр ойлгодог."
+    },
+    {
+      "en": "phenomenon",
+      "mn": "үзэгдэл",
+      "example_en": "Climate change is a global phenomenon.",
+      "example_mn": "Уур амьсгалын өөрчлөлт бол дэлхий нийтийн үзэгдэл."
+    },
+    {
+      "en": "prioritize",
+      "mn": "эрэмбэлэх, тэргүүн ээлжинд тавих",
+      "example_en": "You need to prioritize your tasks.",
+      "example_mn": "Та даалгавраа эрэмбэлэх хэрэгтэй."
+    },
+    {
+      "en": "rational",
+      "mn": "оновчтой, ухаалаг",
+      "example_en": "We need to make a rational decision.",
+      "example_mn": "Бид оновчтой шийдвэр гаргах хэрэгтэй."
+    },
+    {
+      "en": "reveal",
+      "mn": "илчлэх, ил болгох",
+      "example_en": "The study revealed surprising results.",
+      "example_mn": "Судалгаа гайхалтай үр дүнг илчилсэн."
+    },
+    {
+      "en": "statistic",
+      "mn": "статистик тоо",
+      "example_en": "The statistic shows a rise in unemployment.",
+      "example_mn": "Статистик тоо ажилгүйдэл нэмэгдсэнийг харуулж байна."
+    },
+    {
+      "en": "substantial",
+      "mn": "ихээхэн, чухал",
+      "example_en": "There was a substantial change in the plan.",
+      "example_mn": "Төлөвлөгөөнд ихээхэн өөрчлөлт орсон."
+    },
+    {
+      "en": "theory",
+      "mn": "онол",
+      "example_en": "This theory was proven by scientists.",
+      "example_mn": "Энэ онолыг эрдэмтэд нотолсон."
+    },
+    {
+      "en": "valid",
+      "mn": "хүчинтэй, үндэслэлтэй",
+      "example_en": "Your passport is still valid for two years.",
+      "example_mn": "Таны паспорт хоёр жилийн турш хүчинтэй хэвээр байна."
+    },
+    {
+      "en": "adapt",
+      "mn": "дасан зохицох",
+      "example_en": "She quickly adapted to the new environment.",
+      "example_mn": "Тэр шинэ орчинд хурдан дасан зохицсон."
+    },
+    {
+      "en": "adjust",
+      "mn": "тохируулах",
+      "example_en": "He adjusted the seat before driving.",
+      "example_mn": "Тэр жолоодохынхоо өмнө суудлаа тохируулсан."
+    },
+    {
+      "en": "assess",
+      "mn": "үнэлэх, дүгнэх",
+      "example_en": "Doctors assess patients before treatment.",
+      "example_mn": "Эмч нар эмчилгээ хийхийн өмнө өвчтөнийг үнэлдэг."
+    },
+    {
+      "en": "attach",
+      "mn": "хавсаргах, наах",
+      "example_en": "Please attach the document to your email.",
+      "example_mn": "И-мэйлдээ баримт бичгээ хавсаргана уу."
+    },
+    {
+      "en": "avoid",
+      "mn": "зайлсхийх",
+      "example_en": "She avoids eating sugar late at night.",
+      "example_mn": "Тэр орой шаргачихаас зайлсхийдэг."
+    },
+    {
+      "en": "benefit",
+      "mn": "ашиг тус хүртэх, тус болох",
+      "example_en": "Regular exercise benefits your health.",
+      "example_mn": "Тогтмол дасгал хийх нь эрүүл мэндэд тустай."
+    },
+    {
+      "en": "collapse",
+      "mn": "нурах, унах",
+      "example_en": "The old building collapsed during the earthquake.",
+      "example_mn": "Хуучин барилга газар хөдлөлтийн үеэр нурсан."
+    },
+    {
+      "en": "combine",
+      "mn": "нэгтгэх, хослуулах",
+      "example_en": "Combine the flour and sugar in a bowl.",
+      "example_mn": "Гурил ба элсэн чихрийг аяганд хольж хос лол."
+    },
+    {
+      "en": "compensate",
+      "mn": "нөхөн олгох",
+      "example_en": "The company compensated customers for the delay.",
+      "example_mn": "Компани хойшлолтын төлөө үйлчлүүлэгчдэд нөхөн олговор өгсөн."
+    },
+    {
+      "en": "confront",
+      "mn": "эсрэг тулгарах, нүүр тулах",
+      "example_en": "She had to confront her fears.",
+      "example_mn": "Тэр айдастайгаа нүүр тулах хэрэгтэй болсон."
+    },
+    {
+      "en": "contribute",
+      "mn": "хувь нэмэр оруулах",
+      "example_en": "Everyone contributed ideas to the project.",
+      "example_mn": "Бүгд төсөлд санаа хувь нэмэрээ оруулсан."
+    },
+    {
+      "en": "cope",
+      "mn": "даван туулах, тэсвэрлэх",
+      "example_en": "It's not easy to cope with stress.",
+      "example_mn": "Стрессийг даван туулах амар биш."
+    },
+    {
+      "en": "determine",
+      "mn": "тодорхойлох, шийдвэрлэх",
+      "example_en": "The test results will determine the treatment.",
+      "example_mn": "Шинжилгээний үр дүн эмчилгээг тодорхойлно."
+    },
+    {
+      "en": "distinguish",
+      "mn": "ялгах",
+      "example_en": "It's hard to distinguish between the twins.",
+      "example_mn": "Ихэр хосыг ялгахад хэцүү."
+    },
+    {
+      "en": "eliminate",
+      "mn": "арилгах, устгах",
+      "example_en": "We need to eliminate unnecessary costs.",
+      "example_mn": "Бид шаардлагагүй зардлыг арилгах хэрэгтэй."
+    },
+    {
+      "en": "enhance",
+      "mn": "сайжруулах",
+      "example_en": "This update will enhance the app's performance.",
+      "example_mn": "Энэ шинэчлэл нь аппликейшны гүйцэтгэлийг сайжруулна."
+    },
+    {
+      "en": "ensure",
+      "mn": "баталгаажуулах, батлан хангах",
+      "example_en": "Please ensure the door is locked.",
+      "example_mn": "Хаалга түгжигдсэн эсэхийг баталгаажуулна уу."
+    },
+    {
+      "en": "exceed",
+      "mn": "хэтрэх, давах",
+      "example_en": "Sales exceeded our expectations this year.",
+      "example_mn": "Борлуулалт энэ жил бидний хүлээлтээс давсан."
+    },
+    {
+      "en": "expand",
+      "mn": "өргөжүүлэх",
+      "example_en": "The company plans to expand into new markets.",
+      "example_mn": "Компани шинэ зах зээлд өргөжихөөр төлөвлөж байна."
+    },
+    {
+      "en": "expose",
+      "mn": "илчлэх, ил гаргах",
+      "example_en": "The report exposed several problems.",
+      "example_mn": "Тайлан хэд хэдэн асуудлыг илчилсэн."
+    },
+    {
+      "en": "facilitate",
+      "mn": "хөнгөвчлөх, дэмжих",
+      "example_en": "Technology facilitates communication across the world.",
+      "example_mn": "Технологи дэлхий даяар харилцааг хөнгөвчилдөг."
+    },
+    {
+      "en": "generate",
+      "mn": "үүсгэх, бий болгох",
+      "example_en": "The new policy generated a lot of debate.",
+      "example_mn": "Шинэ бодлого маш их маргаан үүсгэсэн."
+    },
+    {
+      "en": "implement",
+      "mn": "хэрэгжүүлэх",
+      "example_en": "The school implemented a new rule this year.",
+      "example_mn": "Сургууль энэ жил шинэ дүрэм хэрэгжүүлсэн."
+    },
+    {
+      "en": "indicate",
+      "mn": "заах, харуулах",
+      "example_en": "These results indicate a positive trend.",
+      "example_mn": "Энэ үр дүнгүүд эерэг чиг хандлагыг харуулж байна."
+    },
+    {
+      "en": "maintain",
+      "mn": "хадгалах, барих",
+      "example_en": "It's important to maintain a healthy diet.",
+      "example_mn": "Эрүүл хоолны дэглэмийг хадгалах нь чухал."
+    },
+    {
+      "en": "obtain",
+      "mn": "олж авах",
+      "example_en": "She obtained a degree in economics.",
+      "example_mn": "Тэр эдийн засгийн чиглэлээр зэрэг олж авсан."
+    },
+    {
+      "en": "overcome",
+      "mn": "даван туулах",
+      "example_en": "He overcame many difficulties to succeed.",
+      "example_mn": "Тэр амжилтад хүрэхийн тулд олон бэрхшээлийг даван туулсан."
+    },
+    {
+      "en": "pursue",
+      "mn": "эрэлхийлэх, хөөцөлдөх",
+      "example_en": "She decided to pursue a career in art.",
+      "example_mn": "Тэр урлагийн чиглэлээр карьер эрэлхийлэхээр шийдсэн"
+    },
+    {
+      "en": "recognize",
+      "mn": "таних, хүлээн зөвшөөрөх",
+      "example_en": "I didn't recognize him with his new haircut.",
+      "example_mn": "Түүнийг шинэ үс засалттай нь би танисангүй."
+    },
+    {
+      "en": "reduce",
+      "mn": "бууруулах, багасгах",
+      "example_en": "We should reduce plastic waste.",
+      "example_mn": "Бид хуванцар хогийг бууруулах ёстой."
+    },
+    {
+      "en": "reflect",
+      "mn": "тусгах, эргэцүүлэх",
+      "example_en": "Take a moment to reflect on your goals.",
+      "example_mn": "Зорилгынхоо тухай эргэцүүлэн бодоход цаг гарга."
+    },
+    {
+      "en": "reinforce",
+      "mn": "бэхжүүлэх",
+      "example_en": "Practice reinforces what you have learned.",
+      "example_mn": "Дасгал хийх нь сурсан зүйлээ бэхжүүлдэг."
+    },
+    {
+      "en": "resolve",
+      "mn": "шийдвэрлэх, шийдэх",
+      "example_en": "They resolved the conflict peacefully.",
+      "example_mn": "Тэд зөрчлөө энхийн замаар шийдвэрлэсэн."
+    },
+    {
+      "en": "restrict",
+      "mn": "хязгаарлах",
+      "example_en": "The rules restrict the number of visitors.",
+      "example_mn": "Дүрэм зочдын тоог хязгаарладаг."
+    },
+    {
+      "en": "stimulate",
+      "mn": "өдөөх, идэвхжүүлэх",
+      "example_en": "New ideas stimulate creativity.",
+      "example_mn": "Шинэ санаанууд бүтээлч сэтгэлгээг өдөөдөг."
+    },
+    {
+      "en": "sustain",
+      "mn": "тэтгэх, дэмжих, барих",
+      "example_en": "It's hard to sustain motivation over time.",
+      "example_mn": "Урам зоригийг удаан хугацаанд барих амар биш."
+    },
+    {
+      "en": "tackle",
+      "mn": "шийдвэрлэх, тулгарах",
+      "example_en": "The government is trying to tackle inflation.",
+      "example_mn": "Засгийн газар инфляцийг шийдвэрлэхийг хичээж байна."
+    },
+    {
+      "en": "undergo",
+      "mn": "өнгөрөх, туулах",
+      "example_en": "She underwent surgery last week.",
+      "example_mn": "Тэр өнгөрсөн долоо хоногт мэс засал хийлгэсэн."
+    },
+    {
+      "en": "undertake",
+      "mn": "хариуцаж авах, эхлүүлэх",
+      "example_en": "He undertook a difficult project alone.",
+      "example_mn": "Тэр хэцүү төслийг ганцаараа хариуцаж авсан"
+    },
+    {
+      "en": "accurate",
+      "mn": "үнэн зөв, нарийвчлалтай",
+      "example_en": "Please give me accurate information.",
+      "example_mn": "Надад үнэн зөв мэдээлэл өгнө үү."
+    },
+    {
+      "en": "adequate",
+      "mn": "хангалттай",
+      "example_en": "We don't have adequate time to finish this.",
+      "example_mn": "Бидэнд үүнийг дуусгах хангалттай цаг байхгүй."
+    },
+    {
+      "en": "appropriate",
+      "mn": "тохирсон, зохих",
+      "example_en": "Wear appropriate clothes for the interview.",
+      "example_mn": "Ярилцлагад тохирсон хувцас өмс."
+    },
+    {
+      "en": "beneficial",
+      "mn": "ашигтай, тустай",
+      "example_en": "Reading is beneficial for children's development.",
+      "example_mn": "Ном унших нь хүүхдийн хөгжилд тустай."
+    },
+    {
+      "en": "brief",
+      "mn": "товч",
+      "example_en": "He gave a brief explanation of the plan.",
+      "example_mn": "Тэр төлөвлөгөөний тухай товч тайлбар өгсөн."
+    },
+    {
+      "en": "complex",
+      "mn": "нарийн төвөгтэй",
+      "example_en": "This is a complex issue with no easy solution.",
+      "example_mn": "Энэ бол амархан шийдэлгүй нарийн төвөгтэй асуудал."
+    },
+    {
+      "en": "crucial",
+      "mn": "маш чухал, гол чухал",
+      "example_en": "Sleep is crucial for good health.",
+      "example_mn": "Унтах нь сайн эрүүл мэндэд маш чухал."
+    },
+    {
+      "en": "distinct",
+      "mn": "ялгаатай, тод",
+      "example_en": "The two flavors are quite distinct.",
+      "example_mn": "Хоёр амт нь нэлээд ялгаатай."
+    },
+    {
+      "en": "diverse",
+      "mn": "олон янз, олон талт",
+      "example_en": "The city has a diverse population.",
+      "example_mn": "Хот нь олон янзын хүн ам тухай."
+    },
+    {
+      "en": "essential",
+      "mn": "зайлшгүй чухал",
+      "example_en": "Water is essential for life.",
+      "example_mn": "Ус амьдралд зайлшгүй чухал."
+    },
+    {
+      "en": "extensive",
+      "mn": "өргөн хүрээтэй",
+      "example_en": "She has extensive knowledge of history.",
+      "example_mn": "Тэр түүхийн талаар өргөн хүрээтэй мэдлэгтэй."
+    },
+    {
+      "en": "feasible",
+      "mn": "хэрэгжих боломжтой",
+      "example_en": "Is this plan financially feasible?",
+      "example_mn": "Энэ төлөвлөгөө санхүүгийн хувьд хэрэгжих боломжтой юу?"
+    },
+    {
+      "en": "fragile",
+      "mn": "эмзэг, амархан хагардаг",
+      "example_en": "Please handle the glass items carefully; they're fragile.",
+      "example_mn": "Шилэн эдлэлийг болгоомжтой авч явна уу, эмзэг байна."
+    },
+    {
+      "en": "harsh",
+      "mn": "хатуу ширүүн",
+      "example_en": "The winter climate here is very harsh.",
+      "example_mn": "Энд өвлийн цаг агаар маш хатуу ширүүн."
+    },
+    {
+      "en": "inevitable",
+      "mn": "зайлшгүй тохиолдох, зайлшгүй",
+      "example_en": "Change is inevitable in life.",
+      "example_mn": "Амьдралд өөрчлөлт зайлшгүй тохиолддог."
+    },
+    {
+      "en": "intense",
+      "mn": "эрчимтэй, хүчтэй",
+      "example_en": "The competition was very intense this year.",
+      "example_mn": "Энэ жилийн уралдаан маш эрчимтэй байлаа."
+    },
+    {
+      "en": "massive",
+      "mn": "асар том, аварга том",
+      "example_en": "There was a massive crowd at the concert.",
+      "example_mn": "Тоглолт дээр асар том хүн цугласан байсан."
+    },
+    {
+      "en": "minor",
+      "mn": "бага зэргийн, жижиг",
+      "example_en": "He had a minor accident on his way home.",
+      "example_mn": "Тэр гэртээ явж байхдаа бага зэргийн осолд орсон."
+    },
+    {
+      "en": "moderate",
+      "mn": "дунд зэргийн, хэвийн",
+      "example_en": "There has been a moderate improvement in sales.",
+      "example_mn": "Борлуулалт дунд зэргийн сайжруулалттай байна."
+    },
+    {
+      "en": "mutual",
+      "mn": "харилцан, хоёр талын",
+      "example_en": "They have mutual respect for each other.",
+      "example_mn": "Тэд бие биедээ харилцан хүндэтгэлтэй хандаж байдаг."
+    },
+    {
+      "en": "outstanding",
+      "mn": "онцгой, гайхалтай",
+      "example_en": "She has outstanding academic results.",
+      "example_mn": "Тэр эрдэм шинжилгээний онцгой амжилттай."
+    },
+    {
+      "en": "precise",
+      "mn": "нарийн, тодорхой",
+      "example_en": "Give me the precise location of the store.",
+      "example_mn": "Дэлгүүрийн нарийн байршлыг надад хэлээрэй."
+    },
+    {
+      "en": "primary",
+      "mn": "гол, эхний",
+      "example_en": "Education is our primary concern.",
+      "example_mn": "Боловсрол бол бидний гол санаа зовнил."
+    },
+    {
+      "en": "profound",
+      "mn": "гүн гүнзгий",
+      "example_en": "The book had a profound effect on me.",
+      "example_mn": "Энэ ном надад гүн гүнзгий нөлөө үзүүлсэн."
+  } 
+ ],
  "EYESH": [],
  "IELTS": [],
  "C1_C2": []
