@@ -717,12 +717,12 @@ const QUIZ_LEN = 10;
    ========================================================= */
 async function sGet(key){
   try{
-    var v = localStorage.getItem("steppe_"+key);
+    var v = localStorage.getItem("steppevocab2_"+key);
     return v !== null ? v : null;
   }catch(e){ return null; }
 }
 async function sSet(key, value){
-  try{ localStorage.setItem("steppe_"+key, value); return true; }catch(e){ console.error("storage set failed", key, e); return false; }
+  try{ localStorage.setItem("steppevocab2_"+key, value); return true; }catch(e){ console.error("storage set failed", key, e); return false; }
 }
 
 function defaultProgress(){
