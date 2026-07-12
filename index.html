@@ -621,7 +621,7 @@ function withTimeout(promise, ms, label){
    { "A1_A2":[{en,mn,example_en,example_mn}...], "B1_B2":[...],
      "EYESH":[...], "C1_C2":[...], "IELTS":[...] }
    ========================================================= */
-const WORDS_JSON_URL = "./words.json";
+const WORDS_JSON_URL = "./words.json?v=" + new Date().getTime();
 
 /* =========================================================
    БАГЦ (SUBSCRIPTION PLAN) БҮТЭЦ
