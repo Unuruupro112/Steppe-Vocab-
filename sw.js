@@ -9,7 +9,7 @@
    илгээх) авахын тулд тусдаа Push сервер + VAPID түлхүүр шаардлагатай.
    ========================================================= */
 
-const CACHE_NAME = "steppe-vocab-v1";
+const CACHE_NAME = "steppe-vocab-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
