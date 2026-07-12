@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Steppe · AI Vocabulary Trainer</title>
+<!-- ===== PWA: manifest + icons + theme color ===== -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0c1022">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Steppe Vocab">
+<link rel="icon" href="./icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
@@ -765,7 +774,11 @@ var STATE = {
   authError: "",
   authBusy: false,
   paywallPack: null,   // тухайн үед хэрэглэгч ямар түгжээтэй багц дээр дарсныг санана
+  paywallPlanFocus: null, // "Энэ багцыг сонгох" дарахад тухайн нэг тарифын дэлгэрэнгүйг л харуулахад ашиглана
   paywallReason: null, // "custom_limit_free" | "custom_limit_pro" | "custom_limit_special" | "pack_locked" | "plan_expired" | null
+  quizFilter: "all",   // "all" | "today" | "week" | "old" — Шалгалтын үгийн сангийн шүүлтүүр
+  notifPermission: (typeof Notification !== "undefined" ? Notification.permission : "unsupported"),
+  installPromptAvailable: false,
   syncBusy: false,
   pricing: {},          // Supabase 'packages' хүснэгтээс уншина: tier -> {price3m, price1y, currency}
   pricingLoaded: false,
@@ -1398,6 +1411,112 @@ function toast(msg){
 }
 
 /* =========================================================
+   PWA : SERVICE WORKER + INSTALL PROMPT
+   ========================================================= */
+var deferredInstallPrompt = null;
+function registerServiceWorker(){
+  if(!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("./sw.js").then(function(reg){
+      console.log("[steppe] Service worker registered", reg.scope);
+    }).catch(function(e){ console.error("[steppe] Service worker бүртгэхэд алдаа гарлаа", e); });
+  });
+}
+window.addEventListener("beforeinstallprompt", function(ev){
+  ev.preventDefault();
+  deferredInstallPrompt = ev;
+  STATE.installPromptAvailable = true;
+  render();
+});
+window.addEventListener("appinstalled", function(){
+  deferredInstallPrompt = null;
+  STATE.installPromptAvailable = false;
+  toast("✅ Апп амжилттай суулгагдлаа");
+  render();
+});
+async function promptInstallApp(){
+  if(!deferredInstallPrompt){
+    toast("Энэ төхөөрөмж/хөтөч дээр автоматаар суулгах боломжгүй байна. Хөтчийн цэснээс \"Add to Home Screen\" сонголтыг ашиглана уу.");
+    return;
+  }
+  deferredInstallPrompt.prompt();
+  try{ await deferredInstallPrompt.userChoice; }catch(e){}
+  deferredInstallPrompt = null;
+  STATE.installPromptAvailable = false;
+  render();
+}
+
+/* =========================================================
+   NOTIFICATIONS
+   Хөтчийн Notification API ашиглан 1) сануулах, 2) урам зоригийн
+   мэдэгдэл илгээнэ. GitHub Pages зэрэг статик хостинг дээр bodit
+   push сервер байхгүй тул зөвхөн апп нээлттэй/идэвхтэй үед л
+   найдвартай ажиллана (харин зөвшөөрөл нэг л удаа асуугдана).
+   ========================================================= */
+var MOTIVATIONAL_MESSAGES = [
+  "🔥 Та өнөөдөр маш сайн байна! Зорилгодоо хүрэхэд ойрхон байна шүү!",
+  "🌟 Өчигдрөөс өнөөдөр илүү мэднэ гэдэгт итгэлтэй байна!",
+  "💪 Дасгал бол чадварын эх сурвалж — үргэлжлүүлээрэй!",
+  "🚀 Streak-ээ бүү тас, өнөөдөр ч бас бичлэг тавь!",
+  "🎯 Өдөрт цөөхөн ч гэсэн тогтмол сурах нь том ахиц авчирна!"
+];
+async function requestNotificationPermission(){
+  if(typeof Notification === "undefined"){
+    toast("Энэ хөтөч мэдэгдэл дэмждэггүй байна");
+    return;
+  }
+  try{
+    var perm = await Notification.requestPermission();
+    STATE.notifPermission = perm;
+    if(perm === "granted"){
+      toast("🔔 Мэдэгдэл идэвхжлээ");
+      scheduleDailyReminderCheck();
+    } else {
+      toast("Мэдэгдэл зөвшөөрөгдсөнгүй");
+    }
+    render();
+  }catch(e){ console.error("Notification permission error", e); }
+}
+function showLocalNotification(title, body){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  try{
+    if(navigator.serviceWorker && navigator.serviceWorker.ready){
+      navigator.serviceWorker.ready.then(function(reg){
+        if(reg && reg.showNotification){
+          reg.showNotification(title, {body: body, icon:"./icons/icon-192.png", badge:"./icons/icon-192.png"});
+        } else {
+          new Notification(title, {body: body, icon:"./icons/icon-192.png"});
+        }
+      });
+    } else {
+      new Notification(title, {body: body, icon:"./icons/icon-192.png"});
+    }
+  }catch(e){ console.error("showLocalNotification error", e); }
+}
+/* Апп нээлттэй байх үед өдөрт нэг удаа шалгаж, өнөөдрийн зорилго дутуу бол сануулна */
+function scheduleDailyReminderCheck(){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  setTimeout(async function(){
+    checkAndSendReminder();
+    setInterval(checkAndSendReminder, 60*60*1000); // цагт нэг удаа шалгана
+  }, 5000);
+}
+function checkAndSendReminder(){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  var remaining = Math.max(0, getPerDay() - todayNewLearnedCount());
+  if(remaining > 0){
+    showLocalNotification("Steppe Vocab", "Өнөөдөр цээжлэх дутуу "+remaining+" үг байна, суралтаа үргэлжлүүлээрэй!");
+  } else if(Math.random() < 0.5){
+    var msg = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()*MOTIVATIONAL_MESSAGES.length)];
+    showLocalNotification("Steppe Vocab", msg);
+  }
+}
+function sendMotivationalNotification(){
+  var msg = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()*MOTIVATIONAL_MESSAGES.length)];
+  showLocalNotification("Steppe Vocab", msg);
+}
+
+/* =========================================================
    RENDER : SHELL
    ========================================================= */
 function esc(s){
@@ -1578,10 +1697,47 @@ function learnedWordObjs(){
   return Object.keys(STATE.progress.learned).map(getWord).filter(Boolean);
 }
 
+/* Шалгалтын шүүлтүүр: "today" (өнөөдөр цээжилсэн), "week" (сүүлийн 7 хоногт цээжилсэн,
+   өнөөдрийг оруулаад), "old" (сүүлийн 7 хоногоос өмнө цээжилсэн, мартагдах магадлалтай),
+   "all" (бүх цээжилсэн үг — өмнөх байдлаараа). */
+var QUIZ_FILTER_LABEL = {
+  all:   "Бүх цээжилсэн үг",
+  today: "Өнөөдөр цээжилсэн",
+  week:  "Сүүлийн 7 хоногт",
+  old:   "Хуучин үгс"
+};
+function quizFilterPool(filter){
+  var today = todayStr();
+  var cutoff = Date.now() - 7*24*60*60*1000;
+  var keys = Object.keys(STATE.progress.learned);
+  if(filter === "today"){
+    keys = keys.filter(function(k){ return STATE.progress.learned[k].learnedDate === today; });
+  } else if(filter === "week"){
+    keys = keys.filter(function(k){
+      var ld = STATE.progress.learned[k].learnedDate;
+      if(!ld) return false;
+      var t = new Date(ld+"T00:00:00").getTime();
+      return !isNaN(t) && t >= cutoff;
+    });
+  } else if(filter === "old"){
+    keys = keys.filter(function(k){
+      var ld = STATE.progress.learned[k].learnedDate;
+      if(!ld) return true;
+      var t = new Date(ld+"T00:00:00").getTime();
+      return isNaN(t) || t < cutoff;
+    });
+  }
+  return keys.map(getWord).filter(Boolean);
+}
+function setQuizFilter(filter){
+  STATE.quizFilter = filter;
+  render();
+}
+
 function startQuiz(mode){
-  var pool = learnedWordObjs();
+  var pool = quizFilterPool(STATE.quizFilter);
   if(pool.length < 4){
-    toast("Эхлээд цуг сурсан үг хуримтлуулаарай (доод тал нь 4)");
+    toast("Энэ ангилалд хамгийн багадаа 4 цээжилсэн үг хэрэгтэй ("+esc(QUIZ_FILTER_LABEL[STATE.quizFilter])+")");
     return;
   }
   var shuffled = pool.slice().sort(function(){ return Math.random()-0.5; });
@@ -1681,8 +1837,14 @@ function submitSpelling(){
 function renderQuiz(){
   var s = STATE.quizSession;
   if(!s){
-    var pool = learnedWordObjs();
-    var html = "<div class='section-label'><div class='t'>Шалгалтын төрөл сонгох</div><div class='n'>"+pool.length+" үг бэлэн</div></div>";
+    var pool = quizFilterPool(STATE.quizFilter);
+    var html = "<div class='section-label' style='margin-top:0;'><div class='t'>Үгийн сан сонгох</div></div>";
+    html += "<div class='pill-row'>";
+    ["all","today","week","old"].forEach(function(f){
+      html += "<button class='pill"+(STATE.quizFilter===f?" active":"")+"' data-action='setQuizFilter' data-filter='"+f+"'>"+esc(QUIZ_FILTER_LABEL[f])+"</button>";
+    });
+    html += "</div>";
+    html += "<div class='section-label'><div class='t'>Шалгалтын төрөл сонгох</div><div class='n'>"+pool.length+" үг бэлэн</div></div>";
     html += "<button class='quiz-card' data-action='startQuiz' data-mode='translate' style='width:100%;'>" +
       "<div class='q-main'>🇬🇧 → 🇲🇳</div><div class='q-sub'>Англи үгийг харж монгол орчуулгыг сонго</div></button>";
     html += "<button class='quiz-card' data-action='startQuiz' data-mode='reverse' style='width:100%;'>" +
@@ -2041,604 +2203,20 @@ function renderProfileTab(){
     html += "<button class='btn-ghost' data-action='openAuth' data-mode='signup' style='margin-top:10px;'>✨ Бүртгүүлэх</button>";
   }
 
+  html += "<div class='section-label'><div class='t'>Апп &amp; Мэдэгдэл</div></div>";
+  html += "<button class='btn-ghost' data-action='promptInstallApp'>📲 Апп болгож суулгах</button>";
+  if(STATE.notifPermission === "granted"){
+    html += "<button class='btn-ghost' data-action='sendTestNotification' style='margin-top:8px;'>🔔 Мэдэгдэл идэвхтэй — жишээ илгээх</button>";
+  } else if(STATE.notifPermission === "unsupported"){
+    html += "<div style='font-size:12px; color:var(--text-dim); margin:8px 2px 0;'>Энэ хөтөч мэдэгдэл дэмждэггүй байна.</div>";
+  } else {
+    html += "<button class='btn-ghost' data-action='requestNotificationPermission' style='margin-top:8px;'>🔔 Сануулга &amp; урмын мэдэгдэл асаах</button>";
+  }
+
   html += "<div class='section-label'><div class='t'>Өдрийн зорилго тохируулах</div></div>";
   html += "<div class='pill-row'>";
   DAILY_GOAL_OPTIONS.forEach(function(n){
     html += "<button class='pill"+(STATE.dailyGoal===n?" active":"")+"' data-action='setDailyGoal' data-goal='"+n+"'>"+n+" үг</button>";
   });
   html += "</div>";
-  html += "<div style='font-size:12px; color:var(--text-muted); margin:8px 2px 0;'>Өдөрт хэдэн шинэ үг цээжлэхийг сонгоно уу. Одоогийн зорилго: "+STATE.dailyGoal+" үг.</div>";
-
-  html += "<div class='section-label'><div class='t'>Дата хадгалалт</div></div>";
-  html += "<button class='btn-ghost' data-action='openAdd'>+ Өөрийн үг нэмэх</button>";
-  html += "<div style='display:flex; gap:8px; margin-top:8px;'>" +
-    "<button class='btn-ghost' data-action='exportData' style='flex:1; margin-top:0;'>⬇️ Backup татах</button>" +
-    "<button class='btn-ghost' data-action='importData' style='flex:1; margin-top:0;'>⬆️ Backup сэргээх</button>" +
-    "</div>";
-  html += "<button class='btn-ghost' data-action='resetData' style='margin-top:8px; color:var(--coral);'>🗑 Бүх датаг цэвэрлэх</button>";
-  html += "<input type='file' id='importFileInput' accept='.json,application/json' style='display:none;'/>";
-  return html;
-}
-
-/* =========================================================
-   RENDER : ADMIN PANEL (зөвхөн role === 'admin')
-   ========================================================= */
-function renderAdminTab(){
-  if(!isAdmin()){
-    return "<div class='empty'><div class='e-icon'>⛔</div><div class='e-title'>Хандах эрхгүй</div>" +
-      "<div class='e-sub'>Энэ хэсэг зөвхөн админ хэрэглэгчид зориулагдсан.</div>" +
-      "<button class='btn-ghost' data-action='backToProfile' style='margin-top:16px;'>← Профайл руу буцах</button></div>";
-  }
-  var html = "";
-  html += "<button class='btn-ghost' data-action='backToProfile' style='margin-bottom:14px;'>← Профайл руу буцах</button>";
-  html += "<div class='section-label' style='margin-top:0;'><div class='t'>🛠 Админ Панель</div></div>";
-
-  if(!STATE.admin.loaded && !STATE.admin.loading){
-    loadAdminStats();
-  }
-  if(STATE.admin.loading){
-    html += "<div class='empty'><div class='e-icon'>⏳</div><div class='e-title'>Статистик ачааллаж байна...</div></div>";
-    return html;
-  }
-
-  // ---- Статистик ----
-  html += "<div class='admin-stat-grid'>";
-  html += "<div class='admin-stat-card'><div class='a-num'>"+(STATE.admin.totalUsers!=null?STATE.admin.totalUsers:"—")+"</div><div class='a-lbl'>👥 Нийт хэрэглэгч</div></div>";
-  var activePaid = Object.keys(STATE.admin.activeByPlan||{}).reduce(function(a,k){ return a+(STATE.admin.activeByPlan[k]||0); }, 0);
-  html += "<div class='admin-stat-card'><div class='a-num'>"+activePaid+"</div><div class='a-lbl'>💳 Идэвхтэй Pro/Special/Premium</div></div>";
-  html += "<div class='admin-stat-card' style='grid-column:1 / -1;'><div class='a-num'>"+(STATE.admin.totalRevenue!=null?Number(STATE.admin.totalRevenue).toLocaleString("mn-MN")+"₮":"—")+"</div><div class='a-lbl'>💰 Нийт борлуулалт</div></div>";
-  html += "</div>";
-
-  html += "<div class='section-label'><div class='t'>Багц тус бүрийн идэвхтэй тоо</div></div>";
-  html += "<div class='profile-info-list' style='margin-bottom:18px;'>";
-  PLAN_ORDER.forEach(function(t){
-    if(t === "free") return;
-    html += "<div class='profile-info-row'><span class='pi-k'>"+esc(TIER_LABEL[t])+"</span><span class='pi-v'>"+(STATE.admin.activeByPlan[t]||0)+"</span></div>";
-  });
-  html += "</div>";
-
-  // ---- Үнэ удирдах ----
-  html += "<div class='section-label'><div class='t'>Үнэ удирдах</div></div>";
-  PLAN_ORDER.forEach(function(t){
-    if(t === "free") return;
-    var form = STATE.admin.priceForm[t] || {};
-    html += "<div class='admin-price-row'>" +
-      "<div class='apr-title'>"+esc(TIER_LABEL[t])+"</div>" +
-      "<div class='apr-fields'>" +
-        "<div class='field'><label>3 САР (₮)</label><input type='number' inputmode='numeric' data-action='priceInput3m' data-tier='"+t+"' value='"+esc(form.amount3m!=null?form.amount3m:"")+"'/></div>" +
-        "<div class='field'><label>1 ЖИЛ (₮)</label><input type='number' inputmode='numeric' data-action='priceInput1y' data-tier='"+t+"' value='"+esc(form.amount1y!=null?form.amount1y:"")+"'/></div>" +
-      "</div>" +
-      "<button class='btn-primary' data-action='updatePrice' data-tier='"+t+"' style='margin-top:10px;'>Үнэ шинэчлэх</button>" +
-    "</div>";
-  });
-
-  // ---- Гараар эрх идэвхжүүлэх ----
-  html += "<div class='section-label'><div class='t'>Хэрэглэгчийн эрх идэвхжүүлэх</div></div>";
-  html += "<div class='admin-price-row'>" +
-    "<div class='field'><label>И-МЭЙЛ ЭСВЭЛ ID</label><input id='grantEmailInput' placeholder='name@example.com' value='"+esc(STATE.admin.grantEmail)+"'/></div>" +
-    "<div class='field'><label>БАГЦ</label><select id='grantPlanSelect'>" +
-      PLAN_ORDER.filter(function(t){ return t!=="free"; }).map(function(t){
-        return "<option value='"+t+"' "+(STATE.admin.grantPlan===t?"selected":"")+">"+esc(TIER_LABEL[t])+"</option>";
-      }).join("") +
-    "</select></div>" +
-    "<div class='field'><label>ХУГАЦАА</label><select id='grantDurationSelect'>" +
-      "<option value='3m' "+(STATE.admin.grantDuration==="3m"?"selected":"")+">3 сар</option>" +
-      "<option value='1y' "+(STATE.admin.grantDuration==="1y"?"selected":"")+">1 жил</option>" +
-    "</select></div>" +
-    "<button class='btn-primary' data-action='grantPlan' style='margin-top:10px;' "+(STATE.admin.grantBusy?"disabled":"")+">" +
-      (STATE.admin.grantBusy?"Идэвхжүүлж байна...":"Идэвхжүүлэх") + "</button>" +
-  "</div>";
-
-  return html;
-}
-
-/* =========================================================
-   MODAL : ADD WORD
-   ========================================================= */
-function renderModal(){
-  var existing = document.getElementById("overlayRoot");
-  if(existing) existing.remove();
-  if(!STATE.modal) return;
-  var wrap = document.createElement("div");
-  wrap.id = "overlayRoot";
-  wrap.className = "overlay";
-
-  if(STATE.modal === "add"){
-    wrap.innerHTML = "<div class='sheet'>" +
-      "<div class='sheet-title'>Шинэ үг нэмэх</div>" +
-      "<div class='field'><label>ENGLISH WORD</label><input id='addEn' placeholder='e.g. resilient'/></div>" +
-      "<div class='field'><label>МОНГОЛ ОРЧУУЛГА</label><input id='addMn' placeholder='тэсвэртэй, уян хатан'/></div>" +
-      "<div class='sheet-actions'>" +
-        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>Болих</button>" +
-        "<button class='btn-primary' data-action='saveWord' style='flex:1;'>Нэмэх</button>" +
-      "</div></div>";
-    document.getElementById("app").appendChild(wrap);
-    document.getElementById("addEn").focus();
-    return;
-  }
-
-  if(STATE.modal === "auth"){
-    var isSignup = STATE.authMode === "signup";
-    wrap.innerHTML = "<div class='sheet'>" +
-      "<div class='sheet-title'>"+(isSignup?"Бүртгүүлэх":"Нэвтрэх")+"</div>" +
-      "<div class='auth-toggle'>" +
-      "<button class='"+(!isSignup?"active":"")+"' data-action='setAuthMode' data-mode='signin'>Нэвтрэх</button>" +
-      "<button class='"+(isSignup?"active":"")+"' data-action='setAuthMode' data-mode='signup'>Бүртгүүлэх</button>" +
-      "</div>" +
-      "<div class='field'><label>И-МЭЙЛ</label><input id='authEmail' type='email' placeholder='name@example.com'/></div>" +
-      "<div class='field'><label>НУУЦ ҮГ</label><input id='authPassword' type='password' placeholder='••••••••'/></div>" +
-      (STATE.authError ? "<div class='auth-error'>"+esc(STATE.authError)+"</div>" : "") +
-      "<div class='sheet-actions'>" +
-        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>Болих</button>" +
-        "<button class='btn-primary' data-action='submitAuth' style='flex:1;' "+(STATE.authBusy?"disabled":"")+">" +
-        (STATE.authBusy ? "Түр хүлээнэ үү..." : (isSignup?"Бүртгүүлэх":"Нэвтрэх")) + "</button>" +
-      "</div></div>";
-    document.getElementById("app").appendChild(wrap);
-    var emailEl = document.getElementById("authEmail");
-    if(emailEl) emailEl.focus();
-    return;
-  }
-
-  if(STATE.modal === "paywall"){
-    var headline = STATE.paywallReason ? paywallReasonMessage() : "Багцаа ахиулна уу 🔓";
-    var tiersHtml = "";
-    PLAN_ORDER.forEach(function(t){
-      if(t === "free") return;
-      var pm = PLAN_META[t];
-      tiersHtml += "<div class='paywall-tier'><div class='pt-head'><span class='pt-name'>"+esc(pm.label)+"</span><span class='pt-price'>"+esc(formatPrice(t))+"</span></div>" +
-        "<div class='pt-desc'>"+esc((STATE.pricing[t] && STATE.pricing[t].description) || pm.desc)+"</div>" +
-        "<div class='pt-desc' style='margin-top:4px; color:var(--text-dim);'>✍️ "+esc(pm.wordLimitLabel)+"</div></div>";
-    });
-    wrap.innerHTML = "<div class='sheet sheet-paywall'>" +
-      "<div class='sheet-title'>"+esc(headline)+(STATE.paywallReason ? "" : " 🔓")+"</div>" +
-      "<div class='paywall-note'>" +
-      "Илүү олон үгийн багц, ЭЕШ болон IELTS-ийн тусгай жагсаалт руу нэвтрэхийн тулд багцаа ахиулна уу." +
-      "</div>" +
-      "<div class='paywall-tiers'>" + tiersHtml + "</div>" +
-      "<div class='pay-info'>" +
-      "<div class='pi-row'><span>QPay</span><b>#steppevocab</b></div>" +
-      "<div class='pi-row'><span>Банк</span><b>Төрийн банк</b></div>" +
-      "<div class='pi-row'><span>Дансны дугаар</span><b>290500016692</b></div>" +
-      "<div class='pi-row'><span>Хүлээн авагч</span><b>Наранчимэг</b></div>" +
-      "</div>" +
-      "<div class='paywall-disclaimer'>" +
-      "Гүйлгээ хийсний дараа таны бүртгэлийг манай баг гараар шалгаж, 24 цагийн дотор багцыг идэвхжүүлнэ." +
-      "</div>" +
-      "<div class='sheet-actions'>" +
-        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>Хаах</button>" +
-        (STATE.user ? "" : "<button class='btn-primary' data-action='openAuth' data-mode='signup' style='flex:1;'>Эхлээд бүртгүүлэх</button>") +
-      "</div></div>";
-    document.getElementById("app").appendChild(wrap);
-    return;
-  }
-}
-
-/* =========================================================
-   EVENT HANDLING
-   ========================================================= */
-function attachHandlers(){
-  document.querySelectorAll("[data-tab]").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.tab = el.getAttribute("data-tab");
-      render();
-    });
-  });
-
-  document.querySelectorAll("[data-flip]").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      if(ev.target.closest("[data-action='listen']") || ev.target.closest("[data-action='fav']")) return;
-      var key = el.getAttribute("data-flip");
-      STATE.todayFlip[key] = !STATE.todayFlip[key];
-      render();
-    });
-  });
-
-  document.querySelectorAll("[data-action='listen']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      speak(el.getAttribute("data-word"));
-    });
-  });
-
-  document.querySelectorAll("[data-action='fav']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      var key = el.getAttribute("data-key");
-      STATE.progress.favorites[key] = !STATE.progress.favorites[key];
-      saveProgress();
-      render();
-    });
-  });
-
-  var completeBtn = document.querySelector("[data-action='completeDay']");
-  if(completeBtn) completeBtn.addEventListener("click", completeDay);
-
-  var addBtns = document.querySelectorAll("[data-action='openAdd']");
-  addBtns.forEach(function(el){ el.addEventListener("click", function(){ checkAddWordAccess(); }); });
-
-  var closeModalBtn = document.querySelector("[data-action='closeModal']");
-  if(closeModalBtn) closeModalBtn.addEventListener("click", function(){ STATE.modal = null; render(); });
-
-  var saveWordBtn = document.querySelector("[data-action='saveWord']");
-  if(saveWordBtn) saveWordBtn.addEventListener("click", saveCustomWord);
-
-  document.querySelectorAll("[data-action='startQuiz']").forEach(function(el){
-    el.addEventListener("click", function(){ startQuiz(el.getAttribute("data-mode")); });
-  });
-  document.querySelectorAll("[data-action='answerQuiz']").forEach(function(el){
-    el.addEventListener("click", function(){ answerQuiz(parseInt(el.getAttribute("data-idx"),10)); });
-  });
-  var nextBtn = document.querySelector("[data-action='nextQuiz']");
-  if(nextBtn) nextBtn.addEventListener("click", function(){
-    STATE.quizSession.index++;
-    if(STATE.quizSession.index < STATE.quizSession.queue.length) buildQuizQuestion();
-    render();
-  });
-  var retryBtn = document.querySelector("[data-action='retryQuiz']");
-  if(retryBtn) retryBtn.addEventListener("click", function(){ startQuiz(retryBtn.getAttribute("data-mode")); });
-  var exitBtn = document.querySelector("[data-action='exitQuiz']");
-  if(exitBtn) exitBtn.addEventListener("click", function(){ STATE.quizSession = null; render(); });
-
-  var searchInput = document.getElementById("searchInput");
-  if(searchInput){
-    searchInput.addEventListener("input", function(){
-      STATE.searchQuery = searchInput.value;
-      render();
-      var again = document.getElementById("searchInput");
-      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
-    });
-  }
-
-  var learnedSearchInput = document.getElementById("learnedSearchInput");
-  if(learnedSearchInput){
-    learnedSearchInput.addEventListener("input", function(){
-      STATE.learnedQuery = learnedSearchInput.value;
-      render();
-      var again = document.getElementById("learnedSearchInput");
-      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
-    });
-  }
-
-  document.querySelectorAll("[data-action='learnedFilter']").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.learnedFilterCat = el.getAttribute("data-cat");
-      render();
-    });
-  });
-
-  document.querySelectorAll("[data-action='reviewWord']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      var key = el.getAttribute("data-key");
-      var L = STATE.progress.learned[key];
-      if(L){
-        L.lastReview = 0; // дараагийн давталтын жагсаалтад хамгийн түрүүнд орно
-        saveProgress();
-        var w = getWord(key);
-        toast("🔁 \""+(w?w.en:"")+"\" давталтад нэмэгдлээ");
-      }
-    });
-  });
-
-  var exportBtn = document.querySelector("[data-action='exportData']");
-  if(exportBtn) exportBtn.addEventListener("click", exportData);
-
-  var resetBtn = document.querySelector("[data-action='resetData']");
-  if(resetBtn) resetBtn.addEventListener("click", resetData);
-
-  var importBtn = document.querySelector("[data-action='importData']");
-  var importFileInput = document.getElementById("importFileInput");
-  if(importBtn && importFileInput) importBtn.addEventListener("click", function(){ importFileInput.click(); });
-  if(importFileInput) importFileInput.addEventListener("change", handleImportFile);
-
-  var themeMenuBtn = document.querySelector("[data-action='toggleThemeMenu']");
-  if(themeMenuBtn) themeMenuBtn.addEventListener("click", function(ev){ ev.stopPropagation(); toggleThemeMenu(); });
-
-  document.querySelectorAll("[data-action='selectTheme']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      selectTheme(el.getAttribute("data-theme-id"));
-    });
-  });
-
-  if(STATE.themeMenuOpen){
-    document.addEventListener("click", function closeMenus(){
-      STATE.themeMenuOpen = false;
-      document.removeEventListener("click", closeMenus);
-      render();
-    }, {once:true});
-  }
-
-  document.querySelectorAll("[data-action='openAuth']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      STATE.modal = "auth";
-      STATE.authMode = el.getAttribute("data-mode") || "signin";
-      STATE.authError = "";
-      render();
-    });
-  });
-
-  document.querySelectorAll("[data-action='openPack']").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.packsOpenPack = el.getAttribute("data-pack");
-      STATE.searchQuery = "";
-      render();
-    });
-  });
-  var closePackBtn = document.querySelector("[data-action='closePack']");
-  if(closePackBtn) closePackBtn.addEventListener("click", function(){
-    STATE.packsOpenPack = null;
-    STATE.searchQuery = "";
-    render();
-  });
-
-  document.querySelectorAll("[data-action='setAuthMode']").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.authMode = el.getAttribute("data-mode");
-      STATE.authError = "";
-      render();
-    });
-  });
-
-  var submitAuthBtn = document.querySelector("[data-action='submitAuth']");
-  if(submitAuthBtn) submitAuthBtn.addEventListener("click", function(){
-    var email = (document.getElementById("authEmail")||{}).value || "";
-    var password = (document.getElementById("authPassword")||{}).value || "";
-    email = email.trim();
-    if(!email || !password){ STATE.authError = "И-мэйл болон нууц үгээ бөглөнө үү"; render(); return; }
-    if(STATE.authMode === "signup") signUp(email, password); else signIn(email, password);
-  });
-
-  var signOutBtn = document.querySelector("[data-action='signOut']");
-  if(signOutBtn) signOutBtn.addEventListener("click", signOut);
-
-  document.querySelectorAll("[data-action='openPaywall']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      var pack = el.getAttribute("data-pack") || null;
-      STATE.paywallPack = pack;
-      STATE.paywallReason = pack ? (STATE.planJustExpired ? "plan_expired" : "pack_locked") : null;
-      STATE.modal = "paywall";
-      render();
-    });
-  });
-  document.querySelectorAll("[data-action='wordListFilter']").forEach(function(el){
-    el.addEventListener("click", function(){
-      STATE.wordListPack = el.getAttribute("data-pack");
-      render();
-    });
-  });
-
-  document.querySelectorAll("[data-action='markKnown']").forEach(function(el){
-    el.addEventListener("click", function(ev){
-      ev.stopPropagation();
-      markKnown(el.getAttribute("data-key"));
-    });
-  });
-
-  var spellingInput = document.getElementById("spellingInput");
-  if(spellingInput){
-    spellingInput.addEventListener("input", function(){
-      STATE.quizSession.spellingInput = spellingInput.value;
-      render();
-      var again = document.getElementById("spellingInput");
-      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
-    });
-    spellingInput.addEventListener("keydown", function(ev){
-      if(ev.key === "Enter"){ ev.preventDefault(); submitSpelling(); }
-    });
-    if(document.activeElement !== spellingInput) spellingInput.focus();
-  }
-  var submitSpellBtn = document.querySelector("[data-action='submitSpelling']");
-  if(submitSpellBtn) submitSpellBtn.addEventListener("click", submitSpelling);
-
-  document.querySelectorAll("[data-action='setDailyGoal']").forEach(function(el){
-    el.addEventListener("click", function(){ setDailyGoal(el.getAttribute("data-goal")); });
-  });
-
-  var openAdminBtn = document.querySelector("[data-action='openAdminPanel']");
-  if(openAdminBtn) openAdminBtn.addEventListener("click", function(){ STATE.tab = "admin"; render(); });
-  var backProfileBtn = document.querySelector("[data-action='backToProfile']");
-  if(backProfileBtn) backProfileBtn.addEventListener("click", function(){ STATE.tab = "profile"; render(); });
-
-  document.querySelectorAll("[data-action='priceInput3m']").forEach(function(el){
-    el.addEventListener("input", function(){
-      var t = el.getAttribute("data-tier");
-      STATE.admin.priceForm[t] = STATE.admin.priceForm[t] || {};
-      STATE.admin.priceForm[t].amount3m = el.value;
-    });
-  });
-  document.querySelectorAll("[data-action='priceInput1y']").forEach(function(el){
-    el.addEventListener("input", function(){
-      var t = el.getAttribute("data-tier");
-      STATE.admin.priceForm[t] = STATE.admin.priceForm[t] || {};
-      STATE.admin.priceForm[t].amount1y = el.value;
-    });
-  });
-  document.querySelectorAll("[data-action='updatePrice']").forEach(function(el){
-    el.addEventListener("click", function(){ updatePackagePrice(el.getAttribute("data-tier")); });
-  });
-
-  var grantEmailInput = document.getElementById("grantEmailInput");
-  if(grantEmailInput) grantEmailInput.addEventListener("input", function(){ STATE.admin.grantEmail = grantEmailInput.value; });
-  var grantPlanSelect = document.getElementById("grantPlanSelect");
-  if(grantPlanSelect) grantPlanSelect.addEventListener("change", function(){ STATE.admin.grantPlan = grantPlanSelect.value; });
-  var grantDurationSelect = document.getElementById("grantDurationSelect");
-  if(grantDurationSelect) grantDurationSelect.addEventListener("change", function(){ STATE.admin.grantDuration = grantDurationSelect.value; });
-  var grantBtn = document.querySelector("[data-action='grantPlan']");
-  if(grantBtn) grantBtn.addEventListener("click", grantUserPlan);
-}
-
-function answerQuiz(idx){
-  var s = STATE.quizSession;
-  if(s.answered !== null) return;
-  s.answered = idx;
-  if(s.options[idx].correct) s.correct++;
-  render();
-}
-
-async function completeDay(){
-  var batch = todaysBatch();
-  var review = reviewBatch();
-  var now = Date.now();
-  batch.forEach(function(w){
-    if(!STATE.progress.learned[w.key]){
-      STATE.progress.learned[w.key] = {learnedDate: todayStr(), lastReview: now, reviewCount: 0};
-    }
-  });
-  review.forEach(function(w){
-    var L = STATE.progress.learned[w.key];
-    if(L){ L.lastReview = now; L.reviewCount = (L.reviewCount||0)+1; }
-  });
-
-  var today = todayStr();
-  if(STATE.progress.lastCompletionDate === yesterdayStr()){
-    STATE.progress.streak += 1;
-  } else if(STATE.progress.lastCompletionDate !== today){
-    STATE.progress.streak = 1;
-  }
-  STATE.progress.lastCompletionDate = today;
-  STATE.progress.completedDays += 1;
-  STATE.todayFlip = {};
-  await checkDailyGoalProgress();
-  await saveProgress();
-  toast("🔥 Өнөөдрийн зорилго биелсэн!");
-  render();
-}
-
-async function saveCustomWord(){
-  var en = document.getElementById("addEn").value.trim();
-  var mn = document.getElementById("addMn").value.trim();
-  if(!en || !mn){ toast("Үг болон орчуулгаа бөглөнө үү"); return; }
-  STATE.progress.customWords.push({en:en, mn:mn});
-  await saveProgress();
-  STATE.modal = null;
-  toast("✅ \""+en+"\" нэмэгдлээ");
-  render();
-}
-
-function exportData(){
-  try{
-    var payload = {
-      exportedAt: new Date().toISOString(),
-      progress: STATE.progress,
-      enrich: STATE.enrich
-    };
-    var blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
-    var url = URL.createObjectURL(blob);
-    var a = document.createElement("a");
-    a.href = url;
-    a.download = "steppe-vocab-backup-"+todayStr()+".json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    toast("⬇️ Backup татагдлаа");
-  }catch(e){
-    console.error("export failed", e);
-    toast("Backup татахад алдаа гарлаа");
-  }
-}
-
-function handleImportFile(ev){
-  var file = ev.target.files && ev.target.files[0];
-  if(!file) return;
-  var reader = new FileReader();
-  reader.onload = async function(e){
-    try{
-      var data = JSON.parse(e.target.result);
-      if(!data || typeof data !== "object") throw new Error("invalid backup file");
-      var ok = window.confirm("Backup файлыг сэргээхэд одоогийн ахиц дарагдана. Үргэлжлүүлэх үү?");
-      if(!ok) return;
-      if(data.progress){
-        await sSet("progress", JSON.stringify(data.progress));
-      }
-      if(data.enrich){
-        var keys = Object.keys(data.enrich);
-        for(var i=0;i<keys.length;i++){
-          await sSet("enrich:"+keys[i], JSON.stringify(data.enrich[keys[i]]));
-        }
-      }
-      toast("✅ Backup сэргээгдлээ. Дахин ачаалж байна...");
-      setTimeout(function(){ location.reload(); }, 900);
-    }catch(err){
-      console.error("import failed", err);
-      toast("⚠️ Файл уншихад алдаа гарлаа");
-    }
-  };
-  reader.readAsText(file);
-}
-
-async function resetData(){
-  var ok = window.confirm("Бүх ахиц, цээжилсэн үг болон тохиргоог устгахдаа итгэлтэй байна уу? Энэ үйлдлийг буцаах боломжгүй.");
-  if(!ok) return;
-  STATE.progress = defaultProgress();
-  STATE.todayFlip = {};
-  STATE.quizSession = null;
-  await saveProgress();
-  toast("🗑 Бүх дата цэвэрлэгдлээ");
-  render();
-}
-
-/* =========================================================
-   INIT
-   ========================================================= */
-var INIT_DONE = false;
-
-async function init(){
-  try{
-    await withTimeout(loadTheme(), 5000, "loadTheme");
-    await withTimeout(loadWordsFromJson(), 9000, "loadWordsFromJson");
-    await withTimeout(loadProgress(), 5000, "loadProgress");
-    await withTimeout(loadPricing(), 6000, "loadPricing");       // Багцын үнийг Supabase-ийн 'plans' хүснэгтээс уншина
-    await withTimeout(initAuth(), 8000, "initAuth");              // Supabase session сэргээх, plan татах, ахиц татах
-  }catch(e){
-    console.error("[steppe] init() дотор гэнэтийн алдаа", e);
-  }finally{
-    // Юу ч болсон, апп харанхуй дэлгэц дээр гацахгүйн тулд
-    // энэ мөрүүд ЗААВАЛ ажиллана.
-    INIT_DONE = true;
-    STATE.loading = false;
-    try{ render(); }catch(e){ console.error("[steppe] render() алдаа", e); }
-  }
-  try{
-    var batch = todaysBatch();
-    var review = reviewBatch();
-    await withTimeout(ensureEnrichment(batch.concat(review)), 15000, "ensureEnrichment");
-    render();
-  }catch(e){ console.error("[steppe] enrichment алдаа", e); }
-}
-
-/* ---------------------------------------------------------
-   WATCHDOG: 10 секундын дотор init() дуусаагүй бол
-   (жишээ нь withTimeout-той хамрагдаагүй гэнэтийн гацалт),
-   хэрэглэгчийг харанхуй дэлгэц дээр орхихгүйн тулд
-   апп-ыг хүчээр үзүүлнэ.
-   --------------------------------------------------------- */
-setTimeout(function(){
-  if(!INIT_DONE){
-    console.warn("[steppe] watchdog: init() 10 секундэд дуусаагүй тул хүчээр үргэлжлүүлж байна");
-    STATE.loading = false;
-    try{ render(); }catch(e){ console.error("[steppe] watchdog render алдаа", e); }
-  }
-}, 10000);
-
-/* ---------------------------------------------------------
-   Гар аргаар барьж амжаагүй алдаануудыг (унтраасан скрипт,
-   гэнэтийн exception) бүртгэж, апп-ыг гацаахгүйн тулд.
-   --------------------------------------------------------- */
-window.addEventListener("error", function(ev){
-  console.error("[steppe] global error", ev.error || ev.message);
-});
-window.addEventListener("unhandledrejection", function(ev){
-  console.error("[steppe] unhandled promise rejection", ev.reason);
-});
-
-document.addEventListener("DOMContentLoaded", init);
-if(document.readyState !== "loading") init();
-
-})();
-</script>
-</body>
-</html>
+  html += "<div style='font-size:12px; color:var(--text-muted); margin:8px 2px 0;'>Өдөрт хэдэн шинэ үг цээжлэхийг сонгоно уу. Одоогийн зорилго: "+S
