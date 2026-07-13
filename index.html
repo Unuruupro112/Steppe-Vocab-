@@ -227,6 +227,7 @@
   .word-row .w-mn{font-size:13px; color:var(--text-muted); margin-top:2px;}
   .status-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
   .status-dot.learned{background:var(--teal);}
+  .status-dot.known{background:var(--gold);}
   .status-dot.pending{background:var(--text-dim);}
   .cat-tag{font-size:10px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace;}
 
@@ -742,7 +743,8 @@ function defaultProgress(){
     lastGoalCheckDate: null,
     lastCompletionDate: null,
     streak: 0,
-    learned: {},      // key -> {learnedDate, lastReview, reviewCount}
+    learned: {},      // key -> {learnedDate, lastReview, reviewCount}  — SRS дасгалаар цээжилсэн үгс
+    knownWords: {},   // key -> {date}  — "Би энэ үгийг мэднэ" гэж шууд тэмдэглэсэн үгс (learned-ээс ТУСДАА)
     favorites: {},    // key -> true
     customWords: [],  // {en, mn}
     quizStats: {}      // mode -> {attempts, correct}
@@ -760,6 +762,8 @@ var STATE = {
   searchQuery: "",
   learnedQuery: "",
   learnedFilterCat: "all",
+  progressSubTab: "learned", // "learned" | "known" — Ахиц таб доторх Цээжилсэн/Мэддэг хэсгийн сэлгүүр
+  knownQuery: "",
   wordListPack: "all",
   packsOpenPack: null,  // Багцууд табан дээр нээгдсэн (нээлттэй) багцын id
   theme: "dark",       // "dark" | "light" | "midnight" | "forest"
@@ -855,8 +859,15 @@ async function initAuth(){
       await withTimeout(pullRemoteProgress(), 6000, "pullRemoteProgress");
     }
     supa.auth.onAuthStateChange(function(event, session){
-      STATE.user = session ? session.user : null;
+      var newUser = session ? session.user : null;
+      var userChanged = (!STATE.user && newUser) || (STATE.user && (!newUser || STATE.user.id !== newUser.id));
+      STATE.user = newUser;
       if(STATE.user){
+        if(userChanged){
+          // Хэрэглэгч солигдсон (шинэ нэвтрэлт) — хуучин локал ахиц дараагийн
+          // хэрэглэгч рүү дамжихгүйн тулд цэвэрлэнэ, дараа нь серверээс ачаална
+          STATE.progress = defaultProgress();
+        }
         fetchProfilePlan().then(pullRemoteProgress).then(render);
       } else {
         STATE.plan = "free";
@@ -963,6 +974,9 @@ async function signUp(email, password){
     }
     STATE.user = res.data.user;
     STATE.modal = null;
+    // Шинэ бүртгэл — өмнөх зочны/хэрэглэгчийн локал ахиц энэ шинэ хаяг руу дамжиж болохгүй тул цэвэрлэнэ
+    STATE.progress = defaultProgress();
+    await sSet("progress", JSON.stringify(STATE.progress));
     toast("✅ Бүртгэл амжилттай. Тавтай морил!");
     await fetchProfilePlan();
     await pullRemoteProgress();
@@ -980,6 +994,10 @@ async function signIn(email, password){
     if(res.error) throw res.error;
     STATE.user = res.data.user;
     STATE.modal = null;
+    // Нэвтрэхээс өмнөх (зочин эсвэл өөр хэрэглэгчийн) локал ахицыг цэвэрлэж, зөвхөн
+    // энэ хаягийн серверийн өгөгдлийг л STATE.progress рүү ачаалуулна (нэгтгэхгүй)
+    STATE.progress = defaultProgress();
+    await sSet("progress", JSON.stringify(STATE.progress));
     toast("👋 Тавтай морил, "+email);
     await fetchProfilePlan();
     await pullRemoteProgress();
@@ -993,6 +1011,10 @@ async function signOut(){
   if(supa){ try{ await supa.auth.signOut(); }catch(e){} }
   STATE.user = null;
   STATE.plan = "free";
+  // Гарахад локал санах ойд үлдсэн хуучин ахицыг бүрэн цэвэрлэнэ — дараагийн зочны
+  // эсвэл өөр хэрэглэгчийн нэвтрэлт руу энэ өгөгдөл дамжихгүй болгоно
+  try{ localStorage.removeItem("steppevocab2_progress"); }catch(e){}
+  STATE.progress = defaultProgress();
   toast("Гарлаа");
   render();
 }
@@ -1033,11 +1055,14 @@ async function pullRemoteProgress(){
   try{
     var res = await supa.from("user_progress").select("progress").eq("user_id", STATE.user.id).single();
     if(res.data && res.data.progress){
-      // Сервер дээрх ахиц илүү шинэ гэж үзээд локал дээр нэгтгэнэ
-      STATE.progress = Object.assign(defaultProgress(), STATE.progress, res.data.progress);
+      // Сервер бол эх сурвалж (source of truth) — локал дээрх (жишээ нь өмнөх
+      // зочны/хэрэглэгчийн) ахицтай НЭГТГЭХГҮЙ, шууд серверийн өгөгдлөөр орлуулна.
+      STATE.progress = Object.assign(defaultProgress(), res.data.progress);
       await sSet("progress", JSON.stringify(STATE.progress));
     } else {
-      // Серверт байхгүй бол одоогийн локал ахицаа анх удаа хадгалж авна
+      // Серверт progress хараахан үүсээгүй (шинэ хэрэглэгч) — энэ үед STATE.progress
+      // аль хэдийн цэвэрлэгдсэн (defaultProgress) байх ёстой тул зөвхөн тэрхүү хоосон
+      // ахицыг серверт анх удаа бичнэ. (Guest/өмнөх хэрэглэгчийн өгөгдөл дамжихгүй.)
       await pushRemoteProgress();
     }
   }catch(e){ console.error("pullRemoteProgress error", e); }
@@ -1263,7 +1288,7 @@ function getWord(key){
 
 function activeQueueWords(){
   // "Мэддэг" гэж тэмдэглэсэн, аль хэдийн цээжилсэн, эсвэл түгжээтэй багцын үгсийг идэвхтэй цувaанаас хасна
-  return unlockedWords().filter(function(w){ return !STATE.progress.learned[w.key]; });
+  return unlockedWords().filter(function(w){ return !STATE.progress.learned[w.key] && !STATE.progress.knownWords[w.key]; });
 }
 function todaysBatch(){
   var all = activeQueueWords();
@@ -1288,13 +1313,25 @@ function reviewBatch(){
   return keys.slice(0, REVIEW_PER_DAY).map(getWord).filter(Boolean);
 }
 
+function isKnown(key){ return !!STATE.progress.knownWords[key]; }
+function isLearned(key){ return !!STATE.progress.learned[key]; }
+
 async function markKnown(key){
-  if(STATE.progress.learned[key]) return;
+  if(STATE.progress.learned[key] || STATE.progress.knownWords[key]) return;
   var w = getWord(key);
-  STATE.progress.learned[key] = {learnedDate: todayStr(), lastReview: Date.now(), reviewCount:0};
-  await checkDailyGoalProgress();
+  // "Мэддэг" гэж тэмдэглэсэн үг Цээжилсэн (learned) жагсаалт руу ОРОХГҮЙ, өөрийн тусдаа
+  // knownWords санд хадгалагдана. Ингэснээр Ахиц/Шалгалт/Streak тооцоололд холилдохгүй,
+  // харин todaysBatch/activeQueueWords дараалалд дахин гарч ирэхгүй.
+  STATE.progress.knownWords[key] = {date: todayStr()};
   await saveProgress();
   toast("✅ \""+(w?w.en:"")+"\" мэддэг үгэнд орлоо");
+  render();
+}
+
+async function unmarkKnown(key){
+  if(!STATE.progress.knownWords[key]) return;
+  delete STATE.progress.knownWords[key];
+  await saveProgress();
   render();
 }
 
@@ -1974,6 +2011,7 @@ function renderWeeklyChart(){
 
 function renderProgressTab(){
   var learnedCount = Object.keys(STATE.progress.learned).length;
+  var knownCount = Object.keys(STATE.progress.knownWords).length;
   var total = totalWordCount();
   var pct = total ? Math.round(100*learnedCount/total) : 0;
   var html = "";
@@ -1989,7 +2027,22 @@ function renderProgressTab(){
 
   html += renderWeeklyChart();
 
-  html += "<div class='section-label'><div class='t'>Цээжилсэн үгс</div><div class='n'>"+learnedCount+"</div></div>";
+  // "Цээжилсэн" / "Мэддэг" сэлгүүр — жижиг, цэвэрхэн pill хос
+  html += "<div class='pill-row' style='margin-top:22px; margin-bottom:0;'>" +
+    "<button class='pill"+(STATE.progressSubTab==="learned"?" active":"")+"' data-action='setProgressSubTab' data-subtab='learned'>🎓 Цээжилсэн ("+learnedCount+")</button>" +
+    "<button class='pill"+(STATE.progressSubTab==="known"?" active":"")+"' data-action='setProgressSubTab' data-subtab='known'>✓ Мэддэг ("+knownCount+")</button>" +
+    "</div>";
+
+  if(STATE.progressSubTab === "known"){
+    html += renderKnownWordsBlock(knownCount);
+  } else {
+    html += renderLearnedWordsBlock(learnedCount);
+  }
+  return html;
+}
+
+function renderLearnedWordsBlock(learnedCount){
+  var html = "<div class='section-label'><div class='t'>Цээжилсэн үгс</div><div class='n'>"+learnedCount+"</div></div>";
 
   var entries = Object.keys(STATE.progress.learned).map(function(k){
     var w = getWord(k);
@@ -2051,6 +2104,54 @@ function renderProgressTab(){
   return html;
 }
 
+/* "Мэддэг" гэж тэмдэглэсэн (Цээжилсэн-ээс тусдаа) үгсийн жагсаалт — цэвэрхэн, дотроо хайлттай */
+function renderKnownWordsBlock(knownCount){
+  var html = "<div class='section-label'><div class='t'>Мэддэг үгс</div><div class='n'>"+knownCount+"</div></div>";
+
+  var entries = Object.keys(STATE.progress.knownWords).map(function(k){
+    var w = getWord(k);
+    if(!w) return null;
+    return {word:w, meta: STATE.progress.knownWords[k]};
+  }).filter(Boolean);
+
+  if(!entries.length){
+    html += "<div class='empty'><div class='e-icon'>✓</div>" +
+      "<div class='e-title'>Мэддэг гэж тэмдэглэсэн үг алга</div>" +
+      "<div class='e-sub'>Багц дотор аль хэдийн мэддэг үгээ ✓ товчоор тэмдэглэвэл эндээс харагдана.</div></div>";
+    return html;
+  }
+
+  html += "<div class='search-bar'><span>🔎</span><input id='knownSearchInput' placeholder='Мэддэг үгээс хайх...' value='"+esc(STATE.knownQuery)+"'/></div>";
+
+  var q = STATE.knownQuery.trim().toLowerCase();
+  var filtered = entries.filter(function(e){
+    if(!q) return true;
+    return e.word.en.toLowerCase().indexOf(q) >= 0 || e.word.mn.toLowerCase().indexOf(q) >= 0;
+  }).sort(function(a,b){
+    return (b.meta.date||"").localeCompare(a.meta.date||"");
+  });
+
+  filtered.forEach(function(e){
+    var w = e.word, m = e.meta;
+    html += "<div class='word-row'>" +
+      "<div style='min-width:0;'>" +
+        "<div class='w-en'>"+esc(w.en)+"</div>" +
+        "<div class='w-mn'>"+esc(w.mn)+"</div>" +
+        "<div class='cat-tag' style='margin-top:4px;'>"+esc(w.cat)+" · "+esc(formatLearnedDate(m.date))+"</div>" +
+      "</div>" +
+      "<div style='display:flex; gap:6px; flex-shrink:0;'>" +
+        "<button class='icon-btn' data-action='listen' data-word='"+esc(w.en)+"' title='Сонсох'>🔊</button>" +
+        "<button class='icon-btn' data-action='unmarkKnown' data-key='"+w.key+"' title='Дахин суралцах жагсаалт руу буцаах'>↩️</button>" +
+      "</div>" +
+    "</div>";
+  });
+
+  if(!filtered.length){
+    html += "<div class='empty'><div class='e-icon'>🔍</div><div class='e-title'>Илэрц олдсонгүй</div></div>";
+  }
+  return html;
+}
+
 /* =========================================================
    RENDER : PACKS TAB ("Багцууд")
    ========================================================= */
@@ -2058,6 +2159,30 @@ function packWordStats(pack){
   var words = WORDS.filter(function(w){ return w.pack === pack; });
   var learned = words.filter(function(w){ return STATE.progress.learned[w.key]; }).length;
   return {total: words.length, learned: learned};
+}
+
+/* Тухайн багц (pack) руу орж "Үгс үзэх"/хайлт хийхэд харуулах бүрэн үгийн жагсаалт.
+   Энэ нь багцын карт дээр харуулсан тоо (B1-B2-г EYESH/IELTS/C1-C2-д нэгтгэдэг,
+   PREMIUM бол бүх үгийг агуулдаг) логикт яг тохирсон байх ёстой. Өдрийн лимит
+   (dailyGoal) болон "сурсан" (learned) төлөвөөс ЯЛГААГҮЙ — багцад харьяалагдах
+   БҮХ үгийг буцаана. */
+function packDetailWords(pack){
+  if(pack === "PREMIUM") return WORDS.slice();
+  var own = WORDS.filter(function(w){ return w.pack === pack; });
+  if(pack === "A1_A2" || pack === "B1_B2") return own;
+  var b1b2 = WORDS.filter(function(w){ return w.pack === "B1_B2"; });
+  return own.concat(b1b2);
+}
+
+/* Тухайн "багц" (жиш нь ЭЕШ, Premium) дотор бодитоор ямар түвшний (pack tag) үгс
+   орсныг заана — багцын дэлгэрэнгүй хуудсан дээрх түвшний дэд табуудыг үүнээс үүсгэнэ. */
+var LEVEL_TAB_LABEL = {
+  A1_A2:"A1-A2", B1_B2:"B1-B2", EYESH:"ЭЕШ", IELTS:"IELTS", C1_C2:"C1-C2"
+};
+function packSubLevels(pack){
+  if(pack === "PREMIUM") return ["A1_A2","B1_B2","EYESH","IELTS","C1_C2"];
+  if(pack === "A1_A2" || pack === "B1_B2") return [pack];
+  return [pack, "B1_B2"]; // EYESH / IELTS / C1_C2 нь B1-B2-той нэгтгэгдсэн
 }
 
 function renderPacksTab(){
@@ -2084,21 +2209,34 @@ function renderPacksTab(){
       return html;
     }
 
+    var levels = packSubLevels(pack);
+    if(levels.length > 1){
+      html += "<div class='pill-row' style='margin-bottom:10px;'>";
+      html += "<button class='pill"+(STATE.wordListPack==="all"?" active":"")+"' data-action='wordListFilter' data-pack='all'>Бүгд</button>";
+      levels.forEach(function(lv){
+        html += "<button class='pill"+(STATE.wordListPack===lv?" active":"")+"' data-action='wordListFilter' data-pack='"+lv+"'>"+esc(LEVEL_TAB_LABEL[lv]||lv)+"</button>";
+      });
+      html += "</div>";
+    }
+
     html += "<div class='search-bar'><span>🔎</span><input id='searchInput' placeholder='Энэ багцаас хайх...' value='"+esc(STATE.searchQuery)+"'/></div>";
     var q = STATE.searchQuery.trim().toLowerCase();
-    var list = WORDS.filter(function(w){
-      if(w.pack !== pack) return false;
+    var levelFilter = (levels.length > 1 && STATE.wordListPack !== "all" && levels.indexOf(STATE.wordListPack) !== -1) ? STATE.wordListPack : null;
+    var list = packDetailWords(pack).filter(function(w){
+      if(levelFilter && w.pack !== levelFilter) return false;
       if(!q) return true;
       return w.en.toLowerCase().indexOf(q) >= 0 || w.mn.toLowerCase().indexOf(q) >= 0;
     }).slice(0, 80);
 
     list.forEach(function(w){
-      var learned = !!STATE.progress.learned[w.key];
+      var learned = isLearned(w.key);
+      var known = isKnown(w.key);
+      var dotCls = learned ? "learned" : (known ? "known" : "pending");
       html += "<div class='word-row'>" +
         "<div style='min-width:0;'><div class='w-en'>"+esc(w.en)+"</div><div class='w-mn'>"+esc(w.mn)+"</div></div>" +
         "<div style='display:flex; align-items:center; gap:10px; flex-shrink:0;'>" +
-          "<span class='status-dot "+(learned?"learned":"pending")+"'></span>" +
-          (learned ? "" : "<button class='known-btn' data-action='markKnown' data-key='"+w.key+"' title='Би энэ үгийг мэднэ'>✓</button>") +
+          "<span class='status-dot "+dotCls+"' title='"+(learned?"Цээжилсэн":(known?"Мэддэг":"Үзээгүй"))+"'></span>" +
+          ((learned || known) ? "" : "<button class='known-btn' data-action='markKnown' data-key='"+w.key+"' title='Би энэ үгийг мэднэ'>✓</button>") +
         "</div></div>";
     });
     if(!list.length){
@@ -2512,6 +2650,30 @@ function attachHandlers(){
     });
   });
 
+  document.querySelectorAll("[data-action='setProgressSubTab']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.progressSubTab = el.getAttribute("data-subtab");
+      render();
+    });
+  });
+
+  var knownSearchInput = document.getElementById("knownSearchInput");
+  if(knownSearchInput){
+    knownSearchInput.addEventListener("input", function(){
+      STATE.knownQuery = knownSearchInput.value;
+      render();
+      var again = document.getElementById("knownSearchInput");
+      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
+    });
+  }
+
+  document.querySelectorAll("[data-action='unmarkKnown']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      unmarkKnown(el.getAttribute("data-key"));
+    });
+  });
+
   document.querySelectorAll("[data-action='reviewWord']").forEach(function(el){
     el.addEventListener("click", function(ev){
       ev.stopPropagation();
@@ -2569,6 +2731,7 @@ function attachHandlers(){
     el.addEventListener("click", function(){
       STATE.packsOpenPack = el.getAttribute("data-pack");
       STATE.searchQuery = "";
+      STATE.wordListPack = "all";
       render();
     });
   });
@@ -2576,6 +2739,7 @@ function attachHandlers(){
   if(closePackBtn) closePackBtn.addEventListener("click", function(){
     STATE.packsOpenPack = null;
     STATE.searchQuery = "";
+    STATE.wordListPack = "all";
     render();
   });
 
