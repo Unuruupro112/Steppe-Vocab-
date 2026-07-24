@@ -1,0 +1,3681 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Steppe · AI Vocabulary Trainer</title>
+<!-- ===== PWA: manifest + icons + theme color ===== -->
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#0c1022">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Steppe Vocab">
+<link rel="icon" href="./sv-icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="./sv-icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&family=Baloo+2:wght@700;800&family=Orbitron:wght@700;800;900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<style>
+  :root{
+    --bg-top:#0c1022;
+    --bg-bottom:#2a1c34;
+    --surface:#191f37;
+    --surface-soft:#222a48;
+    --surface-line: rgba(255,255,255,0.07);
+    --gold:#e0a847;
+    --gold-soft: rgba(224,168,71,0.16);
+    --teal:#5fd0c0;
+    --coral:#e8694f;
+    --text:#f3efe6;
+    --text-muted:#9aa3bf;
+    --text-dim:#6b7390;
+    --radius:18px;
+    --radius-sm:12px;
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:'Inter','Manrope',system-ui,sans-serif;
+    color:var(--text);
+    background: linear-gradient(180deg, var(--bg-top) 0%, #19142b 55%, var(--bg-bottom) 100%);
+    min-height:100vh;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x:hidden;
+  }
+  /* faint horizon glow */
+  body::before{
+    content:"";
+    position:fixed; left:0; right:0; bottom:0; height:40vh;
+    background: radial-gradient(120% 100% at 50% 100%, rgba(224,168,71,0.10), transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+  #app{
+    position:relative; z-index:1;
+    max-width:520px; margin:0 auto;
+    min-height:100vh;
+    display:flex; flex-direction:column;
+    padding-bottom: calc(92px + var(--safe-bottom));
+  }
+  h1,h2,h3{font-family:'Manrope',sans-serif; margin:0; letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  button{font-family:inherit; cursor:pointer; border:none; background:none; color:inherit;}
+  a{color:inherit;}
+  ::selection{background:var(--gold-soft);}
+
+  /* ---------- header ---------- */
+  .topbar{
+    padding:22px 20px 14px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .topbar .date{
+    font-size:13px; color:var(--text-muted); font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  .topbar .brand{
+    font-size:19px; font-weight:800; color:var(--text);
+    display:flex; align-items:center; gap:8px;
+    font-family:'Baloo 2','Manrope',sans-serif; letter-spacing:0.01em;
+  }
+  .topbar .brand .logo-badge{
+    width:32px; height:32px; border-radius:50%; flex-shrink:0; position:relative;
+    display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(120% 120% at 30% 20%, #26325f 0%, #0a0d1e 75%);
+    border:1.6px solid var(--gold); box-shadow:0 0 12px rgba(224,168,71,0.5), inset 0 0 6px rgba(224,168,71,0.25);
+    font-family:'Orbitron',sans-serif; font-weight:900; font-size:11.5px; letter-spacing:0.02em;
+    color:var(--gold); text-shadow:0 0 9px rgba(224,168,71,0.75);
+  }
+  .topbar .brand .logo-badge::after{
+    content:""; position:absolute; inset:-4px; border-radius:50%;
+    border:1px solid var(--gold); opacity:0.35;
+  }
+  .topbar .brand .brand-text{
+    background:linear-gradient(90deg, #5b8def 0%, var(--teal) 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .topbar .brand .dot{width:7px;height:7px;border-radius:50%;background:var(--gold); box-shadow:0 0 8px var(--gold);}
+  .streak-chip{
+    display:flex; align-items:center; gap:5px;
+    background:var(--surface-soft); border:1px solid var(--surface-line);
+    padding:5px 11px; border-radius:999px; font-size:13px; font-weight:600;
+    font-family:'IBM Plex Mono',monospace;
+  }
+
+  /* ---------- tab content ---------- */
+  .view{padding:4px 20px 28px; animation: fadeUp .35s ease both;}
+  @media (prefers-reduced-motion: reduce){ .view{animation:none;} }
+  @keyframes fadeUp{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  .section-label{
+    display:flex; align-items:baseline; justify-content:space-between;
+    margin: 22px 2px 12px;
+  }
+  .section-label .t{font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.09em; color:var(--text-muted);}
+  .section-label .n{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--gold);}
+
+  /* ---------- sun arc (signature element) ---------- */
+  .sun-wrap{display:flex; align-items:center; gap:16px; margin: 6px 2px 4px; padding: 16px; background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius);}
+  .sun-wrap svg{flex-shrink:0;}
+  .sun-wrap .copy .title{font-size:15px; font-weight:700;}
+  .sun-wrap .copy .sub{font-size:13px; color:var(--text-muted); margin-top:3px; line-height:1.4;}
+
+  /* ---------- flashcards ---------- */
+  .card-scene{
+    perspective:1400px; margin-bottom:14px;
+  }
+  .card{
+    position:relative; width:100%; min-height:172px;
+    transform-style:preserve-3d;
+    transition:transform .5s cubic-bezier(.2,.8,.2,1);
+    cursor:pointer;
+  }
+  .card.flipped{transform:rotateY(180deg);}
+  .face{
+    position:absolute; inset:0; width:100%; height:100%;
+    backface-visibility:hidden;
+    border-radius:var(--radius);
+    background:var(--surface);
+    border:1px solid var(--surface-line);
+    padding:18px 18px 16px;
+    display:flex; flex-direction:column;
+  }
+  .face.back{transform:rotateY(180deg); background:linear-gradient(160deg, var(--surface) 0%, #261c3e 100%);}
+  .face .top-row{display:flex; align-items:flex-start; justify-content:space-between; gap:10px;}
+  .face .tag{font-size:11px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.06em;}
+  .face .word{font-family:'Manrope',sans-serif; font-weight:800; font-size:27px; margin-top:8px; line-height:1.15;}
+  .face .mn{font-family:'Manrope',sans-serif; font-weight:700; font-size:21px; margin-top:8px; line-height:1.3; color:var(--gold);}
+  .face .example{font-size:13px; color:var(--text-muted); margin-top:12px; line-height:1.5; font-style:normal; background:var(--surface-soft); border:1px solid var(--surface-line); border-radius:10px; padding:10px 12px;}
+  .face .example .ex-label{color:var(--teal); font-weight:700; font-family:'IBM Plex Mono',monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.06em; display:block; margin-bottom:4px;}
+  .face .example .ex-text{color:var(--text); font-size:14px; line-height:1.45;}
+  .face .pron{font-size:13px; color:var(--teal); margin-top:10px; font-family:'IBM Plex Mono',monospace;}
+  .face .spacer{flex:1;}
+  .face .btn-row{display:flex; align-items:center; gap:8px; margin-top:10px;}
+  .icon-btn{
+    width:36px; height:36px; border-radius:50%;
+    background:var(--surface-soft); border:1px solid var(--surface-line);
+    display:flex; align-items:center; justify-content:center; font-size:16px;
+    flex-shrink:0;
+  }
+  .icon-btn:active{transform:scale(0.92);}
+  .icon-btn.fav.active{background:var(--gold-soft); color:var(--gold); border-color:var(--gold);}
+  .tap-hint{font-size:11px; color:var(--text-dim); margin-left:auto; font-family:'IBM Plex Mono',monospace;}
+  .skeleton-line{display:inline-block; width:90px; height:13px; border-radius:6px; background:linear-gradient(90deg, var(--surface-soft), var(--surface-line), var(--surface-soft)); background-size:200% 100%; animation:shimmer 1.4s infinite;}
+  @keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+
+  /* ---------- buttons ---------- */
+  .btn-primary{
+    width:100%; padding:15px; border-radius:var(--radius-sm);
+    background:var(--gold); color:#1a1306; font-weight:700; font-size:15px;
+    text-align:center; margin-top:18px;
+    transition:opacity .2s, transform .15s;
+  }
+  .btn-primary:active{transform:scale(0.98);}
+  .btn-primary[disabled]{opacity:0.4; pointer-events:none;}
+  .btn-ghost{
+    width:100%; padding:13px; border-radius:var(--radius-sm);
+    background:var(--surface-soft); color:var(--text); font-weight:600; font-size:14px;
+    text-align:center; border:1px solid var(--surface-line);
+  }
+  .pill-row{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px;}
+  .pill{
+    padding:9px 15px; border-radius:999px; font-size:13px; font-weight:600;
+    background:var(--surface-soft); border:1px solid var(--surface-line); color:var(--text-muted);
+  }
+  .pill.active{background:var(--gold-soft); color:var(--gold); border-color:var(--gold);}
+
+  /* ---------- empty state ---------- */
+  .empty{
+    text-align:center; padding:40px 20px; background:var(--surface); border:1px dashed var(--surface-line);
+    border-radius:var(--radius); margin-top:10px;
+  }
+  .empty .e-icon{font-size:32px; margin-bottom:10px;}
+  .empty .e-title{font-weight:700; font-size:16px; margin-bottom:6px;}
+  .empty .e-sub{font-size:13px; color:var(--text-muted); line-height:1.5;}
+
+  /* ---------- quiz ---------- */
+  .quiz-card{
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius);
+    padding:26px 20px; text-align:center; margin-bottom:16px; min-height:120px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+  }
+  .quiz-card .q-eyebrow{font-size:12px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.07em; margin-bottom:10px;}
+  .quiz-card .q-main{font-family:'Manrope',sans-serif; font-weight:800; font-size:25px;}
+  .quiz-card .q-sub{margin-top:6px; color:var(--text-muted); font-size:14px;}
+  .listen-big{
+    width:64px; height:64px; border-radius:50%; background:var(--gold-soft); color:var(--gold);
+    border:1px solid var(--gold); display:flex; align-items:center; justify-content:center; font-size:26px; margin:0 auto;
+  }
+  .opt-grid{display:grid; gap:10px;}
+  .opt{
+    padding:15px; border-radius:var(--radius-sm); background:var(--surface-soft); border:1px solid var(--surface-line);
+    font-size:15px; font-weight:600; text-align:left;
+  }
+  .opt.correct{background:rgba(95,208,192,0.16); border-color:var(--teal); color:var(--teal);}
+  .opt.wrong{background:rgba(232,105,79,0.16); border-color:var(--coral); color:var(--coral);}
+  .opt[disabled]{pointer-events:none;}
+  .quiz-progress{display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--text-muted);}
+  .quiz-bar{height:4px; border-radius:2px; background:var(--surface-soft); margin-bottom:18px; overflow:hidden;}
+  .quiz-bar .fill{height:100%; background:var(--gold); transition:width .3s;}
+  .score-screen{text-align:center; padding:30px 10px;}
+  .score-screen .big-num{font-family:'IBM Plex Mono',monospace; font-size:52px; font-weight:600; color:var(--gold);}
+  .score-screen .label{color:var(--text-muted); margin-top:6px; font-size:14px;}
+
+  /* ---------- progress tab ---------- */
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:6px;}
+  .stat-box{background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius-sm); padding:14px;}
+  .stat-box .num{font-family:'IBM Plex Mono',monospace; font-size:24px; font-weight:600; color:var(--gold);}
+  .stat-box .lbl{font-size:12px; color:var(--text-muted); margin-top:3px;}
+  .search-bar{
+    display:flex; align-items:center; gap:8px; background:var(--surface-soft); border:1px solid var(--surface-line);
+    border-radius:var(--radius-sm); padding:11px 14px; margin:18px 0 12px;
+  }
+  .search-bar input{
+    flex:1; background:none; border:none; color:var(--text); font-size:14px; outline:none; font-family:inherit;
+  }
+  .search-bar input::placeholder{color:var(--text-dim);}
+  .word-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:13px 14px; background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius-sm);
+    margin-bottom:8px;
+  }
+  .word-row .w-en{font-weight:700; font-size:15px;}
+  .word-row .w-mn{font-size:13px; color:var(--text-muted); margin-top:2px;}
+  .status-dot{width:9px; height:9px; border-radius:50%; flex-shrink:0;}
+  .status-dot.learned{background:var(--teal);}
+  .status-dot.known{background:var(--gold);}
+  .status-dot.pending{background:var(--text-dim);}
+  .cat-tag{font-size:10px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace;}
+
+  /* ---------- modal ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(8,9,18,0.6); backdrop-filter:blur(3px);
+    display:flex; align-items:flex-end; justify-content:center; z-index:50;
+    animation:fadeUp .2s ease both;
+  }
+  .sheet{
+    width:100%; max-width:520px; background:var(--surface); border-radius:22px 22px 0 0;
+    padding:22px 20px calc(26px + var(--safe-bottom)); border:1px solid var(--surface-line);
+  }
+  .sheet .sheet-title{font-weight:800; font-size:18px; margin-bottom:16px;}
+  .field{margin-bottom:14px;}
+  .field label{font-size:12px; color:var(--text-muted); display:block; margin-bottom:6px; font-family:'IBM Plex Mono',monospace;}
+  .field input{
+    width:100%; padding:13px 14px; background:var(--surface-soft); border:1px solid var(--surface-line);
+    border-radius:var(--radius-sm); color:var(--text); font-size:15px; outline:none; font-family:inherit;
+  }
+  .field input:focus{border-color:var(--gold);}
+  .field textarea{
+    width:100%; padding:13px 14px; background:var(--surface-soft); border:1px solid var(--surface-line);
+    border-radius:var(--radius-sm); color:var(--text); font-size:15px; outline:none; font-family:inherit;
+    resize:vertical; min-height:110px; line-height:1.5;
+  }
+  .field textarea:focus{border-color:var(--gold);}
+  .sheet-actions{display:flex; gap:10px; margin-top:6px;}
+  .sheet-actions .btn-ghost, .sheet-actions .btn-primary{margin-top:0;}
+
+  /* ---------- toast ---------- */
+  #toast{
+    position:fixed; bottom:96px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--surface-soft); border:1px solid var(--surface-line); color:var(--text);
+    padding:12px 18px; border-radius:999px; font-size:13px; font-weight:600;
+    opacity:0; pointer-events:none; transition:opacity .25s, transform .25s; z-index:60;
+    max-width:88%; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  #toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  /* ---------- tab bar ---------- */
+  .tabbar{
+    position:fixed; left:12px; right:12px; bottom:calc(10px + var(--safe-bottom)); z-index:40;
+    max-width:496px; margin:0 auto;
+    background:rgba(20,24,42,0.86); backdrop-filter:blur(18px) saturate(160%);
+    border:1px solid var(--surface-line); border-radius:20px;
+    box-shadow:0 12px 32px rgba(0,0,0,0.28);
+    display:flex; padding:6px;
+  }
+  [data-theme="light"] .tabbar{ background: rgba(255,255,255,0.86); box-shadow:0 12px 28px rgba(60,45,10,0.14); }
+  .tabbar .tab{
+    flex:1; padding:10px 0 8px; display:flex; flex-direction:column; align-items:center; gap:3px;
+    font-size:10.5px; color:var(--text-dim); font-weight:700; border-radius:14px;
+    transition: background .2s ease, color .2s ease;
+  }
+  .tabbar .tab .ic{transition: transform .2s cubic-bezier(.2,.8,.2,1); display:flex;}
+  .tabbar .tab .ic-svg{width:22px; height:22px; stroke:currentColor;}
+  .tabbar .tab.active{color:var(--gold); background:var(--gold-soft);}
+  .tabbar .tab.active .ic{transform:translateY(-1px);}
+  .tabbar .tab:active .ic{transform:scale(0.88);}
+  @media (max-width:360px){
+    .tabbar .tab{font-size:9.5px;}
+    .tabbar .tab .ic-svg{width:19px; height:19px;}
+  }
+
+  /* ---------- theme toggle ---------- */
+  .theme-toggle{
+    min-width:34px; height:34px; border-radius:14px; padding:3px 9px 4px;
+    background:var(--surface-soft); border:1px solid var(--surface-line);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    flex-shrink:0; gap:0;
+  }
+  .theme-toggle .tt-icon{font-size:14.5px; line-height:1;}
+  .theme-toggle .tt-label{
+    font-size:7px; line-height:1; margin-top:2px; opacity:0.55; font-weight:700;
+    letter-spacing:0.01em; white-space:nowrap; color:var(--text-muted);
+  }
+  .theme-toggle:active{transform:scale(0.92);}
+  @media (max-width:360px){
+    .theme-toggle{ padding:3px 6px 4px; }
+    .theme-toggle .tt-label{ font-size:6.3px; }
+  }
+
+  /* ---------- light mode palette ---------- */
+  :root[data-theme="light"]{
+    --bg-top:#f8f3e6;
+    --bg-bottom:#ecdec0;
+    --surface:#ffffff;
+    --surface-soft:#f2ecdd;
+    --surface-line: rgba(30,24,10,0.10);
+    --gold:#b3771e;
+    --gold-soft: rgba(179,119,30,0.14);
+    --teal:#178f78;
+    --coral:#c14f36;
+    --text:#28230f;
+    --text-muted:#6b6249;
+    --text-dim:#948a6b;
+  }
+  [data-theme="light"] body::before{
+    background: radial-gradient(120% 100% at 50% 100%, rgba(179,119,30,0.10), transparent 70%);
+  }
+  [data-theme="light"] .tabbar{ background: rgba(255,255,255,0.92); }
+  [data-theme="light"] .overlay{ background: rgba(40,32,10,0.35); }
+  [data-theme="light"] .btn-primary{ color:#fffaf0; }
+
+  /* ---------- midnight blue palette ---------- */
+  :root[data-theme="midnight"]{
+    --bg-top:#050a17;
+    --bg-bottom:#0c1a33;
+    --surface:#0e1730;
+    --surface-soft:#16213f;
+    --surface-line: rgba(140,170,255,0.10);
+    --gold:#5b8def;
+    --gold-soft: rgba(91,141,239,0.16);
+    --teal:#4fd1c5;
+    --coral:#e8694f;
+    --text:#eaf0ff;
+    --text-muted:#8fa0c9;
+    --text-dim:#5c6a8f;
+  }
+  [data-theme="midnight"] body::before{
+    background: radial-gradient(120% 100% at 50% 100%, rgba(91,141,239,0.12), transparent 70%);
+  }
+
+  /* ---------- forest green palette ---------- */
+  :root[data-theme="forest"]{
+    --bg-top:#0a140f;
+    --bg-bottom:#122a1c;
+    --surface:#122018;
+    --surface-soft:#1a2e22;
+    --surface-line: rgba(160,220,180,0.10);
+    --gold:#7fbf6a;
+    --gold-soft: rgba(127,191,106,0.16);
+    --teal:#4fbfa8;
+    --coral:#d97a53;
+    --text:#eef5ec;
+    --text-muted:#93ab99;
+    --text-dim:#5f7566;
+  }
+  [data-theme="forest"] body::before{
+    background: radial-gradient(120% 100% at 50% 100%, rgba(127,191,106,0.12), transparent 70%);
+  }
+  [data-theme="forest"] .btn-primary, [data-theme="midnight"] .btn-primary{ color:#0a1108; }
+
+  /* ---------- example translation (back of card) ---------- */
+  .ex-text-mn{display:block; margin-top:5px; color:var(--text-dim); font-size:12px; line-height:1.4;}
+
+  /* ---------- spelling test ---------- */
+  .spelling-wrap{background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:16px; margin-bottom:14px;}
+  .spelling-input-row{display:flex; align-items:center; gap:10px;}
+  .spelling-input{
+    flex:1; padding:13px 14px; background:var(--surface-soft); border:1px solid var(--surface-line);
+    border-radius:var(--radius-sm); color:var(--text); font-size:18px; outline:none; font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.03em;
+  }
+  .spelling-input:focus{border-color:var(--gold);}
+  .spelling-input[disabled]{opacity:0.7;}
+  .spelling-count{font-family:'IBM Plex Mono',monospace; font-size:13px; color:var(--text-muted); flex-shrink:0;}
+  .spelling-hint{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px; justify-content:center;}
+  .spelling-hint .hl{
+    min-width:22px; text-align:center; font-family:'IBM Plex Mono',monospace; font-size:18px; font-weight:700;
+    padding-bottom:4px; border-bottom:2px solid var(--surface-line);
+  }
+  .spelling-hint .hl.first{color:var(--teal); border-color:var(--teal);}
+  .spelling-hint .hl.last{color:var(--text-dim); border-color:var(--text-dim);}
+  .spelling-hint .hl.wrong{color:var(--coral); border-color:var(--coral);}
+  .spelling-answer{text-align:center; color:var(--text-muted); font-size:14px; margin-bottom:8px;}
+  .spelling-answer b{color:var(--teal);}
+
+  /* ---------- topbar right cluster ---------- */
+  .topbar-right{display:flex; align-items:center; gap:8px; position:relative;}
+
+  /* ---------- theme dropdown ---------- */
+  .theme-menu-wrap{position:relative;}
+  .dropdown-panel{
+    position:absolute; top:calc(100% + 10px); right:0; min-width:190px;
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:14px;
+    box-shadow:0 14px 34px rgba(0,0,0,0.35); padding:8px; z-index:70;
+    opacity:0; transform:translateY(-8px) scale(0.97); pointer-events:none;
+    transition: opacity .2s ease, transform .2s cubic-bezier(.2,.8,.2,1);
+    transform-origin: top right;
+  }
+  .dropdown-panel.open{opacity:1; transform:translateY(0) scale(1); pointer-events:auto;}
+  .dropdown-panel .dd-label{font-size:11px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.07em; padding:8px 10px 4px;}
+  .dd-item{
+    display:flex; align-items:center; gap:10px; width:100%; padding:10px 10px; border-radius:10px;
+    font-size:14px; font-weight:600; color:var(--text); text-align:left;
+  }
+  .dd-item:active{transform:scale(0.98);}
+  .dd-item .swatch{width:16px; height:16px; border-radius:50%; flex-shrink:0; border:1px solid var(--surface-line);}
+  .dd-item.active{background:var(--gold-soft); color:var(--gold);}
+  .dd-item.selected-check{margin-left:auto; color:var(--gold); font-size:12px;}
+  .dd-divider{height:1px; background:var(--surface-line); margin:6px 2px;}
+
+  /* ---------- profile menu ---------- */
+  .profile-btn{
+    width:34px; height:34px; border-radius:50%; background:var(--surface-soft); border:1px solid var(--surface-line);
+    display:flex; align-items:center; justify-content:center; font-size:15px; flex-shrink:0;
+  }
+  .profile-btn:active{transform:scale(0.92);}
+  .profile-panel{min-width:230px;}
+  .profile-head{padding:10px 10px 12px; border-bottom:1px solid var(--surface-line); margin-bottom:6px;}
+  .profile-head .p-email{font-size:13px; font-weight:700; color:var(--text); word-break:break-all;}
+  .profile-head .p-plan{margin-top:6px; display:inline-flex; align-items:center; gap:5px; font-size:11px; font-weight:700; padding:4px 9px; border-radius:999px; font-family:'IBM Plex Mono',monospace; text-transform:uppercase; letter-spacing:0.05em;}
+  .p-plan.free{background:var(--surface-line); color:var(--text-muted);}
+  .p-plan.pro_eysh, .p-plan.pro_ielts{background:var(--gold-soft); color:var(--gold);}
+  .p-plan.special{background:rgba(232,105,79,0.16); color:var(--coral);}
+  .p-plan.premium{background:linear-gradient(90deg, rgba(224,168,71,0.22), rgba(95,208,192,0.22)); color:var(--gold);}
+  .profile-guest-sub{font-size:12px; color:var(--text-muted); padding:2px 10px 10px;}
+
+  /* ---------- pack / lock UI ---------- */
+  .pack-pill{
+    padding:9px 15px; border-radius:999px; font-size:13px; font-weight:600;
+    background:var(--surface-soft); border:1px solid var(--surface-line); color:var(--text-muted);
+    display:flex; align-items:center; gap:6px;
+  }
+  .pack-pill.active{background:var(--gold-soft); color:var(--gold); border-color:var(--gold);}
+  .pack-pill.locked{color:var(--text-dim);}
+  .pack-pill .lock-ic{font-size:11px;}
+  .tier-badge{
+    font-size:10px; font-weight:700; padding:2px 7px; border-radius:6px; font-family:'IBM Plex Mono',monospace;
+    text-transform:uppercase; letter-spacing:0.04em; margin-left:6px;
+  }
+  .tier-badge.free{background:var(--surface-line); color:var(--text-muted);}
+  .tier-badge.pro_eysh, .tier-badge.pro_ielts{background:var(--gold-soft); color:var(--gold);}
+  .tier-badge.special{background:rgba(232,105,79,0.16); color:var(--coral);}
+  .tier-badge.premium{background:rgba(95,208,192,0.16); color:var(--teal);}
+
+  /* ---------- subscription plan cards ---------- */
+  .plan-list{display:flex; flex-direction:column; gap:10px; margin-top:4px;}
+  .plan-card{
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:14px 16px;
+  }
+  .plan-card.current{border-color:var(--gold);}
+  .plan-card-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .plan-price{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--text-muted); text-align:right;}
+  .plan-current-tag{font-size:11px; font-weight:700; color:var(--gold); font-family:'IBM Plex Mono',monospace;}
+  .plan-card-desc{font-size:13px; color:var(--text); margin-top:9px; line-height:1.45;}
+  .plan-card-limit{font-size:12px; color:var(--text-muted); margin-top:6px;}
+  .plan-card-btn{margin-top:12px; width:100%;}
+
+  /* ---------- admin panel ---------- */
+  .admin-stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:4px 0 18px;}
+  .admin-stat-card{background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:14px; text-align:center;}
+  .admin-stat-card .a-num{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:700; color:var(--gold);}
+  .admin-stat-card .a-lbl{font-size:11.5px; color:var(--text-muted); margin-top:4px;}
+  .admin-price-row{background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:14px 16px; margin-bottom:10px;}
+  .admin-price-row .apr-title{font-weight:700; font-size:14px; margin-bottom:10px;}
+  .admin-price-row .apr-fields{display:flex; gap:8px;}
+  .admin-price-row .apr-fields .field{flex:1; margin-bottom:0;}
+  .locked-overlay{
+    position:absolute; inset:0; border-radius:var(--radius);
+    background:rgba(8,9,18,0.62); backdrop-filter:blur(2px);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
+    text-align:center; padding:20px;
+  }
+  [data-theme="light"] .locked-overlay{ background:rgba(245,240,225,0.72); }
+  .locked-overlay .lock-emoji{font-size:26px;}
+  .locked-overlay .lock-msg{font-size:13px; color:var(--text-muted); max-width:220px; line-height:1.4;}
+  .locked-overlay button{margin-top:2px;}
+  .card-scene.is-locked{position:relative;}
+
+  /* ---------- paywall modal ---------- */
+  .paywall-tiers{display:flex; flex-direction:column; gap:10px; margin:14px 0;}
+  .paywall-tier{
+    border:1px solid var(--surface-line); border-radius:var(--radius-sm); padding:14px 15px; background:var(--surface-soft);
+  }
+  .paywall-tier .pt-head{display:flex; align-items:center; justify-content:space-between;}
+  .paywall-tier .pt-name{font-weight:800; font-size:15px;}
+  .paywall-tier .pt-price{font-family:'IBM Plex Mono',monospace; color:var(--gold); font-weight:700; font-size:14px;}
+  .paywall-tier .pt-desc{font-size:12.5px; color:var(--text-muted); margin-top:5px; line-height:1.5;}
+  .pay-info{
+    background:var(--surface-soft); border:1px dashed var(--surface-line); border-radius:var(--radius-sm);
+    padding:14px 15px; margin-top:4px; font-size:13px; line-height:1.7;
+  }
+  .pay-info .pi-row{display:flex; justify-content:space-between; gap:10px;}
+  .pay-info .pi-row b{color:var(--text); font-family:'IBM Plex Mono',monospace;}
+  .paywall-note{font-size:13px; color:var(--text-muted); line-height:1.5; margin-bottom:4px;}
+  .paywall-disclaimer{font-size:12px; color:var(--text-dim); margin-top:10px; line-height:1.5;}
+
+  /* ---------- paywall modal : compact, no-scroll fit for small phone screens ---------- */
+  .sheet-paywall{
+    padding:12px 12px calc(12px + var(--safe-bottom));
+    max-height:calc(100vh - 16px);
+    overflow-y:auto;
+  }
+  .sheet-paywall .sheet-title{font-size:16px; margin-bottom:8px;}
+  .sheet-paywall .paywall-note{font-size:12px; margin-bottom:2px;}
+  .sheet-paywall .paywall-tiers{gap:8px; margin:10px 0;}
+  .sheet-paywall .paywall-tier{padding:10px 14px;}
+  .sheet-paywall .paywall-tier .pt-name{font-size:15px;}
+  .sheet-paywall .paywall-tier .pt-price{font-size:13px;}
+  .sheet-paywall .paywall-tier .pt-desc{font-size:12px; margin-top:3px; line-height:1.4;}
+  .sheet-paywall .pay-info{padding:10px 14px; margin-top:2px; font-size:12.5px; line-height:1.5;}
+  .sheet-paywall .paywall-disclaimer{font-size:11px; margin-top:8px; line-height:1.4;}
+  .sheet-paywall .sheet-actions{margin-top:8px; gap:8px;}
+  .sheet-paywall .sheet-actions .btn-ghost,
+  .sheet-paywall .sheet-actions .btn-primary{padding:11px; font-size:13.5px;}
+  .auth-toggle{display:flex; gap:8px; margin-bottom:16px; background:var(--surface-soft); border-radius:999px; padding:4px; border:1px solid var(--surface-line);}
+  .auth-toggle button{flex:1; padding:9px; border-radius:999px; font-size:13px; font-weight:700; color:var(--text-muted);}
+  .auth-toggle button.active{background:var(--gold); color:#1a1306;}
+  .auth-error{color:var(--coral); font-size:12.5px; margin-top:-6px; margin-bottom:10px;}
+
+  /* ---------- known button in word list ---------- */
+  .known-btn{
+    width:30px; height:30px; font-size:14px; background:var(--surface-soft); border:1px solid var(--surface-line); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--teal); flex-shrink:0;
+  }
+  .known-btn:active{transform:scale(0.9);}
+
+  /* ---------- weekly chart (Ахиц tab) ---------- */
+  .chart-wrap{margin-top:20px;}
+  .chart-bars{
+    display:flex; align-items:flex-end; justify-content:space-between; gap:6px;
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:16px 12px 12px;
+  }
+  .chart-col{display:flex; flex-direction:column; align-items:center; gap:5px; flex:1;}
+  .chart-bar-track{height:64px; display:flex; align-items:flex-end;}
+  .chart-bar{width:14px; min-height:2px; border-radius:5px 5px 2px 2px; background:linear-gradient(180deg, var(--gold), var(--gold-soft)); transition:height .4s cubic-bezier(.2,.8,.2,1);}
+  .chart-n{font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--text-muted);}
+  .chart-lbl{font-size:10.5px; color:var(--text-dim); font-weight:700;}
+
+  /* ---------- packs tab ---------- */
+  .pack-list{display:flex; flex-direction:column; gap:10px; margin-top:4px;}
+  .pack-card{
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); padding:15px 16px;
+    cursor:pointer; transition:transform .15s, border-color .2s;
+  }
+  .pack-card:active{transform:scale(0.98);}
+  .pack-card.locked{opacity:0.82;}
+  .pack-card-top{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+  .pack-card-title{font-weight:800; font-size:16px;}
+  .pack-card-sub{font-size:12.5px; color:var(--text-muted); margin-top:5px;}
+  .pack-card-bar{height:5px; border-radius:3px; background:var(--surface-line); margin-top:10px; overflow:hidden;}
+  .pack-card-bar-fill{height:100%; background:var(--teal); border-radius:3px; transition:width .4s;}
+
+  /* ---------- study pack selector (Цээжлэх үгсийн сан сонгох) ---------- */
+  .study-pack-list{display:flex; flex-direction:column; gap:8px; margin-top:4px;}
+  .study-pack-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:13px 14px; border-radius:var(--radius-sm); background:var(--surface);
+    border:1px solid var(--surface-line); cursor:pointer;
+  }
+  .study-pack-row:active{transform:scale(0.98);}
+  .study-pack-row.active{border-color:var(--teal); background:var(--surface-soft);}
+  .study-pack-row.locked{opacity:0.6;}
+  .study-pack-row .spr-name{font-weight:700; font-size:14px; display:flex; align-items:center; gap:7px;}
+  .study-pack-row .spr-radio{
+    width:18px; height:18px; border-radius:50%; border:2px solid var(--text-dim); flex-shrink:0;
+    position:relative;
+  }
+  .study-pack-row.active .spr-radio{border-color:var(--teal);}
+  .study-pack-row.active .spr-radio::after{
+    content:""; position:absolute; inset:3px; border-radius:50%; background:var(--teal);
+  }
+  .study-pack-row .spr-lock{font-size:13px; color:var(--text-dim);}
+
+  /* ---------- feedback (санал хүсэлт) ---------- */
+  .feedback-list{display:flex; flex-direction:column; gap:8px; margin-top:4px;}
+  .feedback-item{
+    padding:12px 14px; border-radius:var(--radius-sm); background:var(--surface);
+    border:1px solid var(--surface-line); cursor:pointer;
+  }
+  .feedback-item:active{transform:scale(0.98);}
+  .feedback-item .fb-top{display:flex; align-items:center; justify-content:space-between; gap:8px;}
+  .feedback-item .fb-email{font-weight:700; font-size:13px; color:var(--text);}
+  .feedback-item .fb-date{font-size:11px; color:var(--text-dim); font-family:'IBM Plex Mono',monospace;}
+  .feedback-item .fb-preview{font-size:12.5px; color:var(--text-muted); margin-top:5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .feedback-detail-body{font-size:14px; color:var(--text); line-height:1.6; white-space:pre-wrap; background:var(--surface-soft); border-radius:var(--radius-sm); padding:14px; margin:10px 0 4px;}
+
+  /* ---------- profile tab ---------- */
+  .profile-card{
+    display:flex; flex-direction:column; align-items:center; text-align:center;
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius);
+    padding:26px 20px 20px; margin-bottom:16px;
+  }
+  .profile-avatar{
+    width:56px; height:56px; border-radius:50%; background:var(--gold-soft); color:var(--gold);
+    display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:800; margin-bottom:12px;
+  }
+  .profile-card-name{font-weight:800; font-size:16px; word-break:break-all;}
+  .profile-info-list{
+    background:var(--surface); border:1px solid var(--surface-line); border-radius:var(--radius); overflow:hidden;
+  }
+  .profile-info-row{
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:13px 16px; border-bottom:1px solid var(--surface-line); font-size:13.5px;
+  }
+  .profile-info-row:last-child{border-bottom:none;}
+  .profile-info-row .pi-k{color:var(--text-muted);}
+  .profile-info-row .pi-v{color:var(--text); font-weight:600; text-align:right; max-width:60%; word-break:break-all;}
+  .profile-info-row .pi-v.mono{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500;}
+
+  /* ---------- language toggle ---------- */
+  .lang-toggle{
+    width:34px; height:34px; border-radius:50%;
+    background:var(--surface-soft); border:1px solid var(--surface-line);
+    display:flex; align-items:center; justify-content:center; font-size:11.5px; font-weight:800;
+    flex-shrink:0; font-family:'IBM Plex Mono',monospace; letter-spacing:0.02em;
+  }
+  .lang-toggle:active{transform:scale(0.92);}
+
+  /* ---------- google sign-in button ---------- */
+  .btn-google{
+    width:100%; padding:13px; border-radius:var(--radius-sm);
+    background:#fff; color:#1f1f1f; font-weight:700; font-size:14.5px;
+    text-align:center; display:flex; align-items:center; justify-content:center; gap:9px;
+    margin-bottom:14px; border:1px solid rgba(0,0,0,0.14);
+  }
+  .btn-google:active{transform:scale(0.98);}
+  .auth-divider{display:flex; align-items:center; gap:10px; margin:2px 0 14px; color:var(--text-dim); font-size:12px;}
+  .auth-divider::before, .auth-divider::after{content:""; flex:1; height:1px; background:var(--surface-line);}
+
+  /* ==================================================================
+     LAPTOP / DESKTOP RESPONSIVE LAYOUT (>=768px)
+     Гар утасны харагдацыг ХЭВЭЭР нь үлдээж, зөвхөн том дэлгэц дээр
+     флаш карт, статистик, багцын жагсаалтууд зайгаа зөв ашиглаж
+     хажуу хажуугаараа (grid) харагдахаар өргөтгөнө.
+     ================================================================== */
+  @media (min-width:768px){
+    #app{
+      max-width:980px;
+      padding-bottom: calc(40px + var(--safe-bottom));
+    }
+    .topbar{ padding:26px 34px 16px; }
+    .view{ padding:4px 34px 44px; }
+
+    /* Флаш карт + давталтын жагсаалт: хажуу хажуугаараа grid */
+    .cards-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(270px, 1fr));
+      gap:16px;
+      align-items:start;
+    }
+    .cards-grid .card-scene{ margin-bottom:0; }
+
+    /* Ахиц табны статистик картууд илүү өргөн зайд тархана */
+    .stat-grid{ grid-template-columns:repeat(4, 1fr); }
+    .admin-stat-grid{ grid-template-columns:repeat(4, 1fr); }
+    .admin-stat-grid .admin-stat-card[style*="grid-column"]{ grid-column: span 4; }
+
+    /* Захиалгын болон агуулгын багцын карт grid */
+    .plan-list{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:12px; }
+    .pack-list{ display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:12px; }
+
+    /* Шалгалтын хариултын сонголтууд 2 баганаар */
+    .opt-grid{ grid-template-columns:1fr 1fr; }
+
+    /* Профайлын мэдээллийн мөрүүд арай тайлбартай зайтай */
+    .chart-bars{ padding:20px 26px 16px; }
+  }
+  @media (min-width:1080px){
+    #app{ max-width:1120px; }
+    .cards-grid{ grid-template-columns:repeat(auto-fill, minmax(300px, 1fr)); }
+  }
+</style>
+</head>
+<body>
+<div id="app"><div style="min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:#9aa3bf;font-family:'IBM Plex Mono',monospace;font-size:13px;">
+  <div style="width:34px;height:34px;border-radius:50%;border:3px solid rgba(224,168,71,0.25);border-top-color:#e0a847;animation:steppe-spin 0.8s linear infinite;"></div>
+  <div id="initialLoadingText">Ачаалж байна…</div>
+</div></div>
+<div id="toast"></div>
+<style>@keyframes steppe-spin{to{transform:rotate(360deg);}}</style>
+
+<script>
+(function(){
+"use strict";
+
+/* Ачаалж эхлэхийн өмнө хадгалагдсан хэлний тохиргоог шууд (sync) уншиж,
+   анхны "Ачаалж байна…" бичвэрийг зөв хэлээр харуулна. */
+try{
+  var __savedLang = localStorage.getItem("steppevocab2_lang");
+  if(__savedLang === "en"){
+    var __loadingEl = document.getElementById("initialLoadingText");
+    if(__loadingEl) __loadingEl.textContent = "Loading…";
+  }
+}catch(e){}
+
+/* =========================================================
+   TIMEOUT HELPER
+   HTTPS орчинд (жишээ нь GitHub Pages) зарим сүлжээний хүсэлт
+   (ялангуяа Supabase auth/session) хариу өгөхгүй "гацах"
+   тохиолдол гарвал init() мөнхөд зогсож, апп харанхуй хэвээр
+   үлдэхээс сэргийлж, тодорхой хугацааны дараа автоматаар
+   цуцалж, fallback утга буцаана.
+   ========================================================= */
+function withTimeout(promise, ms, label){
+  return new Promise(function(resolve){
+    var done = false;
+    var timer = setTimeout(function(){
+      if(done) return;
+      done = true;
+      console.warn("[steppe] timeout: "+label+" ("+ms+"ms) — үргэлжлүүлж байна");
+      resolve(null);
+    }, ms);
+    Promise.resolve(promise).then(function(v){
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      resolve(v);
+    }, function(err){
+      if(done) return;
+      done = true;
+      clearTimeout(timer);
+      console.error("[steppe] error in "+label, err);
+      resolve(null);
+    });
+  });
+}
+
+/* =========================================================
+   DATA
+   Үгс "words.json" файлаас fetch хийгдэж ачаална (код дотор
+   хатуу бичихгүй). Файл нь дараах бүтэцтэй байна:
+   { "A1_A2":[{en,mn,example_en,example_mn}...], "B1_B2":[...],
+     "EYESH":[...], "C1_C2":[...], "IELTS":[...] }
+   ========================================================= */
+const WORDS_JSON_URL = "./words.json";
+
+/* =========================================================
+   БАГЦ (SUBSCRIPTION PLAN) БҮТЭЦ
+   Тухайн агуулгын багц (word pack) аль plan-уудад нээлттэйг
+   "unlocks" массивт жагсаана. Хэрэглэгчийн идэвхтэй plan энэ
+   жагсаалтад байвал тухайн үгийн багц нээлттэй болно.
+   ========================================================= */
+const PLAN_ORDER = ["free","pro_eysh","pro_ielts","special","premium"];
+const TIER_LABEL = {
+  free:"Үнэгүй",
+  pro_eysh:"Pro (ЭЕШ)",
+  pro_ielts:"Pro (IELTS)",
+  special:"Special",
+  premium:"Premium"
+};
+/* Өөрөө нэмэх үгийн лимит: 0 = нэмэх боломжгүй, Infinity = хязгааргүй */
+const CUSTOM_WORD_LIMIT = {
+  free: 0,
+  pro_eysh: 20,
+  pro_ielts: 20,
+  special: 100,
+  premium: Infinity
+};
+/* Захиалгын багц бүрийн агуулгын тодорхойлолт — Paywall болон "Багцууд" табанд ашиглана */
+const PLAN_META = {
+  free:      { label:TIER_LABEL.free,      desc:"A1–A2 түвшний 250 үг",                                          wordLimitLabel:"Өөрөө үг нэмэх боломжгүй" },
+  pro_eysh:  { label:TIER_LABEL.pro_eysh,  desc:"B1–B2 (300) + ЭЕШ-ийн (300) үг",                                wordLimitLabel:"+20 үг хүртэл өөрөө нэмнэ" },
+  pro_ielts: { label:TIER_LABEL.pro_ielts, desc:"B1–B2 (300) + IELTS-ийн (300) үг",                              wordLimitLabel:"+20 үг хүртэл өөрөө нэмнэ" },
+  special:   { label:TIER_LABEL.special,   desc:"B1–B2 (300) + C1–C2 (350) үг",                                  wordLimitLabel:"+100 үг хүртэл өөрөө нэмнэ" },
+  premium:   { label:TIER_LABEL.premium,   desc:"Pro-гийн бүх боломж (ЭЕШ+IELTS) + B1–B2 (300) + C1–C2 (400) үг", wordLimitLabel:"Хязгааргүй үг нэмнэ" }
+};
+/* Тухайн үгийн багц (агуулгын pack) аль plan-уудад нээлттэйг заана */
+const PACK_META = {
+  A1_A2:  { label:"A1–A2",  order:1, unlocks:["free","pro_eysh","pro_ielts","special","premium"] },
+  B1_B2:  { label:"B1–B2",  order:2, unlocks:["pro_eysh","pro_ielts","special","premium"] },
+  EYESH:  { label:"ЭЕШ",    order:3, unlocks:["pro_eysh","premium"] },
+  IELTS:  { label:"IELTS",  order:4, unlocks:["pro_ielts","premium"] },
+  C1_C2:  { label:"C1–C2",  order:5, unlocks:["special","premium"] },
+  PREMIUM:{ label:"Premium",order:6, unlocks:["premium"] }
+};
+/* Түгжээтэй багц дээр дарахад санал болгох хамгийн тохирох plan (Paywall-д ашиглана) */
+function packRecommendedTier(pack){
+  var unlocks = (PACK_META[pack] && PACK_META[pack].unlocks) || ["premium"];
+  var paid = unlocks.filter(function(p){ return p !== "free"; });
+  return paid.length ? paid[0] : "premium";
+}
+
+var WORDS = [];          // fetch дууссаны дараа бөглөгдөнө
+var TOTAL_DEFAULT = 0;
+var WORDS_READY = false;
+
+function isPackLocked(pack){
+  var meta = PACK_META[pack];
+  if(!meta) return false;
+  return meta.unlocks.indexOf(STATE.plan) === -1;
+}
+function allPackIds(){
+  return Object.keys(PACK_META).sort(function(a,b){ return PACK_META[a].order - PACK_META[b].order; });
+}
+
+/* Сүлжээгүй (offline) үед ашиглах локал нөөц хуулбар — сүүлд амжилттай
+   ачаалсан words.json-ийн бүтэн агуулгыг энд хадгална. */
+const WORDS_CACHE_KEY = "steppevocab2_words_cache";
+
+function buildWordsFromData(data){
+  var out = [];
+  var idx = 0;
+  allPackIds().forEach(function(pack){
+    var list = data[pack] || [];
+    list.forEach(function(w){
+      out.push({
+        key: pack+"_"+idx,
+        en: w.en, mn: w.mn,
+        cat: PACK_META[pack].label,
+        pack: pack,
+        example_en: w.example_en || "",
+        example_mn: w.example_mn || ""
+      });
+      idx++;
+    });
+  });
+  return out;
+}
+
+async function loadWordsFromJson(){
+  var data = null;
+  var loadedFromNetwork = false;
+  try{
+    var ctrl = (typeof AbortController !== "undefined") ? new AbortController() : null;
+    var timer = ctrl ? setTimeout(function(){ ctrl.abort(); }, 8000) : null;
+    // Тайлбар: cache-busting query параметр болон cache:"no-store"-ийг
+    // ЗОРИУДЛАН арилгасан. Учир нь тэдгээр нь Service Worker болон хөтчийн
+    // HTTP cache-ийг тойрч, сүлжээгүй (offline) үед words.json ачаалагдах
+    // боломжийг бүрмөсөн хаадаг байсан. Одоо тогтвортой URL ашигласнаар
+    // Service Worker энэ хүсэлтийг таслан авч, offline үед өөрийн
+    // cache-с хариулж чадна.
+    var res = await fetch(WORDS_JSON_URL, {signal: ctrl ? ctrl.signal : undefined});
+    if(timer) clearTimeout(timer);
+    if(!res.ok) throw new Error("words.json fetch failed: "+res.status);
+    data = await res.json();
+    loadedFromNetwork = true;
+  }catch(e){
+    console.warn("[steppe] words.json сүлжээгээр ачаалагдсангүй, локал нөөцөөс ачаалж үзье:", e.message || e);
+    try{
+      var cached = localStorage.getItem(WORDS_CACHE_KEY);
+      if(cached){ data = JSON.parse(cached); }
+    }catch(e2){ console.error("[steppe] локал words нөөц уншихад алдаа гарлаа", e2); }
+  }
+
+  if(data){
+    WORDS = buildWordsFromData(data);
+    if(loadedFromNetwork){
+      // Дараагийн offline үед ашиглах нөөц хуулбарыг шинэчилж хадгална
+      try{ localStorage.setItem(WORDS_CACHE_KEY, JSON.stringify(data)); }catch(e3){ /* сав дүүрсэн эсвэл боломжгүй бол алгасна */ }
+    }
+  } else {
+    WORDS = [];
+    if(!navigator.onLine){
+      toast("📡 Интернэт холболтгүй бөгөөд өмнө хадгалсан үгийн сан олдсонгүй. Нэг удаа онлайнаар нээгээд дахин оролдоно уу.");
+    }
+  }
+  TOTAL_DEFAULT = WORDS.length;
+  WORDS_READY = true;
+}
+
+function getPerDay(){
+  return STATE.dailyGoal || 10;
+}
+const REVIEW_PER_DAY = 5;
+const QUIZ_LEN = 10;
+
+/* =========================================================
+   STORAGE HELPERS  (localStorage — хөтөч дээр хадгалагдана)
+   ========================================================= */
+async function sGet(key){
+  try{
+    var v = localStorage.getItem("steppevocab2_"+key);
+    return v !== null ? v : null;
+  }catch(e){ return null; }
+}
+async function sSet(key, value){
+  try{ localStorage.setItem("steppevocab2_"+key, value); return true; }catch(e){ console.error("storage set failed", key, e); return false; }
+}
+
+function defaultProgress(){
+  return {
+    completedDays: 0,
+    goalsCompleted: 0,   // "Өдрийн зорилго" хэдэн удаа биелсэн (profiles.goals_completed-той тольдоно)
+    goalHitToday: false, // өнөөдөр зорилгодоо хүрсэн эсэхийг нэг л удаа тоолохын тулд
+    lastGoalCheckDate: null,
+    lastCompletionDate: null,
+    streak: 0,
+    learned: {},      // key -> {learnedDate, lastReview, reviewCount}  — SRS дасгалаар цээжилсэн үгс
+    knownWords: {},   // key -> {date}  — "Би энэ үгийг мэднэ" гэж шууд тэмдэглэсэн үгс (learned-ээс ТУСДАА)
+    favorites: {},    // key -> true
+    customWords: [],  // {en, mn}
+    quizStats: {},      // mode -> {attempts, correct}
+    selectedPack: "A1_A2" // Хэрэглэгчийн "Цээжлэх үгсийн сан сонгох" хэсэгт сонгосон идэвхтэй pack (todaysBatch-д ашиглана)
+  };
+}
+/* Profile таб дахь "Цээжлэх үгсийн сан сонгох" хэсэгт харуулах сонголтууд */
+const STUDY_PACK_OPTIONS = ["A1_A2","B1_B2","IELTS","EYESH","C1_C2"];
+const STUDY_PACK_LABEL_MN = {
+  A1_A2:"A1 A2 үгс цээжлэх",
+  B1_B2:"B1 B2 үгс цээжлэх",
+  IELTS:"IELTS үгс цээжлэх",
+  EYESH:"ЭЕШ үгс цээжлэх",
+  C1_C2:"C1 C2 үгс цээжлэх"
+};
+const STUDY_PACK_LABEL_EN = {
+  A1_A2:"Study A1-A2 words",
+  B1_B2:"Study B1-B2 words",
+  IELTS:"Study IELTS words",
+  EYESH:"Study ЭЕШ words",
+  C1_C2:"Study C1-C2 words"
+};
+function studyPackLabel(pack){
+  var map = (STATE.lang === "en") ? STUDY_PACK_LABEL_EN : STUDY_PACK_LABEL_MN;
+  return map[pack] || pack;
+}
+
+var STATE = {
+  progress: defaultProgress(),
+  enrich: {},        // key -> {cyrillic, example_en, example_mn}
+  tab: "today",        // "today" | "quiz" | "progress" | "packs" | "profile"
+  loading: true,
+  todayFlip: {},     // key -> bool (flipped)
+  quizSession: null,
+  modal: null,        // null | "add" | "auth" | "paywall" | "feedback" | "feedbackDetail"
+  feedbackText: "",
+  feedbackEmail: "",
+  feedbackBusy: false,
+  searchQuery: "",
+  learnedQuery: "",
+  learnedFilterCat: "all",
+  progressSubTab: "learned", // "learned" | "known" — Ахиц таб доторх Цээжилсэн/Мэддэг хэсгийн сэлгүүр
+  knownQuery: "",
+  wordListPack: "all",
+  packsOpenPack: null,  // Багцууд табан дээр нээгдсэн (нээлттэй) багцын id
+  theme: "dark",       // "dark" | "light" | "midnight" | "forest"
+  themeMenuOpen: false,
+  lang: "mn",          // "mn" | "en" — UI-н хэл (үгийн сангийн хэл БИШ)
+  user: null,          // Supabase auth хэрэглэгч (null = зочин)
+  profileRole: "user", // "user" | "admin"
+  plan: "free",        // "free" | "pro_eysh" | "pro_ielts" | "special" | "premium"
+  planExpiresAt: null, // ISO огноо эсвэл null (хугацаагүй/free)
+  planJustExpired: false, // энэ session-д хугацаа дуусаж free рүү шилжсэн эсэхийг Paywall мессежинд ашиглана
+  dailyGoal: 10,       // Хэрэглэгчийн сонгосон "Өдрийн зорилго" (үг тоо) — profiles.daily_goal
+  authMode: "signin",  // "signin" | "signup"
+  authError: "",
+  authBusy: false,
+  paywallPack: null,   // тухайн үед хэрэглэгч ямар түгжээтэй багц дээр дарсныг санана
+  paywallPlanFocus: null, // "Энэ багцыг сонгох" дарахад тухайн нэг тарифын дэлгэрэнгүйг л харуулахад ашиглана
+  paywallReason: null, // "custom_limit_free" | "custom_limit_pro" | "custom_limit_special" | "pack_locked" | "plan_expired" | null
+  quizFilter: "all",   // "all" | "today" | "week" | "old" — Шалгалтын үгийн сангийн шүүлтүүр
+  notifPermission: (typeof Notification !== "undefined" ? Notification.permission : "unsupported"),
+  installPromptAvailable: false,
+  syncBusy: false,
+  pricing: {},          // Supabase 'packages' хүснэгтээс уншина: tier -> {price3m, price1y, currency}
+  pricingLoaded: false,
+  admin: {              // Админ панелийн орон нутгийн төлөв
+    loaded: false,
+    loading: false,
+    totalUsers: null,
+    activeByPlan: {},
+    totalRevenue: null,
+    priceForm: {},       // tier -> {amount3m, amount1y} inputs
+    grantEmail: "",
+    grantPlan: "pro_eysh",
+    grantDuration: "3m",
+    grantBusy: false,
+    feedbacksLoaded: false,
+    feedbacksLoading: false,
+    feedbacks: [],        // Supabase 'feedbacks' хүснэгтээс ирсэн жагсаалт
+    selectedFeedback: null, // Дэлгэрэнгүй modal-д харуулах сонгосон feedback мөр
+    showFeedbacks: false  // "Санал хүсэлт унших" хэсгийг нээх/хаах
+  }
+};
+
+/* =========================================================
+   SUPABASE
+   Доорх хоёр утгыг өөрийн Supabase төслийн
+   Project URL болон Publishable (anon) key-ээр солино уу.
+   ========================================================= */
+const SUPABASE_URL = "https://thyprvqorwzoncszjqjy.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_kGNfrtE5joGdMJ8l7N57iw_Z8iSZybw";
+var supa = null;
+try{
+  if(window.supabase && SUPABASE_URL.indexOf("YOUR-PROJECT-REF") === -1){
+    supa = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    console.log("Supabase connected successfully");
+  }
+}catch(e){ console.error("Supabase client init failed", e); }
+
+/* =========================================================
+   THEME
+   ========================================================= */
+const THEME_LIST = [
+  {id:"light",    label:"Light",         swatch:"#f8f3e6"},
+  {id:"dark",     label:"Dark",          swatch:"#191f37"},
+  {id:"midnight", label:"Midnight Blue", swatch:"#0e1730"},
+  {id:"forest",   label:"Forest Green",  swatch:"#122018"}
+];
+async function loadTheme(){
+  var t = await sGet("theme");
+  var valid = THEME_LIST.some(function(x){ return x.id === t; });
+  STATE.theme = valid ? t : "dark";
+  applyTheme();
+}
+function applyTheme(){
+  document.documentElement.setAttribute("data-theme", STATE.theme);
+}
+async function selectTheme(themeId){
+  STATE.theme = themeId;
+  STATE.themeMenuOpen = false;
+  applyTheme();
+  await sSet("theme", STATE.theme);
+  render();
+}
+function toggleThemeMenu(){
+  STATE.themeMenuOpen = !STATE.themeMenuOpen;
+  render();
+}
+
+/* =========================================================
+   ХЭЛ СОЛИХ (UI LANGUAGE TOGGLE)
+   Зөвхөн интерфэйсийн (цэс, товч, гарчиг) текстийг сэлгэнэ —
+   англи/монгол ҮГИЙН САНгийн орчуулга биш.
+   ========================================================= */
+const I18N_EN = {
+  loading: "Loading…",
+  tab_today: "Today",
+  tab_quiz: "Quiz",
+  tab_progress: "Progress",
+  tab_packs: "Packs",
+  tab_profile: "Profile",
+  day_n: "Day",
+  today_goal_done: "Today's goal completed ✅",
+  words_viewed: "words viewed",
+  no_new_words: "No new words left",
+  total_label: "Total",
+  goals_completed_short: "goals completed",
+  all_caught_up: "You're all caught up",
+  add_own_words_sub: "Add your own words to keep learning.",
+  add_new_word_short: "+ Add new word",
+  new_words: "New words",
+  review: "Review",
+  goal_done_btn: "✅ Today's goal done",
+  complete_goal_btn: "Complete today's goal",
+  tap_to_flip: "Tap to flip",
+  choose_word_pool: "Choose word pool",
+  quiz_filter_all: "All learned words",
+  quiz_filter_today: "Learned today",
+  quiz_filter_yesterday: "Learned yesterday",
+  quiz_filter_week: "Last 7 days",
+  quiz_filter_old: "Older words",
+  choose_quiz_type: "Choose quiz type",
+  words_ready: "words ready",
+  quiz_translate_sub: "See the English word, choose the Mongolian translation",
+  quiz_reverse_sub: "See the Mongolian translation, choose the English word",
+  quiz_listen_title: "🎧 Listening quiz",
+  quiz_listen_sub: "Listen to the pronunciation and choose the right word",
+  quiz_spelling_title: "⌨️ Spelling exercise",
+  quiz_spelling_sub: "See the translation and type the English word correctly",
+  percent_correct: "correct",
+  retry_quiz: "Retry",
+  back_to_quiz_menu: "Back to quiz menu",
+  spelling_prompt: "Look at the translation and type the English word",
+  check_btn: "Check",
+  correct_answer: "Correct answer:",
+  next_question: "Next question",
+  view_results: "View results",
+  choose_translation: "Choose the translation",
+  choose_english_word: "Choose the English word",
+  listen_choose_word: "Listen and choose the right word",
+  percent_completed: "completed",
+  learned_label: "Learned",
+  day_streak: "day streak",
+  goals_completed_lbl: "goals completed",
+  learned_pill: "🎓 Learned",
+  known_pill: "✓ Known",
+  learned_words: "Learned words",
+  known_words: "Known words",
+  no_learned_yet: "No learned words yet",
+  no_learned_sub: "Complete your daily goal to learn your first words.",
+  no_known_yet: "No words marked as known",
+  no_known_sub: "Mark words you already know with the ✓ button inside a pack to see them here.",
+  search_learned_ph: "Search learned words...",
+  search_known_ph: "Search known words...",
+  all_pill: "All",
+  no_results: "No results found",
+  reviewed_x: "reviewed",
+  times_suffix: "x",
+  listen_title: "Listen",
+  add_to_review_title: "Add to review list",
+  back_to_review_title: "Move back to learning list",
+  back_all_packs: "← Back to all packs",
+  plan_expired_title: "Your plan has expired",
+  pack_locked_title: "This pack is locked",
+  plan_expired_sub: "Renew your plan to continue learning.",
+  pack_locked_sub_prefix: "Upgrade to the",
+  pack_locked_sub_suffix: "plan to unlock.",
+  upgrade_plan_btn: "Upgrade plan",
+  search_pack_ph: "Search this pack...",
+  status_learned: "Learned",
+  status_known: "Known",
+  status_pending: "Not seen",
+  mark_known_title: "I already know this word",
+  subscription_plans: "Subscription plans",
+  active_tag: "Active",
+  details_btn: "Details",
+  choose_plan_btn: "Choose this plan",
+  vocab_packs: "Vocabulary packs",
+  free_label: "Free",
+  user_id_label: "User ID",
+  email_label: "Email",
+  active_plan_label: "Active plan",
+  days_suffix: "days",
+  plan_span_suffix: "plan",
+  upgrade_plan_full: "💳 Upgrade plan",
+  admin_panel_btn: "🛠 Admin Panel",
+  sign_out_btn: "🚪 Sign out",
+  guest_label: "Guest",
+  free_plan_label: "Free plan",
+  guest_sub: "Sign in to save your progress, sync across devices, and unlock Pro/Premium packs.",
+  sign_in_btn: "🔑 Sign in",
+  sign_up_btn: "✨ Sign up",
+  app_notif_section: "App & Notifications",
+  install_app_btn: "📲 Install app",
+  notif_on_test_btn: "🔔 Notifications on — send test",
+  notif_unsupported: "This browser doesn't support notifications.",
+  notif_enable_btn: "🔔 Turn on reminders & motivation",
+  daily_goal_section: "Set daily goal",
+  words_suffix: "words",
+  daily_goal_sub_prefix: "Choose how many new words to learn per day. Current goal:",
+  daily_goal_sub_suffix: "words.",
+  data_storage_section: "Data storage",
+  add_own_word_btn: "+ Add your own word",
+  download_backup_btn: "⬇️ Download backup",
+  restore_backup_btn: "⬆️ Restore backup",
+  clear_data_btn: "🗑 Clear all data",
+  auth_signin_title: "Sign in",
+  auth_signup_title: "Sign up",
+  auth_email_label: "EMAIL",
+  auth_password_label: "PASSWORD",
+  cancel_btn: "Cancel",
+  please_wait: "Please wait...",
+  google_signin: "Continue with Google",
+  or_divider: "or",
+  add_word_title: "Add new word",
+  english_word_label: "ENGLISH WORD",
+  mongolian_translation_label: "MONGOLIAN TRANSLATION",
+  add_btn: "Add",
+  upgrade_headline: "Upgrade your plan 🔓",
+  paywall_default_note: "Unlock more word packs, and special ЭЕШ / IELTS lists, by upgrading your plan.",
+  paywall_focus_note: "See the details of your selected plan below.",
+  view_all_plans: "← View all other plans",
+  paywall_disclaimer: "After you complete the payment, our team will manually verify your account and activate the plan within 24 hours.",
+  close_btn: "Close",
+  sign_up_first_btn: "Sign up first",
+  qpay_label: "QPay",
+  bank_label: "Bank",
+  account_number_label: "Account number",
+  recipient_label: "Recipient",
+  streak_label: "Streak",
+  theme_toggle_label: "Theme",
+  theme_menu_label: "Appearance",
+  feedback_btn: "💬 Feedback",
+  feedback_title: "Feedback",
+  feedback_email_label: "EMAIL",
+  feedback_content_label: "YOUR FEEDBACK",
+  feedback_placeholder: "Write your feedback, complaint, or bug report here...",
+  feedback_send_btn: "Send",
+  feedback_detail_title: "Feedback details",
+  feedback_date_label: "Date",
+  study_pack_section: "Choose vocabulary to study",
+  study_pack_locked_tag: "Locked"
+};
+function t(key, mnFallback){
+  if(STATE.lang === "en" && I18N_EN.hasOwnProperty(key)) return I18N_EN[key];
+  return mnFallback;
+}
+async function loadLanguage(){
+  var l = await sGet("lang");
+  STATE.lang = (l === "en") ? "en" : "mn";
+}
+async function toggleLanguage(){
+  STATE.lang = STATE.lang === "en" ? "mn" : "en";
+  await sSet("lang", STATE.lang);
+  render();
+}
+
+/* =========================================================
+   AUTH  (Supabase)
+   ========================================================= */
+async function initAuth(){
+  if(!supa) return;
+  try{
+    var res = await withTimeout(supa.auth.getSession(), 6000, "auth.getSession");
+    var session = res && res.data ? res.data.session : null;
+    if(session && session.user){
+      STATE.user = session.user;
+      await withTimeout(fetchProfilePlan(), 6000, "fetchProfilePlan");
+      await withTimeout(pullRemoteProgress(), 6000, "pullRemoteProgress");
+    }
+    supa.auth.onAuthStateChange(function(event, session){
+      var newUser = session ? session.user : null;
+      var userChanged = (!STATE.user && newUser) || (STATE.user && (!newUser || STATE.user.id !== newUser.id));
+      STATE.user = newUser;
+      if(STATE.user){
+        if(userChanged){
+          // Хэрэглэгч солигдсон (шинэ нэвтрэлт) — хуучин локал ахиц дараагийн
+          // хэрэглэгч рүү дамжихгүйн тулд цэвэрлэнэ, дараа нь серверээс ачаална
+          STATE.progress = defaultProgress();
+        }
+        fetchProfilePlan().then(pullRemoteProgress).then(render);
+      } else {
+        STATE.plan = "free";
+        render();
+      }
+    });
+  }catch(e){ console.error("initAuth error", e); }
+}
+
+async function fetchProfilePlan(){
+  if(!supa || !STATE.user) return;
+  STATE.planJustExpired = false;
+  try{
+    var res = await supa.from("profiles")
+      .select("plan, streak_count, role, plan_expires_at, daily_goal, goals_completed")
+      .eq("id", STATE.user.id).single();
+    var row = res.data;
+    if(row){
+      STATE.profileRole = row.role || "user";
+      STATE.planExpiresAt = row.plan_expires_at || null;
+      if(typeof row.daily_goal === "number" && [5,10,15,20].indexOf(row.daily_goal) !== -1){
+        STATE.dailyGoal = row.daily_goal;
+      }
+      if(typeof row.goals_completed === "number" && row.goals_completed > STATE.progress.goalsCompleted){
+        STATE.progress.goalsCompleted = row.goals_completed;
+      }
+      var plan = row.plan || "free";
+      // РЕТЕНШН HOOK: багцын хугацаа дууссан эсэхийг шалгаж, дууссан бол автоматаар 'free' болгоно
+      if(plan !== "free" && STATE.planExpiresAt && new Date(STATE.planExpiresAt).getTime() < Date.now()){
+        plan = "free";
+        STATE.planJustExpired = true;
+        // Серверт бас тольдож бичих (дараагийн удаа дахин шалгах шаардлагагүй болгоно)
+        supa.from("profiles").update({ plan: "free" }).eq("id", STATE.user.id).then(function(){}, function(){});
+      }
+      STATE.plan = plan;
+    } else {
+      STATE.plan = "free";
+    }
+    // profiles.streak_count нь админ/тайлангийн зориулалттай тольдсон утга;
+    // бодит streak тооцоолол user_progress-д хадгалагдсан progress.streak-ээс гарна.
+    if(row && typeof row.streak_count === "number" && row.streak_count > STATE.progress.streak){
+      STATE.progress.streak = row.streak_count;
+    }
+  }catch(e){ console.error("fetchProfilePlan error", e); STATE.plan = "free"; }
+}
+
+/* Хэрэглэгчийн streak-ийг profiles.streak_count багана руу тольдож бичнэ.
+   Ингэснээр админ Supabase дээрээс шууд streak-ийг харах боломжтой болно. */
+async function syncStreakToProfile(){
+  if(!supa || !STATE.user) return;
+  try{
+    await supa.from("profiles").update({ streak_count: STATE.progress.streak }).eq("id", STATE.user.id);
+  }catch(e){ console.error("syncStreakToProfile error", e); }
+}
+
+/* =========================================================
+   PRICING  (Supabase 'packages' хүснэгтээс уншина)
+   Хүснэгтийн бүтэц (санал): packages(
+     tier text primary key,       -- free | pro_eysh | pro_ielts | special | premium
+     price_3m int,                -- 3 сарын үнэ (₮), premium-д null байж болно
+     price_1y int,                -- 1 жилийн үнэ (₮)
+     currency text default '₮',
+     description text
+   )
+   Админ Панель дээрх "Үнэ удирдах" формоос энэ хүснэгтийг шинэчилдэг тул
+   өөрчлөгдмөгц хэрэглэгчийн 'Багцууд' таб болон Paywall дээр шууд харагдана.
+   ========================================================= */
+async function loadPricing(){
+  if(!supa){ STATE.pricingLoaded = true; return; }
+  try{
+    var res = await withTimeout(supa.from("packages").select("tier, price_3m, price_1y, currency, description"), 6000, "loadPricing");
+    if(res && res.data && res.data.length){
+      res.data.forEach(function(row){
+        STATE.pricing[row.tier] = {
+          price3m: row.price_3m,
+          price1y: row.price_1y,
+          currency: row.currency || "₮",
+          description: row.description || ""
+        };
+      });
+    }
+  }catch(e){ console.error("loadPricing error", e); }
+  STATE.pricingLoaded = true;
+}
+function formatPrice(tier){
+  var p = STATE.pricing[tier];
+  if(tier === "free") return "Үнэгүй";
+  if(!p) return "—";
+  var cur = p.currency || "₮";
+  var parts = [];
+  if(p.price3m != null) parts.push(Number(p.price3m).toLocaleString("mn-MN")+cur+" / 3 сар");
+  if(p.price1y != null) parts.push(Number(p.price1y).toLocaleString("mn-MN")+cur+" / 1 жил");
+  return parts.length ? parts.join(" эсвэл ") : "—";
+}
+
+async function signUp(email, password){
+  if(!supa){ STATE.authError = "Supabase холболт тохируулагдаагүй байна."; render(); return; }
+  STATE.authBusy = true; STATE.authError = ""; render();
+  try{
+    var res = await supa.auth.signUp({ email: email, password: password });
+    if(res.error) throw res.error;
+    if(res.data && res.data.user){
+      await supa.from("profiles").upsert({ id: res.data.user.id, email: email, plan: "free" });
+    }
+    STATE.user = res.data.user;
+    STATE.modal = null;
+    // Шинэ бүртгэл — өмнөх зочны/хэрэглэгчийн локал ахиц энэ шинэ хаяг руу дамжиж болохгүй тул цэвэрлэнэ
+    STATE.progress = defaultProgress();
+    await sSet("progress", JSON.stringify(STATE.progress));
+    toast("✅ Бүртгэл амжилттай. Тавтай морил!");
+    await fetchProfilePlan();
+    await pullRemoteProgress();
+  }catch(e){
+    STATE.authError = e.message || "Бүртгэхэд алдаа гарлаа";
+  }
+  STATE.authBusy = false; render();
+}
+
+async function signIn(email, password){
+  if(!supa){ STATE.authError = "Supabase холболт тохируулагдаагүй байна."; render(); return; }
+  STATE.authBusy = true; STATE.authError = ""; render();
+  try{
+    var res = await supa.auth.signInWithPassword({ email: email, password: password });
+    if(res.error) throw res.error;
+    STATE.user = res.data.user;
+    STATE.modal = null;
+    // Нэвтрэхээс өмнөх (зочин эсвэл өөр хэрэглэгчийн) локал ахицыг цэвэрлэж, зөвхөн
+    // энэ хаягийн серверийн өгөгдлийг л STATE.progress рүү ачаалуулна (нэгтгэхгүй)
+    STATE.progress = defaultProgress();
+    await sSet("progress", JSON.stringify(STATE.progress));
+    toast("👋 Тавтай морил, "+email);
+    await fetchProfilePlan();
+    await pullRemoteProgress();
+  }catch(e){
+    STATE.authError = e.message || "Нэвтрэхэд алдаа гарлаа";
+  }
+  STATE.authBusy = false; render();
+}
+
+function googleLogoSVG(){
+  return "<svg width='17' height='17' viewBox='0 0 48 48' aria-hidden='true'>" +
+    "<path fill='#FFC107' d='M43.6 20.5H42V20H24v8h11.3C33.7 32.4 29.3 35 24 35c-6.1 0-11-4.9-11-11s4.9-11 11-11c2.8 0 5.3 1 7.3 2.8l5.7-5.7C33.6 6.5 29 4.5 24 4.5 13.2 4.5 4.5 13.2 4.5 24S13.2 43.5 24 43.5 43.5 34.8 43.5 24c0-1.2-.1-2.4-.4-3.5z'/>" +
+    "<path fill='#FF3D00' d='m6.3 14.7 6.6 4.8C14.6 15.9 18.9 13 24 13c2.8 0 5.3 1 7.3 2.8l5.7-5.7C33.6 6.5 29 4.5 24 4.5c-7.6 0-14.1 4.3-17.7 10.2z'/>" +
+    "<path fill='#4CAF50' d='M24 43.5c5 0 9.5-1.9 12.9-5.1l-6-5c-2 1.4-4.5 2.1-6.9 2.1-5.3 0-9.6-3.4-11.3-8.1l-6.5 5C9.8 39.1 16.4 43.5 24 43.5z'/>" +
+    "<path fill='#1976D2' d='M43.6 20.5H42V20H24v8h11.3c-.8 2.4-2.4 4.4-4.4 5.8l6 5C40.5 35.7 43.5 30.3 43.5 24c0-1.2-.1-2.4-.4-3.5z'/>" +
+    "</svg>";
+}
+
+async function signInWithGoogle(){
+  if(!supa){ STATE.authError = "Supabase холболт тохируулагдаагүй байна."; render(); return; }
+  STATE.authBusy = true; STATE.authError = ""; render();
+  try{
+    // Supabase төсөл дээр "Google" OAuth провайдерийг идэвхжүүлж, Google Cloud
+    // Console-д Client ID/Secret болон redirect URL-ээ тохируулсны дараа энэ
+    // дуудлага хэрэглэгчийн Google (Gmail) бүртгэл сонгох цонхыг нээнэ.
+    var res = await supa.auth.signInWithOAuth({
+      provider: "google",
+      options: { redirectTo: window.location.href }
+    });
+    if(res.error) throw res.error;
+    // OAuth урсгал хуудсыг дахин чиглүүлдэг тул STATE.user-ийг энд биш,
+    // supa.auth.onAuthStateChange callback-д барина.
+  }catch(e){
+    STATE.authError = e.message || "Google-ээр нэвтрэхэд алдаа гарлаа";
+    STATE.authBusy = false; render();
+  }
+}
+
+async function signOut(){
+  if(supa){ try{ await supa.auth.signOut(); }catch(e){} }
+  STATE.user = null;
+  STATE.plan = "free";
+  // Гарахад локал санах ойд үлдсэн хуучин ахицыг бүрэн цэвэрлэнэ — дараагийн зочны
+  // эсвэл өөр хэрэглэгчийн нэвтрэлт руу энэ өгөгдөл дамжихгүй болгоно
+  try{ localStorage.removeItem("steppevocab2_progress"); }catch(e){}
+  STATE.progress = defaultProgress();
+  toast("Гарлаа");
+  render();
+}
+
+/* =========================================================
+   PROGRESS  (localStorage + Supabase 'user_progress' sync)
+   ========================================================= */
+async function loadProgress(){
+  var raw = await sGet("progress");
+  if(raw){
+    try{ STATE.progress = Object.assign(defaultProgress(), JSON.parse(raw)); }catch(e){ STATE.progress = defaultProgress(); }
+  }
+  var savedGoal = await sGet("dailyGoal");
+  var g = parseInt(savedGoal,10);
+  if(DAILY_GOAL_OPTIONS.indexOf(g) !== -1) STATE.dailyGoal = g;
+}
+async function saveProgress(){
+  await sSet("progress", JSON.stringify(STATE.progress));
+  await pushRemoteProgress();
+  await syncStreakToProfile();
+}
+
+async function pushRemoteProgress(){
+  if(!supa || !STATE.user) return;
+  STATE.syncBusy = true;
+  try{
+    await supa.from("user_progress").upsert({
+      user_id: STATE.user.id,
+      progress: STATE.progress,
+      updated_at: new Date().toISOString()
+    });
+  }catch(e){ console.error("pushRemoteProgress error", e); }
+  STATE.syncBusy = false;
+}
+
+async function pullRemoteProgress(){
+  if(!supa || !STATE.user) return;
+  try{
+    var res = await supa.from("user_progress").select("progress").eq("user_id", STATE.user.id).single();
+    if(res.data && res.data.progress){
+      // Сервер бол эх сурвалж (source of truth) — локал дээрх (жишээ нь өмнөх
+      // зочны/хэрэглэгчийн) ахицтай НЭГТГЭХГҮЙ, шууд серверийн өгөгдлөөр орлуулна.
+      STATE.progress = Object.assign(defaultProgress(), res.data.progress);
+      await sSet("progress", JSON.stringify(STATE.progress));
+    } else {
+      // Серверт progress хараахан үүсээгүй (шинэ хэрэглэгч) — энэ үед STATE.progress
+      // аль хэдийн цэвэрлэгдсэн (defaultProgress) байх ёстой тул зөвхөн тэрхүү хоосон
+      // ахицыг серверт анх удаа бичнэ. (Guest/өмнөх хэрэглэгчийн өгөгдөл дамжихгүй.)
+      await pushRemoteProgress();
+    }
+  }catch(e){ console.error("pullRemoteProgress error", e); }
+}
+
+/* =========================================================
+   ӨӨРӨӨ ҮГ НЭМЭХ ЛИМИТ (Add Word Paywall Logic)
+   ========================================================= */
+function customWordCount(){ return STATE.progress.customWords.length; }
+function customWordLimit(){
+  var lim = CUSTOM_WORD_LIMIT[STATE.plan];
+  return typeof lim === "number" ? lim : 0;
+}
+/* '+ Шинэ үг нэмэх' товч дарахад дуудагдана. Хэрэв нэмэх боломжтой бол true буцааж
+   шууд Add modal нээнэ; боломжгүй бол тохирох Paywall шалтгаанаар нээгээд false буцаана. */
+function checkAddWordAccess(){
+  var plan = STATE.plan;
+  var limit = customWordLimit();
+  var used = customWordCount();
+
+  if(plan === "free"){
+    STATE.paywallReason = "custom_limit_free";
+    STATE.paywallPack = null;
+    STATE.modal = "paywall";
+    render();
+    return false;
+  }
+  if(limit !== Infinity && used >= limit){
+    if(plan === "pro_eysh" || plan === "pro_ielts"){
+      STATE.paywallReason = "custom_limit_pro";
+    } else if(plan === "special"){
+      STATE.paywallReason = "custom_limit_special";
+    } else {
+      STATE.paywallReason = "custom_limit_pro";
+    }
+    STATE.paywallPack = null;
+    STATE.modal = "paywall";
+    render();
+    return false;
+  }
+  // Premium буюу лимитэд хүрээгүй бол шууд нэмэх modal нээнэ
+  STATE.modal = "add";
+  render();
+  return true;
+}
+/* =========================================================
+   САНАЛ ХҮСЭЛТ (Feedback) — Supabase 'feedbacks' хүснэгт рүү бичнэ
+   Хүснэгтийн бүтэц (санал): feedbacks(id, user_id, email, content, created_at)
+   ========================================================= */
+async function submitFeedback(){
+  var content = (STATE.feedbackText||"").trim();
+  if(!content){ toast(STATE.lang==="en" ? "Please write your feedback" : "Санал хүсэлтээ бичнэ үү"); return; }
+  var email = STATE.user ? (STATE.user.email||"") : (STATE.feedbackEmail||"").trim();
+  if(!STATE.user && !email){ toast(STATE.lang==="en" ? "Please enter your email" : "Зочин хэрэглэгч и-мэйлээ оруулна уу"); return; }
+  if(!supa){ toast("⚠️ Supabase холболт тохируулагдаагүй байна."); return; }
+  STATE.feedbackBusy = true; render();
+  try{
+    await supa.from("feedbacks").insert({
+      user_id: STATE.user ? STATE.user.id : null,
+      email: email,
+      content: content,
+      created_at: new Date().toISOString()
+    });
+    STATE.feedbackBusy = false;
+    STATE.modal = null;
+    STATE.feedbackText = "";
+    toast(STATE.lang==="en" ? "✅ Feedback sent successfully. Thank you!" : "✅ Санал хүсэлт амжилттай илгээгдлээ. Баярлалаа!");
+    render();
+  }catch(e){
+    console.error("submitFeedback error", e);
+    STATE.feedbackBusy = false;
+    toast(STATE.lang==="en" ? "⚠️ Failed to send, please try again" : "⚠️ Илгээхэд алдаа гарлаа, дахин оролдоно уу");
+    render();
+  }
+}
+
+function paywallReasonMessage(){
+  var r = STATE.paywallReason;
+  if(r === "custom_limit_free") return "Үг нэмэхийн тулд багцаа ахиулна уу";
+  if(r === "custom_limit_pro") return "Pro багцын лимит дүүрсэн";
+  if(r === "custom_limit_special") return "Special багцын лимит дүүрсэн";
+  if(r === "plan_expired") return "Таны багцын хугацаа дууссан тул суралтаа үргэлжлүүлэхийн тулд сунгана уу";
+  if(r === "pack_locked") return "Энэ агуулгыг нээхийн тулд багцаа ахиулна уу";
+  return "Илүү олон боломжийг ашиглахын тулд багцаа ахиулна уу";
+}
+
+/* =========================================================
+   ӨДРИЙН ЗОРИЛГО (Daily Goal)
+   ========================================================= */
+var DAILY_GOAL_OPTIONS = [5,10,15,20];
+async function setDailyGoal(n){
+  n = parseInt(n,10);
+  if(DAILY_GOAL_OPTIONS.indexOf(n) === -1) return;
+  STATE.dailyGoal = n;
+  await sSet("dailyGoal", String(n));
+  if(supa && STATE.user){
+    try{ await supa.from("profiles").update({ daily_goal:n }).eq("id", STATE.user.id); }
+    catch(e){ console.error("setDailyGoal sync error", e); }
+  }
+  toast("🎯 Өдрийн зорилго "+n+" үг боллоо");
+  render();
+}
+/* Хэрэглэгч тухайн өдөр шинээр цээжилсэн (эсвэл тестээр баталгаажуулсан) үгийн тоо */
+function todayNewLearnedCount(){
+  var today = todayStr();
+  var n = 0;
+  Object.keys(STATE.progress.learned).forEach(function(k){
+    if(STATE.progress.learned[k].learnedDate === today) n++;
+  });
+  return n;
+}
+/* Өдрийн зорилгодоо хүрсэн эсэхийг шалгаад, шинээр хүрсэн бол goalsCompleted-ийг нэмэгдүүлнэ.
+   Энэ функцийг markKnown болон completeDay дуудагдах бүрд дуудна. */
+async function checkDailyGoalProgress(){
+  var todayCount = todayNewLearnedCount();
+  if(!STATE.progress.goalHitToday && todayCount >= STATE.dailyGoal){
+    STATE.progress.goalHitToday = true;
+    STATE.progress.goalsCompleted = (STATE.progress.goalsCompleted||0) + 1;
+    toast("🎯 Өдрийн зорилго биелсэн! ("+STATE.progress.goalsCompleted+")");
+    if(supa && STATE.user){
+      try{ await supa.from("profiles").update({ goals_completed: STATE.progress.goalsCompleted }).eq("id", STATE.user.id); }
+      catch(e){ console.error("goals_completed sync error", e); }
+    }
+  }
+  // Шинэ өдөр эхлэхэд goalHitToday дахин false болгоно
+  if(STATE.progress.lastGoalCheckDate !== todayStr()){
+    STATE.progress.lastGoalCheckDate = todayStr();
+    if(todayCount < STATE.dailyGoal) STATE.progress.goalHitToday = false;
+  }
+}
+
+/* =========================================================
+   АДМИН ПАНЕЛЬ (зөвхөн role === 'admin' үед ашиглагдана)
+   ========================================================= */
+function isAdmin(){ return STATE.plan !== undefined && STATE.user && STATE.profileRole === "admin"; }
+
+async function loadAdminStats(){
+  if(!supa || !isAdmin()) return;
+  STATE.admin.loading = true; render();
+  try{
+    var usersRes = await supa.from("profiles").select("id", {count:"exact", head:true});
+    STATE.admin.totalUsers = (usersRes && usersRes.count != null) ? usersRes.count : null;
+
+    var byPlan = {};
+    for(var i=0;i<PLAN_ORDER.length;i++){
+      var t = PLAN_ORDER[i];
+      if(t === "free") continue;
+      try{
+        var r = await supa.from("profiles").select("id", {count:"exact", head:true}).eq("plan", t);
+        byPlan[t] = (r && r.count != null) ? r.count : 0;
+      }catch(e){ byPlan[t] = 0; }
+    }
+    STATE.admin.activeByPlan = byPlan;
+
+    try{
+      var txRes = await supa.from("transactions").select("amount");
+      if(txRes && txRes.data){
+        var sum = txRes.data.reduce(function(acc,row){ return acc + (Number(row.amount)||0); }, 0);
+        STATE.admin.totalRevenue = sum;
+      }
+    }catch(e){ STATE.admin.totalRevenue = null; }
+
+    // Үнийн формыг одоогийн pricing-ээр урьдчилан бөглөнө
+    PLAN_ORDER.forEach(function(t){
+      if(t === "free") return;
+      var p = STATE.pricing[t] || {};
+      STATE.admin.priceForm[t] = {
+        amount3m: p.price3m != null ? p.price3m : "",
+        amount1y: p.price1y != null ? p.price1y : ""
+      };
+    });
+  }catch(e){ console.error("loadAdminStats error", e); }
+  STATE.admin.loading = false;
+  STATE.admin.loaded = true;
+  render();
+}
+
+async function loadFeedbacks(){
+  if(!supa || !isAdmin()) return;
+  STATE.admin.feedbacksLoading = true; render();
+  try{
+    var res = await supa.from("feedbacks").select("id, user_id, email, content, created_at").order("created_at", {ascending:false});
+    STATE.admin.feedbacks = (res && res.data) ? res.data : [];
+  }catch(e){ console.error("loadFeedbacks error", e); STATE.admin.feedbacks = []; }
+  STATE.admin.feedbacksLoading = false;
+  STATE.admin.feedbacksLoaded = true;
+  render();
+}
+
+async function updatePackagePrice(tier){
+  if(!supa || !isAdmin()) return;
+  var form = STATE.admin.priceForm[tier] || {};
+  var p3 = form.amount3m === "" ? null : Number(form.amount3m);
+  var p1 = form.amount1y === "" ? null : Number(form.amount1y);
+  try{
+    await supa.from("packages").upsert({ tier: tier, price_3m: p3, price_1y: p1 });
+    STATE.pricing[tier] = Object.assign({}, STATE.pricing[tier], { price3m: p3, price1y: p1 });
+    toast("✅ "+(PLAN_META[tier]?PLAN_META[tier].label:tier)+"-ийн үнэ шинэчлэгдлээ");
+    render();
+  }catch(e){
+    console.error("updatePackagePrice error", e);
+    toast("⚠️ Үнэ шинэчлэхэд алдаа гарлаа");
+  }
+}
+
+async function grantUserPlan(){
+  if(!supa || !isAdmin()) return;
+  var email = (STATE.admin.grantEmail||"").trim();
+  var plan = STATE.admin.grantPlan;
+  var duration = STATE.admin.grantDuration; // "3m" | "1y"
+  if(!email){ toast("Хэрэглэгчийн и-мэйл эсвэл ID оруулна уу"); return; }
+  STATE.admin.grantBusy = true; render();
+  try{
+    var q = email.indexOf("@") >= 0
+      ? supa.from("profiles").select("id").eq("email", email).single()
+      : supa.from("profiles").select("id").eq("id", email).single();
+    var res = await q;
+    if(!res.data || !res.data.id) throw new Error("Хэрэглэгч олдсонгүй");
+    var expires = new Date();
+    if(duration === "1y") expires.setFullYear(expires.getFullYear()+1);
+    else expires.setMonth(expires.getMonth()+3);
+    await supa.from("profiles").update({
+      plan: plan,
+      plan_expires_at: expires.toISOString()
+    }).eq("id", res.data.id);
+    toast("✅ "+email+" хэрэглэгчид "+(PLAN_META[plan]?PLAN_META[plan].label:plan)+" эрх нээгдлээ");
+    STATE.admin.grantEmail = "";
+  }catch(e){
+    console.error("grantUserPlan error", e);
+    toast("⚠️ Эрх нээхэд алдаа гарлаа: "+(e.message||""));
+  }
+  STATE.admin.grantBusy = false;
+  render();
+}
+
+/* =========================================================
+   WORD HELPERS
+   ========================================================= */
+var WORDS_BY_KEY = null;
+function wordsIndex(){
+  if(!WORDS_BY_KEY || WORDS_BY_KEY.__n !== WORDS.length){
+    WORDS_BY_KEY = { __n: WORDS.length };
+    WORDS.forEach(function(w){ WORDS_BY_KEY[w.key] = w; });
+  }
+  return WORDS_BY_KEY;
+}
+function allWords(){
+  var custom = STATE.progress.customWords.map(function(w,i){
+    return {key:"c"+i, en:w.en, mn:w.mn, cat:"Хувийн", pack:null};
+  });
+  return WORDS.concat(custom);
+}
+function unlockedWords(){
+  return allWords().filter(function(w){ return !w.pack || !isPackLocked(w.pack); });
+}
+function totalWordCount(){ return TOTAL_DEFAULT + STATE.progress.customWords.length; }
+
+function getWord(key){
+  if(key.charAt(0) === "c"){
+    var idx = parseInt(key.slice(1),10);
+    var w = STATE.progress.customWords[idx];
+    return w ? {key:key, en:w.en, mn:w.mn, cat:"Хувийн", pack:null} : null;
+  }
+  return wordsIndex()[key] || null;
+}
+
+/* "Цээжлэх үгсийн сан сонгох" — Profile табанд хэрэглэгчийн сонгосон идэвхтэй pack.
+   packSubLevels() функц (доор тодорхойлогдсон) тухайн сонгосон pack-д аль pack tag-ууд
+   (жиш нь ЭЕШ + B1-B2) багтахыг буцаадаг тул үүнийг дахин ашиглана. */
+function selectedStudyPack(){
+  var p = STATE.progress.selectedPack;
+  return (STUDY_PACK_OPTIONS.indexOf(p) !== -1) ? p : "A1_A2";
+}
+function isStudyPackIncluded(wordPack){
+  if(!wordPack) return true; // хэрэглэгчийн өөрөө нэмсэн (custom) үгс үргэлж багтана
+  // Өдөр тутмын "Өнөөдөр" цэсэнд ЗӨВХӨН сонгосон багцын үгс гарч ирнэ (B1-B2-той
+  // хольж холбохгүй). Жиш нь: IELTS сонговол зөвхөн IELTS-ийн шинэ үгс л гарна.
+  // (Багцын дэлгэрэнгүй хуудсан дээрх B1-B2 дэд-таб зэрэг browsing функцэд
+  // packSubLevels()-ийг өмнөх шигээ тусад нь ашигласаар байна.)
+  return wordPack === selectedStudyPack();
+}
+async function setStudyPack(pack){
+  if(STUDY_PACK_OPTIONS.indexOf(pack) === -1) return;
+  if(isPackLocked(pack)){
+    STATE.paywallPack = pack;
+    STATE.paywallPlanFocus = null;
+    STATE.paywallReason = STATE.planJustExpired ? "plan_expired" : "pack_locked";
+    STATE.modal = "paywall";
+    render();
+    return;
+  }
+  STATE.progress.selectedPack = pack;
+  await saveProgress();
+  toast((STATE.lang==="en" ? "✅ "+studyPackLabel(pack)+" activated" : "✅ "+studyPackLabel(pack)+" идэвхжлээ"));
+  render();
+}
+function activeQueueWords(){
+  // "Мэддэг" гэж тэмдэглэсэн, аль хэдийн цээжилсэн, түгжээтэй, эсвэл хэрэглэгчийн
+  // сонгоогүй үгийн сангийн (pack) үгсийг идэвхтэй цувaанаас хасна. isStudyPackIncluded
+  // одоо зөвхөн сонгосон багцын үгсийг л зөвшөөрдөг тул энд ЗӨВХӨН тухайн багц
+  // (жиш нь IELTS сонгосон бол зөвхөн IELTS) харагдана — B1-B2-той холихгүй.
+  return unlockedWords().filter(function(w){
+    return !STATE.progress.learned[w.key] && !STATE.progress.knownWords[w.key] && isStudyPackIncluded(w.pack);
+  });
+}
+function todaysBatch(){
+  var all = activeQueueWords();
+  var perDay = getPerDay();
+  // Цээжилээгүй үлдсэн үгсээс дараагийн perDay-г авна (аль хэдийн мэддэг/цээжилсэн
+  // үгс автоматаар алгасагдана, learned дэх бичлэг устгагдахгүй тул урьдын ахиц хэвээр хадгалагдана)
+  return all.slice(0, perDay);
+}
+
+function reviewBatch(){
+  var keys = Object.keys(STATE.progress.learned);
+  var todayKeys = {};
+  todaysBatch().forEach(function(w){ todayKeys[w.key] = true; });
+  keys = keys.filter(function(k){ return !todayKeys[k]; });
+  keys.sort(function(a,b){
+    var la = STATE.progress.learned[a], lb = STATE.progress.learned[b];
+    var fa = STATE.progress.favorites[a] ? 1 : 0;
+    var fb = STATE.progress.favorites[b] ? 1 : 0;
+    if(fa !== fb) return fb - fa;
+    return (la.lastReview||0) - (lb.lastReview||0);
+  });
+  return keys.slice(0, REVIEW_PER_DAY).map(getWord).filter(Boolean);
+}
+
+function isKnown(key){ return !!STATE.progress.knownWords[key]; }
+function isLearned(key){ return !!STATE.progress.learned[key]; }
+
+async function markKnown(key){
+  if(STATE.progress.learned[key] || STATE.progress.knownWords[key]) return;
+  var w = getWord(key);
+  // "Мэддэг" гэж тэмдэглэсэн үг Цээжилсэн (learned) жагсаалт руу ОРОХГҮЙ, өөрийн тусдаа
+  // knownWords санд хадгалагдана. Ингэснээр Ахиц/Шалгалт/Streak тооцоололд холилдохгүй,
+  // харин todaysBatch/activeQueueWords дараалалд дахин гарч ирэхгүй.
+  STATE.progress.knownWords[key] = {date: todayStr()};
+  await saveProgress();
+  toast("✅ \""+(w?w.en:"")+"\" мэддэг үгэнд орлоо");
+  render();
+}
+
+async function unmarkKnown(key){
+  if(!STATE.progress.knownWords[key]) return;
+  delete STATE.progress.knownWords[key];
+  await saveProgress();
+  render();
+}
+
+function isCompletedToday(){
+  if(!STATE.progress.lastCompletionDate) return false;
+  return STATE.progress.lastCompletionDate === todayStr();
+}
+
+function todayStr(){
+  var d = new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function yesterdayStr(){
+  var d = new Date(); d.setDate(d.getDate()-1);
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+function formatDateMn(){
+  var d = new Date();
+  var months = ["1 сар","2 сар","3 сар","4 сар","5 сар","6 сар","7 сар","8 сар","9 сар","10 сар","11 сар","12 сар"];
+  return d.getFullYear()+" оны "+months[d.getMonth()]+"ын "+d.getDate();
+}
+
+/* =========================================================
+   AI ENRICHMENT
+   ========================================================= */
+async function ensureEnrichment(words){
+  var need = [];
+  for(var i=0;i<words.length;i++){
+    var w = words[i];
+    if(STATE.enrich[w.key]) continue;
+    var cached = await sGet("enrich:"+w.key);
+    if(cached){
+      try{ STATE.enrich[w.key] = JSON.parse(cached); continue; }catch(e){}
+    }
+    need.push(w);
+  }
+  if(!need.length) return true;
+
+  render(); // show skeletons while fetching
+
+  var prompt = "Чи Монгол хэлээр Англи хэл сурдаг хүнд тусалдаг туслах. Доорх Англи үг бүрийг Кирилл бичигт " +
+    "буулгасан ойролцоо дуудлагыг гаргаж өг (Монгол хүн уншиж шууд ойлгомжтой байх ёстой, жишээ нь \"mind\" -> \"майнд\"). " +
+    "ЗӨВХӨН JSON массив буцаа. Markdown тэмдэглэгээ, тайлбар, нэмэлт текст бичихгүй. Формат:\n" +
+    "[{\"i\":0,\"cyrillic\":\"...\"}]\n" +
+    "Үгс:\n" +
+    need.map(function(w,idx){ return idx+": "+w.en; }).join("\n");
+
+  try{
+    var res = await fetch("https://api.anthropic.com/v1/messages", {
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify({
+        model: "claude-sonnet-4-6",
+        max_tokens: 1000,
+        messages: [{role:"user", content: prompt}]
+      })
+    });
+    var data = await res.json();
+    var text = (data.content||[]).map(function(b){ return b.text||""; }).join("");
+    var clean = text.replace(/```json|```/g,"").trim();
+    var arr = JSON.parse(clean);
+    for(var j=0;j<arr.length;j++){
+      var item = arr[j];
+      var w2 = need[item.i];
+      if(!w2) continue;
+      var payload = {cyrillic:item.cyrillic||""};
+      STATE.enrich[w2.key] = payload;
+      await sSet("enrich:"+w2.key, JSON.stringify(payload));
+    }
+    return true;
+  }catch(e){
+    console.error("AI enrichment failed", e);
+    return false;
+  }
+}
+
+/* =========================================================
+   SPEECH
+   ========================================================= */
+var cachedVoice = null;
+function pickVoice(){
+  if(cachedVoice) return cachedVoice;
+  var voices = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+  cachedVoice = voices.find(function(v){ return /en-US/i.test(v.lang); }) ||
+                voices.find(function(v){ return /^en/i.test(v.lang); }) || null;
+  return cachedVoice;
+}
+function speak(text){
+  if(!window.speechSynthesis) return;
+  try{
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = "en-US";
+    u.rate = 0.92;
+    var v = pickVoice();
+    if(v) u.voice = v;
+    window.speechSynthesis.speak(u);
+  }catch(e){ console.error("speech failed", e); }
+}
+if(window.speechSynthesis){
+  window.speechSynthesis.onvoiceschanged = function(){ cachedVoice = null; };
+}
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+var toastTimer = null;
+function toast(msg){
+  var el = document.getElementById("toast");
+  el.textContent = msg;
+  el.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove("show"); }, 2200);
+}
+
+/* =========================================================
+   PWA : SERVICE WORKER + INSTALL PROMPT
+   ========================================================= */
+var deferredInstallPrompt = null;
+function registerServiceWorker(){
+  if(!("serviceWorker" in navigator)) return;
+  window.addEventListener("load", function(){
+    navigator.serviceWorker.register("./sw.js").then(function(reg){
+      console.log("[steppe] Service worker registered", reg.scope);
+    }).catch(function(e){ console.error("[steppe] Service worker бүртгэхэд алдаа гарлаа", e); });
+  });
+}
+window.addEventListener("beforeinstallprompt", function(ev){
+  ev.preventDefault();
+  deferredInstallPrompt = ev;
+  STATE.installPromptAvailable = true;
+  render();
+});
+window.addEventListener("appinstalled", function(){
+  deferredInstallPrompt = null;
+  STATE.installPromptAvailable = false;
+  toast("✅ Апп амжилттай суулгагдлаа");
+  render();
+});
+/* Офлайн/онлайн төлөв солигдоход хэрэглэгчид мэдэгдэнэ. Ахиц (цээжилсэн
+   үгс гэх мэт) localStorage-д хадгалагддаг тул сүлжээгүй үед ч идэвхтэй
+   хэвээр байх ба, дахин холбогдоход Supabase рүү автоматаар синк хийгдэнэ. */
+window.addEventListener("offline", function(){
+  toast("📡 Офлайн горимд шилжлээ — таны ахиц төхөөрөмж дээр хадгалагдсаар байна");
+});
+window.addEventListener("online", function(){
+  toast("✅ Дахин холбогдлоо");
+  if(STATE.user){ fetchProfilePlan().then(pullRemoteProgress).then(render); }
+});
+async function promptInstallApp(){
+  if(!deferredInstallPrompt){
+    toast("Энэ төхөөрөмж/хөтөч дээр автоматаар суулгах боломжгүй байна. Хөтчийн цэснээс \"Add to Home Screen\" сонголтыг ашиглана уу.");
+    return;
+  }
+  deferredInstallPrompt.prompt();
+  try{ await deferredInstallPrompt.userChoice; }catch(e){}
+  deferredInstallPrompt = null;
+  STATE.installPromptAvailable = false;
+  render();
+}
+
+/* =========================================================
+   NOTIFICATIONS
+   Хөтчийн Notification API ашиглан 1) сануулах, 2) урам зоригийн
+   мэдэгдэл илгээнэ. GitHub Pages зэрэг статик хостинг дээр bodit
+   push сервер байхгүй тул зөвхөн апп нээлттэй/идэвхтэй үед л
+   найдвартай ажиллана (харин зөвшөөрөл нэг л удаа асуугдана).
+   ========================================================= */
+var MOTIVATIONAL_MESSAGES = [
+  "🔥 Та өнөөдөр үнэхээр эрч хүчтэй байна! Зорилгодоо хүрэхэд ойрхон байна шүү!",
+  "🌟 Алхам алхамаар урагшилсаар байна. Өнөөдрийн шинэ үгсээ цээжилээрэй!",
+  "💪 Тууштай байдал бол амжилтын түлхүүр — үргэлжлүүлээрэй!",
+  "🚀 Streak-ээ бүү таслаарай, та өдрөөс өдөрт илүү сайжирсаар байна!",
+  "🎯 Өдөрт багаар ч гэсэн тогтмол сурах нь том ахиц авчирна!"
+];
+async function requestNotificationPermission(){
+  if(typeof Notification === "undefined"){
+    toast("Энэ хөтөч мэдэгдэл дэмждэггүй байна");
+    return;
+  }
+  try{
+    var perm = await Notification.requestPermission();
+    STATE.notifPermission = perm;
+    if(perm === "granted"){
+      toast("🔔 Мэдэгдэл идэвхжлээ");
+      scheduleDailyReminderCheck();
+    } else {
+      toast("Мэдэгдэл зөвшөөрөгдсөнгүй");
+    }
+    render();
+  }catch(e){ console.error("Notification permission error", e); }
+}
+function showLocalNotification(title, body){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  try{
+    if(navigator.serviceWorker && navigator.serviceWorker.ready){
+      navigator.serviceWorker.ready.then(function(reg){
+        if(reg && reg.showNotification){
+          reg.showNotification(title, {body: body, icon:"./sv-icon-192.png", badge:"./sv-icon-192.png"});
+        } else {
+          new Notification(title, {body: body, icon:"./sv-icon-192.png"});
+        }
+      });
+    } else {
+      new Notification(title, {body: body, icon:"./sv-icon-192.png"});
+    }
+  }catch(e){ console.error("showLocalNotification error", e); }
+}
+/* Апп нээлттэй байх үед өдөрт нэг удаа шалгаж, өнөөдрийн зорилго дутуу бол сануулна */
+function scheduleDailyReminderCheck(){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  setTimeout(async function(){
+    checkAndSendReminder();
+    setInterval(checkAndSendReminder, 60*60*1000); // цагт нэг удаа шалгана
+  }, 5000);
+}
+function checkAndSendReminder(){
+  if(typeof Notification === "undefined" || Notification.permission !== "granted") return;
+  var remaining = Math.max(0, getPerDay() - todayNewLearnedCount());
+  if(remaining > 0){
+    showLocalNotification("Steppe Vocab", "Өнөөдөр цээжлэх дутуу "+remaining+" үг байна, суралтаа үргэлжлүүлээрэй!");
+  } else if(Math.random() < 0.5){
+    var msg = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()*MOTIVATIONAL_MESSAGES.length)];
+    showLocalNotification("Steppe Vocab", msg);
+  }
+}
+function sendMotivationalNotification(){
+  var msg = MOTIVATIONAL_MESSAGES[Math.floor(Math.random()*MOTIVATIONAL_MESSAGES.length)];
+  showLocalNotification("Steppe Vocab", msg);
+}
+
+/* =========================================================
+   RENDER : SHELL
+   ========================================================= */
+function esc(s){
+  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// Жишээ өгүүлбэр доторх сурч буй үгийг бүдүүн (bold) болгож тодруулна
+function highlightWord(escapedSentence, word){
+  var w = String(word||"").replace(/^to\s+/i,"").trim();
+  if(!w || !escapedSentence) return escapedSentence;
+  var escapedWord = w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  try{
+    var re = new RegExp("\\b(" + escapedWord + ")\\w*", "ig");
+    return escapedSentence.replace(re, function(m){ return "<b>"+m+"</b>"; });
+  }catch(e){ return escapedSentence; }
+}
+
+function render(){
+  var app = document.getElementById("app");
+  var learnedCount = Object.keys(STATE.progress.learned).length;
+  var html = "";
+  html += renderTopbar();
+  html += "<div class='view'>";
+  if(STATE.tab === "today") html += renderToday();
+  else if(STATE.tab === "quiz") html += renderQuiz();
+  else if(STATE.tab === "packs") html += renderPacksTab();
+  else if(STATE.tab === "profile") html += renderProfileTab();
+  else if(STATE.tab === "admin") html += renderAdminTab();
+  else html += renderProgressTab();
+  html += "</div>";
+  html += renderTabbar();
+  app.innerHTML = html;
+  if(STATE.modal) renderModal();
+  attachHandlers();
+}
+
+function currentThemeIcon(){
+  return STATE.theme === "light" ? "☀️" : (STATE.theme === "midnight" ? "🌌" : (STATE.theme === "forest" ? "🌲" : "🌙"));
+}
+
+function renderThemeMenu(){
+  var open = STATE.themeMenuOpen ? " open" : "";
+  var items = THEME_LIST.map(function(t){
+    var active = STATE.theme === t.id ? " active" : "";
+    return "<button class='dd-item"+active+"' data-action='selectTheme' data-theme-id='"+t.id+"'>" +
+      "<span class='swatch' style='background:"+t.swatch+"'></span>"+t.label +
+      (active ? "<span class='selected-check'>✓</span>" : "") + "</button>";
+  }).join("");
+  return "<div class='theme-menu-wrap'>" +
+    "<button class='theme-toggle' data-action='toggleThemeMenu' title='Өнгөний горим'>" +
+    "<span class='tt-icon'>"+currentThemeIcon()+"</span>" +
+    "<span class='tt-label'>"+t("theme_toggle_label","Өнгө солих")+"</span>" +
+    "</button>" +
+    "<div class='dropdown-panel"+open+"'>" +
+    "<div class='dd-label'>"+t("theme_menu_label","Өнгөний горим")+"</div>" + items +
+    "</div></div>";
+}
+
+function planLabel(){ return TIER_LABEL[STATE.plan] || "Үнэгүй"; }
+
+function renderTopbar(){
+  return "<div class='topbar'>" +
+    "<div><div class='brand'><span class='logo-badge'>SV</span><span class='brand-text'>Steppe Vocab</span></div>" +
+    "<div class='date'>"+esc(formatDateMn())+"</div></div>" +
+    "<div class='topbar-right'>" +
+    "<div class='streak-chip'>🔥 "+STATE.progress.streak+"</div>" +
+    "<button class='lang-toggle' data-action='toggleLanguage' title='Хэл сэлгэх / Switch language'>"+(STATE.lang==="en"?"EN":"MN")+"</button>" +
+    renderThemeMenu() +
+    "</div></div>";
+}
+
+var TAB_ICONS = {
+  today: "<svg class='ic-svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='4'></circle><line x1='12' y1='2' x2='12' y2='5'></line><line x1='12' y1='19' x2='12' y2='22'></line><line x1='4.2' y1='4.2' x2='6.3' y2='6.3'></line><line x1='17.7' y1='17.7' x2='19.8' y2='19.8'></line><line x1='2' y1='12' x2='5' y2='12'></line><line x1='19' y1='12' x2='22' y2='12'></line><line x1='4.2' y1='19.8' x2='6.3' y2='17.7'></line><line x1='17.7' y1='6.3' x2='19.8' y2='4.2'></line></svg>",
+  quiz: "<svg class='ic-svg' viewBox='0 0 24 24' fill='none' stroke-width='2'><circle cx='12' cy='12' r='9'></circle><circle cx='12' cy='12' r='5.2'></circle><circle cx='12' cy='12' r='1.3' fill='currentColor' stroke='none'></circle></svg>",
+  progress: "<svg class='ic-svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round'><line x1='6' y1='20' x2='6' y2='12'></line><line x1='12' y1='20' x2='12' y2='6'></line><line x1='18' y1='20' x2='18' y2='15'></line></svg>",
+  packs: "<svg class='ic-svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7.5a2 2 0 0 1 2-2h4.2l1.8 2H19a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-10.5z'></path></svg>",
+  profile: "<svg class='ic-svg' viewBox='0 0 24 24' fill='none' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='8' r='3.6'></circle><path d='M4.5 20.2v-0.6a5.8 5.8 0 0 1 5.8-5.8h3.4a5.8 5.8 0 0 1 5.8 5.8v0.6'></path></svg>"
+};
+function renderTabbar(){
+  function tab(id, label){
+    var active = STATE.tab === id ? " active" : "";
+    return "<button class='tab"+active+"' data-tab='"+id+"'><span class='ic'>"+TAB_ICONS[id]+"</span>"+label+"</button>";
+  }
+  return "<div class='tabbar'>" +
+    tab("today",t("tab_today","Өнөөдөр")) +
+    tab("quiz",t("tab_quiz","Шалгалт")) +
+    tab("progress",t("tab_progress","Ахиц")) +
+    tab("packs",t("tab_packs","Багцууд")) +
+    tab("profile",t("tab_profile","Профайл")) +
+    "</div>";
+}
+
+/* =========================================================
+   RENDER : TODAY
+   ========================================================= */
+function sunArcSVG(pct){
+  var r = 26, cx = 32, cy = 32;
+  var circumference = Math.PI * r; // half circle path length approx via arc
+  var dash = Math.max(0, Math.min(1,pct)) * (Math.PI * r);
+  return "<svg width='64' height='40' viewBox='0 0 64 40'>" +
+    "<path d='M 6 34 A 26 26 0 0 1 58 34' fill='none' stroke='rgba(255,255,255,0.12)' stroke-width='5' stroke-linecap='round'/>" +
+    "<path d='M 6 34 A 26 26 0 0 1 58 34' fill='none' stroke='#e0a847' stroke-width='5' stroke-linecap='round' " +
+      "stroke-dasharray='"+dash.toFixed(1)+" 999'/>" +
+    "<circle cx='32' cy='"+(34-pct*22).toFixed(1)+"' r='5' fill='#e0a847'/>" +
+    "</svg>";
+}
+
+function renderToday(){
+  var batch = todaysBatch();
+  var review = reviewBatch();
+  var completedToday = isCompletedToday();
+  var dayNum = STATE.progress.completedDays + 1;
+  var html = "";
+
+  // local "today progress" = how many of today's words have been flipped/viewed at least once
+  var viewedCount = batch.filter(function(w){ return STATE.todayFlip[w.key]; }).length;
+  var pct = batch.length ? viewedCount / batch.length : (completedToday ? 1 : 0);
+
+  html += "<div class='sun-wrap'>" + sunArcSVG(completedToday?1:pct) +
+    "<div class='copy'><div class='title'>"+(STATE.lang==="en" ? (I18N_EN.day_n+" "+dayNum) : (dayNum+"-р өдөр"))+"</div>" +
+    "<div class='sub'>"+(completedToday ? t("today_goal_done","Өнөөдрийн зорилго биелсэн ✅") : (batch.length ? viewedCount+"/"+batch.length+" "+t("words_viewed","үгийг үзсэн") : t("no_new_words","Шинэ үг үлдсэн байхгүй"))) +
+    " · "+t("total_label","Нийт")+" "+Object.keys(STATE.progress.learned).length+"/"+totalWordCount()+"</div>" +
+    "<div class='sub' style='margin-top:2px;'>🎯 "+(STATE.progress.goalsCompleted||0)+" "+t("goals_completed_short","зорилго биелсэн")+"</div></div></div>";
+
+  if(!batch.length){
+    html += "<div class='empty'><div class='e-icon'>🌅</div>" +
+      "<div class='e-title'>"+t("all_caught_up","Бэлэн үг дууссан байна")+"</div>" +
+      "<div class='e-sub'>"+t("add_own_words_sub","Та өөрийн шинэ үгсээ нэмж, цээжлэлтээ үргэлжлүүлээрэй.")+"</div>" +
+      "<button class='btn-primary' data-action='openAdd' style='margin-top:16px;'>"+t("add_new_word_short","+ Шинэ үг нэмэх")+"</button></div>";
+  } else {
+    html += "<div class='section-label'><div class='t'>"+t("new_words","Шинэ үг")+"</div><div class='n'>"+batch.length+"</div></div>";
+    html += "<div class='cards-grid'>";
+    batch.forEach(function(w){ html += renderCard(w); });
+    html += "</div>";
+
+    if(review.length){
+      html += "<div class='section-label'><div class='t'>"+t("review","Давталт")+"</div><div class='n'>"+review.length+"</div></div>";
+      html += "<div class='cards-grid'>";
+      review.forEach(function(w){ html += renderCard(w); });
+      html += "</div>";
+    }
+
+    html += "<button class='btn-primary' data-action='completeDay' "+(completedToday?"disabled":"")+">" +
+      (completedToday ? t("goal_done_btn","✅ Өнөөдрийн зорилго дууссан") : t("complete_goal_btn","Өнөөдрийн зорилгоо дуусгах")) + "</button>";
+  }
+  return html;
+}
+
+function renderCard(w){
+  var e = STATE.enrich[w.key];
+  var flipped = !!STATE.todayFlip[w.key];
+  var fav = !!STATE.progress.favorites[w.key];
+  var exampleBlock = w.example_en ?
+    ("<span class='ex-label'>Example</span><span class='ex-text'>"+esc(w.example_en)+"</span>") :
+    "&nbsp;";
+  var backExampleBlock = w.example_en ?
+    ("<span class='ex-label'>Example</span><span class='ex-text'>"+highlightWord(esc(w.example_en), w.en)+"</span>" +
+     (w.example_mn ? "<span class='ex-text-mn'>"+esc(w.example_mn)+"</span>" : "")) :
+    "&nbsp;";
+  var cyr = e ? esc(e.cyrillic) : "";
+  var pronHtml = e ? (cyr ? ("🗣 "+cyr) : "") : "<span class='skeleton-line'></span>";
+
+  return "<div class='card-scene'>" +
+    "<div class='card"+(flipped?" flipped":"")+"' data-flip='"+w.key+"'>" +
+      "<div class='face front'>" +
+        "<div class='top-row'><span class='tag'>"+esc(w.cat)+"</span><span class='tap-hint'>"+t("tap_to_flip","Дарж эргүүл")+"</span></div>" +
+        "<div class='word'>"+esc(w.en)+"</div>" +
+        "<div class='example'>"+exampleBlock+"</div>" +
+        "<div class='spacer'></div>" +
+        "<div class='btn-row'>" +
+          "<button class='icon-btn' data-action='listen' data-word='"+esc(w.en)+"'>🔊</button>" +
+          "<button class='icon-btn fav"+(fav?" active":"")+"' data-action='fav' data-key='"+w.key+"'>⭐</button>" +
+        "</div>" +
+      "</div>" +
+      "<div class='face back'>" +
+        "<div class='top-row'><span class='tag'>"+esc(w.cat)+"</span><span class='tap-hint'>"+t("tap_to_flip","Дарж эргүүл")+"</span></div>" +
+        "<div class='mn'>"+esc(w.mn)+"</div>" +
+        "<div class='pron'>"+pronHtml+"</div>" +
+        "<div class='example'>"+backExampleBlock+"</div>" +
+        "<div class='spacer'></div>" +
+        "<div class='btn-row'>" +
+          "<button class='icon-btn' data-action='listen' data-word='"+esc(w.en)+"'>🔊</button>" +
+          "<button class='icon-btn fav"+(fav?" active":"")+"' data-action='fav' data-key='"+w.key+"'>⭐</button>" +
+        "</div>" +
+      "</div>" +
+    "</div></div>";
+}
+
+/* =========================================================
+   RENDER : QUIZ
+   ========================================================= */
+function learnedWordObjs(){
+  return Object.keys(STATE.progress.learned).map(getWord).filter(Boolean);
+}
+
+/* Шалгалтын шүүлтүүр: "today" (өнөөдөр цээжилсэн), "week" (сүүлийн 7 хоногт цээжилсэн,
+   өнөөдрийг оруулаад), "old" (сүүлийн 7 хоногоос өмнө цээжилсэн, мартагдах магадлалтай),
+   "all" (бүх цээжилсэн үг — өмнөх байдлаараа). */
+var QUIZ_FILTER_LABEL_MN = {
+  all:   "Бүх цээжилсэн үг",
+  today: "Өнөөдөр цээжилсэн",
+  yesterday: "Өчигдөр цээжилсэн",
+  week:  "Сүүлийн 7 хоногт",
+  old:   "Хуучин үгс"
+};
+var QUIZ_FILTER_I18N_KEY = { all:"quiz_filter_all", today:"quiz_filter_today", yesterday:"quiz_filter_yesterday", week:"quiz_filter_week", old:"quiz_filter_old" };
+var QUIZ_FILTER_LABEL = new Proxy(QUIZ_FILTER_LABEL_MN, {
+  get: function(target, prop){ return t(QUIZ_FILTER_I18N_KEY[prop], target[prop]); }
+});
+function quizFilterPool(filter){
+  var today = todayStr();
+  var cutoff = Date.now() - 7*24*60*60*1000;
+  var keys = Object.keys(STATE.progress.learned);
+  if(filter === "today"){
+    keys = keys.filter(function(k){ return STATE.progress.learned[k].learnedDate === today; });
+  } else if(filter === "yesterday"){
+    var yest = yesterdayStr();
+    keys = keys.filter(function(k){ return STATE.progress.learned[k].learnedDate === yest; });
+  } else if(filter === "week"){
+    keys = keys.filter(function(k){
+      var ld = STATE.progress.learned[k].learnedDate;
+      if(!ld) return false;
+      var t = new Date(ld+"T00:00:00").getTime();
+      return !isNaN(t) && t >= cutoff;
+    });
+  } else if(filter === "old"){
+    keys = keys.filter(function(k){
+      var ld = STATE.progress.learned[k].learnedDate;
+      if(!ld) return true;
+      var t = new Date(ld+"T00:00:00").getTime();
+      return isNaN(t) || t < cutoff;
+    });
+  }
+  return keys.map(getWord).filter(Boolean);
+}
+function setQuizFilter(filter){
+  STATE.quizFilter = filter;
+  render();
+}
+
+function startQuiz(mode){
+  var pool = quizFilterPool(STATE.quizFilter);
+  if(pool.length < 4){
+    toast("Энэ ангилалд хамгийн багадаа 4 цээжилсэн үг хэрэгтэй ("+esc(QUIZ_FILTER_LABEL[STATE.quizFilter])+")");
+    return;
+  }
+  var shuffled = pool.slice().sort(function(){ return Math.random()-0.5; });
+  var len = Math.min(QUIZ_LEN, shuffled.length);
+  STATE.quizSession = {
+    mode: mode,
+    queue: shuffled.slice(0, len),
+    index: 0,
+    correct: 0,
+    answered: null,
+    options: null,
+    spellingInput: ""
+  };
+  buildQuizQuestion();
+  render();
+}
+
+function buildQuizQuestion(){
+  var s = STATE.quizSession;
+  var w = s.queue[s.index];
+  s.answered = null;
+  if(s.mode === "spelling"){
+    s.spellingInput = "";
+    s.options = null;
+    return;
+  }
+
+  // Сүүлийн 2 өдрийн цээжилсэн үгс (өнөөдөр + өчигдөр = 16 үг орчим)
+  var today = todayStr();
+  var yesterday = yesterdayStr();
+  var recentKeys = Object.keys(STATE.progress.learned).filter(function(k){
+    var ld = STATE.progress.learned[k];
+    return ld.learnedDate === today || ld.learnedDate === yesterday;
+  });
+  var recentPool = recentKeys.map(getWord).filter(Boolean);
+
+  // Хэрэв сүүлийн 2 өдрийн үг 4-өөс бага бол нийт үгийн сангаас нөхнө
+  var fallbackPool = WORDS.concat(STATE.progress.customWords.map(function(c,i){
+    return {key:"c"+i, en:c.en, mn:c.mn};
+  }));
+  var distPool = recentPool.length >= 4 ? recentPool : fallbackPool;
+
+  var options;
+  if(s.mode === "translate" || s.mode === "listen"){
+    // Асуулт нь Англи үг → сонголтууд болон зөв хариулт нь МОНГОЛ байх ёстой
+    var distractors = distPool.filter(function(x){
+      return x.key !== w.key && x.mn !== w.mn;
+    }).sort(function(){ return Math.random()-0.5; }).slice(0,3);
+    options = distractors.map(function(d){ return {label:d.mn, correct:false}; });
+    options.push({label:w.mn, correct:true});
+  } else { // reverse
+    // Асуулт нь Монгол үг → сонголтууд болон зөв хариулт нь АНГЛИ байх ёстой
+    var distractors = distPool.filter(function(x){
+      return x.key !== w.key && x.en !== w.en;
+    }).sort(function(){ return Math.random()-0.5; }).slice(0,3);
+    options = distractors.map(function(d){ return {label:d.en, correct:false}; });
+    options.push({label:w.en, correct:true});
+  }
+  options.sort(function(){ return Math.random()-0.5; });
+  s.options = options;
+  s.answered = null;
+}
+
+function buildSpellingHint(word, typed){
+  typed = typed || "";
+  var out = [];
+  for(var i=0;i<word.length;i++){
+    if(i===0){
+      out.push("<span class='hl first'>"+esc(word[i].toUpperCase())+"</span>");
+      continue;
+    }
+    if(i===word.length-1){
+      out.push("<span class='hl last'>"+esc(word[i].toUpperCase())+"</span>");
+      continue;
+    }
+    var typedChar = typed.charAt(i);
+    if(typedChar && typedChar.toLowerCase() !== word[i].toLowerCase()){
+      out.push("<span class='hl wrong'>⛔</span>");
+    } else {
+      out.push("<span class='hl dash'>-</span>");
+    }
+  }
+  return out.join("");
+}
+
+function submitSpelling(){
+  var s = STATE.quizSession;
+  if(!s || s.mode !== "spelling" || s.answered !== null) return;
+  var w = s.queue[s.index];
+  var typed = (s.spellingInput||"").trim();
+  var correct = typed.length > 0 && typed.toLowerCase() === w.en.trim().toLowerCase();
+  s.answered = correct;
+  if(correct) s.correct++;
+  render();
+}
+
+function renderQuiz(){
+  var s = STATE.quizSession;
+  if(!s){
+    var pool = quizFilterPool(STATE.quizFilter);
+    var html = "<div class='section-label' style='margin-top:0;'><div class='t'>"+t("choose_word_pool","Үгийн сан сонгох")+"</div></div>";
+    html += "<div class='pill-row'>";
+    ["all","today","yesterday","week","old"].forEach(function(f){
+      html += "<button class='pill"+(STATE.quizFilter===f?" active":"")+"' data-action='setQuizFilter' data-filter='"+f+"'>"+esc(QUIZ_FILTER_LABEL[f])+"</button>";
+    });
+    html += "</div>";
+    html += "<div class='section-label'><div class='t'>"+t("choose_quiz_type","Шалгалтын төрөл сонгох")+"</div><div class='n'>"+pool.length+" "+t("words_ready","үг бэлэн")+"</div></div>";
+    html += "<button class='quiz-card' data-action='startQuiz' data-mode='translate' style='width:100%;'>" +
+      "<div class='q-main'>🇬🇧 → 🇲🇳</div><div class='q-sub'>"+t("quiz_translate_sub","Англи үгийг харж монгол орчуулгыг сонго")+"</div></button>";
+    html += "<button class='quiz-card' data-action='startQuiz' data-mode='reverse' style='width:100%;'>" +
+      "<div class='q-main'>🇲🇳 → 🇬🇧</div><div class='q-sub'>"+t("quiz_reverse_sub","Монгол орчуулгыг харж англи үгийг сонго")+"</div></button>";
+    html += "<button class='quiz-card' data-action='startQuiz' data-mode='listen' style='width:100%;'>" +
+      "<div class='q-main'>"+t("quiz_listen_title","🎧 Сонсголын шалгалт")+"</div><div class='q-sub'>"+t("quiz_listen_sub","Дуудлагыг сонсоод зөв үгийг сонго")+"</div></button>";
+    html += "<button class='quiz-card' data-action='startQuiz' data-mode='spelling' style='width:100%;'>" +
+      "<div class='q-main'>"+t("quiz_spelling_title","⌨️ Үг бичих дасгал")+"</div><div class='q-sub'>"+t("quiz_spelling_sub","Монгол орчуулгыг харж, англи үгийг зөв бичнэ үү")+"</div></button>";
+    return html;
+  }
+  if(s.index >= s.queue.length){
+    var pct2 = Math.round(100*s.correct/s.queue.length);
+    return "<div class='score-screen'>" +
+      "<div class='big-num'>"+s.correct+"/"+s.queue.length+"</div>" +
+      "<div class='label'>"+pct2+"% "+t("percent_correct","зөв хариулсан")+"</div>" +
+      "<button class='btn-primary' data-action='retryQuiz' data-mode='"+s.mode+"'>"+t("retry_quiz","Дахин шалгах")+"</button>" +
+      "<button class='btn-ghost' data-action='exitQuiz' style='margin-top:10px;'>"+t("back_to_quiz_menu","Шалгалтын цэс рүү буцах")+"</button>" +
+      "</div>";
+  }
+  var w = s.queue[s.index];
+  var html = "";
+  html += "<div class='quiz-progress'><span>"+(s.index+1)+" / "+s.queue.length+"</span><span>✓ "+s.correct+"</span></div>";
+  html += "<div class='quiz-bar'><div class='fill' style='width:"+(100*s.index/s.queue.length)+"%'></div></div>";
+
+  if(s.mode === "spelling"){
+    var typed = s.spellingInput || "";
+    html += "<div class='quiz-card'><div class='q-eyebrow'>"+t("spelling_prompt","Орчуулгыг харж англи үгийг бич")+"</div><div class='q-main' style='font-size:21px;'>"+esc(w.mn)+"</div></div>";
+    html += "<div class='spelling-wrap'>" +
+      "<div class='spelling-input-row'>" +
+        "<input id='spellingInput' class='spelling-input' type='text' autocomplete='off' autocapitalize='off' autocorrect='off' spellcheck='false' value='"+esc(typed)+"' "+(s.answered!==null?"disabled":"")+"/>" +
+        "<span class='spelling-count'>"+typed.length+"/"+w.en.length+"</span>" +
+      "</div>" +
+      "<div class='spelling-hint'>"+buildSpellingHint(w.en, typed)+"</div>" +
+    "</div>";
+    if(s.answered === null){
+      html += "<button class='btn-primary' data-action='submitSpelling'>"+t("check_btn","Шалгах")+"</button>";
+    } else {
+      if(!s.answered){
+        html += "<div class='spelling-answer'>"+t("correct_answer","Зөв хариулт:")+" <b>"+esc(w.en)+"</b></div>";
+      }
+      html += "<button class='btn-primary' data-action='nextQuiz'>"+(s.index+1 < s.queue.length ? t("next_question","Дараах асуулт") : t("view_results","Үр дүн харах"))+"</button>";
+    }
+    return html;
+  }
+
+  if(s.mode === "translate"){
+    html += "<div class='quiz-card'><div class='q-eyebrow'>"+t("choose_translation","Орчуулгыг сонго")+"</div><div class='q-main'>"+esc(w.en)+"</div></div>";
+  } else if(s.mode === "reverse"){
+    html += "<div class='quiz-card'><div class='q-eyebrow'>"+t("choose_english_word","Англи үгийг сонго")+"</div><div class='q-main'>"+esc(w.mn)+"</div></div>";
+  } else {
+    html += "<div class='quiz-card'><div class='q-eyebrow'>"+t("listen_choose_word","Сонсож зөв үгийг сонго")+"</div>" +
+      "<button class='listen-big' data-action='listen' data-word='"+esc(w.en)+"'>🔊</button></div>";
+  }
+
+  html += "<div class='opt-grid'>";
+  s.options.forEach(function(opt, i){
+    var cls = "opt";
+    var disabled = s.answered !== null ? "disabled" : "";
+    if(s.answered !== null){
+      if(opt.correct) cls += " correct";
+      else if(i === s.answered && !opt.correct) cls += " wrong";
+    }
+    html += "<button class='"+cls+"' "+disabled+" data-action='answerQuiz' data-idx='"+i+"'>"+esc(opt.label)+"</button>";
+  });
+  html += "</div>";
+
+  if(s.answered !== null){
+    html += "<button class='btn-primary' data-action='nextQuiz'>"+(s.index+1 < s.queue.length ? t("next_question","Дараах асуулт") : t("view_results","Үр дүн харах"))+"</button>";
+  }
+  return html;
+}
+
+/* =========================================================
+   RENDER : LEARNED WORDS ("Цээжилсэн")
+   ========================================================= */
+function learnedCategories(){
+  var cats = {};
+  Object.keys(STATE.progress.learned).forEach(function(k){
+    var w = getWord(k);
+    if(w) cats[w.cat] = true;
+  });
+  return Object.keys(cats).sort();
+}
+
+function formatLearnedDate(ds){
+  if(!ds) return "";
+  var parts = ds.split("-");
+  if(parts.length !== 3) return ds;
+  var months = ["1-р сар","2-р сар","3-р сар","4-р сар","5-р сар","6-р сар","7-р сар","8-р сар","9-р сар","10-р сар","11-р сар","12-р сар"];
+  var mi = parseInt(parts[1],10)-1;
+  return parts[0]+" оны "+(months[mi]||parts[1])+"ын "+parseInt(parts[2],10);
+}
+
+// Сүүлийн 7 хоногийн турш өдөр бүр хэдэн үг цээжилсэнийг тоолно (жинхэнэ өгөгдлөөс)
+function weeklyLearnedCounts(){
+  var days = [];
+  var labels = STATE.lang === "en" ? ["Su","Mo","Tu","We","Th","Fr","Sa"] : ["Ня","Да","Мя","Лх","Пү","Ба","Бя"];
+  var counts = {};
+  for(var i=6;i>=0;i--){
+    var d = new Date(); d.setDate(d.getDate()-i);
+    var key = d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+    days.push({key:key, label: labels[d.getDay()]});
+    counts[key] = 0;
+  }
+  Object.keys(STATE.progress.learned).forEach(function(k){
+    var ld = STATE.progress.learned[k].learnedDate;
+    if(ld && counts.hasOwnProperty(ld)) counts[ld]++;
+  });
+  return days.map(function(d){ return {label:d.label, count: counts[d.key]}; });
+}
+
+function renderWeeklyChart(){
+  var data = weeklyLearnedCounts();
+  var max = Math.max(1, Math.max.apply(null, data.map(function(d){ return d.count; })));
+  var bars = data.map(function(d){
+    var h = Math.round((d.count/max)*64) + (d.count>0 ? 4 : 0);
+    return "<div class='chart-col'>" +
+      "<div class='chart-bar-track'><div class='chart-bar' style='height:"+h+"px'></div></div>" +
+      "<div class='chart-n'>"+d.count+"</div>" +
+      "<div class='chart-lbl'>"+d.label+"</div>" +
+      "</div>";
+  }).join("");
+  return "<div class='chart-wrap'>" +
+    "<div class='section-label' style='margin-top:0;'><div class='t'>Сүүлийн 7 хоног</div></div>" +
+    "<div class='chart-bars'>"+bars+"</div></div>";
+}
+
+function renderProgressTab(){
+  var learnedCount = Object.keys(STATE.progress.learned).length;
+  var knownCount = Object.keys(STATE.progress.knownWords).length;
+  var total = totalWordCount();
+  var pct = total ? Math.round(100*learnedCount/total) : 0;
+  var html = "";
+
+  html += "<div class='sun-wrap'>" + sunArcSVG(total?learnedCount/total:0) +
+    "<div class='copy'><div class='title'>"+pct+"% "+t("percent_completed","дуусгасан")+"</div>" +
+    "<div class='sub'>"+t("learned_label","Цээжилсэн")+": "+learnedCount+" / "+total+"</div></div></div>";
+
+  html += "<div class='stat-grid' style='margin-top:14px;'>" +
+    "<div class='stat-box'><div class='num'>"+STATE.progress.streak+"</div><div class='lbl'>"+t("day_streak","өдөр дараалан")+"</div></div>" +
+    "<div class='stat-box'><div class='num'>"+STATE.progress.completedDays+"</div><div class='lbl'>"+t("goals_completed_lbl","зорилго биелсэн")+"</div></div>" +
+    "</div>";
+
+  html += renderWeeklyChart();
+
+  // "Цээжилсэн" / "Мэддэг" сэлгүүр — жижиг, цэвэрхэн pill хос
+  html += "<div class='pill-row' style='margin-top:22px; margin-bottom:0;'>" +
+    "<button class='pill"+(STATE.progressSubTab==="learned"?" active":"")+"' data-action='setProgressSubTab' data-subtab='learned'>"+t("learned_pill","🎓 Цээжилсэн")+" ("+learnedCount+")</button>" +
+    "<button class='pill"+(STATE.progressSubTab==="known"?" active":"")+"' data-action='setProgressSubTab' data-subtab='known'>"+t("known_pill","✓ Мэддэг")+" ("+knownCount+")</button>" +
+    "</div>";
+
+  if(STATE.progressSubTab === "known"){
+    html += renderKnownWordsBlock(knownCount);
+  } else {
+    html += renderLearnedWordsBlock(learnedCount);
+  }
+  return html;
+}
+
+function renderLearnedWordsBlock(learnedCount){
+  var html = "<div class='section-label'><div class='t'>"+t("learned_words","Цээжилсэн үгс")+"</div><div class='n'>"+learnedCount+"</div></div>";
+
+  var entries = Object.keys(STATE.progress.learned).map(function(k){
+    var w = getWord(k);
+    if(!w) return null;
+    return {word:w, meta: STATE.progress.learned[k]};
+  }).filter(Boolean);
+
+  if(!entries.length){
+    html += "<div class='empty'><div class='e-icon'>🎓</div>" +
+      "<div class='e-title'>"+t("no_learned_yet","Цээжилсэн үг алга")+"</div>" +
+      "<div class='e-sub'>"+t("no_learned_sub","Өдөр тутмын зорилгоо биелүүлж, эхний үгсээ цээжлээрэй.")+"</div></div>";
+    return html;
+  }
+
+  html += "<div class='search-bar'><span>🔎</span><input id='learnedSearchInput' placeholder='"+t("search_learned_ph","Цээжилсэн үгээс хайх...")+"' value='"+esc(STATE.learnedQuery)+"'/></div>";
+
+  var cats = learnedCategories();
+  html += "<div class='pill-row'>";
+  html += "<button class='pill"+(STATE.learnedFilterCat==="all"?" active":"")+"' data-action='learnedFilter' data-cat='all'>"+t("all_pill","Бүгд")+"</button>";
+  cats.forEach(function(c){
+    html += "<button class='pill"+(STATE.learnedFilterCat===c?" active":"")+"' data-action='learnedFilter' data-cat='"+esc(c)+"'>"+esc(c)+"</button>";
+  });
+  html += "</div>";
+
+  var q = STATE.learnedQuery.trim().toLowerCase();
+  var filtered = entries.filter(function(e){
+    if(STATE.learnedFilterCat !== "all" && e.word.cat !== STATE.learnedFilterCat) return false;
+    if(!q) return true;
+    return e.word.en.toLowerCase().indexOf(q) >= 0 || e.word.mn.toLowerCase().indexOf(q) >= 0;
+  }).sort(function(a,b){
+    return (b.meta.learnedDate||"").localeCompare(a.meta.learnedDate||"");
+  });
+
+  filtered.forEach(function(e){
+    var w = e.word, m = e.meta;
+    var learnedExampleBlock = w.example_en ?
+      ("<span class='ex-label'>Example</span><span class='ex-text'>"+highlightWord(esc(w.example_en), w.en)+"</span>" +
+       (w.example_mn ? "<span class='ex-text-mn'>"+esc(w.example_mn)+"</span>" : "")) :
+      "";
+    html += "<div class='word-row' style='flex-wrap:wrap;'>" +
+      "<div style='min-width:0;flex:1;display:flex;align-items:center;justify-content:space-between;gap:10px;'>" +
+        "<div style='min-width:0;'>" +
+          "<div class='w-en'>"+esc(w.en)+"</div>" +
+          "<div class='w-mn'>"+esc(w.mn)+"</div>" +
+          "<div class='cat-tag' style='margin-top:4px;'>"+esc(w.cat)+" · "+t("reviewed_x","давталт")+" "+(m.reviewCount||0)+(STATE.lang==="en"?"x":" удаа")+" · "+esc(formatLearnedDate(m.learnedDate))+"</div>" +
+        "</div>" +
+        "<div style='display:flex; gap:6px; flex-shrink:0;'>" +
+          "<button class='icon-btn' data-action='listen' data-word='"+esc(w.en)+"' title='"+t("listen_title","Сонсох")+"'>🔊</button>" +
+          "<button class='icon-btn' data-action='reviewWord' data-key='"+w.key+"' title='"+t("add_to_review_title","Давтах жагсаалт руу нэмэх")+"'>🔁</button>" +
+        "</div>" +
+      "</div>" +
+      (learnedExampleBlock ? "<div class='example' style='width:100%; margin-top:10px;'>"+learnedExampleBlock+"</div>" : "") +
+    "</div>";
+  });
+
+  if(!filtered.length){
+    html += "<div class='empty'><div class='e-icon'>🔍</div><div class='e-title'>"+t("no_results","Илэрц олдсонгүй")+"</div></div>";
+  }
+  return html;
+}
+
+/* "Мэддэг" гэж тэмдэглэсэн (Цээжилсэн-ээс тусдаа) үгсийн жагсаалт — цэвэрхэн, дотроо хайлттай */
+function renderKnownWordsBlock(knownCount){
+  var html = "<div class='section-label'><div class='t'>"+t("known_words","Мэддэг үгс")+"</div><div class='n'>"+knownCount+"</div></div>";
+
+  var entries = Object.keys(STATE.progress.knownWords).map(function(k){
+    var w = getWord(k);
+    if(!w) return null;
+    return {word:w, meta: STATE.progress.knownWords[k]};
+  }).filter(Boolean);
+
+  if(!entries.length){
+    html += "<div class='empty'><div class='e-icon'>✓</div>" +
+      "<div class='e-title'>"+t("no_known_yet","Мэддэг гэж тэмдэглэсэн үг алга")+"</div>" +
+      "<div class='e-sub'>"+t("no_known_sub","Багц дотор аль хэдийн мэддэг үгээ ✓ товчоор тэмдэглэвэл эндээс харагдана.")+"</div></div>";
+    return html;
+  }
+
+  html += "<div class='search-bar'><span>🔎</span><input id='knownSearchInput' placeholder='"+t("search_known_ph","Мэддэг үгээс хайх...")+"' value='"+esc(STATE.knownQuery)+"'/></div>";
+
+  var q = STATE.knownQuery.trim().toLowerCase();
+  var filtered = entries.filter(function(e){
+    if(!q) return true;
+    return e.word.en.toLowerCase().indexOf(q) >= 0 || e.word.mn.toLowerCase().indexOf(q) >= 0;
+  }).sort(function(a,b){
+    return (b.meta.date||"").localeCompare(a.meta.date||"");
+  });
+
+  filtered.forEach(function(e){
+    var w = e.word, m = e.meta;
+    html += "<div class='word-row'>" +
+      "<div style='min-width:0;'>" +
+        "<div class='w-en'>"+esc(w.en)+"</div>" +
+        "<div class='w-mn'>"+esc(w.mn)+"</div>" +
+        "<div class='cat-tag' style='margin-top:4px;'>"+esc(w.cat)+" · "+esc(formatLearnedDate(m.date))+"</div>" +
+      "</div>" +
+      "<div style='display:flex; gap:6px; flex-shrink:0;'>" +
+        "<button class='icon-btn' data-action='listen' data-word='"+esc(w.en)+"' title='"+t("listen_title","Сонсох")+"'>🔊</button>" +
+        "<button class='icon-btn' data-action='unmarkKnown' data-key='"+w.key+"' title='"+t("back_to_review_title","Дахин суралцах жагсаалт руу буцаах")+"'>↩️</button>" +
+      "</div>" +
+    "</div>";
+  });
+
+  if(!filtered.length){
+    html += "<div class='empty'><div class='e-icon'>🔍</div><div class='e-title'>"+t("no_results","Илэрц олдсонгүй")+"</div></div>";
+  }
+  return html;
+}
+
+/* =========================================================
+   RENDER : PACKS TAB ("Багцууд")
+   ========================================================= */
+function packWordStats(pack){
+  var words = WORDS.filter(function(w){ return w.pack === pack; });
+  var learned = words.filter(function(w){ return STATE.progress.learned[w.key]; }).length;
+  return {total: words.length, learned: learned};
+}
+
+/* Тухайн багц (pack) руу орж "Үгс үзэх"/хайлт хийхэд харуулах бүрэн үгийн жагсаалт.
+   Энэ нь багцын карт дээр харуулсан тоо (B1-B2-г EYESH/IELTS/C1-C2-д нэгтгэдэг,
+   PREMIUM бол бүх үгийг агуулдаг) логикт яг тохирсон байх ёстой. Өдрийн лимит
+   (dailyGoal) болон "сурсан" (learned) төлөвөөс ЯЛГААГҮЙ — багцад харьяалагдах
+   БҮХ үгийг буцаана. */
+function packDetailWords(pack){
+  if(pack === "PREMIUM") return WORDS.slice();
+  var own = WORDS.filter(function(w){ return w.pack === pack; });
+  if(pack === "A1_A2" || pack === "B1_B2") return own;
+  var b1b2 = WORDS.filter(function(w){ return w.pack === "B1_B2"; });
+  return own.concat(b1b2);
+}
+
+/* Тухайн "багц" (жиш нь ЭЕШ, Premium) дотор бодитоор ямар түвшний (pack tag) үгс
+   орсныг заана — багцын дэлгэрэнгүй хуудсан дээрх түвшний дэд табуудыг үүнээс үүсгэнэ. */
+var LEVEL_TAB_LABEL = {
+  A1_A2:"A1-A2", B1_B2:"B1-B2", EYESH:"ЭЕШ", IELTS:"IELTS", C1_C2:"C1-C2"
+};
+function packSubLevels(pack){
+  if(pack === "PREMIUM") return ["A1_A2","B1_B2","EYESH","IELTS","C1_C2"];
+  if(pack === "A1_A2" || pack === "B1_B2") return [pack];
+  return [pack, "B1_B2"]; // EYESH / IELTS / C1_C2 нь B1-B2-той нэгтгэгдсэн
+}
+
+/* Үгийн багц доторх үгсийг 80, 80-аар нь "цонх" (chunk) болгон нээнэ. Эхний 80 үг
+   үргэлж харагдана; тухайн 80 үгийг бүгдийг нь "Мэднэ" эсвэл "Цээжилсэн" болгосны
+   дараа л дараагийн 80 үг автоматаар нээгдэж харагдана. Ингэснээр өмнөх алдаа
+   (эхний 80-аас цааш үг гарч ирэхгүй гацдаг байсан) засагдана. */
+const PACK_WORD_CHUNK_SIZE = 80;
+function packVisibleWords(words){
+  var visibleCount = 0;
+  for(var i=0; i<words.length; i+=PACK_WORD_CHUNK_SIZE){
+    var chunk = words.slice(i, i+PACK_WORD_CHUNK_SIZE);
+    visibleCount += chunk.length;
+    var chunkDone = chunk.every(function(w){ return isLearned(w.key) || isKnown(w.key); });
+    if(!chunkDone) break; // энэ цонх дуусаагүй байгаа тул дараагийн цонхыг нээхгүй
+  }
+  return words.slice(0, visibleCount);
+}
+
+function renderPacksTab(){
+  var html = "";
+
+  if(STATE.packsOpenPack){
+    var pack = STATE.packsOpenPack;
+    var meta = PACK_META[pack];
+    var locked = isPackLocked(pack);
+    var recTier = packRecommendedTier(pack);
+    html += "<button class='btn-ghost' data-action='closePack' style='margin-bottom:14px;'>"+t("back_all_packs","← Бүх багц руу буцах")+"</button>";
+    html += "<div class='section-label' style='margin-top:0;'><div class='t'>"+esc(meta.label)+"</div>" +
+      (meta.unlocks.indexOf("free")===-1 ? "<div class='n'><span class='tier-badge "+recTier+"'>"+esc(TIER_LABEL[recTier])+"</span></div>" : "") + "</div>";
+
+    if(locked){
+      var lockTitle = STATE.planJustExpired ? t("plan_expired_title","Таны багцын хугацаа дууссан") : t("pack_locked_title","Энэ багц түгжээтэй");
+      var lockSub = STATE.planJustExpired
+        ? t("plan_expired_sub","Суралтаа үргэлжлүүлэхийн тулд багцаа сунгана уу.")
+        : (STATE.lang==="en" ? (I18N_EN.pack_locked_sub_prefix+" "+TIER_LABEL[recTier]+" "+I18N_EN.pack_locked_sub_suffix) : ("Нээхийн тулд "+esc(TIER_LABEL[recTier])+" багцад шилжинэ үү."));
+      html += "<div class='empty'><div class='e-icon'>🔒</div>" +
+        "<div class='e-title'>"+lockTitle+"</div>" +
+        "<div class='e-sub'>"+lockSub+"</div>" +
+        "<button class='btn-primary' data-action='openPaywall' data-pack='"+pack+"' style='margin-top:16px;'>"+t("upgrade_plan_btn","Багцаа ахиулах")+"</button></div>";
+      return html;
+    }
+
+    var levels = packSubLevels(pack);
+    if(levels.length > 1){
+      html += "<div class='pill-row' style='margin-bottom:10px;'>";
+      html += "<button class='pill"+(STATE.wordListPack==="all"?" active":"")+"' data-action='wordListFilter' data-pack='all'>"+t("all_pill","Бүгд")+"</button>";
+      levels.forEach(function(lv){
+        html += "<button class='pill"+(STATE.wordListPack===lv?" active":"")+"' data-action='wordListFilter' data-pack='"+lv+"'>"+esc(LEVEL_TAB_LABEL[lv]||lv)+"</button>";
+      });
+      html += "</div>";
+    }
+
+    html += "<div class='search-bar'><span>🔎</span><input id='searchInput' placeholder='"+t("search_pack_ph","Энэ багцаас хайх...")+"' value='"+esc(STATE.searchQuery)+"'/></div>";
+    var q = STATE.searchQuery.trim().toLowerCase();
+    var levelFilter = (levels.length > 1 && STATE.wordListPack !== "all" && levels.indexOf(STATE.wordListPack) !== -1) ? STATE.wordListPack : null;
+    var fullPackWords = packDetailWords(pack).filter(function(w){
+      return !levelFilter || w.pack === levelFilter;
+    });
+    // Эхлээд 80-аар нээгддэг цонхны логикоор харагдах үгсийг тодорхойлно, ДАРАА нь
+    // хайлтын шүүлтүүрийг зөвхөн харагдах (нээлттэй) үгс дээр хэрэглэнэ
+    var list = packVisibleWords(fullPackWords).filter(function(w){
+      if(!q) return true;
+      return w.en.toLowerCase().indexOf(q) >= 0 || w.mn.toLowerCase().indexOf(q) >= 0;
+    });
+
+    list.forEach(function(w){
+      var learned = isLearned(w.key);
+      var known = isKnown(w.key);
+      var dotCls = learned ? "learned" : (known ? "known" : "pending");
+      html += "<div class='word-row'>" +
+        "<div style='min-width:0;'><div class='w-en'>"+esc(w.en)+"</div><div class='w-mn'>"+esc(w.mn)+"</div></div>" +
+        "<div style='display:flex; align-items:center; gap:10px; flex-shrink:0;'>" +
+          "<span class='status-dot "+dotCls+"' title='"+(learned?t("status_learned","Цээжилсэн"):(known?t("status_known","Мэддэг"):t("status_pending","Үзээгүй")))+"'></span>" +
+          ((learned || known) ? "" : "<button class='known-btn' data-action='markKnown' data-key='"+w.key+"' title='"+t("mark_known_title","Би энэ үгийг мэднэ")+"'>✓</button>") +
+        "</div></div>";
+    });
+    if(!list.length){
+      html += "<div class='empty'><div class='e-icon'>🔍</div><div class='e-title'>"+t("no_results","Илэрц олдсонгүй")+"</div></div>";
+    }
+    return html;
+  }
+
+  // ---- Захиалгын багцууд (subscription plans) ----
+  html += "<div class='section-label' style='margin-top:0;'><div class='t'>"+t("subscription_plans","Захиалгын багцууд")+"</div></div>";
+  html += "<div class='plan-list'>";
+  PLAN_ORDER.forEach(function(tier){
+    var pm = PLAN_META[tier];
+    var isCurrent = STATE.plan === tier;
+    html += "<div class='plan-card"+(isCurrent?" current":"")+"'>" +
+      "<div class='plan-card-top'>" +
+        "<span class='tier-badge "+tier+"'>"+esc(pm.label)+"</span>" +
+        (isCurrent ? "<span class='plan-current-tag'>"+t("active_tag","Идэвхтэй")+"</span>" : "<span class='plan-price'>"+esc(formatPrice(tier))+"</span>") +
+      "</div>" +
+      "<div class='plan-card-desc'>"+esc(pm.desc)+"</div>" +
+      "<div class='plan-card-limit'>✍️ "+esc(pm.wordLimitLabel)+"</div>" +
+      (isCurrent ? "" : "<button class='btn-ghost plan-card-btn' data-action='openPaywall' data-plan-focus='"+tier+"'>"+(tier==="free"?t("details_btn","Дэлгэрэнгүй"):t("choose_plan_btn","Энэ багцыг сонгох"))+"</button>") +
+    "</div>";
+  });
+  html += "</div>";
+
+  // ---- Агуулгын үгийн багцууд (content packs) ----
+  html += "<div class='section-label'><div class='t'>"+t("vocab_packs","Үгийн сангийн багцууд")+"</div></div>";
+  html += "<div class='pack-list'>";
+  var PACK_DISPLAY_LABEL = {
+    EYESH:   "B1-B2 + ЭЕШ-ын үгс",
+    IELTS:   "B1-B2 + IELTS-ийн үгс",
+    C1_C2:   "B1-B2 + C1-C2-ын үгс",
+    PREMIUM: "Бүх түвшний үгс + Хязгааргүй үг нэмэх"
+  };
+  allPackIds().forEach(function(pack){
+    if(pack === "B1_B2") return; // B1-B2 нь бусад картуудад нэгтгэгдсэн тул тусад нь харагдахгүй
+    var meta = PACK_META[pack];
+    var displayLabel = PACK_DISPLAY_LABEL[pack] || meta.label;
+    var locked = isPackLocked(pack);
+    var stats;
+    if(pack === "PREMIUM"){
+      stats = { total: WORDS.length, learned: Object.keys(STATE.progress.learned).length };
+    } else {
+      stats = packWordStats(pack);
+      if(pack !== "A1_A2"){
+        var b1b2Stats = packWordStats("B1_B2");
+        stats = { total: stats.total + b1b2Stats.total, learned: stats.learned + b1b2Stats.learned };
+      }
+    }
+    var action = locked ? "openPaywall" : "openPack";
+    var recTier = packRecommendedTier(pack);
+    var freeLabel = t("free_label","Үнэгүй");
+    var priceTag = meta.unlocks.indexOf("free")!==-1 ? freeLabel : formatPrice(recTier);
+    html += "<div class='pack-card"+(locked?" locked":"")+"' data-action='"+action+"' data-pack='"+pack+"'>" +
+      "<div class='pack-card-top'>" +
+        "<div class='pack-card-title'>"+(locked?"🔒 ":"")+esc(displayLabel)+"</div>" +
+        "<span class='tier-badge "+recTier+"'>"+esc(meta.unlocks.indexOf("free")!==-1 ? freeLabel : TIER_LABEL[recTier])+"</span>" +
+      "</div>" +
+      "<div class='pack-card-sub'>"+stats.total+" "+t("words_suffix","үг") + (locked ? " · "+esc(priceTag) : " · "+stats.learned+" "+t("learned_label","Цээжилсэн").toLowerCase()) + "</div>" +
+      (locked ? "" : "<div class='pack-card-bar'><div class='pack-card-bar-fill' style='width:"+(stats.total?Math.round(100*stats.learned/stats.total):0)+"%'></div></div>") +
+    "</div>";
+  });
+  html += "</div>";
+  return html;
+}
+
+/* =========================================================
+   RENDER : PROFILE TAB ("Профайл")
+   ========================================================= */
+function renderProfileTab(){
+  var html = "";
+
+  if(STATE.user){
+    html += "<div class='profile-card'>" +
+      "<div class='profile-avatar'>"+esc((STATE.user.email||"?").charAt(0).toUpperCase())+"</div>" +
+      "<div class='profile-card-name'>"+esc(STATE.user.user_metadata && STATE.user.user_metadata.username || STATE.user.email || "")+"</div>" +
+      "<span class='p-plan "+STATE.plan+"' style='margin-top:6px;'>"+esc(planLabel())+" "+t("plan_span_suffix","багц")+"</span>" +
+      "</div>";
+
+    html += "<div class='profile-info-list'>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("user_id_label","Хувийн ID")+"</span><span class='pi-v mono'>"+esc(STATE.user.id||"")+"</span></div>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("email_label","И-мэйл")+"</span><span class='pi-v'>"+esc(STATE.user.email||"")+"</span></div>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("active_plan_label","Идэвхтэй эрх")+"</span><span class='pi-v'>"+esc(planLabel())+"</span></div>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("streak_label","Streak")+"</span><span class='pi-v'>🔥 "+STATE.progress.streak+" "+t("days_suffix","өдөр")+"</span></div>" +
+      "</div>";
+
+    if(STATE.plan === "free"){
+      html += "<button class='btn-primary' data-action='openPaywall' style='margin-top:16px;'>"+t("upgrade_plan_full","💳 Багцаа ахиулах")+"</button>";
+    }
+    if(isAdmin()){
+      html += "<button class='btn-ghost' data-action='openAdminPanel' style='margin-top:10px;'>"+t("admin_panel_btn","🛠 Админ Панель")+"</button>";
+    }
+    html += "<button class='btn-ghost' data-action='signOut' style='margin-top:10px;'>"+t("sign_out_btn","🚪 Гарах")+"</button>";
+    html += "<button class='btn-ghost' data-action='openFeedback' style='margin-top:10px;'>"+t("feedback_btn","💬 Санал хүсэлт")+"</button>";
+  } else {
+    html += "<div class='profile-card'>" +
+      "<div class='profile-avatar'>🧑</div>" +
+      "<div class='profile-card-name'>"+t("guest_label","Зочин")+"</div>" +
+      "<span class='p-plan free' style='margin-top:6px;'>"+t("free_plan_label","Үнэгүй багц")+"</span>" +
+      "</div>";
+    html += "<div class='profile-guest-sub' style='text-align:center; padding:0 6px 16px;'>"+t("guest_sub","Ахицаа хадгалж, төхөөрөмж хооронд синк хийж, Pro/Premium багц нээхийн тулд нэвтэрнэ үү.")+"</div>";
+    html += "<button class='btn-primary' data-action='openAuth' data-mode='signin'>"+t("sign_in_btn","🔑 Нэвтрэх")+"</button>";
+    html += "<button class='btn-ghost' data-action='openAuth' data-mode='signup' style='margin-top:10px;'>"+t("sign_up_btn","✨ Бүртгүүлэх")+"</button>";
+    html += "<button class='btn-ghost' data-action='openFeedback' style='margin-top:10px;'>"+t("feedback_btn","💬 Санал хүсэлт")+"</button>";
+  }
+
+  html += "<div class='section-label'><div class='t'>"+t("app_notif_section","Апп &amp; Мэдэгдэл")+"</div></div>";
+  html += "<button class='btn-ghost' data-action='promptInstallApp'>"+t("install_app_btn","📲 Апп болгож суулгах")+"</button>";
+  if(STATE.notifPermission === "granted"){
+    html += "<button class='btn-ghost' data-action='sendTestNotification' style='margin-top:8px;'>"+t("notif_on_test_btn","🔔 Мэдэгдэл идэвхтэй — жишээ илгээх")+"</button>";
+  } else if(STATE.notifPermission === "unsupported"){
+    html += "<div style='font-size:12px; color:var(--text-dim); margin:8px 2px 0;'>"+t("notif_unsupported","Энэ хөтөч мэдэгдэл дэмждэггүй байна.")+"</div>";
+  } else {
+    html += "<button class='btn-ghost' data-action='requestNotificationPermission' style='margin-top:8px;'>"+t("notif_enable_btn","🔔 Сануулга &amp; урмын мэдэгдэл асаах")+"</button>";
+  }
+
+  html += "<div class='section-label'><div class='t'>"+t("daily_goal_section","Өдрийн зорилго тохируулах")+"</div></div>";
+  html += "<div class='pill-row'>";
+  DAILY_GOAL_OPTIONS.forEach(function(n){
+    html += "<button class='pill"+(STATE.dailyGoal===n?" active":"")+"' data-action='setDailyGoal' data-goal='"+n+"'>"+n+" "+t("words_suffix","үг")+"</button>";
+  });
+  html += "</div>";
+  html += "<div style='font-size:12px; color:var(--text-muted); margin:8px 2px 0;'>"+t("daily_goal_sub_prefix","Өдөрт хэдэн шинэ үг цээжлэхийг сонгоно уу. Одоогийн зорилго:")+" "+STATE.dailyGoal+" "+t("daily_goal_sub_suffix","үг.")+"</div>";
+
+  html += "<div class='section-label'><div class='t'>"+t("study_pack_section","Цээжлэх үгсийн сан сонгох")+"</div></div>";
+  html += "<div class='study-pack-list'>";
+  STUDY_PACK_OPTIONS.forEach(function(pack){
+    var locked = isPackLocked(pack);
+    var isActive = !locked && selectedStudyPack() === pack;
+    html += "<div class='study-pack-row"+(isActive?" active":"")+(locked?" locked":"")+"' data-action='selectStudyPack' data-pack='"+pack+"'>" +
+      "<span class='spr-name'>"+(locked?"🔒 ":"")+esc(studyPackLabel(pack))+"</span>" +
+      (locked ? "<span class='spr-lock'>"+t("study_pack_locked_tag","Түгжээтэй")+"</span>" : "<span class='spr-radio'></span>") +
+      "</div>";
+  });
+  html += "</div>";
+
+  html += "<div class='section-label'><div class='t'>"+t("data_storage_section","Дата хадгалалт")+"</div></div>";
+  html += "<button class='btn-ghost' data-action='openAdd'>"+t("add_own_word_btn","+ Өөрийн үг нэмэх")+"</button>";
+  html += "<div style='display:flex; gap:8px; margin-top:8px;'>" +
+    "<button class='btn-ghost' data-action='exportData' style='flex:1; margin-top:0;'>"+t("download_backup_btn","⬇️ Backup татах")+"</button>" +
+    "<button class='btn-ghost' data-action='importData' style='flex:1; margin-top:0;'>"+t("restore_backup_btn","⬆️ Backup сэргээх")+"</button>" +
+    "</div>";
+  html += "<button class='btn-ghost' data-action='resetData' style='margin-top:8px; color:var(--coral);'>"+t("clear_data_btn","🗑 Бүх датаг цэвэрлэх")+"</button>";
+  html += "<input type='file' id='importFileInput' accept='.json,application/json' style='display:none;'/>";
+  return html;
+}
+
+/* =========================================================
+   RENDER : ADMIN PANEL (зөвхөн role === 'admin')
+   ========================================================= */
+function renderAdminTab(){
+  if(!isAdmin()){
+    return "<div class='empty'><div class='e-icon'>⛔</div><div class='e-title'>Хандах эрхгүй</div>" +
+      "<div class='e-sub'>Энэ хэсэг зөвхөн админ хэрэглэгчид зориулагдсан.</div>" +
+      "<button class='btn-ghost' data-action='backToProfile' style='margin-top:16px;'>← Профайл руу буцах</button></div>";
+  }
+  var html = "";
+  html += "<button class='btn-ghost' data-action='backToProfile' style='margin-bottom:14px;'>← Профайл руу буцах</button>";
+  html += "<div class='section-label' style='margin-top:0;'><div class='t'>🛠 Админ Панель</div></div>";
+
+  if(!STATE.admin.loaded && !STATE.admin.loading){
+    loadAdminStats();
+  }
+  if(STATE.admin.loading){
+    html += "<div class='empty'><div class='e-icon'>⏳</div><div class='e-title'>Статистик ачааллаж байна...</div></div>";
+    return html;
+  }
+
+  // ---- Статистик ----
+  html += "<div class='admin-stat-grid'>";
+  html += "<div class='admin-stat-card'><div class='a-num'>"+(STATE.admin.totalUsers!=null?STATE.admin.totalUsers:"—")+"</div><div class='a-lbl'>👥 Нийт хэрэглэгч</div></div>";
+  var activePaid = Object.keys(STATE.admin.activeByPlan||{}).reduce(function(a,k){ return a+(STATE.admin.activeByPlan[k]||0); }, 0);
+  html += "<div class='admin-stat-card'><div class='a-num'>"+activePaid+"</div><div class='a-lbl'>💳 Идэвхтэй Pro/Special/Premium</div></div>";
+  html += "<div class='admin-stat-card' style='grid-column:1 / -1;'><div class='a-num'>"+(STATE.admin.totalRevenue!=null?Number(STATE.admin.totalRevenue).toLocaleString("mn-MN")+"₮":"—")+"</div><div class='a-lbl'>💰 Нийт борлуулалт</div></div>";
+  html += "</div>";
+
+  html += "<div class='section-label'><div class='t'>Багц тус бүрийн идэвхтэй тоо</div></div>";
+  html += "<div class='profile-info-list' style='margin-bottom:18px;'>";
+  PLAN_ORDER.forEach(function(t){
+    if(t === "free") return;
+    html += "<div class='profile-info-row'><span class='pi-k'>"+esc(TIER_LABEL[t])+"</span><span class='pi-v'>"+(STATE.admin.activeByPlan[t]||0)+"</span></div>";
+  });
+  html += "</div>";
+
+  // ---- Үнэ удирдах ----
+  html += "<div class='section-label'><div class='t'>Үнэ удирдах</div></div>";
+  PLAN_ORDER.forEach(function(t){
+    if(t === "free") return;
+    var form = STATE.admin.priceForm[t] || {};
+    html += "<div class='admin-price-row'>" +
+      "<div class='apr-title'>"+esc(TIER_LABEL[t])+"</div>" +
+      "<div class='apr-fields'>" +
+        "<div class='field'><label>3 САР (₮)</label><input type='number' inputmode='numeric' data-action='priceInput3m' data-tier='"+t+"' value='"+esc(form.amount3m!=null?form.amount3m:"")+"'/></div>" +
+        "<div class='field'><label>1 ЖИЛ (₮)</label><input type='number' inputmode='numeric' data-action='priceInput1y' data-tier='"+t+"' value='"+esc(form.amount1y!=null?form.amount1y:"")+"'/></div>" +
+      "</div>" +
+      "<button class='btn-primary' data-action='updatePrice' data-tier='"+t+"' style='margin-top:10px;'>Үнэ шинэчлэх</button>" +
+    "</div>";
+  });
+
+  // ---- Гараар эрх идэвхжүүлэх ----
+  html += "<div class='section-label'><div class='t'>Хэрэглэгчийн эрх идэвхжүүлэх</div></div>";
+  html += "<div class='admin-price-row'>" +
+    "<div class='field'><label>И-МЭЙЛ ЭСВЭЛ ID</label><input id='grantEmailInput' placeholder='name@example.com' value='"+esc(STATE.admin.grantEmail)+"'/></div>" +
+    "<div class='field'><label>БАГЦ</label><select id='grantPlanSelect'>" +
+      PLAN_ORDER.filter(function(t){ return t!=="free"; }).map(function(t){
+        return "<option value='"+t+"' "+(STATE.admin.grantPlan===t?"selected":"")+">"+esc(TIER_LABEL[t])+"</option>";
+      }).join("") +
+    "</select></div>" +
+    "<div class='field'><label>ХУГАЦАА</label><select id='grantDurationSelect'>" +
+      "<option value='3m' "+(STATE.admin.grantDuration==="3m"?"selected":"")+">3 сар</option>" +
+      "<option value='1y' "+(STATE.admin.grantDuration==="1y"?"selected":"")+">1 жил</option>" +
+    "</select></div>" +
+    "<button class='btn-primary' data-action='grantPlan' style='margin-top:10px;' "+(STATE.admin.grantBusy?"disabled":"")+">" +
+      (STATE.admin.grantBusy?"Идэвхжүүлж байна...":"Идэвхжүүлэх") + "</button>" +
+  "</div>";
+
+  // ---- Санал хүсэлт унших ----
+  html += "<div class='section-label'><div class='t'>💬 Санал хүсэлт унших</div></div>";
+  html += "<button class='btn-ghost' data-action='toggleFeedbacksList'>"+(STATE.admin.showFeedbacks?"▲ Хаах":"▼ Санал хүсэлтүүдийг харах")+(STATE.admin.feedbacksLoaded?" ("+STATE.admin.feedbacks.length+")":"")+"</button>";
+  if(STATE.admin.showFeedbacks){
+    if(STATE.admin.feedbacksLoading){
+      html += "<div class='empty'><div class='e-icon'>⏳</div><div class='e-title'>Ачааллаж байна...</div></div>";
+    } else if(!STATE.admin.feedbacks.length){
+      html += "<div class='empty'><div class='e-icon'>📭</div><div class='e-title'>Санал хүсэлт алга байна</div></div>";
+    } else {
+      html += "<div class='feedback-list' style='margin-top:10px;'>";
+      STATE.admin.feedbacks.forEach(function(fb){
+        var d = fb.created_at ? new Date(fb.created_at).toLocaleDateString("mn-MN") : "";
+        html += "<div class='feedback-item' data-action='openFeedbackDetail' data-id='"+esc(String(fb.id))+"'>" +
+          "<div class='fb-top'><span class='fb-email'>"+esc(fb.email||"—")+"</span><span class='fb-date'>"+esc(d)+"</span></div>" +
+          "<div class='fb-preview'>"+esc(fb.content||"")+"</div>" +
+        "</div>";
+      });
+      html += "</div>";
+    }
+  }
+
+  return html;
+}
+
+/* =========================================================
+   MODAL : ADD WORD
+   ========================================================= */
+function renderModal(){
+  var existing = document.getElementById("overlayRoot");
+  if(existing) existing.remove();
+  if(!STATE.modal) return;
+  var wrap = document.createElement("div");
+  wrap.id = "overlayRoot";
+  wrap.className = "overlay";
+
+  if(STATE.modal === "add"){
+    wrap.innerHTML = "<div class='sheet'>" +
+      "<div class='sheet-title'>"+t("add_word_title","Шинэ үг нэмэх")+"</div>" +
+      "<div class='field'><label>"+t("english_word_label","ENGLISH WORD")+"</label><input id='addEn' placeholder='e.g. resilient' autocomplete='off'/></div>" +
+      "<div class='field'><label>"+t("mongolian_translation_label","МОНГОЛ ОРЧУУЛГА")+"</label><input id='addMn' placeholder='тэсвэртэй, уян хатан' autocomplete='off'/></div>" +
+      "<div class='sheet-actions'>" +
+        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>"+t("cancel_btn","Болих")+"</button>" +
+        "<button class='btn-primary' data-action='saveWord' style='flex:1;'>"+t("add_btn","Нэмэх")+"</button>" +
+      "</div></div>";
+    document.getElementById("app").appendChild(wrap);
+    document.getElementById("addEn").focus();
+    return;
+  }
+
+  if(STATE.modal === "auth"){
+    var isSignup = STATE.authMode === "signup";
+    wrap.innerHTML = "<div class='sheet'>" +
+      "<div class='sheet-title'>"+(isSignup?t("auth_signup_title","Бүртгүүлэх"):t("auth_signin_title","Нэвтрэх"))+"</div>" +
+      "<button class='btn-google' data-action='signInWithGoogle'>"+googleLogoSVG()+"<span>"+t("google_signin","Continue with Google")+"</span></button>" +
+      "<div class='auth-divider'>"+t("or_divider","эсвэл")+"</div>" +
+      "<div class='auth-toggle'>" +
+      "<button class='"+(!isSignup?"active":"")+"' data-action='setAuthMode' data-mode='signin'>"+t("auth_signin_title","Нэвтрэх")+"</button>" +
+      "<button class='"+(isSignup?"active":"")+"' data-action='setAuthMode' data-mode='signup'>"+t("auth_signup_title","Бүртгүүлэх")+"</button>" +
+      "</div>" +
+      "<div class='field'><label>"+t("auth_email_label","И-МЭЙЛ")+"</label><input id='authEmail' type='email' inputmode='email' placeholder='name@example.com' autocomplete='username email' name='email'/></div>" +
+      "<div class='field'><label>"+t("auth_password_label","НУУЦ ҮГ")+"</label><input id='authPassword' type='password' placeholder='••••••••' autocomplete='"+(isSignup?"new-password":"current-password")+"' name='password'/></div>" +
+      (STATE.authError ? "<div class='auth-error'>"+esc(STATE.authError)+"</div>" : "") +
+      "<div class='sheet-actions'>" +
+        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>"+t("cancel_btn","Болих")+"</button>" +
+        "<button class='btn-primary' data-action='submitAuth' style='flex:1;' "+(STATE.authBusy?"disabled":"")+">" +
+        (STATE.authBusy ? t("please_wait","Түр хүлээнэ үү...") : (isSignup?t("auth_signup_title","Бүртгүүлэх"):t("auth_signin_title","Нэвтрэх"))) + "</button>" +
+      "</div></div>";
+    document.getElementById("app").appendChild(wrap);
+    var emailEl = document.getElementById("authEmail");
+    if(emailEl) emailEl.focus();
+    return;
+  }
+
+  if(STATE.modal === "paywall"){
+    var headline = STATE.paywallReason ? paywallReasonMessage() : t("upgrade_headline","Багцаа ахиулна уу 🔓");
+    // Хэрэглэгч тодорхой нэг plan сонгосон (эсвэл түгжээтэй нэг pack дээр дарсан) бол
+    // зөвхөн тэр нэг тарифын дэлгэрэнгүйг харуулна; бусад тарифын хураангуй мэдээлэл харагдахгүй.
+    var focusTier = STATE.paywallPlanFocus || (STATE.paywallPack ? packRecommendedTier(STATE.paywallPack) : null);
+
+    var tiersHtml = "";
+    if(focusTier && PLAN_META[focusTier]){
+      var fpm = PLAN_META[focusTier];
+      var includedPacks = allPackIds().filter(function(p){
+        return p !== "PREMIUM" && (PACK_META[p].unlocks.indexOf(focusTier) !== -1);
+      }).map(function(p){ return PACK_META[p].label; });
+      tiersHtml += "<div class='paywall-tier'>" +
+        "<div class='pt-head'><span class='pt-name'>"+esc(fpm.label)+"</span><span class='pt-price'>"+esc(formatPrice(focusTier))+"</span></div>" +
+        "<div class='pt-desc'>"+esc((STATE.pricing[focusTier] && STATE.pricing[focusTier].description) || fpm.desc)+"</div>" +
+        "<div class='pt-desc' style='margin-top:6px;'>📚 "+(STATE.lang==="en"?"Included packs:":"Орсон үгийн сан:")+" "+esc(includedPacks.join(", "))+"</div>" +
+        "<div class='pt-desc' style='margin-top:4px; color:var(--text-dim);'>✍️ "+esc(fpm.wordLimitLabel)+"</div>" +
+        "</div>";
+      tiersHtml += "<button class='btn-ghost' data-action='paywallShowAll' style='margin-top:2px;'>"+t("view_all_plans","← Бусад бүх багцыг харах")+"</button>";
+    } else {
+      PLAN_ORDER.forEach(function(t2){
+        if(t2 === "free") return;
+        var pm = PLAN_META[t2];
+        tiersHtml += "<div class='paywall-tier' data-action='openPaywall' data-plan-focus='"+t2+"'><div class='pt-head'><span class='pt-name'>"+esc(pm.label)+"</span><span class='pt-price'>"+esc(formatPrice(t2))+"</span></div>" +
+          "<div class='pt-desc'>"+esc((STATE.pricing[t2] && STATE.pricing[t2].description) || pm.desc)+"</div>" +
+          "<div class='pt-desc' style='margin-top:4px; color:var(--text-dim);'>✍️ "+esc(pm.wordLimitLabel)+"</div></div>";
+      });
+    }
+
+    wrap.innerHTML = "<div class='sheet sheet-paywall'>" +
+      "<div class='sheet-title'>"+esc(headline)+(STATE.paywallReason ? "" : (STATE.lang==="en"?"":" 🔓"))+"</div>" +
+      "<div class='paywall-note'>" +
+      (focusTier ? t("paywall_focus_note","Сонгосон багцынхаа дэлгэрэнгүй мэдээллийг доор харна уу.") : t("paywall_default_note","Илүү олон үгийн багц, ЭЕШ болон IELTS-ийн тусгай жагсаалт руу нэвтрэхийн тулд багцаа ахиулна уу.")) +
+      "</div>" +
+      "<div class='paywall-tiers'>" + tiersHtml + "</div>" +
+      "<div class='pay-info'>" +
+      "<div class='pi-row'><span>"+t("qpay_label","QPay")+"</span><b>#steppevocab</b></div>" +
+      "<div class='pi-row'><span>"+t("bank_label","Банк")+"</span><b>Төрийн банк</b></div>" +
+      "<div class='pi-row'><span>"+t("account_number_label","Дансны дугаар")+"</span><b>290500016692</b></div>" +
+      "<div class='pi-row'><span>"+t("recipient_label","Хүлээн авагч")+"</span><b>Наранчимэг</b></div>" +
+      "</div>" +
+      "<div class='paywall-disclaimer'>" +
+      t("paywall_disclaimer","Гүйлгээ хийсний дараа таны бүртгэлийг манай баг гараар шалгаж, 24 цагийн дотор багцыг идэвхжүүлнэ.") +
+      "</div>" +
+      "<div class='sheet-actions'>" +
+        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>"+t("close_btn","Хаах")+"</button>" +
+        (STATE.user ? "" : "<button class='btn-primary' data-action='openAuth' data-mode='signup' style='flex:1;'>"+t("sign_up_first_btn","Эхлээд бүртгүүлэх")+"</button>") +
+      "</div></div>";
+    document.getElementById("app").appendChild(wrap);
+    return;
+  }
+
+  if(STATE.modal === "feedback"){
+    var needsEmail = !STATE.user;
+    wrap.innerHTML = "<div class='sheet'>" +
+      "<div class='sheet-title'>"+t("feedback_title","Санал хүсэлт")+"</div>" +
+      (needsEmail ?
+        "<div class='field'><label>"+t("feedback_email_label","И-МЭЙЛ")+"</label><input id='feedbackEmailInput' type='email' inputmode='email' placeholder='name@example.com' value='"+esc(STATE.feedbackEmail)+"'/></div>"
+        : "") +
+      "<div class='field'><label>"+t("feedback_content_label","ТАНЫ САНАЛ ХҮСЭЛТ")+"</label>" +
+      "<textarea id='feedbackTextarea' placeholder='"+t("feedback_placeholder","Санал, гомдол, алдааны талаар энд бичнэ үү...")+"'>"+esc(STATE.feedbackText)+"</textarea></div>" +
+      "<div class='sheet-actions'>" +
+        "<button class='btn-ghost' data-action='closeModal' style='flex:1;'>"+t("cancel_btn","Болих")+"</button>" +
+        "<button class='btn-primary' data-action='submitFeedback' style='flex:1;' "+(STATE.feedbackBusy?"disabled":"")+">" +
+        (STATE.feedbackBusy ? t("please_wait","Түр хүлээнэ үү...") : t("feedback_send_btn","Илгээх")) + "</button>" +
+      "</div></div>";
+    document.getElementById("app").appendChild(wrap);
+    var fbTextEl = document.getElementById("feedbackTextarea");
+    if(fbTextEl) fbTextEl.focus();
+    return;
+  }
+
+  if(STATE.modal === "feedbackDetail"){
+    var fb = STATE.admin.selectedFeedback;
+    if(!fb){ STATE.modal = null; return; }
+    var fbDate = fb.created_at ? new Date(fb.created_at).toLocaleString("mn-MN") : "";
+    wrap.innerHTML = "<div class='sheet'>" +
+      "<div class='sheet-title'>"+t("feedback_detail_title","Санал хүсэлтийн дэлгэрэнгүй")+"</div>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("email_label","И-мэйл")+"</span><span class='pi-v'>"+esc(fb.email||"—")+"</span></div>" +
+      "<div class='profile-info-row'><span class='pi-k'>"+t("feedback_date_label","Огноо")+"</span><span class='pi-v'>"+esc(fbDate)+"</span></div>" +
+      "<div class='feedback-detail-body'>"+esc(fb.content||"")+"</div>" +
+      "<div class='sheet-actions'>" +
+        "<button class='btn-primary' data-action='closeModal' style='flex:1;'>"+t("close_btn","Хаах")+"</button>" +
+      "</div></div>";
+    document.getElementById("app").appendChild(wrap);
+    return;
+  }
+}
+
+/* =========================================================
+   EVENT HANDLING
+   ========================================================= */
+function attachHandlers(){
+  document.querySelectorAll("[data-tab]").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.tab = el.getAttribute("data-tab");
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-flip]").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      if(ev.target.closest("[data-action='listen']") || ev.target.closest("[data-action='fav']")) return;
+      var key = el.getAttribute("data-flip");
+      STATE.todayFlip[key] = !STATE.todayFlip[key];
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-action='listen']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      speak(el.getAttribute("data-word"));
+    });
+  });
+
+  document.querySelectorAll("[data-action='fav']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      var key = el.getAttribute("data-key");
+      STATE.progress.favorites[key] = !STATE.progress.favorites[key];
+      saveProgress();
+      render();
+    });
+  });
+
+  var completeBtn = document.querySelector("[data-action='completeDay']");
+  if(completeBtn) completeBtn.addEventListener("click", completeDay);
+
+  var addBtns = document.querySelectorAll("[data-action='openAdd']");
+  addBtns.forEach(function(el){ el.addEventListener("click", function(){ checkAddWordAccess(); }); });
+
+  var closeModalBtn = document.querySelector("[data-action='closeModal']");
+  if(closeModalBtn) closeModalBtn.addEventListener("click", function(){
+    STATE.modal = null;
+    STATE.paywallPack = null;
+    STATE.paywallPlanFocus = null;
+    STATE.paywallReason = null;
+    STATE.admin.selectedFeedback = null;
+    render();
+  });
+  var paywallBackBtn = document.querySelector("[data-action='paywallShowAll']");
+  if(paywallBackBtn) paywallBackBtn.addEventListener("click", function(){
+    STATE.paywallPlanFocus = null;
+    STATE.paywallPack = null;
+    render();
+  });
+
+  var saveWordBtn = document.querySelector("[data-action='saveWord']");
+  if(saveWordBtn) saveWordBtn.addEventListener("click", saveCustomWord);
+
+  document.querySelectorAll("[data-action='startQuiz']").forEach(function(el){
+    el.addEventListener("click", function(){ startQuiz(el.getAttribute("data-mode")); });
+  });
+  document.querySelectorAll("[data-action='setQuizFilter']").forEach(function(el){
+    el.addEventListener("click", function(){ setQuizFilter(el.getAttribute("data-filter")); });
+  });
+  document.querySelectorAll("[data-action='answerQuiz']").forEach(function(el){
+    el.addEventListener("click", function(){ answerQuiz(parseInt(el.getAttribute("data-idx"),10)); });
+  });
+  var nextBtn = document.querySelector("[data-action='nextQuiz']");
+  if(nextBtn) nextBtn.addEventListener("click", function(){
+    STATE.quizSession.index++;
+    if(STATE.quizSession.index < STATE.quizSession.queue.length) buildQuizQuestion();
+    render();
+  });
+  var retryBtn = document.querySelector("[data-action='retryQuiz']");
+  if(retryBtn) retryBtn.addEventListener("click", function(){ startQuiz(retryBtn.getAttribute("data-mode")); });
+  var exitBtn = document.querySelector("[data-action='exitQuiz']");
+  if(exitBtn) exitBtn.addEventListener("click", function(){ STATE.quizSession = null; render(); });
+
+  var searchInput = document.getElementById("searchInput");
+  if(searchInput){
+    searchInput.addEventListener("input", function(){
+      STATE.searchQuery = searchInput.value;
+      render();
+      var again = document.getElementById("searchInput");
+      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
+    });
+  }
+
+  var learnedSearchInput = document.getElementById("learnedSearchInput");
+  if(learnedSearchInput){
+    learnedSearchInput.addEventListener("input", function(){
+      STATE.learnedQuery = learnedSearchInput.value;
+      render();
+      var again = document.getElementById("learnedSearchInput");
+      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
+    });
+  }
+
+  document.querySelectorAll("[data-action='learnedFilter']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.learnedFilterCat = el.getAttribute("data-cat");
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-action='setProgressSubTab']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.progressSubTab = el.getAttribute("data-subtab");
+      render();
+    });
+  });
+
+  var knownSearchInput = document.getElementById("knownSearchInput");
+  if(knownSearchInput){
+    knownSearchInput.addEventListener("input", function(){
+      STATE.knownQuery = knownSearchInput.value;
+      render();
+      var again = document.getElementById("knownSearchInput");
+      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
+    });
+  }
+
+  document.querySelectorAll("[data-action='unmarkKnown']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      unmarkKnown(el.getAttribute("data-key"));
+    });
+  });
+
+  document.querySelectorAll("[data-action='reviewWord']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      var key = el.getAttribute("data-key");
+      var L = STATE.progress.learned[key];
+      if(L){
+        L.lastReview = 0; // дараагийн давталтын жагсаалтад хамгийн түрүүнд орно
+        saveProgress();
+        var w = getWord(key);
+        toast("🔁 \""+(w?w.en:"")+"\" давталтад нэмэгдлээ");
+      }
+    });
+  });
+
+  var exportBtn = document.querySelector("[data-action='exportData']");
+  if(exportBtn) exportBtn.addEventListener("click", exportData);
+
+  var resetBtn = document.querySelector("[data-action='resetData']");
+  if(resetBtn) resetBtn.addEventListener("click", resetData);
+
+  var importBtn = document.querySelector("[data-action='importData']");
+  var importFileInput = document.getElementById("importFileInput");
+  if(importBtn && importFileInput) importBtn.addEventListener("click", function(){ importFileInput.click(); });
+  if(importFileInput) importFileInput.addEventListener("change", handleImportFile);
+
+  var themeMenuBtn = document.querySelector("[data-action='toggleThemeMenu']");
+  if(themeMenuBtn) themeMenuBtn.addEventListener("click", function(ev){ ev.stopPropagation(); toggleThemeMenu(); });
+  var langToggleBtn = document.querySelector("[data-action='toggleLanguage']");
+  if(langToggleBtn) langToggleBtn.addEventListener("click", function(ev){ ev.stopPropagation(); toggleLanguage(); });
+
+  document.querySelectorAll("[data-action='selectTheme']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      selectTheme(el.getAttribute("data-theme-id"));
+    });
+  });
+
+  if(STATE.themeMenuOpen){
+    document.addEventListener("click", function closeMenus(){
+      STATE.themeMenuOpen = false;
+      document.removeEventListener("click", closeMenus);
+      render();
+    }, {once:true});
+  }
+
+  document.querySelectorAll("[data-action='openAuth']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      STATE.modal = "auth";
+      STATE.authMode = el.getAttribute("data-mode") || "signin";
+      STATE.authError = "";
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-action='openPack']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.packsOpenPack = el.getAttribute("data-pack");
+      STATE.searchQuery = "";
+      STATE.wordListPack = "all";
+      render();
+    });
+  });
+  var closePackBtn = document.querySelector("[data-action='closePack']");
+  if(closePackBtn) closePackBtn.addEventListener("click", function(){
+    STATE.packsOpenPack = null;
+    STATE.searchQuery = "";
+    STATE.wordListPack = "all";
+    render();
+  });
+
+  document.querySelectorAll("[data-action='setAuthMode']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.authMode = el.getAttribute("data-mode");
+      STATE.authError = "";
+      render();
+    });
+  });
+
+  var submitAuthBtn = document.querySelector("[data-action='submitAuth']");
+  if(submitAuthBtn) submitAuthBtn.addEventListener("click", function(){
+    var email = (document.getElementById("authEmail")||{}).value || "";
+    var password = (document.getElementById("authPassword")||{}).value || "";
+    email = email.trim();
+    if(!email || !password){ STATE.authError = "И-мэйл болон нууц үгээ бөглөнө үү"; render(); return; }
+    if(STATE.authMode === "signup") signUp(email, password); else signIn(email, password);
+  });
+
+  var googleSignInBtn = document.querySelector("[data-action='signInWithGoogle']");
+  if(googleSignInBtn) googleSignInBtn.addEventListener("click", signInWithGoogle);
+
+  var signOutBtn = document.querySelector("[data-action='signOut']");
+  if(signOutBtn) signOutBtn.addEventListener("click", signOut);
+
+  var installBtn = document.querySelector("[data-action='promptInstallApp']");
+  if(installBtn) installBtn.addEventListener("click", promptInstallApp);
+  var notifBtn = document.querySelector("[data-action='requestNotificationPermission']");
+  if(notifBtn) notifBtn.addEventListener("click", requestNotificationPermission);
+  var testNotifBtn = document.querySelector("[data-action='sendTestNotification']");
+  if(testNotifBtn) testNotifBtn.addEventListener("click", sendMotivationalNotification);
+
+  document.querySelectorAll("[data-action='openPaywall']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      var pack = el.getAttribute("data-pack") || null;
+      var planFocus = el.getAttribute("data-plan-focus") || null;
+      STATE.paywallPack = pack;
+      STATE.paywallPlanFocus = planFocus;
+      STATE.paywallReason = pack ? (STATE.planJustExpired ? "plan_expired" : "pack_locked") : null;
+      STATE.modal = "paywall";
+      render();
+    });
+  });
+  document.querySelectorAll("[data-action='wordListFilter']").forEach(function(el){
+    el.addEventListener("click", function(){
+      STATE.wordListPack = el.getAttribute("data-pack");
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-action='selectStudyPack']").forEach(function(el){
+    el.addEventListener("click", function(){ setStudyPack(el.getAttribute("data-pack")); });
+  });
+
+  document.querySelectorAll("[data-action='markKnown']").forEach(function(el){
+    el.addEventListener("click", function(ev){
+      ev.stopPropagation();
+      markKnown(el.getAttribute("data-key"));
+    });
+  });
+
+  var spellingInput = document.getElementById("spellingInput");
+  if(spellingInput){
+    spellingInput.addEventListener("input", function(){
+      STATE.quizSession.spellingInput = spellingInput.value;
+      render();
+      var again = document.getElementById("spellingInput");
+      if(again){ again.focus(); again.setSelectionRange(again.value.length, again.value.length); }
+    });
+    spellingInput.addEventListener("keydown", function(ev){
+      if(ev.key === "Enter"){ ev.preventDefault(); submitSpelling(); }
+    });
+    if(document.activeElement !== spellingInput) spellingInput.focus();
+  }
+  var submitSpellBtn = document.querySelector("[data-action='submitSpelling']");
+  if(submitSpellBtn) submitSpellBtn.addEventListener("click", submitSpelling);
+
+  document.querySelectorAll("[data-action='setDailyGoal']").forEach(function(el){
+    el.addEventListener("click", function(){ setDailyGoal(el.getAttribute("data-goal")); });
+  });
+
+  var openAdminBtn = document.querySelector("[data-action='openAdminPanel']");
+  if(openAdminBtn) openAdminBtn.addEventListener("click", function(){ STATE.tab = "admin"; render(); });
+  var backProfileBtn = document.querySelector("[data-action='backToProfile']");
+  if(backProfileBtn) backProfileBtn.addEventListener("click", function(){ STATE.tab = "profile"; render(); });
+
+  var openFeedbackBtn = document.querySelector("[data-action='openFeedback']");
+  if(openFeedbackBtn) openFeedbackBtn.addEventListener("click", function(){
+    STATE.feedbackText = "";
+    STATE.feedbackEmail = STATE.user ? (STATE.user.email||"") : "";
+    STATE.modal = "feedback";
+    render();
+  });
+  var feedbackTextarea = document.getElementById("feedbackTextarea");
+  if(feedbackTextarea){
+    feedbackTextarea.addEventListener("input", function(){ STATE.feedbackText = feedbackTextarea.value; });
+  }
+  var feedbackEmailInput = document.getElementById("feedbackEmailInput");
+  if(feedbackEmailInput){
+    feedbackEmailInput.addEventListener("input", function(){ STATE.feedbackEmail = feedbackEmailInput.value; });
+  }
+  var submitFeedbackBtn = document.querySelector("[data-action='submitFeedback']");
+  if(submitFeedbackBtn) submitFeedbackBtn.addEventListener("click", submitFeedback);
+
+  var toggleFeedbacksBtn = document.querySelector("[data-action='toggleFeedbacksList']");
+  if(toggleFeedbacksBtn) toggleFeedbacksBtn.addEventListener("click", function(){
+    STATE.admin.showFeedbacks = !STATE.admin.showFeedbacks;
+    if(STATE.admin.showFeedbacks && !STATE.admin.feedbacksLoaded && !STATE.admin.feedbacksLoading){
+      loadFeedbacks();
+    }
+    render();
+  });
+  document.querySelectorAll("[data-action='openFeedbackDetail']").forEach(function(el){
+    el.addEventListener("click", function(){
+      var id = el.getAttribute("data-id");
+      var fb = STATE.admin.feedbacks.filter(function(f){ return String(f.id) === String(id); })[0];
+      if(fb){
+        STATE.admin.selectedFeedback = fb;
+        STATE.modal = "feedbackDetail";
+        render();
+      }
+    });
+  });
+
+  document.querySelectorAll("[data-action='priceInput3m']").forEach(function(el){
+    el.addEventListener("input", function(){
+      var t = el.getAttribute("data-tier");
+      STATE.admin.priceForm[t] = STATE.admin.priceForm[t] || {};
+      STATE.admin.priceForm[t].amount3m = el.value;
+    });
+  });
+  document.querySelectorAll("[data-action='priceInput1y']").forEach(function(el){
+    el.addEventListener("input", function(){
+      var t = el.getAttribute("data-tier");
+      STATE.admin.priceForm[t] = STATE.admin.priceForm[t] || {};
+      STATE.admin.priceForm[t].amount1y = el.value;
+    });
+  });
+  document.querySelectorAll("[data-action='updatePrice']").forEach(function(el){
+    el.addEventListener("click", function(){ updatePackagePrice(el.getAttribute("data-tier")); });
+  });
+
+  var grantEmailInput = document.getElementById("grantEmailInput");
+  if(grantEmailInput) grantEmailInput.addEventListener("input", function(){ STATE.admin.grantEmail = grantEmailInput.value; });
+  var grantPlanSelect = document.getElementById("grantPlanSelect");
+  if(grantPlanSelect) grantPlanSelect.addEventListener("change", function(){ STATE.admin.grantPlan = grantPlanSelect.value; });
+  var grantDurationSelect = document.getElementById("grantDurationSelect");
+  if(grantDurationSelect) grantDurationSelect.addEventListener("change", function(){ STATE.admin.grantDuration = grantDurationSelect.value; });
+  var grantBtn = document.querySelector("[data-action='grantPlan']");
+  if(grantBtn) grantBtn.addEventListener("click", grantUserPlan);
+}
+
+function answerQuiz(idx){
+  var s = STATE.quizSession;
+  if(s.answered !== null) return;
+  s.answered = idx;
+  if(s.options[idx].correct) s.correct++;
+  render();
+}
+
+async function completeDay(){
+  var batch = todaysBatch();
+  var review = reviewBatch();
+  var now = Date.now();
+  batch.forEach(function(w){
+    if(!STATE.progress.learned[w.key]){
+      STATE.progress.learned[w.key] = {learnedDate: todayStr(), lastReview: now, reviewCount: 0};
+    }
+  });
+  review.forEach(function(w){
+    var L = STATE.progress.learned[w.key];
+    if(L){ L.lastReview = now; L.reviewCount = (L.reviewCount||0)+1; }
+  });
+
+  var today = todayStr();
+  if(STATE.progress.lastCompletionDate === yesterdayStr()){
+    STATE.progress.streak += 1;
+  } else if(STATE.progress.lastCompletionDate !== today){
+    STATE.progress.streak = 1;
+  }
+  STATE.progress.lastCompletionDate = today;
+  STATE.progress.completedDays += 1;
+  STATE.todayFlip = {};
+  await checkDailyGoalProgress();
+  await saveProgress();
+  toast("🔥 Өнөөдрийн зорилго биелсэн!");
+  render();
+}
+
+async function saveCustomWord(){
+  var en = document.getElementById("addEn").value.trim();
+  var mn = document.getElementById("addMn").value.trim();
+  if(!en || !mn){ toast("Үг болон орчуулгаа бөглөнө үү"); return; }
+  STATE.progress.customWords.push({en:en, mn:mn});
+  await saveProgress();
+  STATE.modal = null;
+  toast("✅ \""+en+"\" нэмэгдлээ");
+  render();
+}
+
+function exportData(){
+  try{
+    var payload = {
+      exportedAt: new Date().toISOString(),
+      progress: STATE.progress,
+      enrich: STATE.enrich
+    };
+    var blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "steppe-vocab-backup-"+todayStr()+".json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast("⬇️ Backup татагдлаа");
+  }catch(e){
+    console.error("export failed", e);
+    toast("Backup татахад алдаа гарлаа");
+  }
+}
+
+function handleImportFile(ev){
+  var file = ev.target.files && ev.target.files[0];
+  if(!file) return;
+  var reader = new FileReader();
+  reader.onload = async function(e){
+    try{
+      var data = JSON.parse(e.target.result);
+      if(!data || typeof data !== "object") throw new Error("invalid backup file");
+      var ok = window.confirm("Backup файлыг сэргээхэд одоогийн ахиц дарагдана. Үргэлжлүүлэх үү?");
+      if(!ok) return;
+      if(data.progress){
+        await sSet("progress", JSON.stringify(data.progress));
+      }
+      if(data.enrich){
+        var keys = Object.keys(data.enrich);
+        for(var i=0;i<keys.length;i++){
+          await sSet("enrich:"+keys[i], JSON.stringify(data.enrich[keys[i]]));
+        }
+      }
+      toast("✅ Backup сэргээгдлээ. Дахин ачаалж байна...");
+      setTimeout(function(){ location.reload(); }, 900);
+    }catch(err){
+      console.error("import failed", err);
+      toast("⚠️ Файл уншихад алдаа гарлаа");
+    }
+  };
+  reader.readAsText(file);
+}
+
+async function resetData(){
+  var ok = window.confirm("Бүх ахиц, цээжилсэн үг болон тохиргоог устгахдаа итгэлтэй байна уу? Энэ үйлдлийг буцаах боломжгүй.");
+  if(!ok) return;
+  STATE.progress = defaultProgress();
+  STATE.todayFlip = {};
+  STATE.quizSession = null;
+  await saveProgress();
+  toast("🗑 Бүх дата цэвэрлэгдлээ");
+  render();
+}
+
+/* =========================================================
+   INIT
+   ========================================================= */
+var INIT_DONE = false;
+
+async function init(){
+  registerServiceWorker();
+  if(typeof Notification !== "undefined" && Notification.permission === "granted"){
+    scheduleDailyReminderCheck();
+  }
+  try{
+    await withTimeout(loadTheme(), 5000, "loadTheme");
+    await withTimeout(loadLanguage(), 3000, "loadLanguage");
+    await withTimeout(loadWordsFromJson(), 9000, "loadWordsFromJson");
+    await withTimeout(loadProgress(), 5000, "loadProgress");
+    await withTimeout(loadPricing(), 6000, "loadPricing");       // Багцын үнийг Supabase-ийн 'plans' хүснэгтээс уншина
+    await withTimeout(initAuth(), 8000, "initAuth");              // Supabase session сэргээх, plan татах, ахиц татах
+  }catch(e){
+    console.error("[steppe] init() дотор гэнэтийн алдаа", e);
+  }finally{
+    // Юу ч болсон, апп харанхуй дэлгэц дээр гацахгүйн тулд
+    // энэ мөрүүд ЗААВАЛ ажиллана.
+    INIT_DONE = true;
+    STATE.loading = false;
+    try{ render(); }catch(e){ console.error("[steppe] render() алдаа", e); }
+  }
+  try{
+    var batch = todaysBatch();
+    var review = reviewBatch();
+    await withTimeout(ensureEnrichment(batch.concat(review)), 15000, "ensureEnrichment");
+    render();
+  }catch(e){ console.error("[steppe] enrichment алдаа", e); }
+}
+
+/* ---------------------------------------------------------
+   WATCHDOG: 10 секундын дотор init() дуусаагүй бол
+   (жишээ нь withTimeout-той хамрагдаагүй гэнэтийн гацалт),
+   хэрэглэгчийг харанхуй дэлгэц дээр орхихгүйн тулд
+   апп-ыг хүчээр үзүүлнэ.
+   --------------------------------------------------------- */
+setTimeout(function(){
+  if(!INIT_DONE){
+    console.warn("[steppe] watchdog: init() 10 секундэд дуусаагүй тул хүчээр үргэлжлүүлж байна");
+    STATE.loading = false;
+    try{ render(); }catch(e){ console.error("[steppe] watchdog render алдаа", e); }
+  }
+}, 10000);
+
+/* ---------------------------------------------------------
+   Гар аргаар барьж амжаагүй алдаануудыг (унтраасан скрипт,
+   гэнэтийн exception) бүртгэж, апп-ыг гацаахгүйн тулд.
+   --------------------------------------------------------- */
+window.addEventListener("error", function(ev){
+  console.error("[steppe] global error", ev.error || ev.message);
+});
+window.addEventListener("unhandledrejection", function(ev){
+  console.error("[steppe] unhandled promise rejection", ev.reason);
+});
+
+document.addEventListener("DOMContentLoaded", init);
+if(document.readyState !== "loading") init();
+
+})();
+</script>
+</body>
+</html>
